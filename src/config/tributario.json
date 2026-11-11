@@ -1,0 +1,6 @@
+{
+  "anioTributario": 2026,
+  "nota": "Parámetros tributarios usados por el juego. Revisar y actualizar cada año tributario.",
+  "tasaIva": 0.19,
+  "fuenteIva": "DL 825, Ley sobre Impuesto a las Ventas y Servicios, art. 14"
+}

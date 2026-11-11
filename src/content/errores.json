@@ -1,0 +1,130 @@
+{
+  "descuadre": {
+    "titulo": "El asiento no cuadra",
+    "severidad": "grave",
+    "regla": "Partida doble: en todo asiento, la suma del Debe es igual a la suma del Haber.",
+    "explicacion": "Cada hecho económico tiene dos caras: lo que entra y de dónde sale. Si los totales no son iguales, falta una cuenta, sobra un monto o hay un monto mal calculado.",
+    "comoCorregir": "Suma cada columna por separado. Busca la diferencia: si es igual al IVA, probablemente olvidaste la línea del IVA o la calculaste mal.",
+    "fuente": "Principio de la partida doble"
+  },
+  "lado_invertido": {
+    "titulo": "Cuenta en el lado equivocado",
+    "severidad": "grave",
+    "regla": "Activos y Gastos aumentan por el Debe. Pasivos, Patrimonio e Ingresos aumentan por el Haber. Cada cuenta disminuye por el lado contrario.",
+    "explicacion": "Para saber el lado, pregúntate dos cosas: ¿de qué tipo es la cuenta? y ¿aumenta o disminuye en esta operación?",
+    "comoCorregir": "Identifica el tipo de cuenta, decide si sube o baja y aplica la regla del Debe y el Haber.",
+    "fuente": "Regla del cargo y el abono (Debe y Haber)"
+  },
+  "cuenta_confundida": {
+    "titulo": "Cuenta confundida con otra parecida",
+    "severidad": "grave",
+    "regla": "Cada cuenta tiene un significado preciso: IVA Crédito Fiscal es por compras e IVA Débito Fiscal es por ventas; Clientes nos deben y Proveedores les debemos.",
+    "explicacion": "Estas cuentas suenan parecido pero representan cosas opuestas. Confundirlas cambia el balance aunque el asiento cuadre.",
+    "comoCorregir": "Pregúntate: ¿la empresa compró o vendió? ¿Le deben o debe?",
+    "fuente": "DL 825 arts. 20 y 23 (débito y crédito fiscal); plan de cuentas"
+  },
+  "falta_cuenta": {
+    "titulo": "Falta una cuenta",
+    "severidad": "grave",
+    "regla": "Un asiento debe registrar todas las cuentas que cambian con la operación.",
+    "explicacion": "Si una operación tiene IVA, o tiene una parte al contado y otra al crédito, normalmente participan más de dos cuentas.",
+    "comoCorregir": "Lee la operación otra vez y anota todo lo que cambió: dinero, deudas, inventario, impuestos.",
+    "fuente": "Principio de la partida doble"
+  },
+  "cuenta_incorrecta": {
+    "titulo": "Cuenta que no corresponde",
+    "severidad": "grave",
+    "regla": "Solo se registran las cuentas afectadas por la operación.",
+    "explicacion": "Usaste una cuenta que no cambia con este hecho económico.",
+    "comoCorregir": "Fíjate en cómo se pagó (efectivo = Caja, transferencia = Banco, crédito = deuda) y en qué se compró o vendió.",
+    "fuente": "Plan de cuentas"
+  },
+  "monto_incorrecto": {
+    "titulo": "Monto incorrecto",
+    "severidad": "leve",
+    "regla": "Cada cuenta se registra por el monto exacto de la operación.",
+    "explicacion": "La cuenta y el lado están bien, pero el monto no.",
+    "comoCorregir": "Revisa los montos de la operación y los cálculos (partes al contado, saldos, etc.).",
+    "fuente": "Principio de la partida doble"
+  },
+  "iva_mal_aplicado": {
+    "titulo": "IVA mal aplicado",
+    "severidad": "leve",
+    "regla": "La tasa general del IVA es 19% y se calcula sobre el valor neto. Neto + IVA = Total.",
+    "explicacion": "El neto va a la cuenta del bien, gasto o venta; el IVA va a Crédito Fiscal (compras) o Débito Fiscal (ventas); el total es lo que se paga o se cobra.",
+    "comoCorregir": "IVA = neto × 0,19 (redondeado). Total = neto + IVA. Nunca calcules el IVA sobre el total.",
+    "fuente": "DL 825, art. 14"
+  },
+  "asiento_vacio": {
+    "titulo": "Asiento incompleto",
+    "severidad": "leve",
+    "regla": "Un asiento necesita al menos una cuenta al Debe y una al Haber, con sus montos.",
+    "explicacion": "No registraste líneas completas.",
+    "comoCorregir": "Elige las cuentas, su lado y escribe el monto de cada una.",
+    "fuente": "Principio de la partida doble"
+  },
+  "clasificacion": {
+    "titulo": "Cuenta mal clasificada",
+    "severidad": "leve",
+    "regla": "Activo: lo que la empresa tiene o le deben. Pasivo: lo que la empresa debe a terceros. Patrimonio: lo aportado por los dueños y lo ganado. Ingreso: lo que aumenta el patrimonio por la actividad. Gasto: lo que lo disminuye.",
+    "explicacion": "Clasificar bien es el primer paso: el tipo de cuenta decide por qué lado aumenta.",
+    "comoCorregir": "Pregúntate: ¿es algo que tengo, algo que debo, algo de los dueños, algo que gané o algo que gasté?",
+    "fuente": "Marco Conceptual para la Información Financiera (IASB), cap. 4"
+  },
+  "saldo_incorrecto": {
+    "titulo": "Saldo mal calculado",
+    "severidad": "leve",
+    "regla": "Saldo de una cuenta = suma del lado mayor − suma del lado menor.",
+    "explicacion": "Primero se suma cada lado de la Cuenta T por separado y después se restan.",
+    "comoCorregir": "Suma todo el Debe, suma todo el Haber y resta el menor al mayor.",
+    "fuente": "Cuenta T (libro mayor)"
+  },
+  "naturaleza_saldo": {
+    "titulo": "Naturaleza del saldo equivocada",
+    "severidad": "leve",
+    "regla": "Si el Debe es mayor, el saldo es deudor. Si el Haber es mayor, el saldo es acreedor.",
+    "explicacion": "Los activos y gastos normalmente tienen saldo deudor; los pasivos, patrimonio e ingresos, saldo acreedor.",
+    "comoCorregir": "Compara los totales de cada lado: el saldo toma el nombre del lado mayor.",
+    "fuente": "Cuenta T (libro mayor)"
+  },
+  "destino_balance": {
+    "titulo": "Columna equivocada en el balance",
+    "severidad": "grave",
+    "regla": "Activo, Pasivo y Patrimonio van a Inventario (saldo deudor → Activo, acreedor → Pasivo). Ingresos y Gastos van a Resultados (saldo deudor → Pérdidas, acreedor → Ganancias). El patrimonio se anota en la columna Pasivo.",
+    "explicacion": "Inventario muestra lo que la empresa tiene y debe. Resultados muestra lo que ganó y gastó en el período.",
+    "comoCorregir": "Pregúntate si la cuenta es de balance (se arrastra al mes siguiente) o de resultado (explica la utilidad del período).",
+    "fuente": "Balance de 8 columnas"
+  },
+  "resultado_ejercicio": {
+    "titulo": "Resultado del ejercicio mal calculado",
+    "severidad": "grave",
+    "regla": "Resultado = Ganancias − Pérdidas. Si es positivo es utilidad: se anota en Pérdidas y en Pasivo. Si es negativo es pérdida: se anota en Ganancias y en Activo.",
+    "explicacion": "La misma diferencia aparece en Resultados y en Inventario. Si el resultado está bien, las dos parejas de columnas cuadran.",
+    "comoCorregir": "Suma la columna Ganancias y la columna Pérdidas y réstalas. Comprueba que Activo − Pasivo dé el mismo número.",
+    "fuente": "Balance de 8 columnas"
+  },
+  "error_no_detectado": {
+    "titulo": "Se te pasó un error",
+    "severidad": "grave",
+    "regla": "Revisar un libro diario es comprobar, asiento por asiento, que cuadre, que las cuentas correspondan a la operación y que cada una esté en su lado.",
+    "explicacion": "Este asiento tenía un error que no marcaste.",
+    "comoCorregir": "Revisa en orden: ¿cuadra? ¿las cuentas son las de la operación? ¿cada una está en su lado? ¿el IVA es 19% del neto?",
+    "fuente": "Revisión del libro diario"
+  },
+  "falso_positivo": {
+    "titulo": "Marcaste un asiento correcto",
+    "severidad": "leve",
+    "regla": "Un buen revisor encuentra los errores sin acusar asientos que están bien.",
+    "explicacion": "Este asiento estaba bien registrado.",
+    "comoCorregir": "Antes de marcar, identifica exactamente qué regla se rompe.",
+    "fuente": "Revisión del libro diario"
+  },
+  "trivia": {
+    "titulo": "Respuesta incorrecta",
+    "severidad": "leve",
+    "regla": "",
+    "explicacion": "",
+    "comoCorregir": "Lee la explicación y la fuente; esta pregunta volverá en tu mazo de Repaso.",
+    "fuente": ""
+  }
+}

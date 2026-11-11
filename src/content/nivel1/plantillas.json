@@ -1,0 +1,172 @@
+[
+  {
+    "id": "aporte_capital",
+    "texto": "La Tía Rosa aporta {monto} de sus ahorros como capital y los deposita en la cuenta corriente de la empresa.",
+    "variables": { "monto": { "min": 2000000, "max": 10000000, "paso": 500000 } },
+    "lineas": [
+      { "cuenta": "banco", "lado": "debe", "monto": "monto" },
+      { "cuenta": "capital", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Entra dinero al banco (¿qué le pasa a un activo?) y la dueña aporta capital (¿qué le pasa al patrimonio?)."
+  },
+  {
+    "id": "compra_merc_contado",
+    "conIva": true,
+    "texto": "Compras harina, carne y cebolla (mercaderías) por {neto} + IVA y pagas con transferencia bancaria. Total de la factura: {total}.",
+    "variables": { "neto": { "min": 200000, "max": 1500000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "mercaderias", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "banco", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "La factura trae IVA: el neto va a Mercaderías y el IVA de una compra es Crédito Fiscal (un activo). El total sale del banco."
+  },
+  {
+    "id": "compra_merc_credito",
+    "conIva": true,
+    "texto": "Compras mercaderías a Distribuidora Harinas del Sur por {neto} + IVA, a pagar en 30 días. Total de la factura: {total}.",
+    "variables": { "neto": { "min": 200000, "max": 1500000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "mercaderias", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "proveedores", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "No sale dinero: nace una deuda con quien te vende mercaderías. El IVA de una compra es Crédito Fiscal."
+  },
+  {
+    "id": "venta_contado",
+    "conIva": true,
+    "texto": "Vendes empanadas por {neto} + IVA (total {total}) y te pagan en efectivo. Las empanadas vendidas te costaron {costo}.",
+    "variables": {
+      "neto": { "min": 300000, "max": 2000000, "paso": 10000 },
+      "costo": { "de": "neto", "factor": [0.45, 0.65], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "caja", "lado": "debe", "monto": "total" },
+      { "cuenta": "ventas", "lado": "haber", "monto": "neto" },
+      { "cuenta": "iva_df", "lado": "haber", "monto": "iva" },
+      { "cuenta": "costo_ventas", "lado": "debe", "monto": "costo" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "costo" }
+    ],
+    "pista": "Son dos registros en uno: la venta (Caja, Ventas e IVA Débito Fiscal) y la salida del inventario (Costo de ventas contra Mercaderías)."
+  },
+  {
+    "id": "venta_credito",
+    "conIva": true,
+    "texto": "Vendes un pedido de empanadas para un matrimonio por {neto} + IVA (total {total}). El cliente pagará en 15 días. El costo de lo vendido fue {costo}.",
+    "variables": {
+      "neto": { "min": 300000, "max": 2000000, "paso": 10000 },
+      "costo": { "de": "neto", "factor": [0.45, 0.65], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "clientes", "lado": "debe", "monto": "total" },
+      { "cuenta": "ventas", "lado": "haber", "monto": "neto" },
+      { "cuenta": "iva_df", "lado": "haber", "monto": "iva" },
+      { "cuenta": "costo_ventas", "lado": "debe", "monto": "costo" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "costo" }
+    ],
+    "pista": "No entra dinero todavía: nace un derecho a cobrar (Clientes). Además, sale mercadería del inventario a su costo."
+  },
+  {
+    "id": "pago_proveedores",
+    "texto": "Pagas {monto} a Distribuidora Harinas del Sur con transferencia, abonando a la deuda pendiente.",
+    "variables": { "monto": { "min": 100000, "max": 1000000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "proveedores", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Pagar una deuda hace disminuir un pasivo (¿por qué lado disminuye?) y también tu banco."
+  },
+  {
+    "id": "cobro_clientes",
+    "texto": "Un cliente te transfiere {monto} para pagar lo que te debía.",
+    "variables": { "monto": { "min": 100000, "max": 1500000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "banco", "lado": "debe", "monto": "monto" },
+      { "cuenta": "clientes", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Aumenta el banco y disminuye lo que te deben. No es una venta nueva: la venta se registró antes."
+  },
+  {
+    "id": "prestamo",
+    "texto": "El banco te presta {monto} para ampliar el local y los deposita en tu cuenta corriente.",
+    "variables": { "monto": { "min": 1000000, "max": 8000000, "paso": 500000 } },
+    "lineas": [
+      { "cuenta": "banco", "lado": "debe", "monto": "monto" },
+      { "cuenta": "prestamo_bancario", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Entra dinero, pero no es tuyo: nace una deuda con el banco."
+  },
+  {
+    "id": "pago_arriendo",
+    "texto": "Pagas con transferencia el arriendo del local de este mes por {monto} (local sin amoblar, sin IVA).",
+    "variables": { "monto": { "min": 300000, "max": 900000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "arriendo", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Es un gasto del mes. Los gastos aumentan por el Debe y el dinero sale del banco."
+  },
+  {
+    "id": "publicidad",
+    "conIva": true,
+    "texto": "Pagas con transferencia a una agencia por publicidad en redes sociales: {neto} + IVA.",
+    "variables": { "neto": { "min": 50000, "max": 400000, "paso": 5000 } },
+    "lineas": [
+      { "cuenta": "publicidad", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "banco", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "Un gasto con factura: el neto al gasto, el IVA a Crédito Fiscal y el total sale del banco."
+  },
+  {
+    "id": "compra_maquina",
+    "conIva": true,
+    "texto": "Compras un horno industrial por {neto} + IVA (total {total}) y firmas un pagaré a 6 meses por el total.",
+    "variables": { "neto": { "min": 1000000, "max": 6000000, "paso": 100000 } },
+    "lineas": [
+      { "cuenta": "maquinarias", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "documentos_por_pagar", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "El horno es un activo fijo (Maquinarias). Firmar un pagaré crea una deuda documentada."
+  },
+  {
+    "id": "compra_muebles_mixta",
+    "conIva": true,
+    "texto": "Compras mesas y sillas para el local por {neto} + IVA (total {total}). Pagas {contado} con transferencia y el resto queda adeudado a la mueblería.",
+    "variables": {
+      "neto": { "min": 400000, "max": 2000000, "paso": 10000 },
+      "contado": { "de": "total", "factor": [0.3, 0.6], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "muebles", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "banco", "lado": "haber", "monto": "contado" },
+      { "cuenta": "acreedores", "lado": "haber", "monto": "total - contado" }
+    ],
+    "pista": "Hay dos formas de pago: una parte sale del banco y el resto es deuda. Como no son mercaderías, la deuda va a Acreedores varios (no a Proveedores)."
+  },
+  {
+    "id": "servicios_basicos",
+    "conIva": true,
+    "texto": "Pagas con transferencia la cuenta de luz del local: {neto} + IVA.",
+    "variables": { "neto": { "min": 40000, "max": 200000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "servicios_basicos", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "banco", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "Es un gasto con IVA: neto al gasto, IVA a Crédito Fiscal, total sale del banco."
+  },
+  {
+    "id": "intereses",
+    "texto": "El banco te carga en la cuenta corriente {monto} de intereses por el préstamo.",
+    "variables": { "monto": { "min": 20000, "max": 150000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "intereses", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Los intereses son el costo de usar dinero prestado: un gasto financiero. Sale dinero del banco."
+  }
+]

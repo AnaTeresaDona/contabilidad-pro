@@ -1,0 +1,104 @@
+[
+  {
+    "id": "factura_compra_merc",
+    "conIva": true,
+    "texto": "Recibes la factura de Distribuidora Harinas del Sur por harina y carne: neto {neto}, IVA {iva}, total {total}, a pagar en 30 días.",
+    "documento": { "tipo": 33, "emisor": "Distribuidora Harinas del Sur Ltda.", "receptor": "Empanadas La Tía SpA" },
+    "variables": { "neto": { "min": 300000, "max": 1800000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "mercaderias", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "proveedores", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "Factura recibida por mercaderías al crédito: neto a Mercaderías, IVA a Crédito Fiscal y el total a Proveedores."
+  },
+  {
+    "id": "factura_venta_credito",
+    "conIva": true,
+    "texto": "Emites una factura al casino de una empresa por un pedido de empanadas: neto {neto}, IVA {iva}, total {total}, a 30 días. El costo de lo vendido fue {costo}.",
+    "documento": { "tipo": 33, "emisor": "Empanadas La Tía SpA", "receptor": "Casino Industrial Los Andes S.A." },
+    "variables": {
+      "neto": { "min": 400000, "max": 2000000, "paso": 10000 },
+      "costo": { "de": "neto", "factor": [0.45, 0.6], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "clientes", "lado": "debe", "monto": "total" },
+      { "cuenta": "ventas", "lado": "haber", "monto": "neto" },
+      { "cuenta": "iva_df", "lado": "haber", "monto": "iva" },
+      { "cuenta": "costo_ventas", "lado": "debe", "monto": "costo" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "costo" }
+    ],
+    "pista": "Factura emitida al crédito: Clientes por el total, Ventas por el neto, IVA Débito Fiscal por el IVA. Y la salida de inventario a su costo."
+  },
+  {
+    "id": "boleta_ventas_dia",
+    "ivaIncluido": true,
+    "texto": "Al cierre del día, las boletas electrónicas suman {total} cobrados en efectivo (IVA incluido). El costo de las empanadas vendidas fue {costo}.",
+    "documento": { "tipo": 39, "emisor": "Empanadas La Tía SpA", "receptor": "Consumidores finales" },
+    "variables": {
+      "total": { "min": 200000, "max": 1500000, "paso": 1000 },
+      "costo": { "de": "neto", "factor": [0.45, 0.6], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "caja", "lado": "debe", "monto": "total" },
+      { "cuenta": "ventas", "lado": "haber", "monto": "neto" },
+      { "cuenta": "iva_df", "lado": "haber", "monto": "iva" },
+      { "cuenta": "costo_ventas", "lado": "debe", "monto": "costo" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "costo" }
+    ],
+    "pista": "En las boletas el IVA ya viene incluido: neto = total ÷ 1,19 (redondeado) e IVA = total − neto."
+  },
+  {
+    "id": "nota_credito_emitida",
+    "conIva": true,
+    "texto": "Un cliente reclama porque las empanadas llegaron frías. Le rebajas {neto} + IVA (total {total}) emitiendo una nota de crédito sobre su factura, que aún no paga.",
+    "documento": { "tipo": 61, "emisor": "Empanadas La Tía SpA", "receptor": "Casino Industrial Los Andes S.A.", "referencia": "Rebaja de precio a factura electrónica" },
+    "variables": { "neto": { "min": 20000, "max": 150000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "ventas", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_df", "lado": "debe", "monto": "iva" },
+      { "cuenta": "clientes", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "La nota de crédito revierte parte de la venta: disminuyen Ventas, el IVA Débito Fiscal y lo que el cliente te debe."
+  },
+  {
+    "id": "nota_credito_recibida",
+    "conIva": true,
+    "texto": "Distribuidora Harinas del Sur te envía una nota de crédito por {neto} + IVA (total {total}): te cobró de más en la harina de la última factura, que aún no pagas.",
+    "documento": { "tipo": 61, "emisor": "Distribuidora Harinas del Sur Ltda.", "receptor": "Empanadas La Tía SpA", "referencia": "Rebaja de precio a factura electrónica" },
+    "variables": { "neto": { "min": 20000, "max": 150000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "proveedores", "lado": "debe", "monto": "total" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "haber", "monto": "iva" }
+    ],
+    "pista": "Es lo inverso de la compra: disminuye la deuda con el proveedor, el costo de las mercaderías y el IVA Crédito Fiscal."
+  },
+  {
+    "id": "factura_luz",
+    "conIva": true,
+    "texto": "Recibes la factura de la luz del local por neto {neto} + IVA y la pagas con transferencia.",
+    "documento": { "tipo": 33, "emisor": "Compañía Eléctrica del Sur S.A.", "receptor": "Empanadas La Tía SpA" },
+    "variables": { "neto": { "min": 40000, "max": 200000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "servicios_basicos", "lado": "debe", "monto": "neto" },
+      { "cuenta": "iva_cf", "lado": "debe", "monto": "iva" },
+      { "cuenta": "banco", "lado": "haber", "monto": "total" }
+    ],
+    "pista": "Gasto con factura: neto al gasto, IVA a Crédito Fiscal, total sale del banco."
+  },
+  {
+    "id": "pago_iva",
+    "texto": "Declaras y pagas el IVA del mes en el Formulario 29: IVA Débito Fiscal {debito} e IVA Crédito Fiscal {credito}. Pagas la diferencia con transferencia.",
+    "variables": {
+      "debito": { "min": 150000, "max": 600000, "paso": 1000 },
+      "credito": { "de": "debito", "factor": [0.3, 0.8], "paso": 1000 }
+    },
+    "lineas": [
+      { "cuenta": "iva_df", "lado": "debe", "monto": "debito" },
+      { "cuenta": "iva_cf", "lado": "haber", "monto": "credito" },
+      { "cuenta": "banco", "lado": "haber", "monto": "debito - credito" }
+    ],
+    "pista": "Se cierran las dos cuentas de IVA: el Débito (pasivo) disminuye por el Debe y el Crédito (activo) por el Haber. Pagas Débito − Crédito."
+  }
+]

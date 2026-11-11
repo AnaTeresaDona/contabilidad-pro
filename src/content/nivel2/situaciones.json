@@ -1,0 +1,76 @@
+[
+  {
+    "id": "n2-s01",
+    "pregunta": "Una persona compra 6 empanadas en el mostrador para su almuerzo. ¿Qué documento emites?",
+    "opciones": ["Boleta electrónica (39)", "Factura electrónica (33)", "Guía de despacho electrónica (52)", "Nota de débito electrónica (56)"],
+    "correcta": 0,
+    "explicacion": "Es una venta a un consumidor final: corresponde boleta electrónica.",
+    "fuente": "DL 825, art. 53"
+  },
+  {
+    "id": "n2-s02",
+    "pregunta": "El casino de una empresa te compra 300 empanadas y necesita usar el IVA como crédito fiscal. ¿Qué documento emites?",
+    "opciones": ["Factura electrónica (33)", "Boleta electrónica (39)", "Nota de crédito electrónica (61)", "Guía de despacho electrónica (52)"],
+    "correcta": 0,
+    "explicacion": "El comprador es contribuyente y necesita respaldar el crédito fiscal: se emite factura electrónica.",
+    "fuente": "DL 825, arts. 23 y 53"
+  },
+  {
+    "id": "n2-s03",
+    "pregunta": "Un cliente con factura reclama: las empanadas llegaron frías y acuerdas rebajarle el precio. ¿Qué documento emites?",
+    "opciones": ["Nota de crédito electrónica (61)", "Nota de débito electrónica (56)", "Una nueva boleta electrónica (39)", "Guía de despacho electrónica (52)"],
+    "correcta": 0,
+    "explicacion": "Una rebaja de precio sobre una factura ya emitida se documenta con nota de crédito.",
+    "fuente": "DL 825, art. 57"
+  },
+  {
+    "id": "n2-s04",
+    "pregunta": "Te diste cuenta de que en una factura cobraste de menos el despacho. ¿Qué documento emites para aumentar el monto?",
+    "opciones": ["Nota de débito electrónica (56)", "Nota de crédito electrónica (61)", "Boleta electrónica (39)", "Factura de compra electrónica (46)"],
+    "correcta": 0,
+    "explicacion": "Para aumentar el monto de una factura ya emitida se usa la nota de débito.",
+    "fuente": "DL 825, art. 57"
+  },
+  {
+    "id": "n2-s05",
+    "pregunta": "Llevas 50 kg de masa desde tu cocina central a la nueva sucursal. No es una venta. ¿Qué documento acompaña el traslado?",
+    "opciones": ["Guía de despacho electrónica (52)", "Factura electrónica (33)", "Boleta electrónica (39)", "Nota de crédito electrónica (61)"],
+    "correcta": 0,
+    "explicacion": "Los traslados de bienes, aunque no sean venta, se respaldan con guía de despacho.",
+    "fuente": "DL 825, art. 55"
+  },
+  {
+    "id": "n2-s06",
+    "pregunta": "Emitiste una factura con el RUT del cliente equivocado. ¿Qué haces?",
+    "opciones": [
+      "Emites una nota de crédito que la anula y luego una factura nueva con los datos correctos",
+      "Borras la factura del sistema del SII",
+      "Emites una nota de débito por el mismo monto",
+      "La corriges a mano y la vuelves a enviar"
+    ],
+    "correcta": 0,
+    "explicacion": "Un DTE emitido no se puede borrar ni editar: se anula con nota de crédito y se emite uno nuevo correcto.",
+    "fuente": "DL 825, art. 57"
+  },
+  {
+    "id": "n2-s07",
+    "pregunta": "Compras harina a un proveedor y quieres usar ese IVA como crédito fiscal. ¿Qué documento debes recibir?",
+    "opciones": ["Factura electrónica (33)", "Boleta electrónica (39)", "Guía de despacho electrónica (52)", "Ninguno: basta con el comprobante de transferencia"],
+    "correcta": 0,
+    "explicacion": "El crédito fiscal se respalda con la factura recibida. La boleta no da derecho a crédito fiscal.",
+    "fuente": "DL 825, art. 23"
+  },
+  {
+    "id": "n2-s08",
+    "pregunta": "Al cerrar el mes, tu IVA Crédito Fiscal es mayor que tu IVA Débito Fiscal. ¿Qué pasa?",
+    "opciones": [
+      "No pagas IVA ese mes y la diferencia queda como remanente para el mes siguiente",
+      "El SII te devuelve la diferencia de inmediato",
+      "Debes pagar igual el IVA Débito",
+      "Pierdes la diferencia"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuando el crédito supera al débito, no hay IVA a pagar y el exceso se arrastra como remanente de crédito fiscal al período siguiente.",
+    "fuente": "DL 825, art. 26"
+  }
+]
