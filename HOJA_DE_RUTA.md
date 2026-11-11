@@ -14,12 +14,18 @@
 - Jefe: la Sra. Marta del banco pide el Balance de 8 columnas de un mes completo.
 - "Mi empresa" muestra el Balance de 8 columnas armado con todos los asientos del jugador.
 
+## Fase 3 — Hecha
+- Nivel 3: 16 preguntas (NIC 1), 6 preguntas de interpretación, cuentas con grupo corriente / no corriente / operacional.
+- Ejercicios: ubicar cuentas en los estados, calcular subtotales del Estado de Resultados (acepta pérdidas), armar el Balance General con cuadratura en vivo.
+- Jefe: Don Patricio del comité de riesgo pide ambos estados del mismo mes.
+- "Mi empresa" muestra el Estado de Resultados y el Balance General de la empresa del jugador.
+- Simplificación conocida: el préstamo bancario se presenta completo como no corriente (sin separar la porción corriente).
+
 ## Próximas fases (una por iteración)
-1. **Nivel 3 — Estados Financieros:** armar el Balance General (corriente / no corriente, patrimonio) y el Estado de Resultados (margen bruto, resultado operacional, resultado antes de impuesto) a partir del libro de la propia empresa.
-2. **Nivel 4A — IFRS para PyMEs:** ajustes (depreciación, deterioro, provisiones) y reexpresión simplificada.
-3. **Nivel 4B — Full IFRS y CMF:** la empresa se abre a la bolsa; errores generan "Sanciones CMF".
-4. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
-5. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
+1. **Nivel 4A — IFRS para PyMEs:** ajustes (depreciación, deterioro, provisiones) y reexpresión simplificada.
+2. **Nivel 4B — Full IFRS y CMF:** la empresa se abre a la bolsa; errores generan "Sanciones CMF".
+3. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
+4. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
    - Liquidez: razón corriente, prueba ácida, capital de trabajo.
    - Endeudamiento y solvencia: deuda/patrimonio, deuda/activos, cobertura de intereses.
    - Rentabilidad: margen bruto, operacional y neto, ROA, ROE.

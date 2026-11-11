@@ -155,9 +155,15 @@ function sano(b: Balance8): boolean {
  * mercaderías y una venta; después agrega `extra` operaciones al azar. Repite hasta que todas las
  * cuentas tengan saldo y en su lado normal (sin "Banco acreedor" ni "Mercaderías negativas").
  */
-export function generarMes(rng: Rng, plantillas: Plantilla[], extra = 3): { asientos: Asiento[]; balance: Balance8 } {
+export function generarMes(
+  rng: Rng,
+  plantillas: Plantilla[],
+  extra = 3,
+  /** Ids de plantillas que deben aparecer sí o sí (por ejemplo, la compra de un activo fijo). */
+  obligatorias: string[] = [],
+): { asientos: Asiento[]; balance: Balance8 } {
   const porId = new Map(plantillas.map((p) => [p.id, p]));
-  const base = ['aporte_capital', 'compra_merc_contado'].map((id) => porId.get(id)).filter((p): p is Plantilla => !!p);
+  const base = ['aporte_capital', 'compra_merc_contado', ...obligatorias].map((id) => porId.get(id)).filter((p): p is Plantilla => !!p);
   const ventas = plantillas.filter((p) => p.lineas.some((l) => l.cuenta === 'ventas' && l.lado === 'haber'));
   const resto = plantillas.filter((p) => p.id !== 'aporte_capital');
   for (let intento = 0; intento < 200; intento++) {

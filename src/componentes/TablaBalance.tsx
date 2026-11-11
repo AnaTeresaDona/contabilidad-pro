@@ -39,8 +39,8 @@ function etiquetaResultado(r: { tipo: TipoResultado | null }) {
 /** Tabla completa de 8 columnas (para pantallas anchas y para la solución). */
 export function TablaBalance({ filas, resultado }: { filas: FilaTabla[]; resultado: { tipo: TipoResultado | null; monto: number | null } }) {
   const { celdas, subtotal, res, total, ok } = calcular(filas, resultado);
-  const fila = (nombre: string, c: Celdas8, clase = '') => (
-    <tr className={clase}>
+  const fila = (nombre: string, c: Celdas8, clase = '', key: string = nombre) => (
+    <tr key={key} className={clase}>
       <th scope="row" className="sticky left-0 bg-inherit px-1.5 py-1.5 text-left font-semibold">
         {nombre}
       </th>
@@ -74,7 +74,7 @@ export function TablaBalance({ filas, resultado }: { filas: FilaTabla[]; resulta
           </tr>
         </thead>
         <tbody className="bg-white">
-          {filas.map((f, i) => fila(cuenta(f.cuentaId).nombre, celdas[i], 'border-t border-slate-100 bg-white'))}
+          {filas.map((f, i) => fila(cuenta(f.cuentaId).nombre, celdas[i], 'border-t border-slate-100 bg-white', f.cuentaId))}
           {fila('Subtotales', subtotal, 'border-t-2 border-slate-300 bg-slate-50 font-bold')}
           {fila(etiquetaResultado(resultado), res, 'bg-amber-50 italic')}
           {fila('Totales', total, 'border-t-2 border-slate-400 bg-slate-100 font-extrabold')}

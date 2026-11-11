@@ -12,7 +12,8 @@ import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actuali
 import { CONTENIDO, ORDEN_NIVELES } from '../content';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
-import { ejMayorizar } from './ejercicios';
+import { ejMayorizar, mesConActivoFijo } from './ejercicios';
+import { construirBG, construirEERR, SECCIONES_BG, seccionDe, validarBG, validarEERR, type SeccionBG } from './estados';
 
 const plantillasN1 = CONTENIDO.n1.plantillas;
 
@@ -180,6 +181,44 @@ describe('Balance de 8 columnas', () => {
   });
 });
 
+describe('Estados financieros', () => {
+  const plantillasN3 = CONTENIDO.n3.plantillas;
+
+  it('el resultado del Estado de Resultados coincide con el del Balance de 8 columnas y el Balance General cuadra', () => {
+    for (let s = 1; s <= 200; s++) {
+      const { balance } = mesConActivoFijo(crearRng(s), plantillasN3, 4);
+      const e = construirEERR(balance.filas);
+      const signo = balance.resultado.tipo === 'utilidad' ? 1 : -1;
+      expect(e.resultadoAntesImpuesto, `semilla ${s}`).toBe(signo * balance.resultado.monto);
+      const bg = construirBG(balance.filas);
+      expect(bg.totales.totalActivos, `semilla ${s}`).toBe(bg.totales.totalPasivoPatrimonio);
+      expect(bg.secciones.activo_no_corriente.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('valida subtotales y secciones', () => {
+    const { balance } = mesConActivoFijo(crearRng(9), plantillasN3, 4);
+    const e = construirEERR(balance.filas);
+    expect(validarEERR(e, { margenBruto: e.margenBruto, resultadoOperacional: e.resultadoOperacional, resultadoAntesImpuesto: e.resultadoAntesImpuesto }).correcto).toBe(true);
+    expect(validarEERR(e, { margenBruto: e.margenBruto + 1, resultadoOperacional: null, resultadoAntesImpuesto: e.resultadoAntesImpuesto }).errores).toHaveLength(2);
+
+    const bg = construirBG(balance.filas);
+    const resp: Record<string, SeccionBG | null> = { resultado: 'patrimonio' };
+    for (const s of SECCIONES_BG) for (const l of bg.secciones[s]) resp[l.cuentaId] = s;
+    expect(validarBG(bg, resp).correcto).toBe(true);
+    const fijo = bg.secciones.activo_no_corriente[0].cuentaId;
+    expect(validarBG(bg, { ...resp, [fijo]: 'activo_corriente', resultado: 'pasivo_corriente' }).errores).toHaveLength(2);
+  });
+
+  it('clasifica secciones según tipo y grupo', () => {
+    expect(seccionDe('maquinarias')).toBe('activo_no_corriente');
+    expect(seccionDe('iva_cf')).toBe('activo_corriente');
+    expect(seccionDe('prestamo_bancario')).toBe('pasivo_no_corriente');
+    expect(seccionDe('capital')).toBe('patrimonio');
+    expect(seccionDe('intereses')).toBe('resultados');
+  });
+});
+
 describe('contenido', () => {
   it('las preguntas están bien formadas y sin ids repetidos', () => {
     const ids = new Set<string>();
@@ -196,7 +235,7 @@ describe('contenido', () => {
     }
   });
   it('cada tipo de error del motor existe en el catálogo', () => {
-    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio'];
+    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr'];
     for (const t of usados) expect(tiposDeError()).toContain(t);
     expect(infoError('descuadre').severidad).toBe('grave');
   });

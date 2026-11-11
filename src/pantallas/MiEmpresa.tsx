@@ -8,6 +8,8 @@ import { CuentaTVista } from '../componentes/CuentaTVista';
 import { Opcion, Tarjeta } from '../componentes/ui';
 import { PestanasBalance, TablaBalance } from '../componentes/TablaBalance';
 import { construirBalance } from '../engine/balance8';
+import { construirBG, construirEERR } from '../engine/estados';
+import { BalanceGeneralVista, EstadoResultadosVista, seccionesConResultado } from '../componentes/EstadosVista';
 
 interface Mayor {
   cuentaId: string;
@@ -17,7 +19,7 @@ interface Mayor {
 
 export function MiEmpresa() {
   const { progreso } = useProgreso();
-  const [vista, setVista] = useState<'diario' | 'mayor' | 'balance'>('diario');
+  const [vista, setVista] = useState<'diario' | 'mayor' | 'balance' | 'estados'>('diario');
   const balance = useMemo(() => construirBalance(progreso.libro), [progreso.libro]);
 
   const mayor = useMemo(() => {
@@ -66,7 +68,7 @@ export function MiEmpresa() {
         </p>
       </section>
 
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-2 min-[420px]:grid-cols-4">
         <Opcion activa={vista === 'diario'} onClick={() => setVista('diario')}>
           Diario
         </Opcion>
@@ -76,9 +78,21 @@ export function MiEmpresa() {
         <Opcion activa={vista === 'balance'} onClick={() => setVista('balance')}>
           8 columnas
         </Opcion>
+        <Opcion activa={vista === 'estados'} onClick={() => setVista('estados')}>
+          Estados
+        </Opcion>
       </div>
 
-      {vista === 'balance' ? (
+      {vista === 'estados' ? (
+        <div className="space-y-3">
+          <p className="text-sm text-slate-500">Estados financieros armados con todos los asientos de tu empresa.</p>
+          <EstadoResultadosVista e={construirEERR(balance.filas)} titulo={`Estado de Resultados · ${progreso.empresa.nombre}`} />
+          {(() => {
+            const bg = construirBG(balance.filas);
+            return <BalanceGeneralVista secciones={seccionesConResultado(bg.secciones, bg.resultado)} titulo={`Balance General · ${progreso.empresa.nombre}`} />;
+          })()}
+        </div>
+      ) : vista === 'balance' ? (
         <div className="space-y-2">
           <p className="text-sm text-slate-500">
             Balance de 8 columnas con todos los asientos de tu empresa. Resultado del período:{' '}

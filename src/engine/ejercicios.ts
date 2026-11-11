@@ -29,7 +29,40 @@ export type Ejercicio =
   | { tipo: 'mayorizar'; datos: EjercicioMayorizar }
   | { tipo: 'columna8'; cuentas: string[] }
   | { tipo: 'balance8'; asientos: Asiento[]; balance: Balance8 }
-  | { tipo: 'libroErrores'; libro: EntradaLibro[] };
+  | { tipo: 'libroErrores'; libro: EntradaLibro[] }
+  | { tipo: 'secciones'; cuentas: string[] }
+  | { tipo: 'eerr'; balance: Balance8 }
+  | { tipo: 'bg'; balance: Balance8 }
+  | { tipo: 'estados'; asientos: Asiento[]; balance: Balance8 };
+
+/** Cuentas variadas para clasificar en las secciones de los estados financieros. */
+export function ejSecciones(rng: Rng, n = 6): Ejercicio {
+  const grupos = [
+    CUENTAS.filter((c) => c.tipo === 'activo' && c.grupo === 'no_corriente'),
+    CUENTAS.filter((c) => c.tipo === 'activo' && c.grupo !== 'no_corriente'),
+    CUENTAS.filter((c) => c.tipo === 'pasivo' && c.grupo === 'no_corriente'),
+    CUENTAS.filter((c) => c.tipo === 'pasivo' && c.grupo !== 'no_corriente'),
+    CUENTAS.filter((c) => c.tipo === 'patrimonio' || c.tipo === 'ingreso' || c.tipo === 'gasto'),
+  ];
+  const elegidas = new Set(grupos.map((g) => elegir(rng, g).id));
+  for (const c of barajar(rng, CUENTAS)) {
+    if (elegidas.size >= n) break;
+    elegidas.add(c.id);
+  }
+  return { tipo: 'secciones', cuentas: barajar(rng, [...elegidas]) };
+}
+
+/** Un mes con activo fijo y préstamo, para que el Balance General tenga todas sus secciones. */
+export function mesConActivoFijo(rng: Rng, plantillas: Plantilla[], extra: number) {
+  const fijo = elegir(rng, ['compra_maquina', 'compra_muebles_mixta']);
+  const gasto = elegir(rng, ['pago_arriendo', 'publicidad', 'servicios_basicos', 'factura_luz']);
+  const obligatorias = [fijo, gasto];
+  if (rng() < 0.7) {
+    obligatorias.push('prestamo');
+    if (rng() < 0.6) obligatorias.push('intereses');
+  }
+  return generarMes(rng, plantillas, extra, obligatorias);
+}
 
 export function ejClasificar(rng: Rng, n = 4): Ejercicio {
   return { tipo: 'clasificar', cuentas: elegirVarios(rng, CUENTAS.map((c) => c.id), n) };

@@ -103,6 +103,22 @@
     "comoCorregir": "Suma la columna Ganancias y la columna Pérdidas y réstalas. Comprueba que Activo − Pasivo dé el mismo número.",
     "fuente": "Balance de 8 columnas"
   },
+  "seccion_balance": {
+    "titulo": "Cuenta en la sección equivocada del Balance General",
+    "severidad": "grave",
+    "regla": "Corriente: lo que se convierte en dinero, se usa o se paga dentro de los próximos 12 meses (o del ciclo normal de operación). No corriente: lo que dura o se paga en más de 12 meses. El resultado del ejercicio se presenta dentro del Patrimonio.",
+    "explicacion": "Separar corriente de no corriente permite saber si la empresa podrá pagar sus deudas de corto plazo con sus activos de corto plazo.",
+    "comoCorregir": "Pregúntate: ¿en cuánto tiempo esta cuenta se convertirá en dinero o se pagará? Menos de un año → corriente.",
+    "fuente": "NIC 1, párrafos 60 a 76 (clasificación corriente / no corriente)"
+  },
+  "subtotal_eerr": {
+    "titulo": "Subtotal del Estado de Resultados mal calculado",
+    "severidad": "grave",
+    "regla": "Ventas − Costo de ventas = Margen bruto. Margen bruto − Gastos de administración y ventas = Resultado operacional. Resultado operacional + ingresos no operacionales − gastos no operacionales = Resultado antes de impuesto.",
+    "explicacion": "Cada subtotal responde una pregunta: ¿gano al vender? (margen bruto), ¿el negocio en sí es rentable? (resultado operacional), ¿y considerando los intereses y otros? (antes de impuesto).",
+    "comoCorregir": "Calcula en orden, de arriba hacia abajo, y usa cada subtotal para el siguiente. Si el resultado es negativo, es una pérdida: escríbelo con signo menos.",
+    "fuente": "NIC 1, párrafos 81A a 105 (estado de resultados)"
+  },
   "error_no_detectado": {
     "titulo": "Se te pasó un error",
     "severidad": "grave",

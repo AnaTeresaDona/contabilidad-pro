@@ -1,0 +1,175 @@
+[
+  {
+    "id": "n3-q01",
+    "pregunta": "¿Qué muestra el Balance General (Estado de Situación Financiera)?",
+    "opciones": [
+      "Lo que la empresa tiene, lo que debe y lo que pertenece a los dueños, a una fecha determinada",
+      "Lo que la empresa ganó o perdió durante un período",
+      "Las entradas y salidas de dinero del mes",
+      "La lista de todos los asientos del año"
+    ],
+    "correcta": 0,
+    "explicacion": "El Balance General es una \"foto\" a una fecha: Activos, Pasivos y Patrimonio. El Estado de Resultados, en cambio, es una \"película\" de un período.",
+    "fuente": "NIC 1, párrafos 54 a 55"
+  },
+  {
+    "id": "n3-q02",
+    "pregunta": "¿Qué muestra el Estado de Resultados?",
+    "opciones": [
+      "Los ingresos y gastos de un período, y la utilidad o pérdida resultante",
+      "Los activos y pasivos a una fecha",
+      "Solo el dinero que hay en el banco",
+      "Los aportes de los dueños"
+    ],
+    "correcta": 0,
+    "explicacion": "El Estado de Resultados resume el desempeño de un período: cuánto se vendió, cuánto costó y cuánto se ganó o perdió.",
+    "fuente": "NIC 1, párrafos 81A a 82"
+  },
+  {
+    "id": "n3-q03",
+    "pregunta": "¿Cuáles componen un juego completo de estados financieros según NIC 1?",
+    "opciones": [
+      "Situación financiera, resultados, cambios en el patrimonio, flujos de efectivo y notas",
+      "Balance de 8 columnas, Libro Diario y Libro Mayor",
+      "Formulario 29 y Formulario 22",
+      "Solo el Balance General y el Estado de Resultados"
+    ],
+    "correcta": 0,
+    "explicacion": "Un juego completo incluye el estado de situación financiera, el de resultados (integral), el de cambios en el patrimonio, el de flujos de efectivo y las notas explicativas.",
+    "fuente": "NIC 1, párrafo 10"
+  },
+  {
+    "id": "n3-q04",
+    "pregunta": "Un activo se clasifica como corriente cuando…",
+    "opciones": [
+      "Se espera realizar, vender o consumir dentro de los 12 meses siguientes (o del ciclo normal de operación)",
+      "Su valor es menor a $1.000.000",
+      "Se compró al contado",
+      "Se usará por muchos años en la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Corriente significa de corto plazo: dinero, inventario, cuentas por cobrar e IVA crédito fiscal que se usarán o cobrarán pronto. Los bienes de uso por varios años son no corrientes.",
+    "fuente": "NIC 1, párrafo 66"
+  },
+  {
+    "id": "n3-q05",
+    "pregunta": "¿Dónde se presenta un horno industrial comprado para producir empanadas?",
+    "opciones": ["Activo no corriente", "Activo corriente", "Gastos del Estado de Resultados", "Pasivo no corriente"],
+    "correcta": 0,
+    "explicacion": "Es propiedad, planta y equipo: un bien que se usará por varios años. Por eso es activo no corriente (y más adelante se deprecia).",
+    "fuente": "NIC 16 y NIC 1, párrafo 66"
+  },
+  {
+    "id": "n3-q06",
+    "pregunta": "Un préstamo bancario que se pagará en 3 años se presenta como…",
+    "opciones": ["Pasivo no corriente (salvo las cuotas que vencen en los próximos 12 meses)", "Pasivo corriente completo", "Patrimonio", "Activo no corriente"],
+    "correcta": 0,
+    "explicacion": "La parte que vence después de 12 meses es no corriente. Las cuotas que vencen dentro del año se presentan como pasivo corriente. En el juego simplificamos y lo dejamos todo como no corriente.",
+    "fuente": "NIC 1, párrafos 69 y 71"
+  },
+  {
+    "id": "n3-q07",
+    "pregunta": "¿Dónde se presenta el resultado (utilidad) del ejercicio en el Balance General?",
+    "opciones": ["Dentro del Patrimonio", "En el Activo corriente", "En el Pasivo corriente", "No aparece en el Balance General"],
+    "correcta": 0,
+    "explicacion": "La utilidad aumenta lo que pertenece a los dueños. Por eso se suma al patrimonio y así Activo = Pasivo + Patrimonio cuadra.",
+    "fuente": "NIC 1, párrafo 54"
+  },
+  {
+    "id": "n3-q08",
+    "pregunta": "¿Cómo se calcula el margen bruto?",
+    "opciones": ["Ventas − Costo de ventas", "Ventas − Todos los gastos", "Ventas + IVA", "Activo − Pasivo"],
+    "correcta": 0,
+    "explicacion": "El margen bruto muestra cuánto queda de las ventas después de pagar lo que costó la mercadería vendida, antes de los gastos de administración y ventas.",
+    "fuente": "Estado de Resultados por función (NIC 1, párrafo 103)"
+  },
+  {
+    "id": "n3-q09",
+    "pregunta": "¿Qué es el resultado operacional?",
+    "opciones": [
+      "Margen bruto menos los gastos de administración y ventas",
+      "Ventas menos el IVA",
+      "El resultado después de impuestos",
+      "La diferencia entre activos y pasivos"
+    ],
+    "correcta": 0,
+    "explicacion": "Mide si el negocio en sí (vender empanadas) es rentable, sin considerar cómo se financia la empresa (intereses) ni otros ingresos o gastos ajenos al giro.",
+    "fuente": "Estado de Resultados por función"
+  },
+  {
+    "id": "n3-q10",
+    "pregunta": "Los intereses que la empresa paga por un préstamo se presentan como…",
+    "opciones": ["Gastos financieros, después del resultado operacional", "Costo de ventas", "Gastos de administración y ventas", "Pasivo no corriente"],
+    "correcta": 0,
+    "explicacion": "Los intereses dependen de cómo se financia la empresa, no de su operación. Por eso van después del resultado operacional, como costos financieros.",
+    "fuente": "NIC 1, párrafo 82 b)"
+  },
+  {
+    "id": "n3-q11",
+    "pregunta": "¿Por qué el IVA Crédito Fiscal se presenta como activo corriente?",
+    "opciones": [
+      "Porque se usa para descontar del IVA Débito de los meses siguientes",
+      "Porque es un gasto de la empresa",
+      "Porque es un aporte de los dueños",
+      "Porque se paga al SII en 5 años"
+    ],
+    "correcta": 0,
+    "explicacion": "Es un derecho que se recupera pronto, al imputarlo contra el débito fiscal en las declaraciones mensuales.",
+    "fuente": "DL 825, art. 23; NIC 1, párrafo 66"
+  },
+  {
+    "id": "n3-q12",
+    "pregunta": "¿Qué relación hay entre el Estado de Resultados y el Balance General?",
+    "opciones": [
+      "La utilidad o pérdida del Estado de Resultados se suma al Patrimonio del Balance General",
+      "No tienen relación",
+      "El Balance General se calcula restando el Estado de Resultados",
+      "El Estado de Resultados incluye todos los activos"
+    ],
+    "correcta": 0,
+    "explicacion": "El resultado del período conecta ambos estados: la utilidad hace crecer el patrimonio y una pérdida lo disminuye.",
+    "fuente": "NIC 1"
+  },
+  {
+    "id": "n3-q13",
+    "pregunta": "Si el Activo corriente es menor que el Pasivo corriente, ¿qué señal da?",
+    "opciones": [
+      "La empresa podría tener problemas para pagar sus deudas de corto plazo",
+      "La empresa es muy rentable",
+      "La empresa no tiene deudas",
+      "Hay un error: siempre deben ser iguales"
+    ],
+    "correcta": 0,
+    "explicacion": "Las deudas que vencen pronto superan a los recursos que se convertirán en dinero pronto: es una alerta de liquidez. Lo verás en detalle con la razón corriente en el Nivel 6.",
+    "fuente": "Análisis de liquidez"
+  },
+  {
+    "id": "n3-q14",
+    "pregunta": "El Balance General de la Tía Rosa tiene Activos por $12.000.000 y Pasivos por $7.500.000. ¿Cuánto es el Patrimonio?",
+    "opciones": ["$4.500.000", "$19.500.000", "$12.000.000", "$7.500.000"],
+    "correcta": 0,
+    "explicacion": "Patrimonio = Activo − Pasivo = $12.000.000 − $7.500.000 = $4.500.000.",
+    "fuente": "Ecuación contable"
+  },
+  {
+    "id": "n3-q15",
+    "pregunta": "¿Qué cuentas NO aparecen en el Balance General?",
+    "opciones": ["Las de ingresos y gastos (aparecen en el Estado de Resultados)", "Las de activo fijo", "Las de patrimonio", "Las cuentas de IVA"],
+    "correcta": 0,
+    "explicacion": "Ingresos y gastos se resumen en el Estado de Resultados. En el Balance General solo aparece su efecto neto: el resultado del ejercicio, dentro del patrimonio.",
+    "fuente": "NIC 1"
+  },
+  {
+    "id": "n3-q16",
+    "pregunta": "¿Qué significa que el Estado de Resultados esté presentado \"por función\"?",
+    "opciones": [
+      "Que los gastos se agrupan según su función: costo de ventas, administración, ventas",
+      "Que solo incluye las funciones del gerente",
+      "Que los gastos se agrupan por su naturaleza, como sueldos o depreciación",
+      "Que no incluye el costo de ventas"
+    ],
+    "correcta": 0,
+    "explicacion": "La presentación por función separa el costo de ventas de los gastos de administración y ventas, lo que permite calcular el margen bruto. La otra alternativa es la presentación por naturaleza.",
+    "fuente": "NIC 1, párrafos 99 a 103"
+  }
+]

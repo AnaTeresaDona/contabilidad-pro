@@ -1,0 +1,75 @@
+[
+  {
+    "id": "n3-s01",
+    "pregunta": "En el mes, la Tía Rosa vendió $10.000.000 y su costo de ventas fue $6.000.000. ¿Qué significa un margen bruto de $4.000.000?",
+    "opciones": [
+      "De cada $100 vendidos, le quedan $40 para cubrir los demás gastos y ganar",
+      "Ganó $4.000.000 limpios en el mes",
+      "Tiene $4.000.000 en el banco",
+      "Debe $4.000.000 a sus proveedores"
+    ],
+    "correcta": 0,
+    "explicacion": "El margen bruto es 40% de las ventas. Todavía falta restar arriendo, sueldos, publicidad e intereses para saber cuánto ganó realmente.",
+    "fuente": "Estado de Resultados por función"
+  },
+  {
+    "id": "n3-s02",
+    "pregunta": "El resultado operacional es positivo, pero el resultado antes de impuesto es negativo. ¿Qué pasó?",
+    "opciones": [
+      "Los gastos financieros (intereses) superaron la ganancia del negocio",
+      "Las ventas fueron negativas",
+      "El IVA se restó dos veces",
+      "Es imposible: siempre tienen el mismo signo"
+    ],
+    "correcta": 0,
+    "explicacion": "El negocio gana, pero la deuda le cuesta más en intereses de lo que el negocio genera. Es una señal para revisar el financiamiento.",
+    "fuente": "Estado de Resultados por función"
+  },
+  {
+    "id": "n3-s03",
+    "pregunta": "La Tía Rosa compra un horno con un préstamo bancario a 3 años. ¿Qué secciones del Balance General aumentan?",
+    "opciones": [
+      "Activo no corriente y Pasivo no corriente",
+      "Activo corriente y Patrimonio",
+      "Solo el Estado de Resultados",
+      "Pasivo corriente y Patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "El horno es un activo de largo plazo y el préstamo, una deuda de largo plazo (en el juego lo dejamos todo como no corriente).",
+    "fuente": "NIC 1, párrafos 66 y 69"
+  },
+  {
+    "id": "n3-s04",
+    "pregunta": "El banco ve que el Activo corriente es $3.000.000 y el Pasivo corriente $5.000.000. ¿Qué le preocupa?",
+    "opciones": [
+      "Que la empresa no alcance a pagar sus deudas de corto plazo",
+      "Que la empresa gane demasiado",
+      "Que tenga muchos activos fijos",
+      "Nada: es lo normal en toda empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "Por cada $1 que debe a corto plazo, solo tiene $0,60 en recursos de corto plazo: es un problema de liquidez.",
+    "fuente": "Análisis de liquidez"
+  },
+  {
+    "id": "n3-s05",
+    "pregunta": "Este mes la empresa tuvo una pérdida de $300.000. ¿Qué le pasa al Patrimonio en el Balance General?",
+    "opciones": ["Disminuye en $300.000", "Aumenta en $300.000", "No cambia", "Se convierte en pasivo"],
+    "correcta": 0,
+    "explicacion": "La pérdida se presenta dentro del patrimonio con signo negativo: lo que pertenece a los dueños disminuye.",
+    "fuente": "NIC 1"
+  },
+  {
+    "id": "n3-s06",
+    "pregunta": "¿En qué parte del Estado de Resultados va el arriendo del local?",
+    "opciones": [
+      "Gastos de administración y ventas (antes del resultado operacional)",
+      "Costo de ventas",
+      "Gastos financieros",
+      "En el Balance General, como activo"
+    ],
+    "correcta": 0,
+    "explicacion": "El arriendo es un gasto necesario para operar, pero no es el costo de la mercadería vendida. Por eso va en gastos de administración y ventas.",
+    "fuente": "Estado de Resultados por función"
+  }
+]

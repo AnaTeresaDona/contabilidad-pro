@@ -18,6 +18,7 @@ import { EjJefe } from '../juego/ejercicios/EjJefe';
 import { EjMayorizar } from '../juego/ejercicios/EjMayorizar';
 import { EjColumna8 } from '../juego/ejercicios/EjColumna8';
 import { EjBalance8 } from '../juego/ejercicios/EjBalance8';
+import { EjBalanceGeneral, EjEstadoResultados, EjEstadosCompletos, EjSecciones } from '../juego/ejercicios/EjEstados';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
 import { Confeti, Modal } from '../componentes/Efectos';
@@ -102,7 +103,7 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
   /** Los asientos bien hechos pasan al libro de la empresa del jugador. */
   const registrarEnLibro = (ej: Ejercicio) => {
     const nuevos =
-      ej.tipo === 'debeHaber' || ej.tipo === 'completar' ? [ej.trans.asiento] : ej.tipo === 'balance8' ? ej.asientos : [];
+      ej.tipo === 'debeHaber' || ej.tipo === 'completar' ? [ej.trans.asiento] : ej.tipo === 'balance8' || ej.tipo === 'estados' ? ej.asientos : [];
     if (nuevos.length === 0) return;
     actualizar((p) => nuevos.reduce((q, a) => registrarAsiento(q, { ...a, id: nuevoId(), fecha: fechaISO() }), p));
   };
@@ -364,6 +365,13 @@ function pistaDe(ej: Ejercicio): string {
       return 'Saldo = lado mayor − lado menor. Activo, Pasivo y Patrimonio van a Inventario; Ingresos y Gastos a Resultados. Resultado = Ganancias − Pérdidas.';
     case 'libroErrores':
       return 'Revisa cada asiento: ¿cuadra? ¿las cuentas son las de la operación? ¿cada una está en su lado? ¿el IVA es 19% del neto?';
+    case 'secciones':
+      return 'Activos y pasivos: ¿se cobran, usan o pagan en menos de 12 meses (corriente) o en más (no corriente)? Ingresos y gastos van al Estado de Resultados.';
+    case 'eerr':
+      return 'Margen bruto = Ventas − Costo de ventas. Resultado operacional = Margen bruto − gastos de administración y ventas. Antes de impuesto = Resultado operacional + otros ingresos − gastos financieros.';
+    case 'bg':
+    case 'estados':
+      return 'Caja, banco, clientes, mercaderías e IVA crédito son corrientes; los activos fijos, no corrientes. El préstamo bancario va como no corriente. El resultado del ejercicio va en Patrimonio.';
   }
 }
 
@@ -379,6 +387,14 @@ function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }) {
       return <EjBalance8 asientos={ej.asientos} balance={ej.balance} api={api} />;
     case 'libroErrores':
       return <EjJefe libro={ej.libro} api={api} />;
+    case 'secciones':
+      return <EjSecciones cuentas={ej.cuentas} api={api} />;
+    case 'eerr':
+      return <EjEstadoResultados balance={ej.balance} api={api} />;
+    case 'bg':
+      return <EjBalanceGeneral balance={ej.balance} api={api} />;
+    case 'estados':
+      return <EjEstadosCompletos asientos={ej.asientos} balance={ej.balance} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;
     case 'debeHaber':
