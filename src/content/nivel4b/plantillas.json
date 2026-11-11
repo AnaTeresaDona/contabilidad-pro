@@ -1,0 +1,85 @@
+[
+  {
+    "id": "arriendo_inicial_niif16",
+    "texto": "Firmas el arriendo de la nueva planta por {n:n} meses, con cuotas de {cuota} y una tasa de {tasa:pb} mensual. El valor presente de las cuotas es {vp}. Registra el reconocimiento inicial según NIIF 16.",
+    "variables": {
+      "cuota": { "min": 400000, "max": 1500000, "paso": 10000 },
+      "n": { "min": 24, "max": 60, "paso": 12 },
+      "tasa": { "min": 50, "max": 100, "paso": 10 },
+      "vp": { "formula": "cuota * (1 - (1 + tasa / 10000) ^ (0 - n)) / (tasa / 10000)" }
+    },
+    "lineas": [
+      { "cuenta": "derecho_uso", "lado": "debe", "monto": "vp" },
+      { "cuenta": "pasivo_arrendamiento", "lado": "haber", "monto": "vp" }
+    ],
+    "pista": "Bajo NIIF 16 nace un activo (el derecho a usar la planta) y un pasivo (la obligación de pagar las cuotas), ambos por el valor presente."
+  },
+  {
+    "id": "arriendo_cuota_niif16",
+    "texto": "Pagas con transferencia la cuota mensual del arriendo: {cuota}. El saldo del pasivo por arrendamiento antes del pago era {saldo} y la tasa es {tasa:pb} mensual. Registra el pago separando interés y capital.",
+    "variables": {
+      "cuota": { "min": 400000, "max": 1500000, "paso": 10000 },
+      "saldo": { "de": "cuota", "factor": [20, 40], "paso": 10000 },
+      "tasa": { "min": 50, "max": 100, "paso": 10 },
+      "interes": { "formula": "saldo * tasa / 10000" },
+      "capital": { "formula": "cuota - interes" }
+    },
+    "lineas": [
+      { "cuenta": "intereses", "lado": "debe", "monto": "interes" },
+      { "cuenta": "pasivo_arrendamiento", "lado": "debe", "monto": "capital" },
+      { "cuenta": "banco", "lado": "haber", "monto": "cuota" }
+    ],
+    "pista": "Interés del mes = saldo × tasa (es gasto financiero). El resto de la cuota (cuota − interés) disminuye el pasivo por arrendamiento."
+  },
+  {
+    "id": "deterioro_maquina_nic36",
+    "texto": "La envasadora tiene un valor libro de {libro}. Su importe recuperable (el mayor entre valor razonable menos costos de venta y valor en uso) es {recuperable}. Registra el deterioro.",
+    "variables": {
+      "libro": { "min": 5000000, "max": 20000000, "paso": 100000 },
+      "recuperable": { "de": "libro", "factor": [0.5, 0.9], "paso": 10000 },
+      "perdida": { "formula": "libro - recuperable" }
+    },
+    "lineas": [
+      { "cuenta": "deterioro_activos", "lado": "debe", "monto": "perdida" },
+      { "cuenta": "deterioro_acumulado", "lado": "haber", "monto": "perdida" }
+    ],
+    "pista": "Pérdida = valor libro − importe recuperable. Es un gasto, y el activo se rebaja con la cuenta complementaria Deterioro acumulado."
+  },
+  {
+    "id": "dividendo_declarado",
+    "texto": "La junta ordinaria de accionistas acuerda repartir el dividendo mínimo legal: el 30% de la utilidad del ejercicio anterior, que fue {utilidad} y está en Resultados acumulados. Se pagará el próximo mes.",
+    "variables": {
+      "utilidad": { "min": 100000000, "max": 900000000, "paso": 1000000 },
+      "dividendo": { "formula": "utilidad * 30 / 100" }
+    },
+    "lineas": [
+      { "cuenta": "resultados_acumulados", "lado": "debe", "monto": "dividendo" },
+      { "cuenta": "dividendos_por_pagar", "lado": "haber", "monto": "dividendo" }
+    ],
+    "pista": "El dividendo sale del patrimonio (Resultados acumulados disminuye) y, mientras no se paga, es una deuda con los accionistas."
+  },
+  {
+    "id": "dividendo_pagado",
+    "texto": "Pagas con transferencia a los accionistas los dividendos acordados por {monto}.",
+    "variables": { "monto": { "min": 30000000, "max": 270000000, "paso": 1000000 } },
+    "lineas": [
+      { "cuenta": "dividendos_por_pagar", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Se paga una deuda: disminuye el pasivo Dividendos por pagar y sale dinero del banco. No es un gasto."
+  },
+  {
+    "id": "depreciacion_derecho_uso",
+    "texto": "Cierre de mes: el activo por derecho de uso de la planta vale {vp} y el contrato dura {n:n} meses. Registra su depreciación mensual en línea recta.",
+    "variables": {
+      "vp": { "min": 10000000, "max": 60000000, "paso": 120000 },
+      "n": { "min": 24, "max": 60, "paso": 12 },
+      "dep": { "formula": "vp / n" }
+    },
+    "lineas": [
+      { "cuenta": "depreciacion", "lado": "debe", "monto": "dep" },
+      { "cuenta": "dep_acumulada", "lado": "haber", "monto": "dep" }
+    ],
+    "pista": "El derecho de uso se deprecia durante el plazo del arriendo: valor ÷ número de meses."
+  }
+]

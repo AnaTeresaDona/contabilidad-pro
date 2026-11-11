@@ -24,7 +24,7 @@ interface Props {
   children: (api: ApiEjercicio) => ReactNode;
 }
 
-type Feedback = { correcto: true; xp: number } | { correcto: false; errores: ErrorDetectado[]; solucion?: ReactNode };
+type Feedback = { correcto: true; xp: number } | { correcto: false; errores: ErrorDetectado[]; solucion?: ReactNode; danio: number };
 
 /**
  * Envuelve cualquier ejercicio y le da: pista, comprobación, XP, daño a la caja,
@@ -45,10 +45,10 @@ export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcer
       alAcertar?.();
       setFeedback({ correcto: true, xp });
     } else {
-      sesion.registrarFallo(r.errores.map((e) => e.tipo));
+      const danio = sesion.registrarFallo(r.errores.map((e) => e.tipo));
       setFallos((f) => f + 1);
       alFallar?.();
-      setFeedback({ correcto: false, errores: r.errores, solucion });
+      setFeedback({ correcto: false, errores: r.errores, solucion, danio });
     }
   };
 
@@ -106,6 +106,11 @@ export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcer
             ) : (
               <>
                 <p className="sacudir text-xl font-extrabold text-rose-700">❌ {primerError?.titulo}</p>
+                {feedback.danio > 0 && (
+                  <p className="text-sm font-extrabold text-rose-800">
+                    💸 {sesion.etiquetaDanio === 'Caja' ? '' : `${sesion.etiquetaDanio}: `}−{feedback.danio} de caja
+                  </p>
+                )}
                 <p className="text-sm text-rose-700/80">
                   {feedback.errores.length > 1
                     ? `${feedback.errores.length} problemas encontrados.`

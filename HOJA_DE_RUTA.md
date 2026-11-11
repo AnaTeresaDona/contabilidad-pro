@@ -28,10 +28,16 @@
 - Jefe: la auditora externa pide registrar 3 ajustes de cierre y el resultado ajustado.
 - Simplificación conocida: las remuneraciones se registran sin descuentos previsionales.
 
+## Fase 4B — Hecha
+- Nivel 4B: 16 preguntas (NIIF 13, 16, NIC 23, 33, 34, 36, 38, Leyes 18.045, 18.046 y 21.000), 6 situaciones, 14 afirmaciones para la fiscalización.
+- Cálculos: arrendamiento NIIF 16, deterioro NIC 36, ganancia por acción (con decimales) y dividendo mínimo del 30%.
+- Asientos: reconocimiento y pago de arrendamientos, deterioro, declaración y pago de dividendos.
+- Los errores muestran cuánta caja se pierde; en este nivel, como "Sanción CMF".
+- Simplificación conocida: el pasivo por arrendamiento se presenta completo como no corriente.
+
 ## Próximas fases (una por iteración)
-1. **Nivel 4B — Full IFRS y CMF:** la empresa se abre a la bolsa; errores generan "Sanciones CMF".
-2. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
-3. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
+1. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
+2. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
    - Liquidez: razón corriente, prueba ácida, capital de trabajo.
    - Endeudamiento y solvencia: deuda/patrimonio, deuda/activos, cobertura de intereses.
    - Rentabilidad: margen bruto, operacional y neto, ROA, ROE.

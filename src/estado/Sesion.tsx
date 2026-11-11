@@ -9,7 +9,9 @@ interface ValorSesion {
   xpSesion: number;
   usoPistas: boolean;
   registrarAcierto: (conAyuda: boolean, xpBase?: number) => number;
-  registrarFallo: (tiposError: string[]) => void;
+  /** Devuelve cuánta caja se perdió (0 si la sesión no daña). */
+  registrarFallo: (tiposError: string[]) => number;
+  etiquetaDanio: string;
   marcarPista: () => void;
   cobrarAuditoria: () => void;
 }
@@ -20,10 +22,12 @@ export function ProveedorSesion({
   children,
   sinDanio = false,
   onInsolvencia,
+  etiquetaDanio = 'Caja',
 }: {
   children: ReactNode;
   sinDanio?: boolean;
   onInsolvencia?: () => void;
+  etiquetaDanio?: string;
 }) {
   const { actualizar, obtener } = useProgreso();
   const comboRef = useRef(0);
@@ -35,6 +39,7 @@ export function ProveedorSesion({
     combo,
     xpSesion,
     usoPistas,
+    etiquetaDanio,
     registrarAcierto(conAyuda, xpBase) {
       const c = comboRef.current + 1;
       comboRef.current = c;
@@ -47,11 +52,12 @@ export function ProveedorSesion({
     registrarFallo(tipos) {
       comboRef.current = 0;
       setCombo(0);
-      if (sinDanio) return;
+      if (sinDanio) return 0;
       const danio = danioPorErrores(tipos);
       const hpFinal = Math.max(0, obtener().hp - danio);
       actualizar((p) => cambiarHp(p, -danio));
       if (hpFinal === 0) onInsolvencia?.();
+      return danio;
     },
     marcarPista() {
       setUsoPistas(true);

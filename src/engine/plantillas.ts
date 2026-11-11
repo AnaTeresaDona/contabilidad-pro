@@ -10,7 +10,7 @@ import { calcularIva, formatoCLP, TASA_IVA } from './dinero';
  * - `{ formula, paso }`: cálculo a partir de otras variables, con + − × ÷ y paréntesis
  *   (ej. depreciación = "(costo - residual) / (vida * 12)").
  * `monto` de cada línea es una variable o una expresión ("total - contado").
- * En el texto, {x} se muestra como dinero, {x:n} como número y {x:%} como porcentaje.
+ * En el texto, {x} se muestra como dinero, {x:n} como número, {x:%} como porcentaje y {x:pb} (puntos base) como "0,80%".
  */
 export type DefVariable =
   | { min: number; max: number; paso: number }
@@ -48,9 +48,9 @@ export interface Transaccion {
   documento?: DocumentoPlantilla & { folio: number };
 }
 
-/** Evalúa una expresión aritmética simple (+ − * / y paréntesis) con las variables dadas. */
+/** Evalúa una expresión aritmética simple (+ − * / ^ y paréntesis) con las variables dadas. */
 export function evaluar(expr: string, valores: Record<string, number>): number {
-  const tokens = expr.match(/\d+(?:\.\d+)?|[A-Za-z_]\w*|[()+\-*/]/g) ?? [];
+  const tokens = expr.match(/\d+(?:\.\d+)?|[A-Za-z_]\w*|[()+\-*/^]/g) ?? [];
   let i = 0;
   const ver = () => tokens[i];
   const tomar = () => tokens[i++];
@@ -68,9 +68,16 @@ export function evaluar(expr: string, valores: Record<string, number>): number {
     if (v === undefined) throw new Error(`Variable desconocida "${t}" en "${expr}"`);
     return v;
   };
+  // Potencia (asociativa a la derecha): 2 ^ 3 ^ 2 = 2 ^ 9.
+  const potencia = (): number => {
+    const base = primario();
+    if (ver() !== '^') return base;
+    tomar();
+    return base ** potencia();
+  };
   const producto = (): number => {
-    let v = primario();
-    while (ver() === '*' || ver() === '/') v = tomar() === '*' ? v * primario() : v / primario();
+    let v = potencia();
+    while (ver() === '*' || ver() === '/') v = tomar() === '*' ? v * potencia() : v / potencia();
     return v;
   };
   const suma = (): number => {
@@ -117,9 +124,11 @@ export function generarTransaccion(p: Plantilla, rng: Rng): Transaccion {
     completarIva();
   }
 
-  const texto = p.texto.replace(/\{(\w+)(?::(n|%))?\}/g, (todo: string, k: string, formato?: string) => {
+  const texto = p.texto.replace(/\{(\w+)(?::(n|%|pb))?\}/g, (todo: string, k: string, formato?: string) => {
     const v = valores[k];
     if (v === undefined) return todo;
+    // pb = puntos base: 80 → "0,80%"
+    if (formato === 'pb') return `${(v / 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
     if (formato === 'n') return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     if (formato === '%') return `${v}%`;
     return formatoCLP(v);

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "n4b-q01",
+    "pregunta": "¿Qué empresas deben aplicar las NIIF completas (plenas) en vez de la NIIF para las PYMES?",
+    "opciones": [
+      "Las que tienen obligación pública de rendir cuentas, como las que emiten valores que se transan en bolsa",
+      "Todas las empresas con más de 10 trabajadores",
+      "Solo las empresas extranjeras",
+      "Las empresas que no tienen deudas"
+    ],
+    "correcta": 0,
+    "explicacion": "Quienes emiten acciones o bonos al público, o administran recursos de terceros (bancos, aseguradoras), tienen obligación pública de rendir cuentas y aplican NIIF plenas.",
+    "fuente": "NIIF para las PYMES, Sección 1; normativa CMF"
+  },
+  {
+    "id": "n4b-q02",
+    "pregunta": "¿Qué es la CMF?",
+    "opciones": [
+      "La Comisión para el Mercado Financiero, que regula y fiscaliza el mercado de valores, seguros y bancos en Chile",
+      "El servicio que cobra los impuestos",
+      "Un banco del Estado",
+      "La bolsa de comercio de Santiago"
+    ],
+    "correcta": 0,
+    "explicacion": "La CMF fue creada por la Ley 21.000 y reemplazó a la Superintendencia de Valores y Seguros. Desde 2019 también supervisa a los bancos.",
+    "fuente": "Ley 21.000"
+  },
+  {
+    "id": "n4b-q03",
+    "pregunta": "¿Qué es un hecho esencial?",
+    "opciones": [
+      "Información relevante que podría influir en las decisiones de los inversionistas y que debe informarse de inmediato al mercado",
+      "Cualquier compra de mercaderías",
+      "El pago mensual de sueldos",
+      "Un error contable menor"
+    ],
+    "correcta": 0,
+    "explicacion": "Por ejemplo, una gran adquisición, la renuncia del gerente general o un juicio importante. Debe divulgarse de forma veraz, suficiente y oportuna.",
+    "fuente": "Ley 18.045 de Mercado de Valores, arts. 9 y 10"
+  },
+  {
+    "id": "n4b-q04",
+    "pregunta": "¿Qué es usar información privilegiada?",
+    "opciones": [
+      "Comprar o vender valores aprovechando información relevante que el mercado todavía no conoce",
+      "Leer los estados financieros publicados",
+      "Comprar acciones en la bolsa",
+      "Pedir información a la CMF"
+    ],
+    "correcta": 0,
+    "explicacion": "Quien conoce información privilegiada debe guardar reserva y no puede usarla para su beneficio ni para el de otros. Es una infracción grave.",
+    "fuente": "Ley 18.045 de Mercado de Valores, arts. 164 y 165"
+  },
+  {
+    "id": "n4b-q05",
+    "pregunta": "¿Cuál es el dividendo mínimo obligatorio en una S.A. abierta?",
+    "opciones": [
+      "30% de la utilidad líquida del ejercicio, salvo acuerdo unánime de las acciones emitidas",
+      "10% de las ventas",
+      "50% del patrimonio",
+      "No existe mínimo"
+    ],
+    "correcta": 0,
+    "explicacion": "La ley protege a los accionistas minoritarios: al menos el 30% de las utilidades debe repartirse, salvo que todas las acciones emitidas acuerden otra cosa.",
+    "fuente": "Ley 18.046 de Sociedades Anónimas, art. 79"
+  },
+  {
+    "id": "n4b-q06",
+    "pregunta": "Bajo NIIF 16, ¿cómo registra el arrendatario un arriendo de un local por 5 años?",
+    "opciones": [
+      "Reconoce un activo por derecho de uso y un pasivo por arrendamiento",
+      "Solo como gasto mensual de arriendo",
+      "Como un activo fijo comprado al contado",
+      "No se registra hasta el final del contrato"
+    ],
+    "correcta": 0,
+    "explicacion": "Salvo arriendos de corto plazo (12 meses o menos) o de bajo valor, el arrendatario reconoce el derecho de uso y la obligación de pago en el balance.",
+    "fuente": "NIIF 16, párrafos 5 y 22"
+  },
+  {
+    "id": "n4b-q07",
+    "pregunta": "¿Cómo se mide inicialmente el pasivo por arrendamiento?",
+    "opciones": [
+      "Al valor presente de los pagos pendientes, descontados a la tasa del arrendamiento",
+      "A la suma simple de todas las cuotas",
+      "A la primera cuota",
+      "Al valor comercial del local"
+    ],
+    "correcta": 0,
+    "explicacion": "Se descuentan las cuotas futuras. Por eso, cada mes la cuota se divide entre interés (gasto financiero) y capital (disminuye el pasivo).",
+    "fuente": "NIIF 16, párrafo 26"
+  },
+  {
+    "id": "n4b-q08",
+    "pregunta": "Según NIC 36, ¿qué es el importe recuperable de un activo?",
+    "opciones": [
+      "El mayor entre su valor razonable menos costos de venta y su valor en uso",
+      "El menor entre su costo y su precio de venta",
+      "Su costo histórico",
+      "Lo que se pagó por él más el IVA"
+    ],
+    "correcta": 0,
+    "explicacion": "La empresa puede vender el activo o seguir usándolo: el importe recuperable es la mejor de esas dos alternativas. Si el valor libro lo supera, hay deterioro.",
+    "fuente": "NIC 36, párrafo 18"
+  },
+  {
+    "id": "n4b-q09",
+    "pregunta": "Una diferencia entre NIIF plenas y NIIF para las PYMES: los intereses de un préstamo para construir una planta…",
+    "opciones": [
+      "En NIIF plenas se capitalizan en el costo de la planta; en PYMES se llevan a gasto",
+      "Siempre se llevan a gasto en ambas",
+      "Siempre se capitalizan en ambas",
+      "No se registran"
+    ],
+    "correcta": 0,
+    "explicacion": "La NIC 23 exige capitalizar los costos por préstamos de activos aptos (que tardan en estar listos). La NIIF para las PYMES simplifica y los trata como gasto.",
+    "fuente": "NIC 23, párrafo 8; NIIF para las PYMES, Sección 25"
+  },
+  {
+    "id": "n4b-q10",
+    "pregunta": "Otra diferencia: los costos de desarrollo de una nueva app de pedidos…",
+    "opciones": [
+      "En NIIF plenas pueden reconocerse como intangible si cumplen ciertos criterios; en PYMES se llevan a gasto",
+      "Siempre son gasto en NIIF plenas",
+      "Siempre son activo en PYMES",
+      "Se registran como patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "La NIC 38 permite capitalizar el desarrollo si es técnicamente factible, hay intención y capacidad de terminarlo, etc. La investigación siempre es gasto. La NIIF para las PYMES trata ambos como gasto.",
+    "fuente": "NIC 38, párrafos 54 y 57; NIIF para las PYMES, Sección 18"
+  },
+  {
+    "id": "n4b-q11",
+    "pregunta": "¿Qué informa la ganancia por acción?",
+    "opciones": [
+      "Cuánta utilidad corresponde a cada acción ordinaria en circulación",
+      "El precio de la acción en la bolsa",
+      "El dividendo pagado por acción",
+      "El patrimonio dividido por el número de accionistas"
+    ],
+    "correcta": 0,
+    "explicacion": "Es la utilidad atribuible a los accionistas dividida por el promedio ponderado de acciones. Es obligatoria para las entidades cuyas acciones se transan públicamente.",
+    "fuente": "NIC 33, párrafos 2 y 10"
+  },
+  {
+    "id": "n4b-q12",
+    "pregunta": "¿Qué norma regula los estados financieros intermedios, como los trimestrales?",
+    "opciones": ["NIC 34", "NIC 2", "NIIF 16", "NIC 7"],
+    "correcta": 0,
+    "explicacion": "La NIC 34 establece el contenido mínimo de la información financiera intermedia. En Chile, los emisores de valores presentan estados financieros trimestrales a la CMF.",
+    "fuente": "NIC 34; normativa CMF"
+  },
+  {
+    "id": "n4b-q13",
+    "pregunta": "¿Quién debe auditar los estados financieros anuales de una S.A. abierta?",
+    "opciones": [
+      "Una empresa de auditoría externa inscrita en el registro de la CMF",
+      "El gerente general",
+      "El contador interno de la empresa",
+      "Nadie: la auditoría es voluntaria"
+    ],
+    "correcta": 0,
+    "explicacion": "La auditoría externa independiente da confianza a los inversionistas. Las empresas de auditoría deben estar inscritas y son fiscalizadas por la CMF.",
+    "fuente": "Ley 18.045, Título XXVIII; Ley 18.046"
+  },
+  {
+    "id": "n4b-q14",
+    "pregunta": "¿Cuándo debe celebrarse la junta ordinaria de accionistas que aprueba el balance anual?",
+    "opciones": [
+      "Dentro del cuatrimestre siguiente a la fecha del balance",
+      "Antes de terminar el año",
+      "Cuando el gerente lo decida",
+      "Cada mes"
+    ],
+    "correcta": 0,
+    "explicacion": "Si el ejercicio cierra el 31 de diciembre, la junta ordinaria debe realizarse a más tardar en abril. Ahí se aprueban los estados financieros y se acuerda el dividendo.",
+    "fuente": "Ley 18.046 de Sociedades Anónimas, art. 56"
+  },
+  {
+    "id": "n4b-q15",
+    "pregunta": "¿Qué es el valor razonable según NIIF 13?",
+    "opciones": [
+      "El precio que se recibiría por vender un activo en una transacción ordenada entre participantes del mercado",
+      "Lo que la empresa pagó originalmente",
+      "El valor que estima el dueño",
+      "El avalúo fiscal del SII"
+    ],
+    "correcta": 0,
+    "explicacion": "Es un precio de salida, desde la perspectiva del mercado, a la fecha de medición. No es el costo histórico ni una estimación personal.",
+    "fuente": "NIIF 13, párrafo 9"
+  },
+  {
+    "id": "n4b-q16",
+    "pregunta": "¿Qué arriendos puede seguir registrando el arrendatario solo como gasto bajo NIIF 16?",
+    "opciones": [
+      "Los de corto plazo (12 meses o menos) y los de activos de bajo valor",
+      "Todos los arriendos de locales",
+      "Ninguno",
+      "Solo los arriendos pagados en dólares"
+    ],
+    "correcta": 0,
+    "explicacion": "Son las dos exenciones prácticas de la norma. Por ejemplo, el arriendo de una impresora o un contrato de 6 meses.",
+    "fuente": "NIIF 16, párrafos 5 y 6"
+  }
+]

@@ -15,6 +15,7 @@ import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, natu
 import { ejMayorizar, mesConActivoFijo } from './ejercicios';
 import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from './ajustes';
 import { validarCalculo } from './calculos';
+import { calculoArrendamiento, calculoDeterioro, calculoDividendoMinimo, calculoGananciaPorAccion, valorPresente } from './ifrs';
 import { CUENTAS_BASICAS, ladoAumentoCuenta } from './cuentas';
 import { construirBG, construirEERR, SECCIONES_BG, seccionDe, validarBG, validarEERR, type SeccionBG } from './estados';
 
@@ -267,6 +268,58 @@ describe('Ajustes de cierre (Nivel 4A)', () => {
       const d = generarAjustesCierre(crearRng(s), CONTENIDO.n3.plantillas, CONTENIDO.n4a.plantillas, 3);
       const gastos = d.ajustes.flatMap((t) => t.asiento.lineas).filter((l) => l.lado === 'debe').reduce((a, l) => a + l.monto, 0);
       expect(d.resultadoAjustado).toBe(d.resultadoPrevio - gastos);
+    }
+  });
+});
+
+describe('NIIF plenas y CMF (Nivel 4B)', () => {
+  it('evalúa potencias y el valor presente de un arriendo', () => {
+    expect(evaluar('2 ^ 3 ^ 2', {})).toBe(512);
+    expect(evaluar('(1 + i) ^ (0 - n)', { i: 1, n: 2 })).toBe(0.25);
+    expect(Math.round(valorPresente(1_000_000, 12, 0.01))).toBe(11_255_077);
+  });
+
+  it('los cálculos NIIF se validan con sus propias respuestas', () => {
+    for (const gen of [calculoArrendamiento, calculoDeterioro, calculoGananciaPorAccion, calculoDividendoMinimo])
+      for (let s = 1; s <= 60; s++) {
+        const ej = gen(crearRng(s));
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto, `${ej.titulo} semilla ${s}`).toBe(true);
+      }
+  });
+
+  it('el pasivo inicial del arriendo es la cuota por el factor mostrado', () => {
+    const ej = calculoArrendamiento(crearRng(4));
+    const cuota = leerMonto(ej.datos[0].valor)!;
+    const factor = Number(ej.datos[3].valor.replace(',', '.'));
+    expect(ej.preguntas[0].valor).toBe(Math.round(cuota * factor));
+  });
+
+  it('el deterioro nunca es negativo y usa el mayor valor recuperable', () => {
+    for (let s = 1; s <= 100; s++) {
+      const ej = calculoDeterioro(crearRng(s));
+      const [libro, vrcv, vu] = ej.datos.map((d) => leerMonto(d.valor)!);
+      const recuperable = ej.preguntas[0].valor;
+      expect(recuperable).toBe(Math.max(vrcv, vu));
+      expect(ej.preguntas[1].valor).toBe(Math.max(0, libro - recuperable));
+    }
+  });
+
+  it('la ganancia por acción acepta 2 decimales de tolerancia', () => {
+    const ej = calculoGananciaPorAccion(crearRng(8));
+    const gpa = ej.preguntas[1].valor;
+    const base = { promedio: ej.preguntas[0].valor };
+    expect(validarCalculo(ej, { ...base, gpa: gpa + 0.004 }).correcto).toBe(true);
+    expect(validarCalculo(ej, { ...base, gpa: gpa + 0.02 }).correcto).toBe(false);
+  });
+
+  it('la fiscalización trae 3 infracciones y 3 situaciones correctas', () => {
+    const banco = CONTENIDO.n4b;
+    for (let s = 1; s <= 50; s++) {
+      const ej = banco.generarJefe(crearRng(s));
+      if (ej.tipo !== 'fiscalizacion') throw new Error('tipo inesperado');
+      expect(ej.afirmaciones).toHaveLength(6);
+      expect(ej.afirmaciones.filter((a) => a.infraccion)).toHaveLength(3);
     }
   });
 });

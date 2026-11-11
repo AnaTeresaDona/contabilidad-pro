@@ -58,4 +58,6 @@ export const PARES_CONFUSOS: Record<string, string> = {
   estimacion_incobrables: 'deterioro_clientes',
   gasto_provisiones: 'provisiones',
   provisiones: 'gasto_provisiones',
+  deterioro_activos: 'deterioro_acumulado',
+  deterioro_acumulado: 'deterioro_activos',
 };

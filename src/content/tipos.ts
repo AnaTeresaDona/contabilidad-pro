@@ -17,6 +17,8 @@ export interface ContenidoNivel {
     reintentable: boolean;
     avisoFallo: string;
   };
+  /** Cómo se llama el daño a la caja en este nivel (por defecto, "Caja"). Ej: "Sanción CMF". */
+  etiquetaDanio?: string;
   cierre: string;
 }
 

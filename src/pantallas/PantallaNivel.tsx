@@ -21,6 +21,7 @@ import { EjBalance8 } from '../juego/ejercicios/EjBalance8';
 import { EjBalanceGeneral, EjEstadoResultados, EjEstadosCompletos, EjSecciones } from '../juego/ejercicios/EjEstados';
 import { EjCalculo } from '../juego/ejercicios/EjCalculo';
 import { EjAjustesCierre } from '../juego/ejercicios/EjAjustesCierre';
+import { EjFiscalizacion } from '../juego/ejercicios/EjFiscalizacion';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
 import { Confeti, Modal } from '../componentes/Efectos';
@@ -33,7 +34,7 @@ export function PantallaNivel({ id, onSalir, onVerEmpresa }: { id: string; onSal
   const [reinicio, setReinicio] = useState(0);
 
   return (
-    <ProveedorSesion key={reinicio} onInsolvencia={() => setInsolvente(true)}>
+    <ProveedorSesion key={reinicio} onInsolvencia={() => setInsolvente(true)} etiquetaDanio={CONTENIDO[id]?.etiquetaDanio}>
       <Partida id={id} onSalir={onSalir} onVerEmpresa={onVerEmpresa} pausada={insolvente} />
       {insolvente && (
         <Insolvencia
@@ -382,6 +383,8 @@ function pistaDe(ej: Ejercicio): string {
       return ej.datos.pista;
     case 'ajustesCierre':
       return 'Cada ajuste es un gasto contra una cuenta de balance: depreciación → Depreciación acumulada; deterioro → Estimación de incobrables o Mercaderías; provisión → Provisiones; devengo → Remuneraciones por pagar; anticipo → Arriendo pagado por anticipado. Resultado ajustado = resultado anterior − gastos de los ajustes.';
+    case 'fiscalizacion':
+      return 'Busca: arriendos largos registrados solo como gasto (NIIF 16), hechos esenciales informados tarde, dividendos bajo el 30% sin unanimidad, investigación capitalizada, uso de información privilegiada, activos deteriorados sin ajustar o estados anuales sin auditoría.';
   }
 }
 
@@ -409,6 +412,8 @@ function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }) {
       return <EjCalculo datos={ej.datos} api={api} />;
     case 'ajustesCierre':
       return <EjAjustesCierre datos={ej.datos} api={api} />;
+    case 'fiscalizacion':
+      return <EjFiscalizacion afirmaciones={ej.afirmaciones} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;
     case 'debeHaber':

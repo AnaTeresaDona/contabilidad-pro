@@ -7,6 +7,7 @@ import { generarLibroConErrores, type EntradaLibro } from './libroConErrores';
 import { generarMes, type Balance8 } from './balance8';
 import type { EjercicioCalculo } from './calculos';
 import type { DatosAjustesCierre } from './ajustes';
+import type { Afirmacion } from './ifrs';
 
 export interface Pregunta {
   id: string;
@@ -37,7 +38,8 @@ export type Ejercicio =
   | { tipo: 'bg'; balance: Balance8 }
   | { tipo: 'estados'; asientos: Asiento[]; balance: Balance8 }
   | { tipo: 'calculo'; datos: EjercicioCalculo }
-  | { tipo: 'ajustesCierre'; datos: DatosAjustesCierre };
+  | { tipo: 'ajustesCierre'; datos: DatosAjustesCierre }
+  | { tipo: 'fiscalizacion'; afirmaciones: Afirmacion[] };
 
 /** Cuentas variadas para clasificar en las secciones de los estados financieros. */
 export function ejSecciones(rng: Rng, n = 6): Ejercicio {

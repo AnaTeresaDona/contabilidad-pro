@@ -11,14 +11,18 @@
   { "id": "maquinarias", "nombre": "Maquinarias", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Hornos, amasadoras y otras máquinas para producir (activo fijo)." },
   { "id": "vehiculos", "nombre": "Vehículos", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Vehículos de uso de la empresa, como la camioneta de reparto (activo fijo)." },
   { "id": "terrenos", "nombre": "Terrenos", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Terrenos de propiedad de la empresa (activo fijo, no se deprecia)." },
+  { "id": "derecho_uso", "nombre": "Activo por derecho de uso", "tipo": "activo", "grupo": "no_corriente", "avanzada": true, "descripcion": "Derecho a usar un bien arrendado (por ejemplo, el local) durante el plazo del contrato, según NIIF 16." },
   { "id": "dep_acumulada", "nombre": "Depreciación acumulada", "tipo": "activo", "grupo": "no_corriente", "contra": true, "avanzada": true, "descripcion": "Cuenta complementaria que resta al activo fijo el desgaste acumulado. Costo − depreciación acumulada = valor libro." },
+  { "id": "deterioro_acumulado", "nombre": "Deterioro acumulado de activos", "tipo": "activo", "grupo": "no_corriente", "contra": true, "avanzada": true, "descripcion": "Cuenta complementaria que resta al activo fijo las pérdidas por deterioro (cuando su valor recuperable es menor que su valor libro)." },
   { "id": "proveedores", "nombre": "Proveedores", "tipo": "pasivo", "grupo": "corriente", "descripcion": "Deudas con quienes le venden mercaderías a la empresa al crédito." },
   { "id": "documentos_por_pagar", "nombre": "Documentos por pagar", "tipo": "pasivo", "grupo": "corriente", "descripcion": "Letras o pagarés que la empresa firmó y debe pagar (en el juego, a menos de 12 meses)." },
   { "id": "acreedores", "nombre": "Acreedores varios", "tipo": "pasivo", "grupo": "corriente", "descripcion": "Deudas por compras que no son mercaderías: activo fijo, servicios, etc." },
   { "id": "prestamo_bancario", "nombre": "Préstamo bancario", "tipo": "pasivo", "grupo": "no_corriente", "descripcion": "Dinero que el banco le prestó a la empresa y que debe devolver (en el juego, a más de 12 meses)." },
+  { "id": "pasivo_arrendamiento", "nombre": "Pasivo por arrendamiento", "tipo": "pasivo", "grupo": "no_corriente", "avanzada": true, "descripcion": "Obligación de pagar las cuotas de un arriendo, medida al valor presente de los pagos (NIIF 16). En el juego, todo como no corriente." },
   { "id": "iva_df", "nombre": "IVA Débito Fiscal", "tipo": "pasivo", "grupo": "corriente", "descripcion": "IVA cobrado en las ventas. Es una obligación: se declara y se paga al SII." },
   { "id": "remuneraciones_por_pagar", "nombre": "Remuneraciones por pagar", "tipo": "pasivo", "grupo": "corriente", "descripcion": "Sueldos devengados que aún no se pagan a los trabajadores." },
   { "id": "provisiones", "nombre": "Provisiones", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Obligaciones presentes de monto o fecha inciertos, como una demanda que probablemente se perderá." },
+  { "id": "dividendos_por_pagar", "nombre": "Dividendos por pagar", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Dividendos acordados por la junta de accionistas que aún no se pagan." },
   { "id": "capital", "nombre": "Capital", "tipo": "patrimonio", "descripcion": "Aportes de los dueños a la empresa." },
   { "id": "resultados_acumulados", "nombre": "Resultados acumulados", "tipo": "patrimonio", "descripcion": "Utilidades o pérdidas de ejercicios anteriores no retiradas." },
   { "id": "ventas", "nombre": "Ventas", "tipo": "ingreso", "grupo": "operacional", "descripcion": "Ingresos por la venta de los productos de la empresa (valor neto, sin IVA)." },
@@ -32,5 +36,6 @@
   { "id": "depreciacion", "nombre": "Gasto por depreciación", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Desgaste del período de los activos fijos. Es un gasto que no usa dinero." },
   { "id": "deterioro_clientes", "nombre": "Gasto por deterioro de deudores", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pérdida estimada por clientes que no pagarán." },
   { "id": "deterioro_inventario", "nombre": "Pérdida por deterioro de inventario", "tipo": "gasto", "grupo": "costo", "avanzada": true, "descripcion": "Baja del inventario cuando su precio de venta estimado (menos costos de venta) es menor que su costo." },
-  { "id": "gasto_provisiones", "nombre": "Gasto por provisiones", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Gasto reconocido al registrar una provisión." }
+  { "id": "gasto_provisiones", "nombre": "Gasto por provisiones", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Gasto reconocido al registrar una provisión." },
+  { "id": "deterioro_activos", "nombre": "Pérdida por deterioro de activos", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pérdida cuando el valor recuperable de un activo es menor que su valor libro (NIC 36)." }
 ]
