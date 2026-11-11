@@ -22,6 +22,7 @@ import { EjBalanceGeneral, EjEstadoResultados, EjEstadosCompletos, EjSecciones }
 import { EjCalculo } from '../juego/ejercicios/EjCalculo';
 import { EjAjustesCierre } from '../juego/ejercicios/EjAjustesCierre';
 import { EjFiscalizacion } from '../juego/ejercicios/EjFiscalizacion';
+import { EjClasificarPartidas, EjOperacionRenta } from '../juego/ejercicios/EjPartidas';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
 import { Confeti, Modal } from '../componentes/Efectos';
@@ -385,6 +386,9 @@ function pistaDe(ej: Ejercicio): string {
       return 'Cada ajuste es un gasto contra una cuenta de balance: depreciación → Depreciación acumulada; deterioro → Estimación de incobrables o Mercaderías; provisión → Provisiones; devengo → Remuneraciones por pagar; anticipo → Arriendo pagado por anticipado. Resultado ajustado = resultado anterior − gastos de los ajustes.';
     case 'fiscalizacion':
       return 'Busca: arriendos largos registrados solo como gasto (NIIF 16), hechos esenciales informados tarde, dividendos bajo el 30% sin unanimidad, investigación capitalizada, uso de información privilegiada, activos deteriorados sin ajustar o estados anuales sin auditoría.';
+    case 'clasificarPartidas':
+    case 'operacionRenta':
+      return 'Agregados: multas fiscales, provisiones y estimaciones no pagadas, deterioros contables, gastos sin respaldo o personales. Deducciones: dividendos de S.A. chilenas, mayor depreciación acelerada, provisiones de años anteriores pagadas este año. Gastos necesarios y acreditados: sin ajuste. RLI = resultado + agregados − deducciones; impuesto = RLI × 27%; saldo = impuesto − PPM.';
   }
 }
 
@@ -414,6 +418,10 @@ function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }) {
       return <EjAjustesCierre datos={ej.datos} api={api} />;
     case 'fiscalizacion':
       return <EjFiscalizacion afirmaciones={ej.afirmaciones} api={api} />;
+    case 'clasificarPartidas':
+      return <EjClasificarPartidas partidas={ej.partidas} api={api} />;
+    case 'operacionRenta':
+      return <EjOperacionRenta datos={ej.datos} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;
     case 'debeHaber':

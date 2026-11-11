@@ -1,0 +1,86 @@
+[
+  {
+    "id": "p_multa",
+    "texto": "Multa e intereses pagados al SII por declarar fuera de plazo",
+    "tipo": "agregado", "min": 200000, "max": 1500000, "paso": 10000,
+    "explicacion": "Las multas e intereses pagados al Fisco no son gastos necesarios para producir la renta: son gastos rechazados y se agregan.",
+    "fuente": "LIR, arts. 31 y 33 N°1"
+  },
+  {
+    "id": "p_provision_demanda",
+    "texto": "Provisión por una demanda laboral registrada este año (aún no pagada)",
+    "tipo": "agregado", "min": 500000, "max": 4000000, "paso": 50000,
+    "explicacion": "Las provisiones son estimaciones: tributariamente el gasto se acepta cuando se paga efectivamente. Este año se agrega.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "p_estimacion_incobrables",
+    "texto": "Estimación contable de deudores incobrables del año",
+    "tipo": "agregado", "min": 300000, "max": 3000000, "paso": 10000,
+    "explicacion": "La ley acepta solo el castigo de créditos incobrables después de agotar prudencialmente los medios de cobro, no la estimación contable.",
+    "fuente": "LIR, art. 31 N°4"
+  },
+  {
+    "id": "p_deterioro_nic36",
+    "texto": "Pérdida por deterioro de una máquina (NIC 36)",
+    "tipo": "agregado", "min": 500000, "max": 5000000, "paso": 50000,
+    "explicacion": "El deterioro contable no es un gasto tributario: los activos fijos se rebajan tributariamente solo mediante la depreciación que fija la ley.",
+    "fuente": "LIR, art. 31 N°5"
+  },
+  {
+    "id": "p_gasto_personal",
+    "texto": "Viaje familiar del dueño pagado por la empresa",
+    "tipo": "agregado", "min": 800000, "max": 4000000, "paso": 50000,
+    "explicacion": "No es necesario para producir la renta de la empresa: es un gasto rechazado. Además, al beneficiar al dueño queda afecto a la tributación especial del artículo 21.",
+    "fuente": "LIR, arts. 21 y 31"
+  },
+  {
+    "id": "p_sin_respaldo",
+    "texto": "Compras de insumos sin factura ni documento de respaldo",
+    "tipo": "agregado", "min": 200000, "max": 2000000, "paso": 10000,
+    "explicacion": "Para deducir un gasto hay que acreditarlo fehacientemente ante el SII. Sin documentos, es un gasto rechazado.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "p_dividendos",
+    "texto": "Dividendos recibidos de otra sociedad anónima chilena (incluidos como ingreso)",
+    "tipo": "deduccion", "min": 500000, "max": 5000000, "paso": 50000,
+    "explicacion": "Esas utilidades ya pagaron Impuesto de Primera Categoría en la sociedad que las generó: se deducen para no gravarlas dos veces.",
+    "fuente": "LIR, art. 33 N°2 letra a)"
+  },
+  {
+    "id": "p_depreciacion_acelerada",
+    "texto": "Mayor gasto por depreciación acelerada tributaria (diferencia sobre la depreciación contable)",
+    "tipo": "deduccion", "min": 500000, "max": 6000000, "paso": 50000,
+    "explicacion": "La ley permite una depreciación más rápida que la contable. La diferencia adicional se deduce de la RLI.",
+    "fuente": "LIR, art. 31 N°5"
+  },
+  {
+    "id": "p_provision_pagada",
+    "texto": "Demanda de años anteriores (provisionada y agregada esos años) pagada este año",
+    "tipo": "deduccion", "min": 300000, "max": 3000000, "paso": 50000,
+    "explicacion": "Este año se pagó efectivamente: el gasto ahora es aceptado, pero no está en el resultado contable del año (se reconoció antes). Por eso se deduce.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "p_sueldos",
+    "texto": "Sueldos de los trabajadores, con contratos y cotizaciones pagadas",
+    "tipo": "sin_ajuste", "min": 5000000, "max": 20000000, "paso": 100000,
+    "explicacion": "Es un gasto necesario, del año, pagado y acreditado: ya está bien rebajado en el resultado contable.",
+    "fuente": "LIR, art. 31 N°6"
+  },
+  {
+    "id": "p_arriendo",
+    "texto": "Arriendo del local con contrato y comprobantes de pago",
+    "tipo": "sin_ajuste", "min": 3000000, "max": 12000000, "paso": 100000,
+    "explicacion": "Es un gasto necesario y acreditado: no requiere ajuste.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "p_intereses",
+    "texto": "Intereses del préstamo bancario usado en el giro del negocio",
+    "tipo": "sin_ajuste", "min": 300000, "max": 3000000, "paso": 10000,
+    "explicacion": "Los intereses de créditos destinados a generar la renta son gasto aceptado.",
+    "fuente": "LIR, art. 31 N°1"
+  }
+]

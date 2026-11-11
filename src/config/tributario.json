@@ -1,6 +1,10 @@
 {
   "anioTributario": 2026,
-  "nota": "Parámetros tributarios usados por el juego. Revisar y actualizar cada año tributario.",
+  "nota": "Parámetros tributarios usados por el juego. Revisar y actualizar cada año tributario con las fuentes oficiales del SII.",
   "tasaIva": 0.19,
-  "fuenteIva": "DL 825, Ley sobre Impuesto a las Ventas y Servicios, art. 14"
+  "fuenteIva": "DL 825, Ley sobre Impuesto a las Ventas y Servicios, art. 14",
+  "tasaPrimeraCategoria": 0.27,
+  "fuentePrimeraCategoria": "LIR, art. 20 (régimen general semi integrado, art. 14 letra A)",
+  "tasaRetencionHonorarios": 0.1525,
+  "fuenteRetencionHonorarios": "LIR, art. 74 N°2 y art. 43 N°2; tasa gradual de la Ley 21.133 (verificar la tasa del año)"
 }

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "n5-s01",
+    "pregunta": "La Tía Rosa dice: \"La utilidad contable fue $50 millones, así que pagamos 27% de eso\". ¿Qué le respondes?",
+    "opciones": [
+      "Primero hay que calcular la RLI: agregar gastos rechazados y deducir lo que la ley permite",
+      "Tiene razón: el impuesto es siempre 27% de la utilidad contable",
+      "El impuesto es 19% de las ventas",
+      "No se paga impuesto si hubo PPM"
+    ],
+    "correcta": 0,
+    "explicacion": "El impuesto se calcula sobre la RLI, no sobre la utilidad contable.",
+    "fuente": "LIR, arts. 20 y 29 a 33"
+  },
+  {
+    "id": "n5-s02",
+    "pregunta": "El gerente compró un auto para uso de su familia con fondos de la empresa y lo registró como gasto. ¿Qué pasa tributariamente?",
+    "opciones": [
+      "Es gasto rechazado: se agrega a la RLI y tiene la tributación especial del art. 21",
+      "Es gasto aceptado porque hay factura",
+      "Se deduce de la RLI",
+      "No tiene efecto"
+    ],
+    "correcta": 0,
+    "explicacion": "No es necesario para producir la renta y beneficia a una persona relacionada con la empresa.",
+    "fuente": "LIR, arts. 21 y 31"
+  },
+  {
+    "id": "n5-s03",
+    "pregunta": "La empresa recibió dividendos de su inversión en otra S.A. chilena y los incluyó en su resultado. Para la RLI…",
+    "opciones": ["Se deducen", "Se agregan", "Se dejan sin ajuste", "Se multiplican por 27%"],
+    "correcta": 0,
+    "explicacion": "Ya tributaron en la sociedad que los pagó. Se deducen para evitar la doble tributación.",
+    "fuente": "LIR, art. 33 N°2 letra a)"
+  },
+  {
+    "id": "n5-s04",
+    "pregunta": "En marzo de este año se pagó una demanda que se había provisionado (y agregado) el año pasado. Para la RLI de este año…",
+    "opciones": [
+      "Se deduce, porque recién ahora se pagó y no está en el resultado del año",
+      "Se agrega otra vez",
+      "No tiene efecto",
+      "Se paga 40% de impuesto"
+    ],
+    "correcta": 0,
+    "explicacion": "El gasto tributario corresponde al año del pago efectivo; como el gasto contable fue del año anterior, ahora se deduce.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "n5-s05",
+    "pregunta": "Pagas una boleta de honorarios bruta de $1.000.000 con retención de 15,25%. ¿Cuánto recibe el profesional?",
+    "opciones": ["$847.500", "$1.000.000", "$1.152.500", "$152.500"],
+    "correcta": 0,
+    "explicacion": "Retención = $1.000.000 × 15,25% = $152.500. Líquido = $1.000.000 − $152.500 = $847.500.",
+    "fuente": "LIR, art. 74 N°2; Ley 21.133"
+  },
+  {
+    "id": "n5-s06",
+    "pregunta": "¿Cómo se registra el PPM pagado cada mes en el F29?",
+    "opciones": [
+      "Como un activo (anticipo de impuesto) que se descuenta del impuesto en abril",
+      "Como gasto del mes",
+      "Como ingreso",
+      "Como una deuda con el SII"
+    ],
+    "correcta": 0,
+    "explicacion": "Es un pago anticipado: un derecho a imputarlo contra el impuesto anual.",
+    "fuente": "LIR, art. 84"
+  }
+]

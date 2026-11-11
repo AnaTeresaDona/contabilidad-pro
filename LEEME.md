@@ -2,7 +2,7 @@
 
 Juego web para aprender contabilidad chilena. Eres el contador de **Empanadas La Tía SpA**, que crece nivel a nivel: de emprendimiento a sociedad anónima abierta.
 
-**Estado actual:** Niveles 1 a 4B jugables (trivia, práctica y jefe final). Los niveles 5 y 6 aparecen en el mapa como "Próximamente".
+**Estado actual:** Niveles 1 a 5 jugables (trivia, práctica y jefe final). El nivel 6 aparece en el mapa como "Próximamente".
 
 | Nivel | Qué se practica | Jefe final |
 |---|---|---|
@@ -11,6 +11,7 @@ Juego web para aprender contabilidad chilena. Eres el contador de **Empanadas La
 | 3 · Estados Financieros | Clasificar cuentas en corriente / no corriente / resultados, calcular margen bruto, resultado operacional y antes de impuesto, armar el Balance General, interpretar | Estado de Resultados + Balance General clasificado para el comité de riesgo |
 | 4A · IFRS para PyMEs | Depreciación lineal, ajustes de cierre (deterioro de clientes e inventario, provisiones, devengo, gastos anticipados), estados antes y después de ajustes | Registrar los ajustes que pide la auditora externa y calcular el resultado ajustado |
 | 4B · NIIF plenas y CMF | Arrendamientos NIIF 16 (valor presente, interés, depreciación), deterioro NIC 36, ganancia por acción NIC 33, dividendo mínimo legal, hechos esenciales e información privilegiada | Fiscalización de la CMF: encontrar las 3 infracciones entre 6 situaciones (los errores se muestran como "Sanción CMF") |
+| 5 · SII y Operación Renta | Clasificar partidas (agregado, deducción, sin ajuste), calcular la RLI y el Impuesto de Primera Categoría, PPM y saldo del F22, asientos tributarios (PPM, impuesto, honorarios con retención, multas) | Operación Renta con la fiscalizadora del SII: revisar 6 partidas y completar el F22 (los errores se muestran como "Multa SII") |
 
 En **Mi empresa** puedes ver el Libro Diario, el Mayor, el Balance de 8 columnas y los Estados Financieros de tu propia empresa, armados con todos los asientos que has registrado bien.
 
@@ -58,7 +59,7 @@ Desde ahí, cada cambio que subas a GitHub se publica automáticamente.
 
 ```
 src/
-  config/tributario.json   ← tasas del año tributario (IVA, etc.). Actualizar cada año.
+  config/tributario.json   ← tasas del año tributario (IVA, Primera Categoría, retención de honorarios). Actualizar cada año.
   content/                 ← TODO el contenido educativo, separado del código
     cuentas.json           ← plan de cuentas con su tipo y descripción
     errores.json           ← catálogo de errores: regla, explicación, cómo corregir y fuente
@@ -76,6 +77,12 @@ src/
     nivel3/
       preguntas.json       ← trivia de estados financieros (NIC 1)
       situaciones.json     ← preguntas de interpretación para la práctica
+      index.ts
+    nivel5/
+      preguntas.json       ← trivia de RLI, gastos rechazados, PPM, F22 y retenciones
+      situaciones.json     ← casos tributarios para la práctica
+      partidas.json        ← partidas para la RLI (agregado, deducción o sin ajuste) con su artículo de la LIR
+      plantillas.json      ← PPM, impuesto a la renta, F22, honorarios, multas
       index.ts
     nivel4b/
       preguntas.json       ← trivia de NIIF plenas, CMF y sociedades anónimas

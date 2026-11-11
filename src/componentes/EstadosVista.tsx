@@ -47,6 +47,19 @@ export function EstadoResultadosVista({ e, titulo = 'Estado de Resultados' }: { 
         fuerte
         clase={`border-t-2 border-slate-400 ${e.resultadoAntesImpuesto >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}
       />
+      {e.impuestos.length > 0 && (
+        <>
+          {e.impuestos.map((l) => (
+            <Fila key={l.cuentaId} etiqueta={nombreLinea(l.cuentaId)} valor={menos(l.monto)} sangria />
+          ))}
+          <Fila
+            etiqueta="Resultado del ejercicio"
+            valor={formatoCLP(e.resultadoEjercicio)}
+            fuerte
+            clase={`border-t-2 border-slate-400 ${e.resultadoEjercicio >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}
+          />
+        </>
+      )}
     </div>
   );
 }

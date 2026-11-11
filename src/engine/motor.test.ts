@@ -15,6 +15,9 @@ import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, natu
 import { ejMayorizar, mesConActivoFijo } from './ejercicios';
 import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from './ajustes';
 import { validarCalculo } from './calculos';
+import { calculoF22, calculoRLI, generarOperacionRenta, TASA_PRIMERA_CATEGORIA, totalPorTipo, validarOperacionRenta } from './tributario';
+import { PARTIDAS } from '../content/nivel5';
+import trib from '../config/tributario.json';
 import { calculoArrendamiento, calculoDeterioro, calculoDividendoMinimo, calculoGananciaPorAccion, valorPresente } from './ifrs';
 import { CUENTAS_BASICAS, ladoAumentoCuenta } from './cuentas';
 import { construirBG, construirEERR, SECCIONES_BG, seccionDe, validarBG, validarEERR, type SeccionBG } from './estados';
@@ -324,6 +327,57 @@ describe('NIIF plenas y CMF (Nivel 4B)', () => {
   });
 });
 
+describe('Tributación y Operación Renta (Nivel 5)', () => {
+  const partidas = PARTIDAS;
+
+  it('la RLI es el resultado más agregados menos deducciones, y el saldo descuenta los PPM', () => {
+    for (let s = 1; s <= 100; s++) {
+      const d = generarOperacionRenta(crearRng(s), partidas, { agregados: 3, deducciones: 2, sinAjuste: 1 });
+      expect(d.partidas).toHaveLength(6);
+      expect(d.rli).toBe(d.resultadoContable + totalPorTipo(d.partidas, 'agregado') - totalPorTipo(d.partidas, 'deduccion'));
+      expect(d.rli).toBeGreaterThan(0);
+      expect(d.impuesto).toBe(Math.round(d.rli * TASA_PRIMERA_CATEGORIA));
+      expect(d.saldo).toBe(d.impuesto - d.ppm);
+      const resp = Object.fromEntries(d.partidas.map((p) => [p.id, p.tipo]));
+      expect(validarOperacionRenta(d, { clasificacion: resp, rli: d.rli, impuesto: d.impuesto, saldo: d.saldo }).correcto).toBe(true);
+    }
+  });
+
+  it('detecta partidas mal clasificadas y cálculos errados', () => {
+    const d = generarOperacionRenta(crearRng(2), partidas, { agregados: 3, deducciones: 2, sinAjuste: 1 });
+    const resp = Object.fromEntries(d.partidas.map((p) => [p.id, p.tipo]));
+    const agregado = d.partidas.find((p) => p.tipo === 'agregado')!;
+    const r = validarOperacionRenta(d, { clasificacion: { ...resp, [agregado.id]: 'deduccion' }, rli: d.rli + 1, impuesto: d.impuesto, saldo: d.saldo });
+    expect(r.errores.map((e) => e.tipo)).toEqual(['clasificacion_tributaria', 'calculo_incorrecto']);
+  });
+
+  it('los cálculos de RLI y F22 se validan con sus respuestas', () => {
+    for (let s = 1; s <= 50; s++)
+      for (const ej of [calculoRLI(crearRng(s), partidas), calculoF22(crearRng(s))]) {
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto).toBe(true);
+      }
+  });
+
+  it('las tasas escritas en las plantillas coinciden con la configuración tributaria', () => {
+    const p = CONTENIDO.n5.plantillas;
+    const impuesto = generarTransaccion(p.find((x) => x.id === 'provision_impuesto')!, crearRng(1)).valores;
+    expect(impuesto.impuesto).toBe(Math.round(impuesto.rli * TASA_PRIMERA_CATEGORIA));
+    const hon = generarTransaccion(p.find((x) => x.id === 'pago_honorarios')!, crearRng(1)).valores;
+    expect(hon.retencion).toBe(Math.round(hon.bruto * trib.tasaRetencionHonorarios));
+  });
+
+  it('el impuesto a la renta se presenta después del resultado antes de impuesto', () => {
+    const e = construirEERR([
+      { cuentaId: 'ventas', debe: 0, haber: 1_000_000 },
+      { cuentaId: 'impuesto_renta', debe: 270_000, haber: 0 },
+    ]);
+    expect(e.resultadoAntesImpuesto).toBe(1_000_000);
+    expect(e.resultadoEjercicio).toBe(730_000);
+    expect(e.gastosOperacionales).toHaveLength(0);
+  });
+});
+
 describe('contenido', () => {
   it('las preguntas están bien formadas y sin ids repetidos', () => {
     const ids = new Set<string>();
@@ -340,7 +394,7 @@ describe('contenido', () => {
     }
   });
   it('cada tipo de error del motor existe en el catálogo', () => {
-    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto'];
+    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto', 'clasificacion_tributaria'];
     for (const t of usados) expect(tiposDeError()).toContain(t);
     expect(infoError('descuadre').severidad).toBe('grave');
   });

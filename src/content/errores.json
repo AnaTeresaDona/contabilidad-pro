@@ -127,6 +127,14 @@
     "comoCorregir": "Escribe la fórmula primero, reemplaza los datos y calcula en orden. Redondea al peso solo al final.",
     "fuente": ""
   },
+  "clasificacion_tributaria": {
+    "titulo": "Partida mal clasificada para la RLI",
+    "severidad": "grave",
+    "regla": "La RLI parte del resultado contable. Se AGREGAN los gastos que la ley no acepta (o aún no acepta), se DEDUCEN los ingresos que no tributan o que la ley permite rebajar, y las partidas aceptadas no se ajustan.",
+    "explicacion": "La contabilidad (NIIF) y los impuestos (LIR) miden distinto: por eso el resultado contable y la renta imponible casi nunca son iguales.",
+    "comoCorregir": "Pregúntate: ¿la ley acepta este gasto este año? Si no, se agrega. ¿Este ingreso ya tributó o no constituye renta? Entonces se deduce.",
+    "fuente": "LIR, arts. 29 a 33"
+  },
   "error_no_detectado": {
     "titulo": "Se te pasó un error",
     "severidad": "grave",

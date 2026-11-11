@@ -8,6 +8,7 @@ import { generarMes, type Balance8 } from './balance8';
 import type { EjercicioCalculo } from './calculos';
 import type { DatosAjustesCierre } from './ajustes';
 import type { Afirmacion } from './ifrs';
+import type { DatosOperacionRenta, Partida } from './tributario';
 
 export interface Pregunta {
   id: string;
@@ -39,7 +40,9 @@ export type Ejercicio =
   | { tipo: 'estados'; asientos: Asiento[]; balance: Balance8 }
   | { tipo: 'calculo'; datos: EjercicioCalculo }
   | { tipo: 'ajustesCierre'; datos: DatosAjustesCierre }
-  | { tipo: 'fiscalizacion'; afirmaciones: Afirmacion[] };
+  | { tipo: 'fiscalizacion'; afirmaciones: Afirmacion[] }
+  | { tipo: 'clasificarPartidas'; partidas: Partida[] }
+  | { tipo: 'operacionRenta'; datos: DatosOperacionRenta };
 
 /** Cuentas variadas para clasificar en las secciones de los estados financieros. */
 export function ejSecciones(rng: Rng, n = 6): Ejercicio {

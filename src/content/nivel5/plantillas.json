@@ -1,0 +1,75 @@
+[
+  {
+    "id": "pago_ppm",
+    "texto": "Junto con el IVA del mes, pagas en el Formulario 29 el pago provisional mensual (PPM) de {ppm}.",
+    "variables": { "ppm": { "min": 200000, "max": 2500000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "ppm", "lado": "debe", "monto": "ppm" },
+      { "cuenta": "banco", "lado": "haber", "monto": "ppm" }
+    ],
+    "pista": "El PPM no es un gasto: es un anticipo del impuesto anual. Se registra como activo hasta abril, cuando se descuenta del impuesto."
+  },
+  {
+    "id": "provision_impuesto",
+    "texto": "Al cierre del año, la Renta Líquida Imponible es {rli}. Con la tasa del régimen general (27%), registra el Impuesto de Primera Categoría del año.",
+    "variables": {
+      "rli": { "min": 20000000, "max": 120000000, "paso": 10000 },
+      "impuesto": { "formula": "rli * 27 / 100" }
+    },
+    "lineas": [
+      { "cuenta": "impuesto_renta", "lado": "debe", "monto": "impuesto" },
+      { "cuenta": "impuesto_por_pagar", "lado": "haber", "monto": "impuesto" }
+    ],
+    "pista": "Impuesto = RLI × 27%. Es un gasto del año (después del resultado antes de impuesto) y una deuda con el Fisco hasta abril."
+  },
+  {
+    "id": "pago_f22",
+    "texto": "En abril declaras el Formulario 22: el impuesto del año es {impuesto} y durante el año pagaste PPM por {ppm}. Pagas la diferencia con transferencia.",
+    "variables": {
+      "impuesto": { "min": 5000000, "max": 30000000, "paso": 1000 },
+      "ppm": { "de": "impuesto", "factor": [0.6, 0.9], "paso": 1000 },
+      "saldo": { "formula": "impuesto - ppm" }
+    },
+    "lineas": [
+      { "cuenta": "impuesto_por_pagar", "lado": "debe", "monto": "impuesto" },
+      { "cuenta": "ppm", "lado": "haber", "monto": "ppm" },
+      { "cuenta": "banco", "lado": "haber", "monto": "saldo" }
+    ],
+    "pista": "Se salda la deuda completa (Impuesto por pagar al Debe). Los PPM acumulados se aplican (PPM al Haber) y el banco paga solo la diferencia."
+  },
+  {
+    "id": "pago_honorarios",
+    "texto": "Pagas la boleta de honorarios de una diseñadora por {bruto} brutos. Como la empresa paga, debe retener el impuesto (tasa de retención 2026: 15,25%) y transferirle el líquido.",
+    "variables": {
+      "bruto": { "min": 200000, "max": 2000000, "paso": 10000 },
+      "retencion": { "formula": "bruto * 1525 / 10000" },
+      "liquido": { "formula": "bruto - retencion" }
+    },
+    "lineas": [
+      { "cuenta": "honorarios", "lado": "debe", "monto": "bruto" },
+      { "cuenta": "retenciones_por_pagar", "lado": "haber", "monto": "retencion" },
+      { "cuenta": "banco", "lado": "haber", "monto": "liquido" }
+    ],
+    "pista": "El gasto es el monto bruto. La retención (bruto × 15,25%) es una deuda con el SII. A la profesional se le paga el líquido: bruto − retención."
+  },
+  {
+    "id": "pago_retenciones",
+    "texto": "Declaras y pagas en el Formulario 29 las retenciones de honorarios del mes: {monto}.",
+    "variables": { "monto": { "min": 30000, "max": 600000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "retenciones_por_pagar", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Se paga una deuda con el SII: disminuye Retenciones por pagar y sale dinero del banco."
+  },
+  {
+    "id": "pago_multa",
+    "texto": "Pagas con transferencia una multa e intereses al SII por {monto}, por declarar un F29 fuera de plazo.",
+    "variables": { "monto": { "min": 50000, "max": 1500000, "paso": 1000 } },
+    "lineas": [
+      { "cuenta": "multas", "lado": "debe", "monto": "monto" },
+      { "cuenta": "banco", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Contablemente es un gasto (Multas e intereses fiscales). Ojo: tributariamente es un gasto rechazado y se agregará a la RLI."
+  }
+]

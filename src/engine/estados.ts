@@ -66,6 +66,10 @@ export interface EstadoResultados {
   otrosIngresos: LineaEstado[];
   otrosGastos: LineaEstado[];
   resultadoAntesImpuesto: number;
+  /** Impuesto a la renta del período (vacío si aún no se registra). */
+  impuestos: LineaEstado[];
+  /** Resultado después de impuesto: es el que se suma al patrimonio. */
+  resultadoEjercicio: number;
 }
 
 export function construirEERR(filas: FilaSaldo[]): EstadoResultados {
@@ -79,14 +83,16 @@ export function construirEERR(filas: FilaSaldo[]): EstadoResultados {
 
   const ventas = lineas((t, g) => t === 'ingreso' && g !== 'no_operacional');
   const costo = lineas((t, g) => t === 'gasto' && g === 'costo');
-  const gastosOperacionales = lineas((t, g) => t === 'gasto' && g !== 'costo' && g !== 'no_operacional');
+  const gastosOperacionales = lineas((t, g) => t === 'gasto' && g !== 'costo' && g !== 'no_operacional' && g !== 'impuesto');
+  const impuestos = lineas((t, g) => t === 'gasto' && g === 'impuesto');
   const otrosIngresos = lineas((t, g) => t === 'ingreso' && g === 'no_operacional');
   const otrosGastos = lineas((t, g) => t === 'gasto' && g === 'no_operacional');
 
   const margenBruto = suma(ventas) - suma(costo);
   const resultadoOperacional = margenBruto - suma(gastosOperacionales);
   const resultadoAntesImpuesto = resultadoOperacional + suma(otrosIngresos) - suma(otrosGastos);
-  return { ventas, costo, margenBruto, gastosOperacionales, resultadoOperacional, otrosIngresos, otrosGastos, resultadoAntesImpuesto };
+  const resultadoEjercicio = resultadoAntesImpuesto - suma(impuestos);
+  return { ventas, costo, margenBruto, gastosOperacionales, resultadoOperacional, otrosIngresos, otrosGastos, resultadoAntesImpuesto, impuestos, resultadoEjercicio };
 }
 
 export interface TotalesBG {
@@ -135,7 +141,7 @@ export function construirBG(filas: FilaSaldo[]): BalanceGeneral {
     const s = seccionDe(f.cuentaId);
     if (s !== 'resultados') secciones[s].push({ cuentaId: f.cuentaId, monto: montoNormal(f) });
   }
-  const resultado = construirEERR(filas).resultadoAntesImpuesto;
+  const resultado = construirEERR(filas).resultadoEjercicio;
   return { secciones, resultado, totales: calcularTotalesBG(secciones, resultado) };
 }
 

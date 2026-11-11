@@ -35,9 +35,16 @@
 - Los errores muestran cuánta caja se pierde; en este nivel, como "Sanción CMF".
 - Simplificación conocida: el pasivo por arrendamiento se presenta completo como no corriente.
 
+## Fase 5 — Hecha
+- Nivel 5: 16 preguntas (LIR arts. 14, 20, 21, 29-33, 74, 84), 6 situaciones, 12 partidas para la RLI con su artículo.
+- Ejercicios: clasificar partidas, cálculo de RLI e impuesto, F22 (impuesto − PPM, con devolución), asientos tributarios.
+- Jefe: Operación Renta con la fiscalizadora del SII (errores como "Multa SII").
+- El Estado de Resultados ahora muestra el impuesto a la renta y el resultado del ejercicio cuando existen.
+- Tasas en config/tributario.json: Primera Categoría régimen general 27% y retención de honorarios 15,25% (2026). Las plantillas tienen esas tasas escritas en el texto; un test avisa si dejan de coincidir con la configuración.
+- Simplificaciones conocidas: solo régimen general (sin Pro Pyme), sin impuestos finales de los dueños (Global Complementario / Adicional) ni créditos distintos de los PPM.
+
 ## Próximas fases (una por iteración)
-1. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
-2. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
+1. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
    - Liquidez: razón corriente, prueba ácida, capital de trabajo.
    - Endeudamiento y solvencia: deuda/patrimonio, deuda/activos, cobertura de intereses.
    - Rentabilidad: margen bruto, operacional y neto, ROA, ROE.

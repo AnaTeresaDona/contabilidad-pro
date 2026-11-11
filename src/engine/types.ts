@@ -4,9 +4,10 @@ export type Lado = 'debe' | 'haber';
 /**
  * Grupo para los estados financieros:
  * - activos y pasivos: corriente (se realiza o paga dentro de 12 meses) o no corriente.
- * - ingresos y gastos: costo, operacional (giro del negocio) o no operacional (financieros y otros).
+ * - ingresos y gastos: costo, operacional (giro del negocio), no operacional (financieros y otros)
+ *   o impuesto (impuesto a la renta, va después del resultado antes de impuesto).
  */
-export type GrupoCuenta = 'corriente' | 'no_corriente' | 'costo' | 'operacional' | 'no_operacional';
+export type GrupoCuenta = 'corriente' | 'no_corriente' | 'costo' | 'operacional' | 'no_operacional' | 'impuesto';
 
 export interface Cuenta {
   id: string;

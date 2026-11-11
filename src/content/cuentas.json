@@ -7,6 +7,7 @@
   { "id": "mercaderias", "nombre": "Mercaderías", "tipo": "activo", "grupo": "corriente", "descripcion": "Inventario: productos e insumos comprados para vender o producir." },
   { "id": "iva_cf", "nombre": "IVA Crédito Fiscal", "tipo": "activo", "grupo": "corriente", "descripcion": "IVA pagado en las compras. Es un derecho: se descuenta del IVA que se cobra en las ventas." },
   { "id": "arriendo_anticipado", "nombre": "Arriendo pagado por anticipado", "tipo": "activo", "grupo": "corriente", "avanzada": true, "descripcion": "Arriendo ya pagado por meses que aún no se usan. Es un activo hasta que se consume." },
+  { "id": "ppm", "nombre": "Pagos provisionales mensuales (PPM)", "tipo": "activo", "grupo": "corriente", "avanzada": true, "descripcion": "Anticipos del impuesto a la renta pagados cada mes en el F29. En abril se descuentan del impuesto anual." },
   { "id": "muebles", "nombre": "Muebles y útiles", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Mesas, sillas, estantes y otros muebles de uso de la empresa (activo fijo)." },
   { "id": "maquinarias", "nombre": "Maquinarias", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Hornos, amasadoras y otras máquinas para producir (activo fijo)." },
   { "id": "vehiculos", "nombre": "Vehículos", "tipo": "activo", "grupo": "no_corriente", "descripcion": "Vehículos de uso de la empresa, como la camioneta de reparto (activo fijo)." },
@@ -23,6 +24,8 @@
   { "id": "remuneraciones_por_pagar", "nombre": "Remuneraciones por pagar", "tipo": "pasivo", "grupo": "corriente", "descripcion": "Sueldos devengados que aún no se pagan a los trabajadores." },
   { "id": "provisiones", "nombre": "Provisiones", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Obligaciones presentes de monto o fecha inciertos, como una demanda que probablemente se perderá." },
   { "id": "dividendos_por_pagar", "nombre": "Dividendos por pagar", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Dividendos acordados por la junta de accionistas que aún no se pagan." },
+  { "id": "impuesto_por_pagar", "nombre": "Impuesto a la renta por pagar", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Impuesto de Primera Categoría del año, que se declara y paga en la Operación Renta (F22)." },
+  { "id": "retenciones_por_pagar", "nombre": "Retenciones por pagar", "tipo": "pasivo", "grupo": "corriente", "avanzada": true, "descripcion": "Impuestos retenidos a terceros (por ejemplo, de boletas de honorarios) que la empresa debe enterar al SII." },
   { "id": "capital", "nombre": "Capital", "tipo": "patrimonio", "descripcion": "Aportes de los dueños a la empresa." },
   { "id": "resultados_acumulados", "nombre": "Resultados acumulados", "tipo": "patrimonio", "descripcion": "Utilidades o pérdidas de ejercicios anteriores no retiradas." },
   { "id": "ventas", "nombre": "Ventas", "tipo": "ingreso", "grupo": "operacional", "descripcion": "Ingresos por la venta de los productos de la empresa (valor neto, sin IVA)." },
@@ -37,5 +40,8 @@
   { "id": "deterioro_clientes", "nombre": "Gasto por deterioro de deudores", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pérdida estimada por clientes que no pagarán." },
   { "id": "deterioro_inventario", "nombre": "Pérdida por deterioro de inventario", "tipo": "gasto", "grupo": "costo", "avanzada": true, "descripcion": "Baja del inventario cuando su precio de venta estimado (menos costos de venta) es menor que su costo." },
   { "id": "gasto_provisiones", "nombre": "Gasto por provisiones", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Gasto reconocido al registrar una provisión." },
-  { "id": "deterioro_activos", "nombre": "Pérdida por deterioro de activos", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pérdida cuando el valor recuperable de un activo es menor que su valor libro (NIC 36)." }
+  { "id": "deterioro_activos", "nombre": "Pérdida por deterioro de activos", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pérdida cuando el valor recuperable de un activo es menor que su valor libro (NIC 36)." },
+  { "id": "honorarios", "nombre": "Honorarios", "tipo": "gasto", "grupo": "operacional", "avanzada": true, "descripcion": "Pagos a profesionales independientes que emiten boleta de honorarios." },
+  { "id": "impuesto_renta", "nombre": "Gasto por impuesto a la renta", "tipo": "gasto", "grupo": "impuesto", "avanzada": true, "descripcion": "Impuesto de Primera Categoría del período. Se presenta después del resultado antes de impuesto." },
+  { "id": "multas", "nombre": "Multas e intereses fiscales", "tipo": "gasto", "grupo": "no_operacional", "avanzada": true, "descripcion": "Multas e intereses pagados al Fisco por atrasos o infracciones. Contablemente es gasto, pero tributariamente es un gasto rechazado." }
 ]
