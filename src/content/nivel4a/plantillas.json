@@ -1,0 +1,93 @@
+[
+  {
+    "id": "ajuste_depreciacion_mensual",
+    "texto": "Cierre de mes: el horno costó {costo}, tiene una vida útil de {vida:n} años y un valor residual de {residual}. Registra la depreciación lineal del mes.",
+    "variables": {
+      "costo": { "min": 3000000, "max": 12000000, "paso": 100000 },
+      "vida": { "min": 5, "max": 10, "paso": 1 },
+      "residual": { "de": "costo", "factor": [0.05, 0.15], "paso": 10000 },
+      "dep": { "formula": "(costo - residual) / (vida * 12)" }
+    },
+    "lineas": [
+      { "cuenta": "depreciacion", "lado": "debe", "monto": "dep" },
+      { "cuenta": "dep_acumulada", "lado": "haber", "monto": "dep" }
+    ],
+    "pista": "Depreciación mensual = (costo − valor residual) ÷ (vida útil × 12). Va a Gasto por depreciación contra Depreciación acumulada, que resta al activo sin tocar la cuenta Maquinarias."
+  },
+  {
+    "id": "ajuste_depreciacion_anual",
+    "texto": "Cierre del año: la camioneta de reparto costó {costo}, tiene una vida útil de {vida:n} años y un valor residual de {residual}. Registra la depreciación lineal del año.",
+    "variables": {
+      "costo": { "min": 8000000, "max": 18000000, "paso": 100000 },
+      "vida": { "min": 5, "max": 8, "paso": 1 },
+      "residual": { "de": "costo", "factor": [0.1, 0.2], "paso": 10000 },
+      "dep": { "formula": "(costo - residual) / vida" }
+    },
+    "lineas": [
+      { "cuenta": "depreciacion", "lado": "debe", "monto": "dep" },
+      { "cuenta": "dep_acumulada", "lado": "haber", "monto": "dep" }
+    ],
+    "pista": "Depreciación anual = (costo − valor residual) ÷ vida útil en años. La cuenta del vehículo no se toca: el desgaste se acumula en Depreciación acumulada."
+  },
+  {
+    "id": "ajuste_deterioro_clientes",
+    "texto": "Al cierre, revisas la cartera de clientes por {saldo}. Varios clientes tienen más de 180 días de mora y hay evidencia de que el {pct:%} no se cobrará. Registra el deterioro.",
+    "variables": {
+      "saldo": { "min": 1000000, "max": 6000000, "paso": 10000 },
+      "pct": { "min": 5, "max": 25, "paso": 1 },
+      "monto": { "formula": "saldo * pct / 100" }
+    },
+    "lineas": [
+      { "cuenta": "deterioro_clientes", "lado": "debe", "monto": "monto" },
+      { "cuenta": "estimacion_incobrables", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Deterioro = saldo de clientes × porcentaje incobrable. No se borra la deuda del cliente: se usa la cuenta complementaria Estimación de deudores incobrables."
+  },
+  {
+    "id": "ajuste_provision_demanda",
+    "texto": "Un ex trabajador demandó a la empresa. Los abogados dicen que es probable perder el juicio y estiman que habrá que pagar {monto}. Registra lo que corresponde al cierre.",
+    "variables": { "monto": { "min": 500000, "max": 3000000, "paso": 50000 } },
+    "lineas": [
+      { "cuenta": "gasto_provisiones", "lado": "debe", "monto": "monto" },
+      { "cuenta": "provisiones", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Hay una obligación presente, la salida de dinero es probable y el monto se puede estimar: se reconoce una provisión (pasivo) contra un gasto."
+  },
+  {
+    "id": "ajuste_devengo_sueldos",
+    "texto": "Al último día del mes, los trabajadores ya trabajaron todo el mes, pero los sueldos por {monto} se pagarán el día 5 del mes siguiente (monto simplificado, sin descuentos previsionales). Registra el ajuste.",
+    "variables": { "monto": { "min": 800000, "max": 3500000, "paso": 10000 } },
+    "lineas": [
+      { "cuenta": "remuneraciones", "lado": "debe", "monto": "monto" },
+      { "cuenta": "remuneraciones_por_pagar", "lado": "haber", "monto": "monto" }
+    ],
+    "pista": "Base de acumulación (devengo): el gasto pertenece al mes en que se trabajó, aunque se pague después. Nace un pasivo: Remuneraciones por pagar."
+  },
+  {
+    "id": "ajuste_arriendo_anticipado",
+    "texto": "El mes pasado pagaste {pago} por 6 meses de arriendo por adelantado y lo registraste como Arriendo pagado por anticipado. Registra el arriendo que se consumió este mes.",
+    "variables": {
+      "pago": { "min": 1200000, "max": 4800000, "paso": 60000 },
+      "mes": { "formula": "pago / 6" }
+    },
+    "lineas": [
+      { "cuenta": "arriendo", "lado": "debe", "monto": "mes" },
+      { "cuenta": "arriendo_anticipado", "lado": "haber", "monto": "mes" }
+    ],
+    "pista": "Cada mes se consume 1/6 del pago: ese monto pasa del activo (Arriendo pagado por anticipado) al gasto (Gasto de arriendo)."
+  },
+  {
+    "id": "ajuste_deterioro_inventario",
+    "texto": "Un lote de carne costó {costo}, pero un corte de luz lo dañó y ahora solo se podrá vender en {vnr} (precio de venta estimado menos costos de venta). Registra el ajuste del inventario.",
+    "variables": {
+      "costo": { "min": 300000, "max": 1500000, "paso": 10000 },
+      "vnr": { "de": "costo", "factor": [0.55, 0.85], "paso": 1000 },
+      "perdida": { "formula": "costo - vnr" }
+    },
+    "lineas": [
+      { "cuenta": "deterioro_inventario", "lado": "debe", "monto": "perdida" },
+      { "cuenta": "mercaderias", "lado": "haber", "monto": "perdida" }
+    ],
+    "pista": "El inventario se mide al menor entre costo y precio de venta estimado menos costos de terminación y venta. La diferencia es una pérdida y se rebaja Mercaderías."
+  }
+]

@@ -13,6 +13,10 @@ export interface Cuenta {
   nombre: string;
   tipo: TipoCuenta;
   grupo?: GrupoCuenta;
+  /** Cuenta complementaria: resta a su grupo y aumenta por el lado contrario (ej. Depreciación acumulada). */
+  contra?: boolean;
+  /** Solo aparece desde el Nivel 4A (ajustes); no se usa en los ejercicios de clasificar de los niveles básicos. */
+  avanzada?: boolean;
   descripcion: string;
 }
 

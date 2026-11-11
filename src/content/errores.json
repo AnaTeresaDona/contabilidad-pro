@@ -10,7 +10,7 @@
   "lado_invertido": {
     "titulo": "Cuenta en el lado equivocado",
     "severidad": "grave",
-    "regla": "Activos y Gastos aumentan por el Debe. Pasivos, Patrimonio e Ingresos aumentan por el Haber. Cada cuenta disminuye por el lado contrario.",
+    "regla": "Activos y Gastos aumentan por el Debe. Pasivos, Patrimonio e Ingresos aumentan por el Haber. Cada cuenta disminuye por el lado contrario. Las cuentas complementarias (Depreciación acumulada, Estimación de incobrables) funcionan al revés de su grupo.",
     "explicacion": "Para saber el lado, pregúntate dos cosas: ¿de qué tipo es la cuenta? y ¿aumenta o disminuye en esta operación?",
     "comoCorregir": "Identifica el tipo de cuenta, decide si sube o baja y aplica la regla del Debe y el Haber.",
     "fuente": "Regla del cargo y el abono (Debe y Haber)"
@@ -118,6 +118,14 @@
     "explicacion": "Cada subtotal responde una pregunta: ¿gano al vender? (margen bruto), ¿el negocio en sí es rentable? (resultado operacional), ¿y considerando los intereses y otros? (antes de impuesto).",
     "comoCorregir": "Calcula en orden, de arriba hacia abajo, y usa cada subtotal para el siguiente. Si el resultado es negativo, es una pérdida: escríbelo con signo menos.",
     "fuente": "NIC 1, párrafos 81A a 105 (estado de resultados)"
+  },
+  "calculo_incorrecto": {
+    "titulo": "Cálculo incorrecto",
+    "severidad": "leve",
+    "regla": "",
+    "explicacion": "Revisa el cálculo paso a paso con los datos del enunciado.",
+    "comoCorregir": "Escribe la fórmula primero, reemplaza los datos y calcula en orden. Redondea al peso solo al final.",
+    "fuente": ""
   },
   "error_no_detectado": {
     "titulo": "Se te pasó un error",

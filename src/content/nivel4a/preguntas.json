@@ -1,0 +1,195 @@
+[
+  {
+    "id": "n4a-q01",
+    "pregunta": "¿Para qué empresas está pensada la NIIF para las PYMES?",
+    "opciones": [
+      "Empresas que no tienen obligación pública de rendir cuentas (no cotizan en bolsa ni administran fondos de terceros)",
+      "Solo empresas que cotizan en bolsa",
+      "Bancos y compañías de seguros",
+      "Solo empresas con menos de 10 trabajadores"
+    ],
+    "correcta": 0,
+    "explicacion": "La NIIF para las PYMES es para entidades sin obligación pública de rendir cuentas que publican estados financieros para usuarios externos, como bancos y proveedores. El tamaño no es el criterio principal.",
+    "fuente": "NIIF para las PYMES, Sección 1"
+  },
+  {
+    "id": "n4a-q02",
+    "pregunta": "¿Qué significa la base contable de acumulación (devengo)?",
+    "opciones": [
+      "Los ingresos y gastos se registran cuando ocurren, aunque el dinero se reciba o pague en otro momento",
+      "Solo se registra lo que se cobra o se paga en efectivo",
+      "Los gastos se registran al final del año",
+      "Se registran solo las operaciones con factura"
+    ],
+    "correcta": 0,
+    "explicacion": "Con el devengo, el sueldo de diciembre es gasto de diciembre aunque se pague en enero. Por eso existen los ajustes de cierre.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-q03",
+    "pregunta": "¿Qué es la depreciación?",
+    "opciones": [
+      "La distribución sistemática del costo de un activo fijo a lo largo de su vida útil",
+      "Una salida de dinero para reparar máquinas",
+      "La baja del precio de mercado de un activo",
+      "Un impuesto a los activos fijos"
+    ],
+    "correcta": 0,
+    "explicacion": "La depreciación reparte el costo del activo (menos su valor residual) entre los períodos en que se usa. Es un gasto que no implica salida de dinero.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q04",
+    "pregunta": "¿Cuál de estos activos NO se deprecia?",
+    "opciones": ["Terrenos", "Vehículos", "Maquinarias", "Muebles y útiles"],
+    "correcta": 0,
+    "explicacion": "Los terrenos normalmente tienen una vida ilimitada, por eso no se deprecian. Los edificios construidos sobre ellos sí.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q05",
+    "pregunta": "Un horno cuesta $6.000.000, su valor residual es $600.000 y su vida útil es 6 años. ¿Cuál es la depreciación anual en línea recta?",
+    "opciones": ["$900.000", "$1.000.000", "$1.100.000", "$75.000"],
+    "correcta": 0,
+    "explicacion": "($6.000.000 − $600.000) ÷ 6 = $900.000 por año (y $75.000 por mes).",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q06",
+    "pregunta": "¿Dónde se registra el desgaste acumulado de un activo fijo?",
+    "opciones": [
+      "En Depreciación acumulada, una cuenta complementaria que resta al activo",
+      "Directamente rebajando la cuenta Maquinarias",
+      "En una cuenta de pasivo llamada Deuda por desgaste",
+      "En el patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "Se mantiene el costo original en Maquinarias y el desgaste se acumula aparte. Valor libro = costo − depreciación acumulada.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q07",
+    "pregunta": "¿Cómo se miden los inventarios según la NIIF para las PYMES?",
+    "opciones": [
+      "Al menor valor entre el costo y el precio de venta estimado menos los costos de terminación y venta",
+      "Siempre al precio de venta",
+      "Siempre al costo, aunque se hayan dañado",
+      "Al mayor valor entre costo y precio de venta"
+    ],
+    "correcta": 0,
+    "explicacion": "Si la mercadería se daña o baja su precio, no se puede presentar en más de lo que se recuperará al venderla. La diferencia es una pérdida por deterioro.",
+    "fuente": "NIIF para las PYMES, Sección 13"
+  },
+  {
+    "id": "n4a-q08",
+    "pregunta": "¿Cuándo se reconoce una provisión?",
+    "opciones": [
+      "Cuando hay una obligación presente por un hecho pasado, es probable que haya que pagar y el monto se puede estimar con fiabilidad",
+      "Cada vez que la empresa quiere guardar dinero para el futuro",
+      "Solo cuando ya se pagó",
+      "Cuando existe cualquier posibilidad, aunque sea remota, de tener que pagar"
+    ],
+    "correcta": 0,
+    "explicacion": "Deben cumplirse las tres condiciones. Si la salida de recursos es solo posible (no probable), es un pasivo contingente: no se registra, solo se informa en notas.",
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "n4a-q09",
+    "pregunta": "La empresa tiene un juicio y los abogados dicen que es posible, pero poco probable, perderlo. ¿Qué se hace?",
+    "opciones": [
+      "No se registra una provisión; se revela como pasivo contingente en las notas",
+      "Se registra una provisión por el monto total demandado",
+      "Se registra un gasto y se paga de inmediato",
+      "No se hace nada ni se informa"
+    ],
+    "correcta": 0,
+    "explicacion": "Como la salida de recursos no es probable, no se reconoce el pasivo. Pero los usuarios de los estados financieros deben saberlo, por eso se informa en notas.",
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "n4a-q10",
+    "pregunta": "Hay evidencia de que un cliente no pagará su deuda. ¿Qué ajuste corresponde?",
+    "opciones": [
+      "Reconocer un gasto por deterioro contra la Estimación de deudores incobrables",
+      "Eliminar la venta original",
+      "Aumentar la cuenta Clientes",
+      "Registrar un ingreso"
+    ],
+    "correcta": 0,
+    "explicacion": "La cuenta por cobrar se presenta por lo que realmente se espera cobrar. La pérdida es un gasto del período y se rebaja el activo mediante una cuenta complementaria.",
+    "fuente": "NIIF para las PYMES, Sección 11"
+  },
+  {
+    "id": "n4a-q11",
+    "pregunta": "Se pagaron por adelantado 6 meses de arriendo. ¿Cómo se registra al momento del pago?",
+    "opciones": [
+      "Como un activo (Arriendo pagado por anticipado), que se lleva a gasto mes a mes",
+      "Todo como gasto del mes del pago",
+      "Como un pasivo",
+      "Como un aporte de capital"
+    ],
+    "correcta": 0,
+    "explicacion": "Al pagar, la empresa obtiene el derecho a usar el local por 6 meses: es un activo. Cada mes que pasa, 1/6 se consume y pasa a gasto.",
+    "fuente": "NIIF para las PYMES, Sección 2 (base de acumulación)"
+  },
+  {
+    "id": "n4a-q12",
+    "pregunta": "¿Qué efecto tienen los ajustes de depreciación, deterioro y provisiones en el resultado?",
+    "opciones": ["Lo disminuyen, porque son gastos", "Lo aumentan", "No lo afectan, solo cambian el balance", "Lo duplican"],
+    "correcta": 0,
+    "explicacion": "Todos son gastos del período. Por eso un balance \"sin ajustar\" suele mostrar más utilidad de la que realmente hay.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-q13",
+    "pregunta": "¿La depreciación implica una salida de dinero?",
+    "opciones": [
+      "No: es un gasto contable que reparte un costo ya pagado",
+      "Sí: se paga mensualmente al banco",
+      "Sí: se paga al SII",
+      "Solo si la máquina se repara"
+    ],
+    "correcta": 0,
+    "explicacion": "El dinero salió cuando se compró el activo. La depreciación solo reparte ese costo en el tiempo. Por eso, en el flujo de efectivo (Nivel 6) se suma de vuelta.",
+    "fuente": "NIIF para las PYMES, Secciones 7 y 17"
+  },
+  {
+    "id": "n4a-q14",
+    "pregunta": "Si cambia la estimación de la vida útil de un activo, ¿cómo se aplica?",
+    "opciones": [
+      "En forma prospectiva: afecta el período actual y los futuros",
+      "Se corrigen todos los años anteriores",
+      "No se puede cambiar nunca",
+      "Se registra como ingreso"
+    ],
+    "correcta": 0,
+    "explicacion": "Los cambios de estimación no son errores: se aplican desde ahora hacia adelante, sin reexpresar años anteriores.",
+    "fuente": "NIIF para las PYMES, Sección 10"
+  },
+  {
+    "id": "n4a-q15",
+    "pregunta": "¿Qué es el valor libro de una máquina?",
+    "opciones": [
+      "Su costo menos la depreciación acumulada (y deterioros)",
+      "Su precio de mercado actual",
+      "Lo que costaría comprarla hoy",
+      "El valor que figura en la factura de compra"
+    ],
+    "correcta": 0,
+    "explicacion": "Es el valor neto al que aparece en el balance. Si una máquina costó $5.000.000 y tiene $2.000.000 depreciados, su valor libro es $3.000.000.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q16",
+    "pregunta": "¿Por qué se hacen ajustes al cierre antes de preparar los estados financieros?",
+    "opciones": [
+      "Para que reflejen todos los ingresos y gastos del período y los activos y pasivos a su valor correcto",
+      "Para pagar menos impuestos",
+      "Porque el banco lo exige solo a las grandes empresas",
+      "Para que la utilidad sea siempre positiva"
+    ],
+    "correcta": 0,
+    "explicacion": "Sin ajustes, faltarían gastos devengados, el desgaste de los activos o pérdidas probables. Los estados no mostrarían la imagen fiel de la empresa.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  }
+]

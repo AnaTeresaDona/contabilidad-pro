@@ -2,13 +2,14 @@
 
 Juego web para aprender contabilidad chilena. Eres el contador de **Empanadas La Tía SpA**, que crece nivel a nivel: de emprendimiento a sociedad anónima abierta.
 
-**Estado actual:** Niveles 1, 2 y 3 jugables (trivia, práctica y jefe final). Los niveles 4A a 6 aparecen en el mapa como "Próximamente".
+**Estado actual:** Niveles 1, 2, 3 y 4A jugables (trivia, práctica y jefe final). Los niveles 4B a 6 aparecen en el mapa como "Próximamente".
 
 | Nivel | Qué se practica | Jefe final |
 |---|---|---|
 | 1 · Partida doble | Clasificar cuentas, Debe/Haber, Cuenta T, asientos con IVA | Encontrar los 2 asientos malos en el libro de Don Ramiro |
 | 2 · Ciclo contable y DTE | Elegir el documento tributario, registrar facturas, boletas y notas de crédito, pagar el IVA (F29), mayorizar, ubicar saldos en el balance | Balance de 8 columnas completo con resultado del ejercicio, para el banco |
 | 3 · Estados Financieros | Clasificar cuentas en corriente / no corriente / resultados, calcular margen bruto, resultado operacional y antes de impuesto, armar el Balance General, interpretar | Estado de Resultados + Balance General clasificado para el comité de riesgo |
+| 4A · IFRS para PyMEs | Depreciación lineal, ajustes de cierre (deterioro de clientes e inventario, provisiones, devengo, gastos anticipados), estados antes y después de ajustes | Registrar los ajustes que pide la auditora externa y calcular el resultado ajustado |
 
 En **Mi empresa** puedes ver el Libro Diario, el Mayor, el Balance de 8 columnas y los Estados Financieros de tu propia empresa, armados con todos los asientos que has registrado bien.
 
@@ -75,6 +76,11 @@ src/
       preguntas.json       ← trivia de estados financieros (NIC 1)
       situaciones.json     ← preguntas de interpretación para la práctica
       index.ts
+    nivel4a/
+      preguntas.json       ← trivia de NIIF para las PYMES
+      situaciones.json     ← provisiones vs contingencias, devengo, inventario
+      plantillas.json      ← asientos de ajuste con fórmulas (depreciación, deterioro…)
+      index.ts
   engine/                  ← lógica contable pura, con tests (motor.test.ts)
   juego/                   ← ejercicios y el marco común (pistas, XP, auditoría)
   pantallas/               ← mapa, nivel, mi empresa, repaso, logros, ajustes
@@ -122,6 +128,8 @@ Edita `src/content/nivel1/plantillas.json`. Ejemplo:
 - Una línea puede usar sumas o restas: `"total - contado"`.
 - Con `"ivaIncluido": true` (boletas), el monto `total` ya trae IVA y el juego separa `neto` e `iva`.
 - `"documento": { "tipo": 33, "emisor": "...", "receptor": "..." }` muestra la factura, boleta o nota de crédito junto a la operación.
+- Una variable puede ser una fórmula: `{ "formula": "(costo - residual) / (vida * 12)" }` (se redondea al peso).
+- En el texto, `{x}` se muestra como dinero, `{x:n}` como número ("8 años") y `{x:%}` como porcentaje.
 - `npm test` genera cada plantilla 300 veces con montos distintos y comprueba que el asiento siempre cuadre.
 
 ### Ajustar la dificultad

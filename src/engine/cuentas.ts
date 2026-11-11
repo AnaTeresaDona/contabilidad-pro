@@ -33,6 +33,15 @@ export function opuesto(lado: Lado): Lado {
   return lado === 'debe' ? 'haber' : 'debe';
 }
 
+/** Lado por el que aumenta una cuenta concreta (las complementarias funcionan al revés de su tipo). */
+export function ladoAumentoCuenta(id: string): Lado {
+  const c = cuenta(id);
+  return c.contra ? opuesto(ladoAumento(c.tipo)) : ladoAumento(c.tipo);
+}
+
+/** Cuentas de los niveles básicos (sin complementarias ni cuentas de ajuste). */
+export const CUENTAS_BASICAS: Cuenta[] = CUENTAS.filter((c) => !c.avanzada);
+
 /** Cuentas que los estudiantes suelen confundir entre sí. */
 export const PARES_CONFUSOS: Record<string, string> = {
   iva_cf: 'iva_df',
@@ -43,4 +52,10 @@ export const PARES_CONFUSOS: Record<string, string> = {
   costo_ventas: 'mercaderias',
   documentos_por_cobrar: 'documentos_por_pagar',
   documentos_por_pagar: 'documentos_por_cobrar',
+  depreciacion: 'dep_acumulada',
+  dep_acumulada: 'depreciacion',
+  deterioro_clientes: 'estimacion_incobrables',
+  estimacion_incobrables: 'deterioro_clientes',
+  gasto_provisiones: 'provisiones',
+  provisiones: 'gasto_provisiones',
 };

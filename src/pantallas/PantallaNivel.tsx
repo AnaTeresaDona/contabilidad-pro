@@ -19,6 +19,8 @@ import { EjMayorizar } from '../juego/ejercicios/EjMayorizar';
 import { EjColumna8 } from '../juego/ejercicios/EjColumna8';
 import { EjBalance8 } from '../juego/ejercicios/EjBalance8';
 import { EjBalanceGeneral, EjEstadoResultados, EjEstadosCompletos, EjSecciones } from '../juego/ejercicios/EjEstados';
+import { EjCalculo } from '../juego/ejercicios/EjCalculo';
+import { EjAjustesCierre } from '../juego/ejercicios/EjAjustesCierre';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
 import { Confeti, Modal } from '../componentes/Efectos';
@@ -103,7 +105,11 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
   /** Los asientos bien hechos pasan al libro de la empresa del jugador. */
   const registrarEnLibro = (ej: Ejercicio) => {
     const nuevos =
-      ej.tipo === 'debeHaber' || ej.tipo === 'completar' ? [ej.trans.asiento] : ej.tipo === 'balance8' || ej.tipo === 'estados' ? ej.asientos : [];
+      ej.tipo === 'debeHaber' || ej.tipo === 'completar' ? [ej.trans.asiento] : ej.tipo === 'balance8' || ej.tipo === 'estados'
+          ? ej.asientos
+          : ej.tipo === 'ajustesCierre'
+            ? ej.datos.ajustes.map((t) => t.asiento)
+            : [];
     if (nuevos.length === 0) return;
     actualizar((p) => nuevos.reduce((q, a) => registrarAsiento(q, { ...a, id: nuevoId(), fecha: fechaISO() }), p));
   };
@@ -372,6 +378,10 @@ function pistaDe(ej: Ejercicio): string {
     case 'bg':
     case 'estados':
       return 'Caja, banco, clientes, mercaderías e IVA crédito son corrientes; los activos fijos, no corrientes. El préstamo bancario va como no corriente. El resultado del ejercicio va en Patrimonio.';
+    case 'calculo':
+      return ej.datos.pista;
+    case 'ajustesCierre':
+      return 'Cada ajuste es un gasto contra una cuenta de balance: depreciación → Depreciación acumulada; deterioro → Estimación de incobrables o Mercaderías; provisión → Provisiones; devengo → Remuneraciones por pagar; anticipo → Arriendo pagado por anticipado. Resultado ajustado = resultado anterior − gastos de los ajustes.';
   }
 }
 
@@ -395,6 +405,10 @@ function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }) {
       return <EjBalanceGeneral balance={ej.balance} api={api} />;
     case 'estados':
       return <EjEstadosCompletos asientos={ej.asientos} balance={ej.balance} api={api} />;
+    case 'calculo':
+      return <EjCalculo datos={ej.datos} api={api} />;
+    case 'ajustesCierre':
+      return <EjAjustesCierre datos={ej.datos} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;
     case 'debeHaber':

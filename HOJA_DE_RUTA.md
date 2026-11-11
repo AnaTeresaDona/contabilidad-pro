@@ -21,11 +21,17 @@
 - "Mi empresa" muestra el Estado de Resultados y el Balance General de la empresa del jugador.
 - Simplificación conocida: el préstamo bancario se presenta completo como no corriente (sin separar la porción corriente).
 
+## Fase 4A — Hecha
+- Nivel 4A: 16 preguntas (NIIF para las PYMES, Secciones 2, 10, 11, 13, 17 y 21), 6 situaciones, 7 asientos de ajuste con fórmulas.
+- Cuentas complementarias (Depreciación acumulada, Estimación de incobrables) con su explicación propia en la auditoría.
+- Ejercicio de cálculo genérico (sirve también para RLI y ratios): depreciación lineal y reexpresión antes/después de ajustes.
+- Jefe: la auditora externa pide registrar 3 ajustes de cierre y el resultado ajustado.
+- Simplificación conocida: las remuneraciones se registran sin descuentos previsionales.
+
 ## Próximas fases (una por iteración)
-1. **Nivel 4A — IFRS para PyMEs:** ajustes (depreciación, deterioro, provisiones) y reexpresión simplificada.
-2. **Nivel 4B — Full IFRS y CMF:** la empresa se abre a la bolsa; errores generan "Sanciones CMF".
-3. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
-4. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
+1. **Nivel 4B — Full IFRS y CMF:** la empresa se abre a la bolsa; errores generan "Sanciones CMF".
+2. **Nivel 5 — SII y Operación Renta:** RLI, agregados, deducciones, gastos rechazados Art. 21 LIR. Tasas desde `config/tributario.json`.
+3. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
    - Liquidez: razón corriente, prueba ácida, capital de trabajo.
    - Endeudamiento y solvencia: deuda/patrimonio, deuda/activos, cobertura de intereses.
    - Rentabilidad: margen bruto, operacional y neto, ROA, ROE.

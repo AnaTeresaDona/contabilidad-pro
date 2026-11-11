@@ -1,6 +1,7 @@
 import { nivel1 } from './nivel1';
 import { nivel2 } from './nivel2';
 import { nivel3 } from './nivel3';
+import { nivel4a } from './nivel4a';
 import type { ContenidoNivel, NivelInfo } from './tipos';
 import type { Pregunta } from '../engine/ejercicios';
 
@@ -17,7 +18,7 @@ export const NIVELES: NivelInfo[] = [
 
 export const ORDEN_NIVELES = NIVELES.map((n) => n.id);
 
-export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3 };
+export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3, n4a: nivel4a };
 
 export const TODAS_LAS_PREGUNTAS: Map<string, Pregunta> = new Map(
   Object.values(CONTENIDO).flatMap((c) => c.preguntas.map((p) => [p.id, p] as const)),

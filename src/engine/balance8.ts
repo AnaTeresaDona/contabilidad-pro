@@ -1,5 +1,5 @@
 import type { Asiento, ErrorDetectado, ResultadoValidacion } from './types';
-import { CUENTAS, cuenta, ladoAumento } from './cuentas';
+import { CUENTAS, cuenta, ladoAumentoCuenta } from './cuentas';
 import type { Naturaleza } from './cuentaT';
 import type { Rng } from './azar';
 import { elegir, elegirVarios } from './azar';
@@ -52,7 +52,7 @@ export function destinoDe(cuentaId: string): Destino {
 }
 
 export function naturalezaNormal(cuentaId: string): Naturaleza {
-  return ladoAumento(cuenta(cuentaId).tipo) === 'debe' ? 'deudor' : 'acreedor';
+  return ladoAumentoCuenta(cuentaId) === 'debe' ? 'deudor' : 'acreedor';
 }
 
 export function columnaDe(destino: Destino, naturaleza: Naturaleza): Columna8 {

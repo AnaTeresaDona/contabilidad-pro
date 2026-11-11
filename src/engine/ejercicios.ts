@@ -1,10 +1,12 @@
 import type { Asiento, LineaAsiento } from './types';
 import { barajar, elegir, elegirVarios, type Rng } from './azar';
-import { CUENTAS, PARES_CONFUSOS } from './cuentas';
+import { CUENTAS_BASICAS as CUENTAS, PARES_CONFUSOS } from './cuentas';
 import { generarTransaccion, type Plantilla, type Transaccion } from './plantillas';
 import { generarCuentaT, type EjercicioCuentaT } from './cuentaT';
 import { generarLibroConErrores, type EntradaLibro } from './libroConErrores';
 import { generarMes, type Balance8 } from './balance8';
+import type { EjercicioCalculo } from './calculos';
+import type { DatosAjustesCierre } from './ajustes';
 
 export interface Pregunta {
   id: string;
@@ -33,7 +35,9 @@ export type Ejercicio =
   | { tipo: 'secciones'; cuentas: string[] }
   | { tipo: 'eerr'; balance: Balance8 }
   | { tipo: 'bg'; balance: Balance8 }
-  | { tipo: 'estados'; asientos: Asiento[]; balance: Balance8 };
+  | { tipo: 'estados'; asientos: Asiento[]; balance: Balance8 }
+  | { tipo: 'calculo'; datos: EjercicioCalculo }
+  | { tipo: 'ajustesCierre'; datos: DatosAjustesCierre };
 
 /** Cuentas variadas para clasificar en las secciones de los estados financieros. */
 export function ejSecciones(rng: Rng, n = 6): Ejercicio {

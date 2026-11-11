@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import type { Asiento, ErrorDetectado } from '../../engine/types';
 import type { Balance8 } from '../../engine/balance8';
 import { cuenta } from '../../engine/cuentas';
-import { formatoCLP, leerMontoConSigno } from '../../engine/dinero';
+import { formatoCLP } from '../../engine/dinero';
 import {
   construirBG,
   construirEERR,
@@ -22,32 +22,7 @@ import { Boton, Opcion } from '../../componentes/ui';
 import { BalanceGeneralVista, EstadoResultadosVista, Fila, nombreLinea, seccionesConResultado } from '../../componentes/EstadosVista';
 import { PestanasBalance, TablaBalance } from '../../componentes/TablaBalance';
 import type { ApiEjercicio } from '../MarcoEjercicio';
-
-// ───────────── Campo de monto que acepta negativos ─────────────
-
-function textoMonto(n: number | null): string {
-  if (n === null) return '';
-  if (Object.is(n, -0)) return '-';
-  const s = Math.abs(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  return n < 0 ? `-${s}` : s;
-}
-
-function CampoMonto({ valor, onChange, etiqueta, disabled }: { valor: number | null; onChange: (n: number | null) => void; etiqueta: string; disabled: boolean }) {
-  return (
-    <label className="flex w-36 items-center rounded-xl border-2 border-sky-200 bg-sky-50 px-2 focus-within:border-sky-500">
-      <span className="text-xs font-bold text-slate-400">$</span>
-      <input
-        inputMode="text"
-        placeholder="0"
-        aria-label={etiqueta}
-        disabled={disabled}
-        value={textoMonto(valor)}
-        onChange={(e) => onChange(leerMontoConSigno(e.target.value))}
-        className="w-full bg-transparent px-1 py-1.5 text-right font-extrabold tabular-nums outline-none"
-      />
-    </label>
-  );
-}
+import { CampoMonto } from '../../componentes/CampoMonto';
 
 // ───────────── Estado de Resultados ─────────────
 

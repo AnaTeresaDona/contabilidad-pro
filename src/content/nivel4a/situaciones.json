@@ -1,0 +1,70 @@
+[
+  {
+    "id": "n4a-s01",
+    "pregunta": "Un cliente demandó a la empresa por una intoxicación. Los abogados creen que es probable perder y estiman pagar $2.000.000. ¿Qué haces al cierre?",
+    "opciones": [
+      "Registrar una provisión de $2.000.000 contra un gasto",
+      "Solo mencionarlo en las notas",
+      "No hacer nada hasta que haya sentencia",
+      "Registrarlo como un activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Hay una obligación presente, la salida es probable y el monto se puede estimar: se reconoce una provisión.",
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "n4a-s02",
+    "pregunta": "Un proveedor amenazó con demandar, pero los abogados dicen que es poco probable que prospere. ¿Qué haces?",
+    "opciones": [
+      "No registrar provisión; revelarlo en notas como pasivo contingente",
+      "Registrar una provisión por el monto amenazado",
+      "Registrar un gasto y un pasivo por la mitad",
+      "Pagarle al proveedor para evitar el juicio"
+    ],
+    "correcta": 0,
+    "explicacion": "Si la salida de recursos no es probable, no se reconoce el pasivo, pero se informa.",
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "n4a-s03",
+    "pregunta": "La Tía Rosa dice: \"Este mes no pagué nada por el horno, así que no tengo gasto por él\". ¿Qué le respondes?",
+    "opciones": [
+      "Sí hay gasto: la depreciación del mes, aunque no salga dinero",
+      "Tiene razón: sin pago no hay gasto",
+      "El gasto se registra solo cuando se vende el horno",
+      "El horno es un gasto completo en el mes que se compró"
+    ],
+    "correcta": 0,
+    "explicacion": "El horno se desgasta con el uso. Ese consumo es un gasto del período, aunque el dinero haya salido antes.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-s04",
+    "pregunta": "Un lote de harina costó $400.000, pero por humedad solo se podrá vender en $250.000 (neto de costos de venta). ¿En cuánto se presenta en el balance?",
+    "opciones": ["$250.000", "$400.000", "$650.000", "$150.000"],
+    "correcta": 0,
+    "explicacion": "Se presenta al menor valor entre costo ($400.000) y valor recuperable al vender ($250.000). La diferencia de $150.000 es una pérdida.",
+    "fuente": "NIIF para las PYMES, Sección 13"
+  },
+  {
+    "id": "n4a-s05",
+    "pregunta": "El 31 de diciembre, la empresa debe los sueldos de diciembre, que se pagan el 5 de enero. ¿En qué año es el gasto?",
+    "opciones": [
+      "En diciembre (el año que termina), con un pasivo por remuneraciones por pagar",
+      "En enero, cuando se pagan",
+      "Mitad en cada año",
+      "No es gasto: es un préstamo de los trabajadores"
+    ],
+    "correcta": 0,
+    "explicacion": "Por la base de acumulación, el gasto corresponde al período en que se trabajó.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-s06",
+    "pregunta": "Antes de los ajustes, el resultado del año era una utilidad de $3.000.000. Faltaban depreciación por $500.000 y una provisión por $800.000. ¿Cuál es el resultado ajustado?",
+    "opciones": ["$1.700.000", "$3.000.000", "$4.300.000", "$2.200.000"],
+    "correcta": 0,
+    "explicacion": "Ambos ajustes son gastos: $3.000.000 − $500.000 − $800.000 = $1.700.000.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  }
+]

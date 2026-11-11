@@ -7,11 +7,15 @@ import { calcularIva, formatoCLP, TASA_IVA } from './dinero';
  * - `{ min, max, paso }`: monto al azar en ese rango.
  * - `{ de, factor, paso }`: porcentaje al azar de otra variable (ej. costo = 50–65% del neto).
  * Si `conIva` es true, a partir de `neto` se calculan solas `iva` y `total`.
- * `monto` de cada línea es un nombre de variable o una suma/resta simple ("total - contado").
+ * - `{ formula, paso }`: cálculo a partir de otras variables, con + − × ÷ y paréntesis
+ *   (ej. depreciación = "(costo - residual) / (vida * 12)").
+ * `monto` de cada línea es una variable o una expresión ("total - contado").
+ * En el texto, {x} se muestra como dinero, {x:n} como número y {x:%} como porcentaje.
  */
 export type DefVariable =
   | { min: number; max: number; paso: number }
-  | { de: string; factor: [number, number]; paso: number };
+  | { de: string; factor: [number, number]; paso: number }
+  | { formula: string; paso?: number };
 
 /** Documento tributario electrónico que respalda la operación (se muestra como una factura/boleta). */
 export interface DocumentoPlantilla {
@@ -44,24 +48,39 @@ export interface Transaccion {
   documento?: DocumentoPlantilla & { folio: number };
 }
 
+/** Evalúa una expresión aritmética simple (+ − * / y paréntesis) con las variables dadas. */
 export function evaluar(expr: string, valores: Record<string, number>): number {
-  const partes = expr
-    .split(/([+-])/)
-    .map((t) => t.trim())
-    .filter(Boolean);
-  let total = 0;
-  let signo = 1;
-  for (const p of partes) {
-    if (p === '+') signo = 1;
-    else if (p === '-') signo = -1;
-    else {
-      const v = /^\d+$/.test(p) ? Number(p) : valores[p];
-      if (v === undefined) throw new Error(`Variable desconocida "${p}" en "${expr}"`);
-      total += signo * v;
-      signo = 1;
+  const tokens = expr.match(/\d+(?:\.\d+)?|[A-Za-z_]\w*|[()+\-*/]/g) ?? [];
+  let i = 0;
+  const ver = () => tokens[i];
+  const tomar = () => tokens[i++];
+  const primario = (): number => {
+    const t = tomar();
+    if (t === undefined) throw new Error(`Expresión incompleta: "${expr}"`);
+    if (t === '(') {
+      const v = suma();
+      if (tomar() !== ')') throw new Error(`Falta ")" en "${expr}"`);
+      return v;
     }
-  }
-  return total;
+    if (t === '-') return -primario();
+    if (/^\d/.test(t)) return Number(t);
+    const v = valores[t];
+    if (v === undefined) throw new Error(`Variable desconocida "${t}" en "${expr}"`);
+    return v;
+  };
+  const producto = (): number => {
+    let v = primario();
+    while (ver() === '*' || ver() === '/') v = tomar() === '*' ? v * primario() : v / primario();
+    return v;
+  };
+  const suma = (): number => {
+    let v = producto();
+    while (ver() === '+' || ver() === '-') v = tomar() === '+' ? v + producto() : v - producto();
+    return v;
+  };
+  const r = suma();
+  if (i < tokens.length) throw new Error(`Sobra "${tokens[i]}" en "${expr}"`);
+  return r;
 }
 
 let contador = 0;
@@ -84,7 +103,10 @@ export function generarTransaccion(p: Plantilla, rng: Rng): Transaccion {
   };
 
   for (const [nombre, def] of Object.entries(p.variables)) {
-    if ('de' in def) {
+    if ('formula' in def) {
+      const paso = def.paso ?? 1;
+      valores[nombre] = Math.round(evaluar(def.formula, valores) / paso) * paso;
+    } else if ('de' in def) {
       const base = valores[def.de];
       if (base === undefined) throw new Error(`Plantilla ${p.id}: "${nombre}" depende de "${def.de}", que no existe aún`);
       const f = def.factor[0] + rng() * (def.factor[1] - def.factor[0]);
@@ -95,10 +117,14 @@ export function generarTransaccion(p: Plantilla, rng: Rng): Transaccion {
     completarIva();
   }
 
-  const texto = p.texto.replace(/\{(\w+)\}/g, (_, k: string) =>
-    valores[k] !== undefined ? formatoCLP(valores[k]) : `{${k}}`,
-  );
-  const lineas = p.lineas.map((l) => ({ cuentaId: l.cuenta, lado: l.lado, monto: evaluar(l.monto, valores) }));
+  const texto = p.texto.replace(/\{(\w+)(?::(n|%))?\}/g, (todo: string, k: string, formato?: string) => {
+    const v = valores[k];
+    if (v === undefined) return todo;
+    if (formato === 'n') return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    if (formato === '%') return `${v}%`;
+    return formatoCLP(v);
+  });
+  const lineas = p.lineas.map((l) => ({ cuentaId: l.cuenta, lado: l.lado, monto: Math.round(evaluar(l.monto, valores)) }));
 
   return {
     plantillaId: p.id,

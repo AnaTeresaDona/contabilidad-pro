@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { crearRng } from './azar';
-import { calcularIva, formatoCLP, leerMonto } from './dinero';
+import { calcularIva, formatoCLP, leerMonto, leerMontoConSigno } from './dinero';
 import { compararAsiento, cuadra } from './asientos';
 import { evaluar, generarTransaccion } from './plantillas';
 import { generarCuentaT, sumasT, validarCuentaT } from './cuentaT';
@@ -13,6 +13,9 @@ import { CONTENIDO, ORDEN_NIVELES } from '../content';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
 import { ejMayorizar, mesConActivoFijo } from './ejercicios';
+import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from './ajustes';
+import { validarCalculo } from './calculos';
+import { CUENTAS_BASICAS, ladoAumentoCuenta } from './cuentas';
 import { construirBG, construirEERR, SECCIONES_BG, seccionDe, validarBG, validarEERR, type SeccionBG } from './estados';
 
 const plantillasN1 = CONTENIDO.n1.plantillas;
@@ -219,6 +222,55 @@ describe('Estados financieros', () => {
   });
 });
 
+describe('Ajustes de cierre (Nivel 4A)', () => {
+  it('evalúa fórmulas con multiplicación, división y paréntesis', () => {
+    expect(evaluar('(costo - residual) / (vida * 12)', { costo: 6_000_000, residual: 600_000, vida: 6 })).toBe(75_000);
+    expect(evaluar('saldo * pct / 100', { saldo: 2_000_000, pct: 10 })).toBe(200_000);
+    expect(() => evaluar('costo +', { costo: 1 })).toThrow();
+  });
+
+  it('muestra números y porcentajes sin signo peso', () => {
+    const p = CONTENIDO.n4a.plantillas.find((x) => x.id === 'ajuste_deterioro_clientes')!;
+    const t = generarTransaccion(p, crearRng(3));
+    expect(t.texto).toMatch(new RegExp(`el ${t.valores.pct}% no se cobrará`));
+  });
+
+  it('las cuentas complementarias aumentan por el lado contrario de su tipo', () => {
+    expect(ladoAumentoCuenta('dep_acumulada')).toBe('haber');
+    expect(ladoAumentoCuenta('estimacion_incobrables')).toBe('haber');
+    expect(CUENTAS_BASICAS.some((c) => c.avanzada)).toBe(false);
+  });
+
+  it('la depreciación calculada coincide con la fórmula y se valida', () => {
+    for (let s = 1; s <= 100; s++) {
+      const ej = calculoDepreciacion(crearRng(s));
+      const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+      expect(validarCalculo(ej, resp).correcto).toBe(true);
+      expect(validarCalculo(ej, { ...resp, anual: resp.anual + 1 }).errores).toHaveLength(1);
+      expect(resp.libro).toBeGreaterThan(0);
+    }
+  });
+
+  it('la reexpresión mantiene Activo = Pasivo + Patrimonio después de ajustar', () => {
+    for (let s = 1; s <= 100; s++) {
+      const rng = crearRng(s);
+      const ej = calculoReexpresion(rng, CONTENIDO.n3.plantillas);
+      const v = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+      const dato = (txt: string) => leerMontoConSigno(ej.datos.find((d) => d.etiqueta.startsWith(txt))!.valor)!;
+      const patrimonioSinResultado = dato('Total activos') - dato('Total pasivos') - dato('Resultado');
+      expect(v.activos).toBe(v.pasivos + patrimonioSinResultado + v.resultado);
+    }
+  });
+
+  it('el jefe calcula el resultado ajustado restando los gastos de los ajustes', () => {
+    for (let s = 1; s <= 100; s++) {
+      const d = generarAjustesCierre(crearRng(s), CONTENIDO.n3.plantillas, CONTENIDO.n4a.plantillas, 3);
+      const gastos = d.ajustes.flatMap((t) => t.asiento.lineas).filter((l) => l.lado === 'debe').reduce((a, l) => a + l.monto, 0);
+      expect(d.resultadoAjustado).toBe(d.resultadoPrevio - gastos);
+    }
+  });
+});
+
 describe('contenido', () => {
   it('las preguntas están bien formadas y sin ids repetidos', () => {
     const ids = new Set<string>();
@@ -235,7 +287,7 @@ describe('contenido', () => {
     }
   });
   it('cada tipo de error del motor existe en el catálogo', () => {
-    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr'];
+    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto'];
     for (const t of usados) expect(tiposDeError()).toContain(t);
     expect(infoError('descuadre').severidad).toBe('grave');
   });

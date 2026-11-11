@@ -1,5 +1,5 @@
 import type { Cuenta, ErrorDetectado, Lado, LineaAsiento, ResultadoValidacion } from './types';
-import { cuenta, ETIQUETA_LADO, ETIQUETA_TIPO, ladoAumento, opuesto, PARES_CONFUSOS } from './cuentas';
+import { cuenta, ETIQUETA_LADO, ETIQUETA_TIPO, ladoAumento, ladoAumentoCuenta, opuesto, PARES_CONFUSOS } from './cuentas';
 import { formatoCLP } from './dinero';
 
 export function sumas(lineas: LineaAsiento[]): { debe: number; haber: number } {
@@ -19,8 +19,10 @@ export function cuadra(lineas: LineaAsiento[]): boolean {
 
 /** Explica por qué una cuenta va a un lado, según si aumenta o disminuye. */
 export function explicarLado(c: Cuenta, ladoCorrecto: Lado): string {
-  const verbo = ladoAumento(c.tipo) === ladoCorrecto ? 'aumenta' : 'disminuye';
+  const verbo = ladoAumentoCuenta(c.id) === ladoCorrecto ? 'aumenta' : 'disminuye';
   const tipo = ETIQUETA_TIPO[c.tipo];
+  if (c.contra)
+    return `${c.nombre} es una cuenta complementaria de ${tipo} (le resta valor), así que funciona al revés: aumenta por el ${ETIQUETA_LADO[opuesto(ladoAumento(c.tipo))]}. En esta operación ${verbo}, por eso va al ${ETIQUETA_LADO[ladoCorrecto]}.`;
   return `${c.nombre} (${tipo}) ${verbo} en esta operación, y las cuentas de ${tipo} ${verbo}n por el ${ETIQUETA_LADO[ladoCorrecto]}.`;
 }
 
