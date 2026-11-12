@@ -1,0 +1,210 @@
+[
+  {
+    "id": "n6-q01",
+    "pregunta": "¿Qué es el análisis vertical?",
+    "opciones": [
+      "Comparar cada partida con un total del mismo período, por ejemplo cada gasto como % de las ventas",
+      "Comparar la misma partida entre distintos años",
+      "Revisar los asientos de arriba hacia abajo",
+      "Calcular solo la utilidad"
+    ],
+    "correcta": 0,
+    "explicacion": "Muestra la estructura: qué peso tiene cada partida dentro del total (activos o ventas) en un mismo año.",
+    "fuente": "Análisis financiero"
+  },
+  {
+    "id": "n6-q02",
+    "pregunta": "¿Qué es el análisis horizontal?",
+    "opciones": [
+      "Comparar la misma partida entre dos o más períodos (variación absoluta y %)",
+      "Comparar cada partida con el total del mismo año",
+      "Comparar la empresa con la competencia",
+      "Leer los estados de izquierda a derecha"
+    ],
+    "correcta": 0,
+    "explicacion": "Muestra la evolución: cuánto creció o bajó cada partida de un año a otro.",
+    "fuente": "Análisis financiero"
+  },
+  {
+    "id": "n6-q03",
+    "pregunta": "Una razón corriente de 0,8 significa que…",
+    "opciones": [
+      "Por cada $1 de deuda de corto plazo, la empresa tiene solo $0,80 en activos de corto plazo",
+      "La empresa gana 80 centavos por cada peso vendido",
+      "La empresa tiene 80% de deuda",
+      "La empresa cobra en 0,8 días"
+    ],
+    "correcta": 0,
+    "explicacion": "Bajo 1 es una alerta: los recursos de corto plazo no alcanzan para cubrir las deudas de corto plazo.",
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "n6-q04",
+    "pregunta": "¿Por qué la prueba ácida excluye el inventario?",
+    "opciones": [
+      "Porque es el activo corriente que más tarda en convertirse en dinero y puede perder valor",
+      "Porque el inventario no es un activo",
+      "Porque el inventario se paga con IVA",
+      "Porque el inventario siempre es pequeño"
+    ],
+    "correcta": 0,
+    "explicacion": "Primero hay que venderlo y luego cobrar. La prueba ácida mide la liquidez sin depender de esas ventas.",
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "n6-q05",
+    "pregunta": "¿Qué mide el ROE?",
+    "opciones": [
+      "La rentabilidad del patrimonio: cuánto gana la empresa por cada peso aportado por los dueños",
+      "La rentabilidad de todos los activos",
+      "El margen de cada venta",
+      "La liquidez de la empresa"
+    ],
+    "correcta": 0,
+    "explicacion": "ROE = utilidad ÷ patrimonio. El ROA, en cambio, divide por los activos totales.",
+    "fuente": "Razones de rentabilidad"
+  },
+  {
+    "id": "n6-q06",
+    "pregunta": "Si el ROE es mucho mayor que el ROA, ¿qué suele indicar?",
+    "opciones": [
+      "Que la empresa usa bastante deuda (apalancamiento) para financiar sus activos",
+      "Que la empresa no tiene deudas",
+      "Que la empresa tiene pérdidas",
+      "Que hay un error de cálculo"
+    ],
+    "correcta": 0,
+    "explicacion": "Con más deuda, el patrimonio es menor respecto de los activos y la misma utilidad rinde más sobre el patrimonio. Pero también aumenta el riesgo.",
+    "fuente": "Análisis DuPont: ROE = margen × rotación × apalancamiento"
+  },
+  {
+    "id": "n6-q07",
+    "pregunta": "¿Qué mide la cobertura de intereses?",
+    "opciones": [
+      "Cuántas veces el resultado operacional alcanza para pagar los intereses",
+      "Cuánto se paga de intereses al mes",
+      "El porcentaje de deuda sobre el patrimonio",
+      "La tasa de interés del banco"
+    ],
+    "correcta": 0,
+    "explicacion": "Una cobertura baja (cerca de 1) indica que casi todo lo que genera el negocio se va en intereses.",
+    "fuente": "Razones de endeudamiento y solvencia"
+  },
+  {
+    "id": "n6-q08",
+    "pregunta": "Los días de cobro subieron de 30 a 75. ¿Qué significa?",
+    "opciones": [
+      "Los clientes están pagando mucho más lento y hay más dinero atrapado en cuentas por cobrar",
+      "Las ventas bajaron a la mitad",
+      "La empresa paga más rápido a sus proveedores",
+      "Mejoró la liquidez"
+    ],
+    "correcta": 0,
+    "explicacion": "Cada día extra de cobro es dinero que la empresa financia. Puede vender más y aun así quedarse sin caja.",
+    "fuente": "Razones de actividad"
+  },
+  {
+    "id": "n6-q09",
+    "pregunta": "¿Cómo se calcula el ciclo de conversión de caja?",
+    "opciones": [
+      "Días de inventario + días de cobro − días de pago",
+      "Días de cobro − días de inventario",
+      "Ventas ÷ caja",
+      "Días de pago + días de cobro"
+    ],
+    "correcta": 0,
+    "explicacion": "Son los días que pasan desde que se paga a los proveedores hasta que se cobra al cliente. Mientras más largo, más capital de trabajo hay que financiar.",
+    "fuente": "Razones de actividad"
+  },
+  {
+    "id": "n6-q10",
+    "pregunta": "¿Cuáles son las tres actividades del estado de flujos de efectivo?",
+    "opciones": [
+      "De operación, de inversión y de financiamiento",
+      "Corriente, no corriente y patrimonio",
+      "Ventas, costos y gastos",
+      "Debe, haber y saldo"
+    ],
+    "correcta": 0,
+    "explicacion": "Operación: el giro del negocio. Inversión: compra y venta de activos de largo plazo. Financiamiento: préstamos, aportes y dividendos.",
+    "fuente": "NIC 7, párrafo 10"
+  },
+  {
+    "id": "n6-q11",
+    "pregunta": "En el método indirecto, ¿por qué se suma la depreciación a la utilidad?",
+    "opciones": [
+      "Porque es un gasto que redujo la utilidad pero no fue una salida de dinero",
+      "Porque es un ingreso",
+      "Porque se paga en abril",
+      "Porque aumenta el activo fijo"
+    ],
+    "correcta": 0,
+    "explicacion": "El dinero salió cuando se compró el activo (actividad de inversión). La depreciación solo reparte ese costo.",
+    "fuente": "NIC 7, párrafos 18 a 20"
+  },
+  {
+    "id": "n6-q12",
+    "pregunta": "En el método indirecto, un aumento de la cuenta Clientes…",
+    "opciones": [
+      "Se resta, porque son ventas que todavía no se cobran",
+      "Se suma, porque son más ventas",
+      "No afecta el flujo",
+      "Se suma, porque es un activo"
+    ],
+    "correcta": 0,
+    "explicacion": "La utilidad incluye esas ventas, pero el dinero aún no entra. Por eso el aumento se resta.",
+    "fuente": "NIC 7, párrafo 20"
+  },
+  {
+    "id": "n6-q13",
+    "pregunta": "¿Puede una empresa con utilidad quedarse sin caja?",
+    "opciones": [
+      "Sí: si cobra lento, acumula inventario o invierte mucho, la utilidad no se transforma en dinero",
+      "No: la utilidad siempre es igual a la caja",
+      "Solo si tiene pérdidas",
+      "Solo si no paga impuestos"
+    ],
+    "correcta": 0,
+    "explicacion": "Por eso se analiza el flujo de efectivo además del resultado: muchas empresas rentables quiebran por falta de liquidez.",
+    "fuente": "NIC 7; análisis financiero"
+  },
+  {
+    "id": "n6-q14",
+    "pregunta": "¿Qué mide la rotación de activos?",
+    "opciones": [
+      "Cuántos pesos de venta genera cada peso invertido en activos",
+      "Cuánto se deprecian los activos",
+      "Cuántos activos se compraron en el año",
+      "La utilidad por cada activo"
+    ],
+    "correcta": 0,
+    "explicacion": "Es una medida de eficiencia: con la misma inversión, una empresa que vende más hace trabajar mejor sus activos.",
+    "fuente": "Razones de actividad y eficiencia"
+  },
+  {
+    "id": "n6-q15",
+    "pregunta": "El margen bruto se mantuvo estable, pero el margen neto cayó fuerte. ¿Dónde buscarías la causa?",
+    "opciones": [
+      "En los gastos de administración y ventas, los intereses o los impuestos",
+      "En el costo de ventas",
+      "En las ventas al contado",
+      "En el inventario inicial"
+    ],
+    "correcta": 0,
+    "explicacion": "Si el margen bruto no cambió, el problema está más abajo en el Estado de Resultados: gastos operacionales, gastos financieros o impuestos.",
+    "fuente": "Análisis vertical del Estado de Resultados"
+  },
+  {
+    "id": "n6-q16",
+    "pregunta": "¿Cómo debería financiarse el capital de trabajo permanente de una empresa en crecimiento?",
+    "opciones": [
+      "Con recursos de largo plazo (patrimonio o deuda de largo plazo)",
+      "Con deuda de muy corto plazo que se renueva cada mes",
+      "Atrasando el pago de impuestos",
+      "No necesita financiamiento"
+    ],
+    "correcta": 0,
+    "explicacion": "Si se financia con deuda de corto plazo, cada renovación es un riesgo de liquidez. Calzar plazos es una regla básica de finanzas.",
+    "fuente": "Gestión del capital de trabajo"
+  }
+]

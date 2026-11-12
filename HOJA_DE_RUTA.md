@@ -43,13 +43,16 @@
 - Tasas en config/tributario.json: Primera Categoría régimen general 27% y retención de honorarios 15,25% (2026). Las plantillas tienen esas tasas escritas en el texto; un test avisa si dejan de coincidir con la configuración.
 - Simplificaciones conocidas: solo régimen general (sin Pro Pyme), sin impuestos finales de los dueños (Global Complementario / Adicional) ni créditos distintos de los PPM.
 
-## Próximas fases (una por iteración)
-1. **Nivel 6 — Análisis financiero (CFO):** análisis vertical y horizontal; ratios por familia con cálculo e interpretación:
-   - Liquidez: razón corriente, prueba ácida, capital de trabajo.
-   - Endeudamiento y solvencia: deuda/patrimonio, deuda/activos, cobertura de intereses.
-   - Rentabilidad: margen bruto, operacional y neto, ROA, ROE.
-   - Actividad y eficiencia: rotación de inventario, de cuentas por cobrar y de activos; días de cobro y de pago; ciclo de conversión de caja.
-   - Flujo de efectivo NIC 7 y la crisis de liquidez como jefe final.
+## Fase 6 — Hecha (juego completo)
+- Nivel 6: 16 preguntas, 6 situaciones de interpretación, 14 razones para clasificar por familia.
+- Ejercicios: familias de razones, liquidez, endeudamiento, rentabilidad, actividad, vertical y horizontal, flujo operacional indirecto (NIC 7). Aceptan decimales con coma y una pequeña tolerancia de redondeo.
+- Jefe: la crisis de caja (empresa rentable con flujo operacional negativo), con diagnóstico y decisión.
+- "Mi empresa" tiene una pestaña de Indicadores de la empresa del jugador.
+- Logro final "CFO".
+
+## Siguientes ideas
+- Hacer que funcione sin internet (aplicación web instalable).
+- Revisión del contenido normativo por un contador.
 
 ## Más adelante — Modo Empresa (simulación en el tiempo)
 Idea: después de la historia, la empresa sigue viva y el tiempo avanza en meses y años de juego.

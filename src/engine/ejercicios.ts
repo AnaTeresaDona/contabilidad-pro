@@ -9,6 +9,7 @@ import type { EjercicioCalculo } from './calculos';
 import type { DatosAjustesCierre } from './ajustes';
 import type { Afirmacion } from './ifrs';
 import type { DatosOperacionRenta, Partida } from './tributario';
+import type { DatosCrisis } from './analisis';
 
 export interface Pregunta {
   id: string;
@@ -42,7 +43,17 @@ export type Ejercicio =
   | { tipo: 'ajustesCierre'; datos: DatosAjustesCierre }
   | { tipo: 'fiscalizacion'; afirmaciones: Afirmacion[] }
   | { tipo: 'clasificarPartidas'; partidas: Partida[] }
-  | { tipo: 'operacionRenta'; datos: DatosOperacionRenta };
+  | { tipo: 'operacionRenta'; datos: DatosOperacionRenta }
+  | { tipo: 'clasificarOpciones'; datos: EjercicioClasificar }
+  | { tipo: 'crisis'; datos: DatosCrisis };
+
+/** Ejercicio genérico: ubicar cada elemento en una de varias categorías (ej. familias de razones). */
+export interface EjercicioClasificar {
+  titulo: string;
+  instruccion: string;
+  opciones: { id: string; etiqueta: string }[];
+  items: { id: string; texto: string; correcta: string; explicacion: string; fuente: string }[];
+}
 
 /** Cuentas variadas para clasificar en las secciones de los estados financieros. */
 export function ejSecciones(rng: Rng, n = 6): Ejercicio {

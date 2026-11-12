@@ -1,0 +1,80 @@
+[
+  {
+    "id": "n6-s01",
+    "pregunta": "La razón corriente es 1,6 pero la prueba ácida es 0,5. ¿Qué te dice?",
+    "opciones": [
+      "La liquidez depende mucho del inventario: sin venderlo, no alcanza para pagar las deudas de corto plazo",
+      "La empresa tiene demasiada caja",
+      "La empresa no tiene inventario",
+      "Ambos indicadores son excelentes"
+    ],
+    "correcta": 0,
+    "explicacion": "La gran diferencia entre ambas razones es el inventario. Si se vende lento o pierde valor, la empresa tendrá problemas.",
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "n6-s02",
+    "pregunta": "La utilidad del año fue $80 millones, pero el flujo operacional fue −$20 millones. ¿Qué es lo más probable?",
+    "opciones": [
+      "Aumentaron mucho los clientes o el inventario: la utilidad quedó atrapada en capital de trabajo",
+      "La empresa tuvo pérdidas",
+      "La depreciación fue muy alta",
+      "Pagó un dividendo grande"
+    ],
+    "correcta": 0,
+    "explicacion": "Los dividendos son flujo de financiamiento y la depreciación se suma. Lo típico es un aumento fuerte de cuentas por cobrar o inventario.",
+    "fuente": "NIC 7; análisis financiero"
+  },
+  {
+    "id": "n6-s03",
+    "pregunta": "El banco ve una deuda/patrimonio de 3,5 veces y una cobertura de intereses de 1,2. ¿Le prestaría más?",
+    "opciones": [
+      "Probablemente no: la empresa está muy endeudada y apenas cubre sus intereses",
+      "Sí, porque la deuda es alta y eso es bueno",
+      "Sí, porque cubre sus intereses más de una vez",
+      "No importa: los bancos solo miran las ventas"
+    ],
+    "correcta": 0,
+    "explicacion": "Los acreedores ya financian 3,5 veces lo que aportan los dueños y el negocio casi no alcanza para los intereses: el riesgo es alto.",
+    "fuente": "Razones de endeudamiento y solvencia"
+  },
+  {
+    "id": "n6-s04",
+    "pregunta": "Las ventas crecieron 30% y el costo de ventas creció 45%. ¿Qué le pasó al margen bruto?",
+    "opciones": [
+      "Bajó, porque el costo creció más que las ventas",
+      "Subió, porque las ventas crecieron",
+      "No cambió",
+      "No se puede saber nada"
+    ],
+    "correcta": 0,
+    "explicacion": "El análisis horizontal lo muestra: si el costo crece más rápido que las ventas, cada peso vendido deja menos margen.",
+    "fuente": "Análisis horizontal"
+  },
+  {
+    "id": "n6-s05",
+    "pregunta": "Dos empresas tienen el mismo ROA, pero la empresa B tiene un ROE mucho mayor. ¿Por qué?",
+    "opciones": [
+      "La empresa B usa más deuda: su patrimonio es menor respecto de sus activos",
+      "La empresa B vende más caro",
+      "La empresa B no paga impuestos",
+      "La empresa B tiene menos activos fijos"
+    ],
+    "correcta": 0,
+    "explicacion": "Con el mismo rendimiento de los activos, la que se financia más con deuda muestra mayor rentabilidad para los dueños (y más riesgo).",
+    "fuente": "Análisis DuPont"
+  },
+  {
+    "id": "n6-s06",
+    "pregunta": "Los días de pago a proveedores bajaron de 45 a 20, y lo demás no cambió. ¿Qué pasa con el ciclo de caja?",
+    "opciones": [
+      "Se alarga 25 días: la empresa paga antes y necesita más capital de trabajo",
+      "Se acorta 25 días",
+      "No cambia",
+      "Mejora la liquidez"
+    ],
+    "correcta": 0,
+    "explicacion": "Ciclo = inventario + cobro − pago. Si los días de pago bajan, el ciclo crece y hay que financiar más días.",
+    "fuente": "Razones de actividad"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  { "id": "r_corriente", "texto": "Razón corriente = activo corriente ÷ pasivo corriente", "correcta": "liquidez", "explicacion": "Mide si los recursos de corto plazo alcanzan para pagar las deudas de corto plazo.", "fuente": "Razones de liquidez" },
+  { "id": "r_acida", "texto": "Prueba ácida = (activo corriente − inventario) ÷ pasivo corriente", "correcta": "liquidez", "explicacion": "Es una razón corriente más exigente: excluye el inventario porque tarda más en convertirse en dinero.", "fuente": "Razones de liquidez" },
+  { "id": "r_ct", "texto": "Capital de trabajo = activo corriente − pasivo corriente", "correcta": "liquidez", "explicacion": "Indica cuánto de los recursos de corto plazo queda libre después de pagar las deudas de corto plazo.", "fuente": "Razones de liquidez" },
+  { "id": "r_dp", "texto": "Deuda ÷ patrimonio", "correcta": "endeudamiento", "explicacion": "Compara lo que aportan los acreedores con lo que aportan los dueños: mide el apalancamiento.", "fuente": "Razones de endeudamiento" },
+  { "id": "r_da", "texto": "Deuda ÷ activos totales", "correcta": "endeudamiento", "explicacion": "Indica qué parte de los activos se financia con deuda.", "fuente": "Razones de endeudamiento" },
+  { "id": "r_cob", "texto": "Cobertura de intereses = resultado operacional ÷ gastos financieros", "correcta": "endeudamiento", "explicacion": "Mide cuántas veces el negocio puede pagar sus intereses: es un indicador de solvencia.", "fuente": "Razones de endeudamiento y solvencia" },
+  { "id": "r_mb", "texto": "Margen bruto = (ventas − costo de ventas) ÷ ventas", "correcta": "rentabilidad", "explicacion": "Indica cuánto queda de cada peso vendido después del costo de lo vendido.", "fuente": "Razones de rentabilidad" },
+  { "id": "r_mn", "texto": "Margen neto = utilidad ÷ ventas", "correcta": "rentabilidad", "explicacion": "Indica cuánto se gana finalmente por cada peso vendido.", "fuente": "Razones de rentabilidad" },
+  { "id": "r_roa", "texto": "ROA = utilidad ÷ activos totales", "correcta": "rentabilidad", "explicacion": "Mide cuánto rinden todos los recursos invertidos en la empresa.", "fuente": "Razones de rentabilidad" },
+  { "id": "r_roe", "texto": "ROE = utilidad ÷ patrimonio", "correcta": "rentabilidad", "explicacion": "Mide cuánto rinde el dinero de los dueños.", "fuente": "Razones de rentabilidad" },
+  { "id": "r_rotinv", "texto": "Rotación de inventario = costo de ventas ÷ inventario", "correcta": "actividad", "explicacion": "Indica cuántas veces en el año se vende y se repone el inventario.", "fuente": "Razones de actividad" },
+  { "id": "r_dcobro", "texto": "Días de cobro = clientes ÷ ventas × 365", "correcta": "actividad", "explicacion": "Indica cuántos días tardan en promedio los clientes en pagar.", "fuente": "Razones de actividad" },
+  { "id": "r_dpago", "texto": "Días de pago = proveedores ÷ costo de ventas × 365", "correcta": "actividad", "explicacion": "Indica cuántos días tarda la empresa en pagar a sus proveedores.", "fuente": "Razones de actividad" },
+  { "id": "r_rotact", "texto": "Rotación de activos = ventas ÷ activos totales", "correcta": "actividad", "explicacion": "Mide la eficiencia: cuántos pesos de venta genera cada peso invertido en activos.", "fuente": "Razones de actividad y eficiencia" }
+]

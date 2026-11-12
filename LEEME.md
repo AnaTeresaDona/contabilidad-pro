@@ -2,7 +2,9 @@
 
 Juego web para aprender contabilidad chilena. Eres el contador de **Empanadas La Tía SpA**, que crece nivel a nivel: de emprendimiento a sociedad anónima abierta.
 
-**Estado actual:** Niveles 1 a 5 jugables (trivia, práctica y jefe final). El nivel 6 aparece en el mapa como "Próximamente".
+**Estado actual:** los 7 niveles (1 a 6) están completos y jugables. Publicado en <https://strong-longma-789642.netlify.app/> (se actualiza solo con cada cambio en GitHub).
+
+**Para jugar en este computador:** doble clic en `Jugar Contabilidad Pro.bat`.
 
 | Nivel | Qué se practica | Jefe final |
 |---|---|---|
@@ -12,8 +14,9 @@ Juego web para aprender contabilidad chilena. Eres el contador de **Empanadas La
 | 4A · IFRS para PyMEs | Depreciación lineal, ajustes de cierre (deterioro de clientes e inventario, provisiones, devengo, gastos anticipados), estados antes y después de ajustes | Registrar los ajustes que pide la auditora externa y calcular el resultado ajustado |
 | 4B · NIIF plenas y CMF | Arrendamientos NIIF 16 (valor presente, interés, depreciación), deterioro NIC 36, ganancia por acción NIC 33, dividendo mínimo legal, hechos esenciales e información privilegiada | Fiscalización de la CMF: encontrar las 3 infracciones entre 6 situaciones (los errores se muestran como "Sanción CMF") |
 | 5 · SII y Operación Renta | Clasificar partidas (agregado, deducción, sin ajuste), calcular la RLI y el Impuesto de Primera Categoría, PPM y saldo del F22, asientos tributarios (PPM, impuesto, honorarios con retención, multas) | Operación Renta con la fiscalizadora del SII: revisar 6 partidas y completar el F22 (los errores se muestran como "Multa SII") |
+| 6 · Análisis financiero (CFO) | Familias de razones, liquidez, endeudamiento, rentabilidad, actividad (días de cobro, inventario, pago y ciclo de caja), análisis vertical y horizontal, flujo operacional por método indirecto (NIC 7) | La crisis de caja: comparar dos años, diagnosticar y recomendar al directorio |
 
-En **Mi empresa** puedes ver el Libro Diario, el Mayor, el Balance de 8 columnas y los Estados Financieros de tu propia empresa, armados con todos los asientos que has registrado bien.
+En **Mi empresa** puedes ver el Libro Diario, el Mayor, el Balance de 8 columnas, los Estados Financieros y los Indicadores de tu propia empresa, armados con todos los asientos que has registrado bien.
 
 ---
 
@@ -77,6 +80,11 @@ src/
     nivel3/
       preguntas.json       ← trivia de estados financieros (NIC 1)
       situaciones.json     ← preguntas de interpretación para la práctica
+      index.ts
+    nivel6/
+      preguntas.json       ← trivia de análisis financiero y NIC 7
+      situaciones.json     ← preguntas de interpretación de razones
+      razones.json         ← razones para clasificar por familia
       index.ts
     nivel5/
       preguntas.json       ← trivia de RLI, gastos rechazados, PPM, F22 y retenciones

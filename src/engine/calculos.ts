@@ -15,6 +15,8 @@ export interface PreguntaCalculo {
   unidad?: 'clp' | 'numero' | 'porcentaje' | 'veces';
   /** Decimales aceptados (para ratios). Con 0 se exige el número exacto. */
   decimales?: number;
+  /** Diferencia aceptada (por defecto, media unidad del último decimal). Útil para días o porcentajes. */
+  tolerancia?: number;
 }
 
 export interface EjercicioCalculo {
@@ -41,11 +43,16 @@ export function formatearValor(p: PreguntaCalculo, v: number): string {
   }
 }
 
+/** Diferencia aceptada entre la respuesta y el valor correcto. */
+export function toleranciaDe(p: PreguntaCalculo): number {
+  return p.tolerancia ?? (p.decimales ? 0.5 * 10 ** -p.decimales : 0);
+}
+
 export function validarCalculo(ej: EjercicioCalculo, resp: Record<string, number | null>): ResultadoValidacion {
   const errores: ErrorDetectado[] = [];
   for (const p of ej.preguntas) {
     const r = resp[p.id];
-    const tolerancia = p.decimales ? 0.5 * 10 ** -p.decimales : 0;
+    const tolerancia = toleranciaDe(p);
     if (r === null || r === undefined || Math.abs(r - p.valor) > tolerancia + 1e-9) {
       errores.push({
         tipo: 'calculo_incorrecto',

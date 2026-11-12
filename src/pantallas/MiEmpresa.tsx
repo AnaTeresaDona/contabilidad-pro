@@ -8,7 +8,7 @@ import { CuentaTVista } from '../componentes/CuentaTVista';
 import { Opcion, Tarjeta } from '../componentes/ui';
 import { PestanasBalance, TablaBalance } from '../componentes/TablaBalance';
 import { construirBalance } from '../engine/balance8';
-import { construirBG, construirEERR } from '../engine/estados';
+import { construirBG, construirEERR, type FilaSaldo } from '../engine/estados';
 import { BalanceGeneralVista, EstadoResultadosVista, seccionesConResultado } from '../componentes/EstadosVista';
 
 interface Mayor {
@@ -19,7 +19,7 @@ interface Mayor {
 
 export function MiEmpresa() {
   const { progreso } = useProgreso();
-  const [vista, setVista] = useState<'diario' | 'mayor' | 'balance' | 'estados'>('diario');
+  const [vista, setVista] = useState<'diario' | 'mayor' | 'balance' | 'estados' | 'indicadores'>('diario');
   const balance = useMemo(() => construirBalance(progreso.libro), [progreso.libro]);
 
   const mayor = useMemo(() => {
@@ -68,7 +68,7 @@ export function MiEmpresa() {
         </p>
       </section>
 
-      <div className="grid grid-cols-2 gap-2 min-[420px]:grid-cols-4">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
         <Opcion activa={vista === 'diario'} onClick={() => setVista('diario')}>
           Diario
         </Opcion>
@@ -76,14 +76,19 @@ export function MiEmpresa() {
           Mayor
         </Opcion>
         <Opcion activa={vista === 'balance'} onClick={() => setVista('balance')}>
-          8 columnas
+          8 col.
         </Opcion>
         <Opcion activa={vista === 'estados'} onClick={() => setVista('estados')}>
           Estados
         </Opcion>
+        <Opcion activa={vista === 'indicadores'} onClick={() => setVista('indicadores')}>
+          Indicadores
+        </Opcion>
       </div>
 
-      {vista === 'estados' ? (
+      {vista === 'indicadores' ? (
+        <Indicadores filas={balance.filas} />
+      ) : vista === 'estados' ? (
         <div className="space-y-3">
           <p className="text-sm text-slate-500">Estados financieros armados con todos los asientos de tu empresa.</p>
           <EstadoResultadosVista e={construirEERR(balance.filas)} titulo={`Estado de Resultados · ${progreso.empresa.nombre}`} />
@@ -154,6 +159,64 @@ function Cifra({ etiqueta, valor }: { etiqueta: string; valor: number }) {
     <div className="rounded-2xl border-2 border-slate-200 bg-white p-2">
       <p className="text-xs font-bold text-slate-400">{etiqueta}</p>
       <p className="font-extrabold tabular-nums">{formatoCLP(valor)}</p>
+    </div>
+  );
+}
+
+/** Razones financieras de la empresa del jugador, con una lectura simple de cada una. */
+function Indicadores({ filas }: { filas: FilaSaldo[] }) {
+  const bg = construirBG(filas);
+  const e = construirEERR(filas);
+  const t = bg.totales;
+  const inventario = bg.secciones.activo_corriente.filter((l) => l.cuentaId === 'mercaderias').reduce((a, l) => a + l.monto, 0);
+  const ventas = e.ventas.reduce((a, l) => a + l.monto, 0);
+  const utilidad = e.resultadoEjercicio;
+  const div = (a: number, b: number) => (b > 0 ? a / b : null);
+  const veces = (v: number | null) => (v === null ? '—' : `${v.toLocaleString('es-CL', { maximumFractionDigits: 2, minimumFractionDigits: 2 })} veces`);
+  const pct = (v: number | null) => (v === null ? '—' : `${(v * 100).toLocaleString('es-CL', { maximumFractionDigits: 1, minimumFractionDigits: 1 })}%`);
+  const rc = div(t.activoCorriente, t.pasivoCorriente);
+  const grupos = [
+    {
+      titulo: '💧 Liquidez',
+      filas: [
+        ['Razón corriente', veces(rc), rc === null ? 'Sin deudas de corto plazo.' : rc >= 1 ? 'Alcanza para pagar lo que vence pronto.' : 'Ojo: no alcanza para las deudas de corto plazo.'],
+        ['Prueba ácida', veces(div(t.activoCorriente - inventario, t.pasivoCorriente)), 'Lo mismo, sin contar el inventario.'],
+        ['Capital de trabajo', formatoCLP(t.activoCorriente - t.pasivoCorriente), 'Activo corriente − pasivo corriente.'],
+      ],
+    },
+    {
+      titulo: '🏦 Endeudamiento',
+      filas: [
+        ['Deuda / Patrimonio', veces(div(t.totalPasivos, t.patrimonio)), 'Cuánto aportan los acreedores por cada peso de los dueños.'],
+        ['Deuda / Activos', pct(div(t.totalPasivos, t.totalActivos)), 'Parte de los activos financiada con deuda.'],
+      ],
+    },
+    {
+      titulo: '📈 Rentabilidad',
+      filas: [
+        ['Margen neto', pct(div(utilidad, ventas)), 'Ganancia por cada peso vendido.'],
+        ['ROA', pct(div(utilidad, t.totalActivos)), 'Rendimiento de todos los activos.'],
+        ['ROE', pct(div(utilidad, t.patrimonio)), 'Rendimiento del dinero de los dueños.'],
+      ],
+    },
+  ];
+  return (
+    <div className="space-y-3">
+      <p className="text-sm text-slate-500">Indicadores calculados con todos los asientos de tu empresa. "—" significa que falta un dato para calcularlo.</p>
+      {grupos.map((g) => (
+        <Tarjeta key={g.titulo} className="p-3">
+          <p className="mb-1 font-extrabold">{g.titulo}</p>
+          {g.filas.map(([nombre, valor, nota]) => (
+            <div key={nombre} className="border-t border-slate-100 py-1.5 first:border-0">
+              <div className="flex justify-between gap-3 text-sm">
+                <span className="font-bold">{nombre}</span>
+                <span className="font-extrabold tabular-nums">{valor}</span>
+              </div>
+              <p className="text-xs text-slate-400">{nota}</p>
+            </div>
+          ))}
+        </Tarjeta>
+      ))}
     </div>
   );
 }

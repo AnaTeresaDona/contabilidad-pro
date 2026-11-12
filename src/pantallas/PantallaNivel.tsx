@@ -23,6 +23,8 @@ import { EjCalculo } from '../juego/ejercicios/EjCalculo';
 import { EjAjustesCierre } from '../juego/ejercicios/EjAjustesCierre';
 import { EjFiscalizacion } from '../juego/ejercicios/EjFiscalizacion';
 import { EjClasificarPartidas, EjOperacionRenta } from '../juego/ejercicios/EjPartidas';
+import { EjClasificarOpciones } from '../juego/ejercicios/EjClasificarOpciones';
+import { EjCrisis } from '../juego/ejercicios/EjCrisis';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
 import { Confeti, Modal } from '../componentes/Efectos';
@@ -389,6 +391,10 @@ function pistaDe(ej: Ejercicio): string {
     case 'clasificarPartidas':
     case 'operacionRenta':
       return 'Agregados: multas fiscales, provisiones y estimaciones no pagadas, deterioros contables, gastos sin respaldo o personales. Deducciones: dividendos de S.A. chilenas, mayor depreciación acelerada, provisiones de años anteriores pagadas este año. Gastos necesarios y acreditados: sin ajuste. RLI = resultado + agregados − deducciones; impuesto = RLI × 27%; saldo = impuesto − PPM.';
+    case 'clasificarOpciones':
+      return 'Liquidez: ¿puedo pagar lo que vence pronto? Endeudamiento: ¿cuánto debo? Rentabilidad: ¿cuánto gano? Actividad: ¿qué tan rápido cobro, vendo y pago?';
+    case 'crisis':
+      return 'Razón corriente = activo corriente ÷ pasivo corriente. Días de cobro = clientes ÷ ventas × 365. Flujo operacional = utilidad + depreciación − aumento de clientes − aumento de inventario + aumento de proveedores.';
   }
 }
 
@@ -422,6 +428,10 @@ function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }) {
       return <EjClasificarPartidas partidas={ej.partidas} api={api} />;
     case 'operacionRenta':
       return <EjOperacionRenta datos={ej.datos} api={api} />;
+    case 'clasificarOpciones':
+      return <EjClasificarOpciones datos={ej.datos} api={api} />;
+    case 'crisis':
+      return <EjCrisis datos={ej.datos} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;
     case 'debeHaber':

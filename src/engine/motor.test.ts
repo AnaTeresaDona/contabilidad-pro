@@ -17,6 +17,22 @@ import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from '.
 import { validarCalculo } from './calculos';
 import { calculoF22, calculoRLI, generarOperacionRenta, TASA_PRIMERA_CATEGORIA, totalPorTipo, validarOperacionRenta } from './tributario';
 import { PARTIDAS } from '../content/nivel5';
+import { familiasDeRazones } from '../content/nivel6';
+import {
+  calculoActividad,
+  calculoEndeudamiento,
+  calculoFlujoOperacional,
+  calculoLiquidez,
+  calculoRentabilidad,
+  calculoVerticalHorizontal,
+  diasCobro,
+  flujoOperacional,
+  generarEmpresa,
+  patrimonio,
+  razonCorriente,
+  totalActivos,
+  totalPasivos,
+} from './analisis';
 import trib from '../config/tributario.json';
 import { calculoArrendamiento, calculoDeterioro, calculoDividendoMinimo, calculoGananciaPorAccion, valorPresente } from './ifrs';
 import { CUENTAS_BASICAS, ladoAumentoCuenta } from './cuentas';
@@ -375,6 +391,63 @@ describe('Tributación y Operación Renta (Nivel 5)', () => {
     expect(e.resultadoAntesImpuesto).toBe(1_000_000);
     expect(e.resultadoEjercicio).toBe(730_000);
     expect(e.gastosOperacionales).toHaveLength(0);
+  });
+});
+
+describe('Análisis financiero (Nivel 6)', () => {
+  it('las empresas generadas tienen balance cuadrado y utilidad positiva', () => {
+    for (let s = 1; s <= 100; s++)
+      for (const crisis of [false, true]) {
+        const { anio1, anio2 } = generarEmpresa(crearRng(s), crisis);
+        for (const a of [anio1, anio2]) {
+          expect(totalActivos(a)).toBe(totalPasivos(a) + patrimonio(a));
+          expect(a.utilidad).toBeGreaterThan(0);
+        }
+      }
+  });
+
+  it('la crisis tiene flujo operacional negativo, menos liquidez y cobro más lento', () => {
+    for (let s = 1; s <= 100; s++) {
+      const { anio1, anio2 } = generarEmpresa(crearRng(s), true);
+      expect(flujoOperacional(anio1, anio2)).toBeLessThan(0);
+      expect(razonCorriente(anio2)).toBeLessThan(razonCorriente(anio1));
+      expect(diasCobro(anio2)).toBeGreaterThan(diasCobro(anio1) + 20);
+      expect(anio2.utilidad).toBeGreaterThan(anio1.utilidad);
+    }
+  });
+
+  it('todos los cálculos de análisis se validan con sus propias respuestas y toleran redondeos', () => {
+    const generadores = [calculoLiquidez, calculoEndeudamiento, calculoRentabilidad, calculoActividad, calculoVerticalHorizontal, calculoFlujoOperacional];
+    for (const gen of generadores)
+      for (let s = 1; s <= 40; s++) {
+        const ej = gen(crearRng(s));
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto, `${ej.titulo} semilla ${s}`).toBe(true);
+      }
+    const act = calculoActividad(crearRng(3));
+    const ok = Object.fromEntries(act.preguntas.map((p) => [p.id, p.valor]));
+    expect(validarCalculo(act, { ...ok, dc: ok.dc + 1 }).correcto).toBe(true);
+    expect(validarCalculo(act, { ...ok, dc: ok.dc + 3 }).correcto).toBe(false);
+  });
+
+  it('el jefe trae diagnóstico y decisión con la respuesta correcta entre las alternativas', () => {
+    for (let s = 1; s <= 30; s++) {
+      const ej = CONTENIDO.n6.generarJefe(crearRng(s));
+      if (ej.tipo !== 'crisis') throw new Error('tipo inesperado');
+      for (const p of [ej.datos.diagnostico, ej.datos.decision]) {
+        expect(p.opciones).toHaveLength(4);
+        expect(p.correcta).toBeGreaterThanOrEqual(0);
+      }
+      expect(ej.datos.calculo.preguntas.find((p) => p.id === 'flujo')!.valor).toBeLessThan(0);
+    }
+  });
+
+  it('la clasificación por familias trae una razón de cada familia', () => {
+    for (let s = 1; s <= 30; s++) {
+      const ej = familiasDeRazones(crearRng(s));
+      expect(ej.items).toHaveLength(6);
+      expect(new Set(ej.items.map((i) => i.correcta)).size).toBe(4);
+    }
   });
 });
 

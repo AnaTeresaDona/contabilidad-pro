@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { validarCalculo, formatearValor, type EjercicioCalculo, type PreguntaCalculo } from '../../engine/calculos';
+import { validarCalculo, formatearValor, toleranciaDe, type EjercicioCalculo, type PreguntaCalculo } from '../../engine/calculos';
 import { Boton } from '../../componentes/ui';
 import { CampoMonto } from '../../componentes/CampoMonto';
 import { Fila } from '../../componentes/EstadosVista';
@@ -13,12 +13,12 @@ function leerDecimal(texto: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-function CampoDecimal({ etiqueta, disabled, onChange }: { etiqueta: string; disabled: boolean; onChange: (n: number | null) => void }) {
+function CampoDecimal({ etiqueta, disabled, onChange, decimales = 0 }: { etiqueta: string; disabled: boolean; onChange: (n: number | null) => void; decimales?: number }) {
   const [texto, setTexto] = useState('');
   return (
     <input
       inputMode="decimal"
-      placeholder="0,00"
+      placeholder={decimales > 0 ? `0,${'0'.repeat(decimales)}` : '0'}
       aria-label={etiqueta}
       disabled={disabled}
       value={texto}
@@ -34,7 +34,7 @@ function CampoDecimal({ etiqueta, disabled, onChange }: { etiqueta: string; disa
 /** Campo según el tipo de pregunta: pesos (con signo) o número con decimales. */
 function Campo({ p, valor, onChange, disabled }: { p: PreguntaCalculo; valor: number | null; onChange: (n: number | null) => void; disabled: boolean }) {
   if (p.decimales || p.unidad === 'veces' || p.unidad === 'porcentaje' || p.unidad === 'numero')
-    return <CampoDecimal etiqueta={p.etiqueta} disabled={disabled} onChange={onChange} />;
+    return <CampoDecimal etiqueta={p.etiqueta} disabled={disabled} onChange={onChange} decimales={p.decimales} />;
   return <CampoMonto valor={valor} etiqueta={p.etiqueta} disabled={disabled} onChange={onChange} />;
 }
 
@@ -62,7 +62,7 @@ export function FormCalculo({
         <p className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">✏️ Calcula</p>
         {datos.preguntas.map((p) => {
           const v = resp[p.id] ?? null;
-          const ok = v !== null && Math.abs(v - p.valor) <= (p.decimales ? 0.5 * 10 ** -p.decimales : 0) + 1e-9;
+          const ok = v !== null && Math.abs(v - p.valor) <= toleranciaDe(p) + 1e-9;
           return (
             <div key={p.id}>
               <Fila
