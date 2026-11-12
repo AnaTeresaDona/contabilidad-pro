@@ -2,7 +2,21 @@ import type { Rng } from '../engine/azar';
 import type { Ejercicio, Pregunta } from '../engine/ejercicios';
 import type { Plantilla } from '../engine/plantillas';
 
+/** Un tema de los apuntes del nivel: lo que hay que saber antes de jugar. */
+export interface Apunte {
+  id: string;
+  titulo: string;
+  /** Ideas clave, en orden. */
+  puntos: string[];
+  /** Un ejemplo con números o un caso de la Tía Rosa. */
+  ejemplo?: string;
+  /** De dónde viene: ley, artículo, norma o concepto. */
+  fuente: string;
+}
+
 export interface ContenidoNivel {
+  /** Apuntes para estudiar antes de la trivia, en el orden del índice. */
+  apuntes: Apunte[];
   intro: { personaje: string; emoji: string; texto: string };
   preguntas: Pregunta[];
   plantillas: Plantilla[];

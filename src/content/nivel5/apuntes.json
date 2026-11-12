@@ -1,0 +1,79 @@
+[
+  {
+    "id": "idpc",
+    "titulo": "Impuesto de Primera Categoría",
+    "puntos": [
+      "Grava las utilidades de las empresas. Se calcula sobre la Renta Líquida Imponible (RLI), no sobre la utilidad contable.",
+      "Tasa del régimen general (semi integrado): 27%.",
+      "Las pymes que cumplen los requisitos pueden optar al régimen Pro Pyme, con tasa menor."
+    ],
+    "fuente": "LIR, art. 14 letras A y D, y art. 20"
+  },
+  {
+    "id": "rli",
+    "titulo": "De la utilidad contable a la RLI",
+    "puntos": [
+      "RLI = resultado contable antes de impuesto + agregados − deducciones.",
+      "Agregados: gastos que la ley no acepta o no acepta todavía.",
+      "Deducciones: ingresos que no tributan o que ya tributaron, y gastos aceptados que no están en el resultado del año.",
+      "Las partidas que la ley acepta tal como están no se ajustan."
+    ],
+    "fuente": "LIR, arts. 29 a 33"
+  },
+  {
+    "id": "gastos-aceptados",
+    "titulo": "Requisitos de un gasto aceptado",
+    "puntos": [
+      "Necesario para producir la renta.",
+      "Del ejercicio.",
+      "Pagado o adeudado.",
+      "Acreditado con documentos (facturas, contratos, comprobantes)."
+    ],
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "agregados",
+    "titulo": "Agregados frecuentes",
+    "puntos": [
+      "Multas e intereses pagados al Fisco.",
+      "Provisiones aún no pagadas (por ejemplo, una demanda).",
+      "Estimaciones contables de incobrables: tributariamente se acepta el castigo después de agotar la cobranza.",
+      "Deterioros contables (NIC 36).",
+      "Gastos sin respaldo o no necesarios, como gastos personales de los dueños (que además tienen la tributación especial del art. 21)."
+    ],
+    "fuente": "LIR, arts. 21, 31 y 33 N°1"
+  },
+  {
+    "id": "deducciones",
+    "titulo": "Deducciones frecuentes",
+    "puntos": [
+      "Dividendos recibidos de sociedades anónimas chilenas, porque ya pagaron Primera Categoría.",
+      "Mayor depreciación por depreciación acelerada tributaria.",
+      "Gastos provisionados (y agregados) en años anteriores que se pagan este año."
+    ],
+    "fuente": "LIR, arts. 31 N°5 y 33 N°2"
+  },
+  {
+    "id": "ppm-f22",
+    "titulo": "PPM y Formulario 22",
+    "puntos": [
+      "Los PPM (pagos provisionales mensuales) son anticipos del impuesto anual que se pagan en el F29.",
+      "Se registran como activo: PPM (Debe) contra Banco (Haber).",
+      "En abril se presenta el Formulario 22: impuesto − PPM = saldo a pagar. Si los PPM superan el impuesto, el SII devuelve la diferencia.",
+      "Al cierre: Gasto por impuesto a la renta (Debe) contra Impuesto a la renta por pagar (Haber)."
+    ],
+    "ejemplo": "Impuesto $10.000.000 y PPM $12.000.000: devolución de $2.000.000.",
+    "fuente": "LIR, arts. 65 y 84; Formulario 22 del SII"
+  },
+  {
+    "id": "honorarios",
+    "titulo": "Boletas de honorarios y retención",
+    "puntos": [
+      "Cuando una empresa paga una boleta de honorarios, retiene un porcentaje y lo entera al SII en su F29.",
+      "Al profesional se le paga el líquido: bruto − retención.",
+      "La tasa sube gradualmente cada año: en el juego se usa 15,25% para 2026 (verificar la tasa vigente).",
+      "Asiento: Honorarios (Debe, bruto), Retenciones por pagar (Haber), Banco (Haber, líquido)."
+    ],
+    "fuente": "LIR, art. 74 N°2; Ley 21.133"
+  }
+]

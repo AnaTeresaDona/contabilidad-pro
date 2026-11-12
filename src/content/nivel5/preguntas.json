@@ -15,7 +15,12 @@
   {
     "id": "n5-q02",
     "pregunta": "¿Cuál es la tasa del Impuesto de Primera Categoría en el régimen general (semi integrado)?",
-    "opciones": ["27%", "19%", "10%", "35%"],
+    "opciones": [
+      "27%",
+      "19%",
+      "10%",
+      "35%"
+    ],
     "correcta": 0,
     "explicacion": "Las empresas del régimen general pagan 27% sobre su RLI. El régimen Pro Pyme tiene una tasa menor; el 19% es la tasa del IVA, otro impuesto.",
     "fuente": "LIR, art. 20 y art. 14 letra A"
@@ -88,7 +93,12 @@
   {
     "id": "n5-q08",
     "pregunta": "¿En qué formulario se declara el impuesto a la renta anual?",
-    "opciones": ["Formulario 22", "Formulario 29", "Formulario 50", "Factura electrónica"],
+    "opciones": [
+      "Formulario 22",
+      "Formulario 29",
+      "Formulario 50",
+      "Factura electrónica"
+    ],
     "correcta": 0,
     "explicacion": "El F22 se presenta en abril (Operación Renta) por las rentas del año anterior. El F29 es la declaración mensual de IVA, PPM y retenciones.",
     "fuente": "SII: Formulario 22"
@@ -196,5 +206,83 @@
     "correcta": 0,
     "explicacion": "El régimen Pro Pyme tiene tasa reducida y simplificaciones, pero exige cumplir límites de ingresos promedio. Una S.A. abierta grande queda en el régimen general.",
     "fuente": "LIR, art. 14 letra D"
+  },
+  {
+    "id": "n5-q17",
+    "pregunta": "Resultado contable $50.000.000, agregados $5.000.000 y deducciones $3.000.000. ¿RLI?",
+    "opciones": [
+      "$52.000.000",
+      "$58.000.000",
+      "$48.000.000",
+      "$50.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "RLI = 50 + 5 − 3 = $52.000.000.",
+    "fuente": "LIR, arts. 29 a 33"
+  },
+  {
+    "id": "n5-q18",
+    "pregunta": "RLI de $52.000.000 con tasa de 27%. ¿Impuesto de Primera Categoría?",
+    "opciones": [
+      "$14.040.000",
+      "$9.880.000",
+      "$52.000.000",
+      "$1.404.000"
+    ],
+    "correcta": 0,
+    "explicacion": "$52.000.000 × 27% = $14.040.000.",
+    "fuente": "LIR, art. 20"
+  },
+  {
+    "id": "n5-q19",
+    "pregunta": "¿En qué formulario se pagan los PPM?",
+    "opciones": [
+      "Formulario 29, cada mes",
+      "Formulario 22, cada año",
+      "En la factura",
+      "No se pagan"
+    ],
+    "correcta": 0,
+    "explicacion": "Los PPM se declaran y pagan mensualmente junto con el IVA.",
+    "fuente": "LIR, art. 84; Formulario 29"
+  },
+  {
+    "id": "n5-q20",
+    "pregunta": "Compras de insumos sin factura ni respaldo. Para la RLI…",
+    "opciones": [
+      "Se agregan: son gastos rechazados",
+      "Se deducen",
+      "No se ajustan",
+      "Se duplican"
+    ],
+    "correcta": 0,
+    "explicacion": "Para deducir un gasto hay que acreditarlo con documentos.",
+    "fuente": "LIR, art. 31"
+  },
+  {
+    "id": "n5-q21",
+    "pregunta": "Intereses de un préstamo usado en el giro del negocio. Para la RLI…",
+    "opciones": [
+      "No se ajustan: es gasto aceptado",
+      "Se agregan",
+      "Se deducen dos veces",
+      "Se pagan con 40% de impuesto"
+    ],
+    "correcta": 0,
+    "explicacion": "Los intereses de créditos destinados a generar la renta son gasto aceptado.",
+    "fuente": "LIR, art. 31 N°1"
+  },
+  {
+    "id": "n5-q22",
+    "pregunta": "¿Cuándo entera la empresa la retención de una boleta de honorarios?",
+    "opciones": [
+      "En su Formulario 29 del mes siguiente al pago",
+      "En abril, en el F22 del profesional",
+      "Nunca: la paga el profesional",
+      "Al final del año"
+    ],
+    "correcta": 0,
+    "explicacion": "La empresa retiene al pagar y declara la retención en su F29.",
+    "fuente": "LIR, art. 74 N°2"
   }
 ]

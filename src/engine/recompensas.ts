@@ -9,8 +9,9 @@ export const REGLAS = {
   danioLeve: 5,
   danioGrave: 15,
   curacionNivel: 25,
-  triviaPreguntas: 5,
-  triviaMinimo: 4,
+  triviaPreguntas: 8,
+  triviaMinimo: 6,
+  ejerciciosPractica: 8,
 };
 
 /** XP de un acierto. Con pista o tras equivocarse se gana la mitad; con combo, el doble. */

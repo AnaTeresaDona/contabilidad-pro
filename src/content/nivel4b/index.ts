@@ -1,3 +1,4 @@
+import apuntesJson from './apuntes.json';
 import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import afirmaciones from './afirmaciones.json';
@@ -13,7 +14,7 @@ import {
   generarFiscalizacion,
   type Afirmacion,
 } from '../../engine/ifrs';
-import type { ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel } from '../tipos';
 
 const plantillas = plantillasJson as unknown as Plantilla[];
 const banco = situaciones as Pregunta[];
@@ -33,6 +34,7 @@ function generarPractica(rng: Rng): Ejercicio[] {
 }
 
 export const nivel4b: ContenidoNivel = {
+  apuntes: apuntesJson as Apunte[],
   intro: {
     personaje: 'Tía Rosa',
     emoji: '👩‍🍳',

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "juego-completo",
+    "titulo": "Qué son los estados financieros",
+    "puntos": [
+      "Un juego completo incluye: estado de situación financiera (Balance General), estado de resultados, estado de cambios en el patrimonio, estado de flujos de efectivo y notas.",
+      "El Balance General es una \"foto\" a una fecha. El Estado de Resultados es la \"película\" de un período.",
+      "El Balance de 8 columnas es una hoja de trabajo: sirve para preparar los estados, pero no los reemplaza."
+    ],
+    "fuente": "NIC 1 Presentación de Estados Financieros, párrafo 10"
+  },
+  {
+    "id": "corriente",
+    "titulo": "Corriente y no corriente",
+    "puntos": [
+      "Activo corriente: se convierte en dinero, se vende o se consume dentro de 12 meses (caja, banco, clientes, mercaderías, IVA crédito fiscal).",
+      "Activo no corriente: se usa por más de 12 meses (maquinarias, muebles, vehículos, terrenos).",
+      "Pasivo corriente: se paga dentro de 12 meses (proveedores, IVA débito, remuneraciones por pagar).",
+      "Pasivo no corriente: se paga en más de 12 meses (préstamos de largo plazo).",
+      "En el juego simplificamos: el préstamo bancario se presenta completo como no corriente; en la realidad, las cuotas del próximo año son corrientes."
+    ],
+    "fuente": "NIC 1, párrafos 60 a 76"
+  },
+  {
+    "id": "balance-general",
+    "titulo": "El Balance General",
+    "puntos": [
+      "A un lado: Activo corriente + Activo no corriente = Total activos.",
+      "Al otro: Pasivo corriente + Pasivo no corriente + Patrimonio = Total pasivos y patrimonio.",
+      "Las cuentas de ingreso y gasto no aparecen: su efecto neto (el resultado del ejercicio) se suma al patrimonio.",
+      "Siempre debe cumplirse: Activo = Pasivo + Patrimonio."
+    ],
+    "fuente": "NIC 1, párrafos 54 y 55"
+  },
+  {
+    "id": "estado-resultados",
+    "titulo": "El Estado de Resultados por función",
+    "puntos": [
+      "Ventas − Costo de ventas = Margen bruto.",
+      "Margen bruto − Gastos de administración y ventas = Resultado operacional.",
+      "Resultado operacional + ingresos no operacionales − gastos no operacionales (como los intereses) = Resultado antes de impuesto.",
+      "Resultado antes de impuesto − impuesto a la renta = Resultado del ejercicio.",
+      "Si un resultado es negativo, es una pérdida."
+    ],
+    "ejemplo": "Ventas $10.000.000, costo $6.000.000 → margen bruto $4.000.000. Gastos $2.500.000 → resultado operacional $1.500.000.",
+    "fuente": "NIC 1, párrafos 81A a 105"
+  },
+  {
+    "id": "lectura",
+    "titulo": "Primeras lecturas de los estados",
+    "puntos": [
+      "Margen bruto alto pero resultado operacional bajo: los gastos de administración y ventas son muy altos.",
+      "Resultado operacional positivo y resultado antes de impuesto negativo: los intereses superan la ganancia del negocio.",
+      "Activo corriente menor que pasivo corriente: alerta de liquidez (lo verás en detalle en el Nivel 6).",
+      "Una pérdida reduce el patrimonio; una utilidad lo aumenta."
+    ],
+    "fuente": "Análisis de estados financieros"
+  }
+]

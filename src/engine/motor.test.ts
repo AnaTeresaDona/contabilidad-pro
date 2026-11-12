@@ -7,12 +7,12 @@ import { generarCuentaT, sumasT, validarCuentaT } from './cuentaT';
 import { generarLibroConErrores } from './libroConErrores';
 import { existeCuenta } from './cuentas';
 import { infoError, tiposDeError } from './errores';
-import { danioPorErrores, xpPorAcierto } from './recompensas';
+import { danioPorErrores, REGLAS, xpPorAcierto } from './recompensas';
 import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actualizarNivel } from './progreso';
 import { CONTENIDO, ORDEN_NIVELES } from '../content';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
-import { ejMayorizar, mesConActivoFijo } from './ejercicios';
+import { armarPractica, ejMayorizar, mesConActivoFijo } from './ejercicios';
 import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from './ajustes';
 import { validarCalculo } from './calculos';
 import { calculoF22, calculoRLI, generarOperacionRenta, TASA_PRIMERA_CATEGORIA, totalPorTipo, validarOperacionRenta } from './tributario';
@@ -455,7 +455,7 @@ describe('contenido', () => {
   it('las preguntas están bien formadas y sin ids repetidos', () => {
     const ids = new Set<string>();
     for (const c of Object.values(CONTENIDO)) {
-      expect(c.preguntas.length).toBeGreaterThanOrEqual(15);
+      expect(c.preguntas.length).toBeGreaterThanOrEqual(REGLAS.triviaPreguntas * 2);
       for (const q of c.preguntas) {
         expect(ids.has(q.id)).toBe(false);
         ids.add(q.id);
@@ -463,6 +463,27 @@ describe('contenido', () => {
         expect(q.correcta).toBeGreaterThanOrEqual(0);
         expect(q.correcta).toBeLessThan(4);
         expect(q.explicacion && q.fuente).toBeTruthy();
+      }
+    }
+  });
+  it('cada nivel tiene apuntes con índice y fuente', () => {
+    for (const c of Object.values(CONTENIDO)) {
+      expect(c.apuntes.length).toBeGreaterThanOrEqual(4);
+      const ids = new Set(c.apuntes.map((a) => a.id));
+      expect(ids.size).toBe(c.apuntes.length);
+      for (const a of c.apuntes) {
+        expect(a.titulo && a.fuente).toBeTruthy();
+        expect(a.puntos.length).toBeGreaterThan(0);
+      }
+    }
+  });
+  it('la práctica de cada nivel trae 8 ejercicios sin preguntas repetidas', () => {
+    for (const c of Object.values(CONTENIDO)) {
+      for (let s = 1; s <= 10; s++) {
+        const ejs = armarPractica(c.generarPractica, crearRng(s), REGLAS.ejerciciosPractica);
+        expect(ejs).toHaveLength(REGLAS.ejerciciosPractica);
+        const ps = ejs.flatMap((e) => (e.tipo === 'pregunta' ? [e.pregunta.id] : []));
+        expect(new Set(ps).size).toBe(ps.length);
       }
     }
   });

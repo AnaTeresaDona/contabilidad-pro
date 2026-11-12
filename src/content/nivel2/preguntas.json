@@ -15,7 +15,12 @@
   {
     "id": "n2-q02",
     "pregunta": "¿Qué registra el Libro Diario?",
-    "opciones": ["Las operaciones en orden cronológico, como asientos", "Los saldos de cada cuenta al cierre", "Solo las ventas del día", "Los sueldos de los trabajadores"],
+    "opciones": [
+      "Las operaciones en orden cronológico, como asientos",
+      "Los saldos de cada cuenta al cierre",
+      "Solo las ventas del día",
+      "Los sueldos de los trabajadores"
+    ],
     "correcta": 0,
     "explicacion": "El Libro Diario registra cada operación, día a día y en orden, mediante asientos con su Debe y su Haber.",
     "fuente": "Ciclo contable: Libro Diario"
@@ -23,7 +28,12 @@
   {
     "id": "n2-q03",
     "pregunta": "¿Qué hace el Libro Mayor?",
-    "opciones": ["Agrupa los movimientos por cuenta para conocer el saldo de cada una", "Registra las operaciones en orden de fecha", "Calcula los impuestos del mes", "Lista a los clientes morosos"],
+    "opciones": [
+      "Agrupa los movimientos por cuenta para conocer el saldo de cada una",
+      "Registra las operaciones en orden de fecha",
+      "Calcula los impuestos del mes",
+      "Lista a los clientes morosos"
+    ],
     "correcta": 0,
     "explicacion": "El Mayor reúne todos los cargos y abonos de una misma cuenta (una Cuenta T por cuenta). Así se obtiene el saldo de Banco, de Clientes, etc.",
     "fuente": "Ciclo contable: Libro Mayor"
@@ -31,7 +41,12 @@
   {
     "id": "n2-q04",
     "pregunta": "Traspasar los asientos del Libro Diario a las cuentas del Libro Mayor se llama…",
-    "opciones": ["Mayorizar", "Centralizar el IVA", "Conciliar", "Depreciar"],
+    "opciones": [
+      "Mayorizar",
+      "Centralizar el IVA",
+      "Conciliar",
+      "Depreciar"
+    ],
     "correcta": 0,
     "explicacion": "Mayorizar es llevar cada línea de los asientos a la Cuenta T que le corresponde, respetando su lado (Debe o Haber).",
     "fuente": "Ciclo contable: Libro Mayor"
@@ -39,7 +54,12 @@
   {
     "id": "n2-q05",
     "pregunta": "¿Cuáles son las cuatro parejas de columnas del Balance de 8 columnas?",
-    "opciones": ["Sumas, Saldos, Inventario y Resultados", "Activo, Pasivo, Ingresos y Gastos", "Debe, Haber, IVA y Total", "Caja, Banco, Clientes y Proveedores"],
+    "opciones": [
+      "Sumas, Saldos, Inventario y Resultados",
+      "Activo, Pasivo, Ingresos y Gastos",
+      "Debe, Haber, IVA y Total",
+      "Caja, Banco, Clientes y Proveedores"
+    ],
     "correcta": 0,
     "explicacion": "Sumas (Debe | Haber), Saldos (Deudor | Acreedor), Inventario (Activo | Pasivo) y Resultados (Pérdidas | Ganancias).",
     "fuente": "Balance de 8 columnas"
@@ -47,7 +67,12 @@
   {
     "id": "n2-q06",
     "pregunta": "En el Balance de 8 columnas, ¿dónde van las cuentas de Ingreso y de Gasto?",
-    "opciones": ["En Resultados: los gastos en Pérdidas y los ingresos en Ganancias", "En Inventario: los gastos en Activo y los ingresos en Pasivo", "Solo en la columna de Sumas", "No aparecen en el balance"],
+    "opciones": [
+      "En Resultados: los gastos en Pérdidas y los ingresos en Ganancias",
+      "En Inventario: los gastos en Activo y los ingresos en Pasivo",
+      "Solo en la columna de Sumas",
+      "No aparecen en el balance"
+    ],
     "correcta": 0,
     "explicacion": "Las cuentas de resultado explican la utilidad o pérdida del período, por eso van a Resultados. Las de balance (activo, pasivo, patrimonio) van a Inventario.",
     "fuente": "Balance de 8 columnas"
@@ -55,7 +80,12 @@
   {
     "id": "n2-q07",
     "pregunta": "En el Balance de 8 columnas, ¿en qué columna va el saldo de la cuenta Capital?",
-    "opciones": ["Inventario, columna Pasivo", "Inventario, columna Activo", "Resultados, columna Ganancias", "Resultados, columna Pérdidas"],
+    "opciones": [
+      "Inventario, columna Pasivo",
+      "Inventario, columna Activo",
+      "Resultados, columna Ganancias",
+      "Resultados, columna Pérdidas"
+    ],
     "correcta": 0,
     "explicacion": "El balance de 8 columnas no tiene columna de Patrimonio: las cuentas de patrimonio, que tienen saldo acreedor, se anotan junto a los pasivos en la columna Pasivo de Inventario.",
     "fuente": "Balance de 8 columnas"
@@ -63,7 +93,12 @@
   {
     "id": "n2-q08",
     "pregunta": "Si en Resultados las Ganancias suman más que las Pérdidas, la diferencia es…",
-    "opciones": ["Una utilidad, que se anota en Pérdidas y en Pasivo para cuadrar", "Una pérdida, que se anota en Ganancias y en Activo", "Un error: siempre deben ser iguales antes del cierre", "Un impuesto por pagar"],
+    "opciones": [
+      "Una utilidad, que se anota en Pérdidas y en Pasivo para cuadrar",
+      "Una pérdida, que se anota en Ganancias y en Activo",
+      "Un error: siempre deben ser iguales antes del cierre",
+      "Un impuesto por pagar"
+    ],
     "correcta": 0,
     "explicacion": "La utilidad se suma a la columna menor (Pérdidas) para que Resultados cuadre, y a la columna Pasivo porque aumenta el patrimonio de los dueños. Entonces Inventario también cuadra.",
     "fuente": "Balance de 8 columnas"
@@ -71,7 +106,12 @@
   {
     "id": "n2-q09",
     "pregunta": "Si las columnas de Sumas no cuadran (Debe ≠ Haber), ¿qué significa?",
-    "opciones": ["Hay un error en algún asiento o al mayorizar", "La empresa tuvo pérdidas", "Falta calcular el IVA del mes", "Es normal: cuadran recién en Resultados"],
+    "opciones": [
+      "Hay un error en algún asiento o al mayorizar",
+      "La empresa tuvo pérdidas",
+      "Falta calcular el IVA del mes",
+      "Es normal: cuadran recién en Resultados"
+    ],
     "correcta": 0,
     "explicacion": "Si todos los asientos cumplen la partida doble y se mayorizaron bien, el total Debe es igual al total Haber. Si no cuadra, hay un error antes del balance.",
     "fuente": "Principio de la partida doble"
@@ -79,7 +119,12 @@
   {
     "id": "n2-q10",
     "pregunta": "¿Qué código tiene la factura electrónica en el SII?",
-    "opciones": ["33", "39", "52", "61"],
+    "opciones": [
+      "33",
+      "39",
+      "52",
+      "61"
+    ],
     "correcta": 0,
     "explicacion": "33 es la factura electrónica afecta a IVA. 39 es la boleta electrónica, 52 la guía de despacho y 61 la nota de crédito.",
     "fuente": "Formato de Documentos Tributarios Electrónicos (SII)"
@@ -87,7 +132,12 @@
   {
     "id": "n2-q11",
     "pregunta": "¿Qué documento se emite cuando se vende a un consumidor final?",
-    "opciones": ["Boleta electrónica (39)", "Factura electrónica (33)", "Guía de despacho (52)", "Nota de débito (56)"],
+    "opciones": [
+      "Boleta electrónica (39)",
+      "Factura electrónica (33)",
+      "Guía de despacho (52)",
+      "Nota de débito (56)"
+    ],
     "correcta": 0,
     "explicacion": "A un consumidor final se le emite boleta. La factura se emite cuando el comprador es contribuyente y necesita respaldar su compra (por ejemplo, para usar el crédito fiscal).",
     "fuente": "DL 825, arts. 52 y 53"
@@ -95,7 +145,12 @@
   {
     "id": "n2-q12",
     "pregunta": "¿Para qué sirve una nota de crédito?",
-    "opciones": ["Para anular o rebajar una factura ya emitida", "Para cobrar un monto adicional al cliente", "Para trasladar mercaderías", "Para pedir un préstamo al banco"],
+    "opciones": [
+      "Para anular o rebajar una factura ya emitida",
+      "Para cobrar un monto adicional al cliente",
+      "Para trasladar mercaderías",
+      "Para pedir un préstamo al banco"
+    ],
     "correcta": 0,
     "explicacion": "La nota de crédito (61) disminuye o anula una factura: por devoluciones, descuentos posteriores o errores. La nota de débito (56) hace lo contrario: aumenta el monto.",
     "fuente": "DL 825, art. 57"
@@ -103,7 +158,12 @@
   {
     "id": "n2-q13",
     "pregunta": "¿Cuál es la función principal de la guía de despacho?",
-    "opciones": ["Respaldar el traslado de mercaderías", "Reemplazar a la factura en todas las ventas", "Declarar el IVA mensual", "Pagar a los proveedores"],
+    "opciones": [
+      "Respaldar el traslado de mercaderías",
+      "Reemplazar a la factura en todas las ventas",
+      "Declarar el IVA mensual",
+      "Pagar a los proveedores"
+    ],
     "correcta": 0,
     "explicacion": "La guía de despacho (52) acompaña a los bienes cuando se trasladan, por ejemplo de la bodega a una sucursal o al cliente. El traslado por sí solo no es una venta.",
     "fuente": "DL 825, art. 55"
@@ -111,7 +171,12 @@
   {
     "id": "n2-q14",
     "pregunta": "En una boleta por $119.000 (IVA incluido), ¿cuál es el valor neto?",
-    "opciones": ["$100.000", "$96.390", "$119.000", "$141.610"],
+    "opciones": [
+      "$100.000",
+      "$96.390",
+      "$119.000",
+      "$141.610"
+    ],
     "correcta": 0,
     "explicacion": "En la boleta el precio incluye el IVA. Neto = total ÷ 1,19 = $100.000, e IVA = $119.000 − $100.000 = $19.000.",
     "fuente": "DL 825, art. 14"
@@ -119,7 +184,12 @@
   {
     "id": "n2-q15",
     "pregunta": "¿En qué formulario se declara y paga mensualmente el IVA?",
-    "opciones": ["Formulario 29", "Formulario 22", "Formulario 1879", "Formulario 50"],
+    "opciones": [
+      "Formulario 29",
+      "Formulario 22",
+      "Formulario 1879",
+      "Formulario 50"
+    ],
     "correcta": 0,
     "explicacion": "El IVA se declara cada mes en el Formulario 29. El Formulario 22 es la declaración anual de renta (Operación Renta).",
     "fuente": "SII: Formulario 29"
@@ -127,7 +197,12 @@
   {
     "id": "n2-q16",
     "pregunta": "Si en un mes el IVA Débito Fiscal es $500.000 y el Crédito Fiscal es $320.000, ¿cuánto IVA se paga?",
-    "opciones": ["$180.000", "$820.000", "$500.000", "$0, porque hay crédito"],
+    "opciones": [
+      "$180.000",
+      "$820.000",
+      "$500.000",
+      "$0, porque hay crédito"
+    ],
     "correcta": 0,
     "explicacion": "Se paga la diferencia: Débito − Crédito = $500.000 − $320.000 = $180.000. Si el crédito fuera mayor, quedaría un remanente para el mes siguiente.",
     "fuente": "DL 825, arts. 20 y 23"
@@ -157,5 +232,83 @@
     "correcta": 0,
     "explicacion": "Cada saldo es Debe − Haber de una cuenta. Si el total Debe es igual al total Haber, lo que sobra en las cuentas deudoras compensa exactamente lo que sobra en las acreedoras.",
     "fuente": "Balance de 8 columnas"
+  },
+  {
+    "id": "n2-q19",
+    "pregunta": "¿Cuándo se emite una factura exenta electrónica (34)?",
+    "opciones": [
+      "Cuando la venta o servicio está exento de IVA",
+      "Cuando el cliente no quiere pagar IVA",
+      "Para anular una factura",
+      "Para trasladar mercaderías"
+    ],
+    "correcta": 0,
+    "explicacion": "Las operaciones exentas no llevan IVA, pero igual deben documentarse.",
+    "fuente": "DL 825; formato DTE del SII"
+  },
+  {
+    "id": "n2-q20",
+    "pregunta": "¿Se puede usar como crédito fiscal el IVA incluido en una boleta de compra?",
+    "opciones": [
+      "No: el crédito fiscal se respalda con factura",
+      "Sí, siempre",
+      "Sí, si la boleta es mayor a $100.000",
+      "Solo en diciembre"
+    ],
+    "correcta": 0,
+    "explicacion": "La boleta es para consumidores finales y no da derecho a crédito fiscal.",
+    "fuente": "DL 825, art. 23"
+  },
+  {
+    "id": "n2-q21",
+    "pregunta": "Las Sumas y los Saldos cuadran, pero Inventario no cuadra después de anotar el resultado. ¿Dónde está el error?",
+    "opciones": [
+      "En la clasificación de algún saldo (Inventario o Resultados) o en el resultado",
+      "En el Libro Diario",
+      "En el IVA",
+      "No hay error posible"
+    ],
+    "correcta": 0,
+    "explicacion": "Si las primeras parejas cuadran, los asientos y saldos están bien: el problema está en las columnas de Inventario o Resultados.",
+    "fuente": "Balance de 8 columnas"
+  },
+  {
+    "id": "n2-q22",
+    "pregunta": "Una cuenta de ingreso (Ventas) aparece con saldo deudor. ¿Qué indica?",
+    "opciones": [
+      "Probablemente hay un error: los ingresos normalmente tienen saldo acreedor",
+      "Que se vendió mucho",
+      "Que es normal a fin de mes",
+      "Que hay que pagar IVA"
+    ],
+    "correcta": 0,
+    "explicacion": "Un saldo contrario a la naturaleza de la cuenta es una señal para revisar los asientos.",
+    "fuente": "Cuenta T (libro mayor)"
+  },
+  {
+    "id": "n2-q23",
+    "pregunta": "En el Libro Mayor, ¿cómo se representa cada cuenta?",
+    "opciones": [
+      "Como una Cuenta T con su Debe y su Haber",
+      "Como un asiento completo",
+      "Como una factura",
+      "Como un porcentaje"
+    ],
+    "correcta": 0,
+    "explicacion": "El Mayor agrupa todos los movimientos de cada cuenta en su propia T.",
+    "fuente": "Ciclo contable: Libro Mayor"
+  },
+  {
+    "id": "n2-q24",
+    "pregunta": "¿Qué es el remanente de crédito fiscal?",
+    "opciones": [
+      "El IVA crédito que supera al débito del mes y se usa en los meses siguientes",
+      "Una multa del SII",
+      "El IVA de las boletas",
+      "Un préstamo del banco"
+    ],
+    "correcta": 0,
+    "explicacion": "Si en el mes el crédito es mayor que el débito, no se paga IVA y la diferencia queda para después.",
+    "fuente": "DL 825, art. 26"
   }
 ]

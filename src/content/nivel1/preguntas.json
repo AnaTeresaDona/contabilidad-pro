@@ -2,7 +2,12 @@
   {
     "id": "n1-q01",
     "pregunta": "¿Cuál es la ecuación contable fundamental?",
-    "opciones": ["Activo = Pasivo + Patrimonio", "Activo + Pasivo = Patrimonio", "Activo = Ingresos − Gastos", "Pasivo = Activo + Patrimonio"],
+    "opciones": [
+      "Activo = Pasivo + Patrimonio",
+      "Activo + Pasivo = Patrimonio",
+      "Activo = Ingresos − Gastos",
+      "Pasivo = Activo + Patrimonio"
+    ],
     "correcta": 0,
     "explicacion": "Todo lo que la empresa tiene (Activo) fue financiado por terceros (Pasivo) o por sus dueños (Patrimonio). Por eso Activo = Pasivo + Patrimonio, siempre.",
     "fuente": "Marco Conceptual para la Información Financiera (IASB), cap. 4"
@@ -10,7 +15,12 @@
   {
     "id": "n1-q02",
     "pregunta": "¿Qué dice el principio de la partida doble?",
-    "opciones": ["Cada operación se registra dos veces en el mismo libro", "Toda operación afecta al menos dos cuentas, y el total del Debe es igual al total del Haber", "Los activos siempre son el doble de los pasivos", "Cada asiento debe ser revisado por dos contadores"],
+    "opciones": [
+      "Cada operación se registra dos veces en el mismo libro",
+      "Toda operación afecta al menos dos cuentas, y el total del Debe es igual al total del Haber",
+      "Los activos siempre son el doble de los pasivos",
+      "Cada asiento debe ser revisado por dos contadores"
+    ],
     "correcta": 1,
     "explicacion": "Todo hecho económico tiene dos caras: si algo entra, algo sale o se genera una obligación. Por eso se registra en al menos dos cuentas y el asiento cuadra (Debe = Haber).",
     "fuente": "Principio de la partida doble (Luca Pacioli, 1494)"
@@ -18,7 +28,12 @@
   {
     "id": "n1-q03",
     "pregunta": "¿Por qué lado aumenta una cuenta de Activo?",
-    "opciones": ["Debe", "Haber", "Depende del monto", "Por ambos lados"],
+    "opciones": [
+      "Debe",
+      "Haber",
+      "Depende del monto",
+      "Por ambos lados"
+    ],
     "correcta": 0,
     "explicacion": "Los activos aumentan por el Debe (lado izquierdo) y disminuyen por el Haber (lado derecho).",
     "fuente": "Regla del cargo y el abono"
@@ -26,7 +41,12 @@
   {
     "id": "n1-q04",
     "pregunta": "¿Por qué lado aumenta una cuenta de Pasivo?",
-    "opciones": ["Debe", "Haber", "Solo al cierre del ejercicio", "Por ningún lado: los pasivos no aumentan"],
+    "opciones": [
+      "Debe",
+      "Haber",
+      "Solo al cierre del ejercicio",
+      "Por ningún lado: los pasivos no aumentan"
+    ],
     "correcta": 1,
     "explicacion": "Los pasivos están al otro lado de la ecuación contable, así que funcionan al revés que los activos: aumentan por el Haber y disminuyen por el Debe.",
     "fuente": "Regla del cargo y el abono"
@@ -34,7 +54,12 @@
   {
     "id": "n1-q05",
     "pregunta": "¿Por qué lado se registra un Gasto?",
-    "opciones": ["Haber, porque es dinero que sale", "Debe, porque los gastos disminuyen el patrimonio", "En el Pasivo", "No se registra hasta pagarlo"],
+    "opciones": [
+      "Haber, porque es dinero que sale",
+      "Debe, porque los gastos disminuyen el patrimonio",
+      "En el Pasivo",
+      "No se registra hasta pagarlo"
+    ],
     "correcta": 1,
     "explicacion": "Un gasto reduce el patrimonio, y el patrimonio disminuye por el Debe. Por eso las cuentas de gasto aumentan por el Debe. El dinero que sale se registra en otra cuenta (Caja o Banco, al Haber).",
     "fuente": "Regla del cargo y el abono"
@@ -42,7 +67,12 @@
   {
     "id": "n1-q06",
     "pregunta": "¿Por qué lado aumenta una cuenta de Ingreso, como Ventas?",
-    "opciones": ["Debe", "Haber", "Debe, porque entra dinero", "Depende de si es al contado o al crédito"],
+    "opciones": [
+      "Debe",
+      "Haber",
+      "Debe, porque entra dinero",
+      "Depende de si es al contado o al crédito"
+    ],
     "correcta": 1,
     "explicacion": "Los ingresos aumentan el patrimonio, y el patrimonio aumenta por el Haber. El dinero que entra se registra aparte, en Caja, Banco o Clientes al Debe.",
     "fuente": "Regla del cargo y el abono"
@@ -50,7 +80,12 @@
   {
     "id": "n1-q07",
     "pregunta": "¿Cuál de estas cuentas es un Pasivo?",
-    "opciones": ["Clientes", "Mercaderías", "Proveedores", "Caja"],
+    "opciones": [
+      "Clientes",
+      "Mercaderías",
+      "Proveedores",
+      "Caja"
+    ],
     "correcta": 2,
     "explicacion": "Proveedores es lo que la empresa le debe a quienes le vendieron al crédito: una obligación, es decir, un pasivo. Clientes es lo contrario: lo que le deben a la empresa (activo).",
     "fuente": "Marco Conceptual (IASB), cap. 4: definición de pasivo"
@@ -58,7 +93,12 @@
   {
     "id": "n1-q08",
     "pregunta": "¿Cuál de estas cuentas es un Activo?",
-    "opciones": ["Capital", "Clientes", "Ventas", "Préstamo bancario"],
+    "opciones": [
+      "Capital",
+      "Clientes",
+      "Ventas",
+      "Préstamo bancario"
+    ],
     "correcta": 1,
     "explicacion": "Clientes es un derecho de cobro: la empresa espera recibir ese dinero. Capital es patrimonio, Ventas es ingreso y Préstamo bancario es pasivo.",
     "fuente": "Marco Conceptual (IASB), cap. 4: definición de activo"
@@ -66,7 +106,12 @@
   {
     "id": "n1-q09",
     "pregunta": "El IVA que la empresa paga cuando compra se registra como…",
-    "opciones": ["IVA Débito Fiscal, un pasivo", "IVA Crédito Fiscal, un activo", "Un gasto de la empresa", "Parte del costo de la mercadería"],
+    "opciones": [
+      "IVA Débito Fiscal, un pasivo",
+      "IVA Crédito Fiscal, un activo",
+      "Un gasto de la empresa",
+      "Parte del costo de la mercadería"
+    ],
     "correcta": 1,
     "explicacion": "El IVA de las compras es un crédito: la empresa lo descuenta del IVA que cobra en sus ventas. Por eso es un activo (IVA Crédito Fiscal).",
     "fuente": "DL 825, art. 23"
@@ -74,7 +119,12 @@
   {
     "id": "n1-q10",
     "pregunta": "El IVA que la empresa cobra cuando vende se registra como…",
-    "opciones": ["IVA Crédito Fiscal, un activo", "Un ingreso, junto con las ventas", "IVA Débito Fiscal, un pasivo", "Patrimonio"],
+    "opciones": [
+      "IVA Crédito Fiscal, un activo",
+      "Un ingreso, junto con las ventas",
+      "IVA Débito Fiscal, un pasivo",
+      "Patrimonio"
+    ],
     "correcta": 2,
     "explicacion": "Ese IVA no es de la empresa: lo cobra por cuenta del Fisco y debe declararlo y pagarlo al SII. Por eso es una obligación (IVA Débito Fiscal).",
     "fuente": "DL 825, art. 20"
@@ -82,7 +132,12 @@
   {
     "id": "n1-q11",
     "pregunta": "¿Cuál es la tasa general del IVA en Chile?",
-    "opciones": ["10%", "16%", "19%", "21%"],
+    "opciones": [
+      "10%",
+      "16%",
+      "19%",
+      "21%"
+    ],
     "correcta": 2,
     "explicacion": "La tasa general del IVA en Chile es 19% y se calcula sobre el valor neto de la operación.",
     "fuente": "DL 825, art. 14"
@@ -90,7 +145,12 @@
   {
     "id": "n1-q12",
     "pregunta": "En una Cuenta T, ¿qué lado es el Debe?",
-    "opciones": ["El izquierdo", "El derecho", "El de arriba", "Depende de la cuenta"],
+    "opciones": [
+      "El izquierdo",
+      "El derecho",
+      "El de arriba",
+      "Depende de la cuenta"
+    ],
     "correcta": 0,
     "explicacion": "Por convención, en toda Cuenta T el Debe es el lado izquierdo y el Haber el derecho, sin importar el tipo de cuenta.",
     "fuente": "Cuenta T (libro mayor)"
@@ -98,7 +158,12 @@
   {
     "id": "n1-q13",
     "pregunta": "Una cuenta tiene saldo deudor cuando…",
-    "opciones": ["La empresa tiene deudas", "La suma del Debe es mayor que la suma del Haber", "La suma del Haber es mayor que la del Debe", "Su saldo es negativo"],
+    "opciones": [
+      "La empresa tiene deudas",
+      "La suma del Debe es mayor que la suma del Haber",
+      "La suma del Haber es mayor que la del Debe",
+      "Su saldo es negativo"
+    ],
     "correcta": 1,
     "explicacion": "El saldo toma el nombre del lado mayor. Deudor no significa \"tener deudas\": significa que el Debe es mayor.",
     "fuente": "Cuenta T (libro mayor)"
@@ -106,7 +171,12 @@
   {
     "id": "n1-q14",
     "pregunta": "La dueña aporta dinero como capital a la empresa. ¿Qué pasa?",
-    "opciones": ["Aumenta un activo y aumenta el patrimonio", "Aumenta un activo y aumenta un pasivo", "Disminuye un activo y aumenta el patrimonio", "Aumenta un ingreso"],
+    "opciones": [
+      "Aumenta un activo y aumenta el patrimonio",
+      "Aumenta un activo y aumenta un pasivo",
+      "Disminuye un activo y aumenta el patrimonio",
+      "Aumenta un ingreso"
+    ],
     "correcta": 0,
     "explicacion": "Entra dinero (aumenta Caja o Banco, activo) y aumenta lo aportado por los dueños (Capital, patrimonio). Un aporte no es un ingreso: no viene de la actividad de la empresa.",
     "fuente": "Marco Conceptual (IASB), cap. 4: patrimonio"
@@ -114,7 +184,12 @@
   {
     "id": "n1-q15",
     "pregunta": "La empresa paga una deuda a un proveedor. ¿Qué pasa?",
-    "opciones": ["Aumenta un activo y disminuye un pasivo", "Disminuye un activo y disminuye un pasivo", "Disminuye un activo y aumenta un gasto", "Aumenta un pasivo"],
+    "opciones": [
+      "Aumenta un activo y disminuye un pasivo",
+      "Disminuye un activo y disminuye un pasivo",
+      "Disminuye un activo y aumenta un gasto",
+      "Aumenta un pasivo"
+    ],
     "correcta": 1,
     "explicacion": "Sale dinero (disminuye Banco o Caja) y se extingue la deuda (disminuye Proveedores). Pagar una deuda no es un gasto: el gasto se registró cuando se compró.",
     "fuente": "Principio de la partida doble"
@@ -122,7 +197,12 @@
   {
     "id": "n1-q16",
     "pregunta": "La empresa compra mercaderías al crédito. Sin considerar el IVA, ¿qué pasa?",
-    "opciones": ["Aumenta un activo y aumenta un pasivo", "Aumenta un gasto y disminuye un activo", "Aumenta un activo y disminuye otro activo", "Aumenta un activo y aumenta el patrimonio"],
+    "opciones": [
+      "Aumenta un activo y aumenta un pasivo",
+      "Aumenta un gasto y disminuye un activo",
+      "Aumenta un activo y disminuye otro activo",
+      "Aumenta un activo y aumenta el patrimonio"
+    ],
     "correcta": 0,
     "explicacion": "Entra inventario (Mercaderías, activo) y nace una deuda (Proveedores, pasivo). La ecuación sigue en equilibrio: ambos lados suben lo mismo.",
     "fuente": "Principio de la partida doble"
@@ -130,7 +210,12 @@
   {
     "id": "n1-q17",
     "pregunta": "¿Cuál de estos NO es uno de los cinco elementos de la contabilidad?",
-    "opciones": ["Patrimonio", "Gastos", "Presupuesto", "Ingresos"],
+    "opciones": [
+      "Patrimonio",
+      "Gastos",
+      "Presupuesto",
+      "Ingresos"
+    ],
     "correcta": 2,
     "explicacion": "Los cinco elementos son Activo, Pasivo, Patrimonio, Ingresos y Gastos. El presupuesto es una herramienta de planificación, no un elemento de los estados financieros.",
     "fuente": "Marco Conceptual (IASB), cap. 4"
@@ -138,9 +223,92 @@
   {
     "id": "n1-q18",
     "pregunta": "La cuenta Capital pertenece al…",
-    "opciones": ["Activo", "Pasivo", "Patrimonio", "Estado de Resultados"],
+    "opciones": [
+      "Activo",
+      "Pasivo",
+      "Patrimonio",
+      "Estado de Resultados"
+    ],
     "correcta": 2,
     "explicacion": "Capital representa lo que los dueños aportaron a la empresa: es patrimonio. Aumenta por el Haber.",
     "fuente": "Marco Conceptual (IASB), cap. 4"
+  },
+  {
+    "id": "n1-q19",
+    "pregunta": "¿Qué es un asiento contable?",
+    "opciones": [
+      "El registro de una operación, con las cuentas que cambian y sus montos al Debe y al Haber",
+      "Una factura de compra",
+      "El saldo final de una cuenta",
+      "Un informe para el SII"
+    ],
+    "correcta": 0,
+    "explicacion": "Cada operación se registra como un asiento en el Libro Diario, y siempre cuadra (Debe = Haber).",
+    "fuente": "Principio de la partida doble"
+  },
+  {
+    "id": "n1-q20",
+    "pregunta": "Pagar con transferencia una deuda con un proveedor, ¿es un gasto?",
+    "opciones": [
+      "No: solo disminuyen el banco y la deuda",
+      "Sí, porque sale dinero",
+      "Sí, es costo de ventas",
+      "Depende del monto"
+    ],
+    "correcta": 0,
+    "explicacion": "El gasto (o la compra de mercadería) se registró cuando se compró. Al pagar solo se cancela la deuda.",
+    "fuente": "Principio de la partida doble"
+  },
+  {
+    "id": "n1-q21",
+    "pregunta": "¿De qué tipo es la cuenta Costo de ventas?",
+    "opciones": [
+      "Gasto",
+      "Activo",
+      "Pasivo",
+      "Ingreso"
+    ],
+    "correcta": 0,
+    "explicacion": "Representa lo que costó la mercadería vendida: disminuye el patrimonio, por eso es gasto y aumenta por el Debe.",
+    "fuente": "Marco Conceptual (IASB), capítulo 4"
+  },
+  {
+    "id": "n1-q22",
+    "pregunta": "Vendes al crédito: ¿qué cuenta de activo aumenta?",
+    "opciones": [
+      "Clientes",
+      "Proveedores",
+      "Caja",
+      "Capital"
+    ],
+    "correcta": 0,
+    "explicacion": "Nace un derecho a cobrar: Clientes aumenta por el Debe.",
+    "fuente": "Plan de cuentas"
+  },
+  {
+    "id": "n1-q23",
+    "pregunta": "¿Qué cuentas suelen tener saldo acreedor?",
+    "opciones": [
+      "Pasivos, Patrimonio e Ingresos",
+      "Activos y Gastos",
+      "Solo Caja y Banco",
+      "Todas las cuentas"
+    ],
+    "correcta": 0,
+    "explicacion": "Como aumentan por el Haber, normalmente su lado Haber es mayor.",
+    "fuente": "Cuenta T (libro mayor)"
+  },
+  {
+    "id": "n1-q24",
+    "pregunta": "Compras mesas para el local al crédito a una mueblería. ¿Qué cuenta de pasivo usas?",
+    "opciones": [
+      "Acreedores varios",
+      "Proveedores",
+      "Clientes",
+      "Capital"
+    ],
+    "correcta": 0,
+    "explicacion": "Proveedores se reserva para deudas por mercaderías. Las compras de activo fijo o servicios van a Acreedores varios.",
+    "fuente": "Plan de cuentas"
   }
 ]

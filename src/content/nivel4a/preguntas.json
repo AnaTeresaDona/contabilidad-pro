@@ -41,7 +41,12 @@
   {
     "id": "n4a-q04",
     "pregunta": "¿Cuál de estos activos NO se deprecia?",
-    "opciones": ["Terrenos", "Vehículos", "Maquinarias", "Muebles y útiles"],
+    "opciones": [
+      "Terrenos",
+      "Vehículos",
+      "Maquinarias",
+      "Muebles y útiles"
+    ],
     "correcta": 0,
     "explicacion": "Los terrenos normalmente tienen una vida ilimitada, por eso no se deprecian. Los edificios construidos sobre ellos sí.",
     "fuente": "NIIF para las PYMES, Sección 17"
@@ -49,7 +54,12 @@
   {
     "id": "n4a-q05",
     "pregunta": "Un horno cuesta $6.000.000, su valor residual es $600.000 y su vida útil es 6 años. ¿Cuál es la depreciación anual en línea recta?",
-    "opciones": ["$900.000", "$1.000.000", "$1.100.000", "$75.000"],
+    "opciones": [
+      "$900.000",
+      "$1.000.000",
+      "$1.100.000",
+      "$75.000"
+    ],
     "correcta": 0,
     "explicacion": "($6.000.000 − $600.000) ÷ 6 = $900.000 por año (y $75.000 por mes).",
     "fuente": "NIIF para las PYMES, Sección 17"
@@ -135,7 +145,12 @@
   {
     "id": "n4a-q12",
     "pregunta": "¿Qué efecto tienen los ajustes de depreciación, deterioro y provisiones en el resultado?",
-    "opciones": ["Lo disminuyen, porque son gastos", "Lo aumentan", "No lo afectan, solo cambian el balance", "Lo duplican"],
+    "opciones": [
+      "Lo disminuyen, porque son gastos",
+      "Lo aumentan",
+      "No lo afectan, solo cambian el balance",
+      "Lo duplican"
+    ],
     "correcta": 0,
     "explicacion": "Todos son gastos del período. Por eso un balance \"sin ajustar\" suele mostrar más utilidad de la que realmente hay.",
     "fuente": "NIIF para las PYMES, Sección 2"
@@ -191,5 +206,83 @@
     "correcta": 0,
     "explicacion": "Sin ajustes, faltarían gastos devengados, el desgaste de los activos o pérdidas probables. Los estados no mostrarían la imagen fiel de la empresa.",
     "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-q17",
+    "pregunta": "¿Qué es el valor residual de un activo fijo?",
+    "opciones": [
+      "Lo que se estima obtener por él al final de su vida útil, neto de costos de venta",
+      "Su costo original",
+      "Lo que vale hoy en el mercado",
+      "La depreciación acumulada"
+    ],
+    "correcta": 0,
+    "explicacion": "El monto a depreciar es el costo menos el valor residual.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q18",
+    "pregunta": "En el asiento de depreciación, ¿qué cuenta va al Debe?",
+    "opciones": [
+      "Gasto por depreciación",
+      "Depreciación acumulada",
+      "Maquinarias",
+      "Banco"
+    ],
+    "correcta": 0,
+    "explicacion": "El gasto aumenta por el Debe; la Depreciación acumulada (complementaria) aumenta por el Haber.",
+    "fuente": "NIIF para las PYMES, Sección 17"
+  },
+  {
+    "id": "n4a-q19",
+    "pregunta": "Al cierre se deben sueldos ya trabajados. ¿Qué pasivo se reconoce?",
+    "opciones": [
+      "Remuneraciones por pagar",
+      "Proveedores",
+      "Provisiones de juicios",
+      "Capital"
+    ],
+    "correcta": 0,
+    "explicacion": "Por devengo, el gasto es del mes trabajado y la deuda queda como Remuneraciones por pagar.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-q20",
+    "pregunta": "Un gasto pagado por anticipado (como un seguro anual), al momento del pago, es…",
+    "opciones": [
+      "Un activo",
+      "Un pasivo",
+      "Un ingreso",
+      "Patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "Da derecho a un servicio futuro; se lleva a gasto a medida que se consume.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "n4a-q21",
+    "pregunta": "¿Qué distingue a una provisión de un pasivo contingente?",
+    "opciones": [
+      "En la provisión la salida de recursos es probable; en el contingente es solo posible",
+      "La provisión siempre es más pequeña",
+      "El contingente se registra y la provisión no",
+      "No hay diferencia"
+    ],
+    "correcta": 0,
+    "explicacion": "La provisión se registra; el pasivo contingente solo se informa en notas.",
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "n4a-q22",
+    "pregunta": "Un horno costó $12.000.000, sin valor residual y con 10 años de vida útil. ¿Cuál es la depreciación mensual?",
+    "opciones": [
+      "$100.000",
+      "$1.200.000",
+      "$120.000",
+      "$10.000"
+    ],
+    "correcta": 0,
+    "explicacion": "$12.000.000 ÷ 10 = $1.200.000 al año; ÷ 12 = $100.000 al mes.",
+    "fuente": "NIIF para las PYMES, Sección 17"
   }
 ]

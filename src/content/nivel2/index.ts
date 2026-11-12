@@ -1,3 +1,4 @@
+import apuntesJson from './apuntes.json';
 import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import plantillasJson from './plantillas.json';
@@ -12,7 +13,7 @@ import {
   type Ejercicio,
   type Pregunta,
 } from '../../engine/ejercicios';
-import type { ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel } from '../tipos';
 import { nivel1 } from '../nivel1';
 
 const propias = plantillasJson as unknown as Plantilla[];
@@ -32,6 +33,7 @@ function generarPractica(rng: Rng): Ejercicio[] {
 }
 
 export const nivel2: ContenidoNivel = {
+  apuntes: apuntesJson as Apunte[],
   intro: {
     personaje: 'Tía Rosa',
     emoji: '👩‍🍳',

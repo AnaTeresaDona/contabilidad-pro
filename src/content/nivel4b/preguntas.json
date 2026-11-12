@@ -145,7 +145,12 @@
   {
     "id": "n4b-q12",
     "pregunta": "¿Qué norma regula los estados financieros intermedios, como los trimestrales?",
-    "opciones": ["NIC 34", "NIC 2", "NIIF 16", "NIC 7"],
+    "opciones": [
+      "NIC 34",
+      "NIC 2",
+      "NIIF 16",
+      "NIC 7"
+    ],
     "correcta": 0,
     "explicacion": "La NIC 34 establece el contenido mínimo de la información financiera intermedia. En Chile, los emisores de valores presentan estados financieros trimestrales a la CMF.",
     "fuente": "NIC 34; normativa CMF"
@@ -201,5 +206,83 @@
     "correcta": 0,
     "explicacion": "Son las dos exenciones prácticas de la norma. Por ejemplo, el arriendo de una impresora o un contrato de 6 meses.",
     "fuente": "NIIF 16, párrafos 5 y 6"
+  },
+  {
+    "id": "n4b-q17",
+    "pregunta": "¿Qué es el valor en uso de un activo?",
+    "opciones": [
+      "El valor presente de los flujos futuros que generará usándolo",
+      "Su precio de venta",
+      "Su costo histórico",
+      "Su valor libro"
+    ],
+    "correcta": 0,
+    "explicacion": "Junto con el valor razonable menos costos de venta, sirve para calcular el importe recuperable.",
+    "fuente": "NIC 36, párrafo 6"
+  },
+  {
+    "id": "n4b-q18",
+    "pregunta": "¿En qué plazo se deprecia normalmente el activo por derecho de uso?",
+    "opciones": [
+      "En el plazo del arrendamiento (o la vida útil, si es menor)",
+      "En 50 años",
+      "No se deprecia",
+      "En un mes"
+    ],
+    "correcta": 0,
+    "explicacion": "El derecho solo existe mientras dura el contrato.",
+    "fuente": "NIIF 16, párrafo 32"
+  },
+  {
+    "id": "n4b-q19",
+    "pregunta": "¿Cómo se calcula el interés mensual del pasivo por arrendamiento?",
+    "opciones": [
+      "Saldo del pasivo × tasa mensual",
+      "Cuota × 12",
+      "Valor del local × 1%",
+      "Cuota ÷ plazo"
+    ],
+    "correcta": 0,
+    "explicacion": "El interés es gasto financiero; el resto de la cuota rebaja el pasivo.",
+    "fuente": "NIIF 16, párrafo 36"
+  },
+  {
+    "id": "n4b-q20",
+    "pregunta": "1.000.000 de acciones todo el año y 600.000 emitidas el 1 de octubre. ¿Promedio ponderado?",
+    "opciones": [
+      "1.150.000",
+      "1.600.000",
+      "1.300.000",
+      "1.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Las nuevas estuvieron 3 meses: 600.000 × 3/12 = 150.000.",
+    "fuente": "NIC 33, párrafo 20"
+  },
+  {
+    "id": "n4b-q21",
+    "pregunta": "Desde 2019, ¿qué organismo supervisa también a los bancos en Chile?",
+    "opciones": [
+      "La CMF",
+      "El SII",
+      "El Banco Central",
+      "La Tesorería"
+    ],
+    "correcta": 0,
+    "explicacion": "La CMF absorbió a la antigua Superintendencia de Bancos (SBIF).",
+    "fuente": "Ley 21.130"
+  },
+  {
+    "id": "n4b-q22",
+    "pregunta": "¿Los dividendos provisorios pagados en el año cuentan para el mínimo legal del 30%?",
+    "opciones": [
+      "Sí: se descuentan del mínimo que falta repartir",
+      "No, siempre se suman aparte",
+      "Solo si son en acciones",
+      "No existen dividendos provisorios"
+    ],
+    "correcta": 0,
+    "explicacion": "El mínimo se calcula sobre la utilidad del año y los provisorios ya pagados lo van cubriendo.",
+    "fuente": "Ley 18.046, art. 79"
   }
 ]

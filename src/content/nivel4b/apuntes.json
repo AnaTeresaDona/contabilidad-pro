@@ -1,0 +1,76 @@
+[
+  {
+    "id": "niif-plenas",
+    "titulo": "NIIF plenas y la CMF",
+    "puntos": [
+      "Quienes tienen obligación pública de rendir cuentas (emisores de acciones o bonos, bancos, aseguradoras) aplican las NIIF completas.",
+      "La CMF (Comisión para el Mercado Financiero) regula y fiscaliza el mercado de valores, los seguros y los bancos en Chile.",
+      "Los emisores presentan estados financieros intermedios trimestrales (NIC 34) y anuales auditados.",
+      "La auditoría externa la hace una empresa inscrita en el registro de la CMF."
+    ],
+    "fuente": "Ley 21.000; NIC 34; Ley 18.045, Título XXVIII"
+  },
+  {
+    "id": "diferencias",
+    "titulo": "Diferencias clave con la NIIF para las PYMES",
+    "puntos": [
+      "Intereses de préstamos para construir un activo apto: en NIIF plenas se capitalizan (NIC 23); en PYMES, gasto.",
+      "Desarrollo de un producto: en NIIF plenas puede ser intangible si cumple criterios (NIC 38); en PYMES, gasto. La investigación es siempre gasto.",
+      "Las sociedades que cotizan informan la ganancia por acción (NIC 33)."
+    ],
+    "fuente": "NIC 23, NIC 33, NIC 38; NIIF para las PYMES, Secciones 18 y 25"
+  },
+  {
+    "id": "niif16",
+    "titulo": "Arrendamientos (NIIF 16)",
+    "puntos": [
+      "El arrendatario reconoce un Activo por derecho de uso y un Pasivo por arrendamiento.",
+      "Ambos se miden al valor presente de las cuotas: cuota × factor de valor presente.",
+      "Cada cuota se divide en interés (saldo × tasa, es gasto financiero) y capital (rebaja el pasivo).",
+      "El derecho de uso se deprecia durante el plazo del contrato.",
+      "Excepciones: arriendos de 12 meses o menos y de bajo valor pueden seguir como gasto."
+    ],
+    "ejemplo": "Pasivo de $25.000.000 al 0,70% mensual: el interés del mes es $175.000; si la cuota es $720.000, el capital es $545.000.",
+    "fuente": "NIIF 16 Arrendamientos, párrafos 5, 6 y 22 a 31"
+  },
+  {
+    "id": "nic36",
+    "titulo": "Deterioro de activos (NIC 36)",
+    "puntos": [
+      "Importe recuperable = el mayor entre el valor razonable menos costos de venta y el valor en uso.",
+      "Si el valor libro supera el importe recuperable, la diferencia es una pérdida por deterioro.",
+      "Asiento: Pérdida por deterioro de activos (Debe) contra Deterioro acumulado (Haber)."
+    ],
+    "ejemplo": "Valor libro $10.000.000; vender daría $6.000.000 y usarlo $8.000.000: recuperable $8.000.000 y pérdida $2.000.000.",
+    "fuente": "NIC 36, párrafos 18 y 59"
+  },
+  {
+    "id": "gpa",
+    "titulo": "Ganancia por acción (NIC 33)",
+    "puntos": [
+      "Ganancia por acción = utilidad atribuible a los accionistas ÷ promedio ponderado de acciones.",
+      "Las acciones emitidas durante el año cuentan solo por los meses que estuvieron en circulación."
+    ],
+    "ejemplo": "1.000.000 de acciones todo el año + 300.000 emitidas el 1 de julio (6 meses): promedio 1.150.000.",
+    "fuente": "NIC 33, párrafos 10 y 19 a 21"
+  },
+  {
+    "id": "sa-abierta",
+    "titulo": "Sociedades anónimas abiertas",
+    "puntos": [
+      "Dividendo mínimo: al menos el 30% de la utilidad líquida del ejercicio, salvo acuerdo unánime de las acciones emitidas.",
+      "La junta ordinaria de accionistas se realiza dentro del cuatrimestre siguiente al balance y aprueba los estados financieros.",
+      "Dividendo acordado: Resultados acumulados (Debe) contra Dividendos por pagar (Haber)."
+    ],
+    "fuente": "Ley 18.046 de Sociedades Anónimas, arts. 56 y 79"
+  },
+  {
+    "id": "mercado",
+    "titulo": "Hechos esenciales e información privilegiada",
+    "puntos": [
+      "Hecho esencial: información que puede influir en los inversionistas (una gran compra, la renuncia del gerente general). Se informa de inmediato a la CMF y al mercado.",
+      "Información privilegiada: quien la conoce debe guardar reserva y no puede comprar ni vender esos valores hasta que sea pública."
+    ],
+    "fuente": "Ley 18.045 de Mercado de Valores, arts. 9, 10, 164 y 165"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "id": "elementos",
+    "titulo": "Los cinco elementos de la contabilidad",
+    "puntos": [
+      "Activo: recursos que la empresa controla y de los que espera beneficios: dinero, lo que le deben, mercaderías, máquinas.",
+      "Pasivo: obligaciones presentes con terceros: proveedores, préstamos, impuestos por pagar.",
+      "Patrimonio: lo que pertenece a los dueños: sus aportes (capital) y las utilidades no retiradas.",
+      "Ingresos: aumentos del patrimonio por la actividad del negocio, como las ventas.",
+      "Gastos: disminuciones del patrimonio por la actividad, como el arriendo, los sueldos o el costo de lo vendido."
+    ],
+    "ejemplo": "La Tía Rosa tiene $500.000 en el banco (activo), le debe $200.000 al proveedor de harina (pasivo) y aportó $300.000 de sus ahorros (patrimonio).",
+    "fuente": "Marco Conceptual para la Información Financiera (IASB), capítulo 4"
+  },
+  {
+    "id": "ecuacion",
+    "titulo": "La ecuación contable",
+    "puntos": [
+      "Activo = Pasivo + Patrimonio. Siempre se cumple.",
+      "Todo lo que la empresa tiene fue financiado por terceros (pasivo) o por los dueños (patrimonio).",
+      "Durante el período, los ingresos aumentan el patrimonio y los gastos lo disminuyen: Activo = Pasivo + Patrimonio + (Ingresos − Gastos)."
+    ],
+    "ejemplo": "Activo $500.000 = Pasivo $200.000 + Patrimonio $300.000.",
+    "fuente": "Marco Conceptual (IASB), capítulo 4"
+  },
+  {
+    "id": "partida-doble",
+    "titulo": "La partida doble",
+    "puntos": [
+      "Cada operación afecta al menos dos cuentas: si algo entra, algo sale o nace una obligación.",
+      "En todo asiento, la suma del Debe es igual a la suma del Haber.",
+      "Si un asiento no cuadra, falta una cuenta, sobra un monto o hay un monto mal calculado."
+    ],
+    "ejemplo": "Compras harina al contado por $100.000: aumenta Mercaderías (Debe $100.000) y disminuye Banco (Haber $100.000).",
+    "fuente": "Principio de la partida doble (Luca Pacioli, 1494)"
+  },
+  {
+    "id": "debe-haber",
+    "titulo": "La regla del Debe y el Haber",
+    "puntos": [
+      "El Debe es el lado izquierdo de una cuenta; el Haber, el derecho.",
+      "Activos y Gastos aumentan por el Debe y disminuyen por el Haber.",
+      "Pasivos, Patrimonio e Ingresos aumentan por el Haber y disminuyen por el Debe.",
+      "Para decidir el lado, pregúntate: ¿de qué tipo es la cuenta? ¿aumenta o disminuye en esta operación?"
+    ],
+    "ejemplo": "Pagar a un proveedor: Proveedores (pasivo) disminuye → Debe. Banco (activo) disminuye → Haber.",
+    "fuente": "Regla del cargo y el abono"
+  },
+  {
+    "id": "cuenta-t",
+    "titulo": "La Cuenta T y el saldo",
+    "puntos": [
+      "Cada cuenta se representa como una T: a la izquierda los cargos (Debe), a la derecha los abonos (Haber).",
+      "Saldo = suma del lado mayor − suma del lado menor.",
+      "Si el Debe es mayor, el saldo es deudor; si el Haber es mayor, es acreedor.",
+      "Deudor no significa \"tener deudas\": solo indica que el lado Debe es mayor."
+    ],
+    "ejemplo": "Banco: Debe $1.000.000 y $300.000; Haber $450.000. Saldo = $1.300.000 − $450.000 = $850.000 deudor.",
+    "fuente": "Cuenta T (libro mayor)"
+  },
+  {
+    "id": "iva",
+    "titulo": "El IVA en las compras y en las ventas",
+    "puntos": [
+      "La tasa general del IVA es 19% y se calcula sobre el valor neto: Neto + IVA = Total.",
+      "IVA de las compras = IVA Crédito Fiscal: es un activo, porque se descuenta del IVA de las ventas.",
+      "IVA de las ventas = IVA Débito Fiscal: es un pasivo, porque se debe declarar y pagar al Fisco.",
+      "El neto va a la cuenta del bien, gasto o venta; el IVA va a su cuenta; el total es lo que se paga o se cobra."
+    ],
+    "ejemplo": "Compra de mercaderías por $200.000 + IVA: Mercaderías $200.000 (Debe), IVA Crédito Fiscal $38.000 (Debe), Banco $238.000 (Haber).",
+    "fuente": "DL 825, Ley sobre Impuesto a las Ventas y Servicios, arts. 14, 20 y 23"
+  },
+  {
+    "id": "ventas-costo",
+    "titulo": "La venta y su costo (inventario permanente)",
+    "puntos": [
+      "Al vender se registran dos cosas: la venta y la salida de la mercadería.",
+      "La venta: Caja o Clientes (Debe) contra Ventas e IVA Débito Fiscal (Haber).",
+      "El costo: Costo de ventas (Debe) contra Mercaderías (Haber), al costo de lo vendido.",
+      "Pagar a un proveedor o cobrar a un cliente no es un gasto ni un ingreso nuevo: solo cambian activos y pasivos."
+    ],
+    "ejemplo": "Vendes por $300.000 + IVA al contado y lo vendido costó $180.000: Caja $357.000 / Ventas $300.000 / IVA DF $57.000, y Costo de ventas $180.000 / Mercaderías $180.000.",
+    "fuente": "Principio de la partida doble; inventario permanente"
+  },
+  {
+    "id": "errores",
+    "titulo": "Errores frecuentes que debes evitar",
+    "puntos": [
+      "Confundir IVA Crédito (compras) con IVA Débito (ventas).",
+      "Confundir Clientes (nos deben) con Proveedores (les debemos).",
+      "Poner Proveedores en compras que no son mercaderías: para activo fijo o servicios se usa Acreedores varios.",
+      "Calcular el IVA sobre el total en vez del neto.",
+      "Registrar un aporte de capital como ingreso: es patrimonio."
+    ],
+    "fuente": "Errores típicos del ciclo contable"
+  }
+]

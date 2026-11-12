@@ -50,6 +50,11 @@
 - "Mi empresa" tiene una pestaña de Indicadores de la empresa del jugador.
 - Logro final "CFO".
 
+## Fase 7 — Hecha (apuntes y avance más lento)
+- Apuntes antes de cada nivel: entre 5 y 8 temas con índice, ideas clave, un ejemplo y la fuente (DL 825, LIR, NIC/NIIF, leyes de sociedades). Se pueden repasar en cualquier momento, también al reprobar la trivia.
+- Trivia: se sortean 8 preguntas y se aprueba con 6 (antes 5 y 4). Bancos de 22 a 24 preguntas por nivel.
+- Práctica: 8 ejercicios por ronda (antes 5 a 6), sin preguntas repetidas.
+
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.

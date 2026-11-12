@@ -69,7 +69,8 @@ src/
     logros.ts              ← logros y sus condiciones
     index.ts               ← mapa de niveles
     nivel1/
-      preguntas.json       ← banco de preguntas de la trivia (se sortean 5)
+      preguntas.json       ← banco de preguntas de la trivia (se sortean 8; se aprueba con 6)
+      apuntes.json         ← apuntes para estudiar antes del nivel: temas con índice, ejemplo y fuente
       plantillas.json      ← transacciones con montos al azar
       index.ts             ← historia, personajes, ejercicios de la práctica y jefe
     nivel2/

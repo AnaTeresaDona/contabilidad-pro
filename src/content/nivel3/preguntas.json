@@ -54,7 +54,12 @@
   {
     "id": "n3-q05",
     "pregunta": "¿Dónde se presenta un horno industrial comprado para producir empanadas?",
-    "opciones": ["Activo no corriente", "Activo corriente", "Gastos del Estado de Resultados", "Pasivo no corriente"],
+    "opciones": [
+      "Activo no corriente",
+      "Activo corriente",
+      "Gastos del Estado de Resultados",
+      "Pasivo no corriente"
+    ],
     "correcta": 0,
     "explicacion": "Es propiedad, planta y equipo: un bien que se usará por varios años. Por eso es activo no corriente (y más adelante se deprecia).",
     "fuente": "NIC 16 y NIC 1, párrafo 66"
@@ -62,7 +67,12 @@
   {
     "id": "n3-q06",
     "pregunta": "Un préstamo bancario que se pagará en 3 años se presenta como…",
-    "opciones": ["Pasivo no corriente (salvo las cuotas que vencen en los próximos 12 meses)", "Pasivo corriente completo", "Patrimonio", "Activo no corriente"],
+    "opciones": [
+      "Pasivo no corriente (salvo las cuotas que vencen en los próximos 12 meses)",
+      "Pasivo corriente completo",
+      "Patrimonio",
+      "Activo no corriente"
+    ],
     "correcta": 0,
     "explicacion": "La parte que vence después de 12 meses es no corriente. Las cuotas que vencen dentro del año se presentan como pasivo corriente. En el juego simplificamos y lo dejamos todo como no corriente.",
     "fuente": "NIC 1, párrafos 69 y 71"
@@ -70,7 +80,12 @@
   {
     "id": "n3-q07",
     "pregunta": "¿Dónde se presenta el resultado (utilidad) del ejercicio en el Balance General?",
-    "opciones": ["Dentro del Patrimonio", "En el Activo corriente", "En el Pasivo corriente", "No aparece en el Balance General"],
+    "opciones": [
+      "Dentro del Patrimonio",
+      "En el Activo corriente",
+      "En el Pasivo corriente",
+      "No aparece en el Balance General"
+    ],
     "correcta": 0,
     "explicacion": "La utilidad aumenta lo que pertenece a los dueños. Por eso se suma al patrimonio y así Activo = Pasivo + Patrimonio cuadra.",
     "fuente": "NIC 1, párrafo 54"
@@ -78,7 +93,12 @@
   {
     "id": "n3-q08",
     "pregunta": "¿Cómo se calcula el margen bruto?",
-    "opciones": ["Ventas − Costo de ventas", "Ventas − Todos los gastos", "Ventas + IVA", "Activo − Pasivo"],
+    "opciones": [
+      "Ventas − Costo de ventas",
+      "Ventas − Todos los gastos",
+      "Ventas + IVA",
+      "Activo − Pasivo"
+    ],
     "correcta": 0,
     "explicacion": "El margen bruto muestra cuánto queda de las ventas después de pagar lo que costó la mercadería vendida, antes de los gastos de administración y ventas.",
     "fuente": "Estado de Resultados por función (NIC 1, párrafo 103)"
@@ -99,7 +119,12 @@
   {
     "id": "n3-q10",
     "pregunta": "Los intereses que la empresa paga por un préstamo se presentan como…",
-    "opciones": ["Gastos financieros, después del resultado operacional", "Costo de ventas", "Gastos de administración y ventas", "Pasivo no corriente"],
+    "opciones": [
+      "Gastos financieros, después del resultado operacional",
+      "Costo de ventas",
+      "Gastos de administración y ventas",
+      "Pasivo no corriente"
+    ],
     "correcta": 0,
     "explicacion": "Los intereses dependen de cómo se financia la empresa, no de su operación. Por eso van después del resultado operacional, como costos financieros.",
     "fuente": "NIC 1, párrafo 82 b)"
@@ -146,7 +171,12 @@
   {
     "id": "n3-q14",
     "pregunta": "El Balance General de la Tía Rosa tiene Activos por $12.000.000 y Pasivos por $7.500.000. ¿Cuánto es el Patrimonio?",
-    "opciones": ["$4.500.000", "$19.500.000", "$12.000.000", "$7.500.000"],
+    "opciones": [
+      "$4.500.000",
+      "$19.500.000",
+      "$12.000.000",
+      "$7.500.000"
+    ],
     "correcta": 0,
     "explicacion": "Patrimonio = Activo − Pasivo = $12.000.000 − $7.500.000 = $4.500.000.",
     "fuente": "Ecuación contable"
@@ -154,7 +184,12 @@
   {
     "id": "n3-q15",
     "pregunta": "¿Qué cuentas NO aparecen en el Balance General?",
-    "opciones": ["Las de ingresos y gastos (aparecen en el Estado de Resultados)", "Las de activo fijo", "Las de patrimonio", "Las cuentas de IVA"],
+    "opciones": [
+      "Las de ingresos y gastos (aparecen en el Estado de Resultados)",
+      "Las de activo fijo",
+      "Las de patrimonio",
+      "Las cuentas de IVA"
+    ],
     "correcta": 0,
     "explicacion": "Ingresos y gastos se resumen en el Estado de Resultados. En el Balance General solo aparece su efecto neto: el resultado del ejercicio, dentro del patrimonio.",
     "fuente": "NIC 1"
@@ -171,5 +206,83 @@
     "correcta": 0,
     "explicacion": "La presentación por función separa el costo de ventas de los gastos de administración y ventas, lo que permite calcular el margen bruto. La otra alternativa es la presentación por naturaleza.",
     "fuente": "NIC 1, párrafos 99 a 103"
+  },
+  {
+    "id": "n3-q17",
+    "pregunta": "¿Dónde se presenta la cuenta Mercaderías en el Balance General?",
+    "opciones": [
+      "Activo corriente",
+      "Activo no corriente",
+      "Pasivo corriente",
+      "Estado de Resultados"
+    ],
+    "correcta": 0,
+    "explicacion": "El inventario se vende dentro del ciclo normal de operación: es corriente.",
+    "fuente": "NIC 1, párrafo 66"
+  },
+  {
+    "id": "n3-q18",
+    "pregunta": "¿Dónde se presenta la cuenta Proveedores?",
+    "opciones": [
+      "Pasivo corriente",
+      "Pasivo no corriente",
+      "Activo corriente",
+      "Patrimonio"
+    ],
+    "correcta": 0,
+    "explicacion": "Las deudas con proveedores se pagan en el corto plazo.",
+    "fuente": "NIC 1, párrafo 69"
+  },
+  {
+    "id": "n3-q19",
+    "pregunta": "¿Qué queda fuera del resultado operacional?",
+    "opciones": [
+      "Los intereses de los préstamos",
+      "El costo de ventas",
+      "El arriendo del local",
+      "Los sueldos"
+    ],
+    "correcta": 0,
+    "explicacion": "Los intereses dependen del financiamiento: van después del resultado operacional.",
+    "fuente": "NIC 1, párrafo 82"
+  },
+  {
+    "id": "n3-q20",
+    "pregunta": "Activo corriente $8.000.000 y pasivo corriente $4.000.000. ¿Cuál es el capital de trabajo?",
+    "opciones": [
+      "$4.000.000",
+      "$12.000.000",
+      "$2.000.000",
+      "$32.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Capital de trabajo = activo corriente − pasivo corriente.",
+    "fuente": "Análisis financiero"
+  },
+  {
+    "id": "n3-q21",
+    "pregunta": "¿Qué muestra el estado de cambios en el patrimonio?",
+    "opciones": [
+      "Los movimientos del patrimonio: aportes, dividendos y resultado del período",
+      "Las ventas del año",
+      "Los flujos de caja",
+      "Los saldos de proveedores"
+    ],
+    "correcta": 0,
+    "explicacion": "Explica cómo pasó el patrimonio del saldo inicial al saldo final.",
+    "fuente": "NIC 1, párrafo 106"
+  },
+  {
+    "id": "n3-q22",
+    "pregunta": "Activos $20.000.000 y pasivos $12.000.000. ¿Cuánto es el patrimonio total (incluido el resultado)?",
+    "opciones": [
+      "$8.000.000",
+      "$32.000.000",
+      "$12.000.000",
+      "$20.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Patrimonio = Activo − Pasivo.",
+    "fuente": "Ecuación contable"
   }
 ]

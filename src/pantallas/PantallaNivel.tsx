@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { CONTENIDO, infoNivel } from '../content';
 import { crearRng, elegirVarios, semillaAleatoria } from '../engine/azar';
-import type { Ejercicio } from '../engine/ejercicios';
+import { armarPractica, type Ejercicio } from '../engine/ejercicios';
 import { nuevoId } from '../engine/plantillas';
 import { actualizarNivel, agregarRepaso, cambiarHp, estadoNivel, fechaISO, HP_MAX, registrarAsiento } from '../engine/progreso';
 import { REGLAS } from '../engine/recompensas';
@@ -27,9 +27,10 @@ import { EjClasificarOpciones } from '../juego/ejercicios/EjClasificarOpciones';
 import { EjCrisis } from '../juego/ejercicios/EjCrisis';
 import type { ApiEjercicio } from '../juego/MarcoEjercicio';
 import { Boton, COLORES, Dialogo, Tarjeta } from '../componentes/ui';
+import { Apuntes } from './Apuntes';
 import { Confeti, Modal } from '../componentes/Efectos';
 
-type Fase = 'intro' | 'trivia' | 'resultadoTrivia' | 'practica' | 'jefeIntro' | 'jefe' | 'fin';
+type Fase = 'intro' | 'apuntes' | 'trivia' | 'resultadoTrivia' | 'practica' | 'jefeIntro' | 'jefe' | 'fin';
 
 export function PantallaNivel({ id, onSalir, onVerEmpresa }: { id: string; onSalir: () => void; onVerEmpresa: () => void }) {
   const { obtener } = useProgreso();
@@ -82,6 +83,7 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
   const { progreso, actualizar } = useProgreso();
   const sesion = useSesion();
   const triviaAprobada = estadoNivel(progreso, id).triviaAprobada;
+  const apuntesVistos = !!estadoNivel(progreso, id).apuntesVistos;
 
   const [fase, setFase] = useState<Fase>('intro');
   const [semilla, setSemilla] = useState(semillaAleatoria);
@@ -91,7 +93,10 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
   const [jefePrimerIntento, setJefePrimerIntento] = useState(false);
 
   const preguntas = useMemo(() => elegirVarios(crearRng(semilla), contenido.preguntas, REGLAS.triviaPreguntas), [semilla, contenido]);
-  const ejercicios = useMemo(() => contenido.generarPractica(crearRng(semilla + 1)), [semilla, contenido]);
+  const ejercicios = useMemo(
+    () => armarPractica(contenido.generarPractica, crearRng(semilla + 1), REGLAS.ejerciciosPractica),
+    [semilla, contenido],
+  );
   const jefe = useMemo(() => contenido.generarJefe(crearRng(semilla + 100 + intentosJefe)), [semilla, intentosJefe, contenido]);
 
   const empezarTrivia = () => {
@@ -99,6 +104,11 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
     setIndice(0);
     setResultados([]);
     setFase('trivia');
+  };
+  const verApuntes = () => {
+    actualizar((p) => actualizarNivel(p, id, { apuntesVistos: true }));
+    setFase('apuntes');
+    window.scrollTo(0, 0);
   };
   const empezarPractica = () => {
     setSemilla(semillaAleatoria());
@@ -133,7 +143,7 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
     setFase('fin');
   };
 
-  // Barra de avance del nivel: 5 trivia + 5 práctica + jefe.
+  // Barra de avance del nivel: trivia + práctica + jefe.
   const pasos = REGLAS.triviaPreguntas + ejercicios.length + 1;
   const hecho =
     fase === 'trivia'
@@ -150,7 +160,7 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
 
   return (
     <div className={pausada ? 'pointer-events-none' : ''}>
-      {fase !== 'intro' && (
+      {fase !== 'intro' && fase !== 'apuntes' && (
         <div className="mb-5 flex items-center gap-3">
           <div className="h-3 flex-1 overflow-hidden rounded-full bg-slate-200">
             <div className={`h-full rounded-full transition-all duration-500 ${color.fondo}`} style={{ width: `${(hecho / pasos) * 100}%` }} />
@@ -174,10 +184,11 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
           <Tarjeta className="text-sm text-slate-600">
             <p className="mb-1 font-extrabold text-slate-700">Cómo se juega</p>
             <ol className="list-decimal space-y-0.5 pl-5">
+              <li>Apuntes: {contenido.apuntes.length} temas para estudiar antes de jugar, con sus fuentes.</li>
               <li>
                 Trivia: {REGLAS.triviaPreguntas} preguntas. Necesitas {REGLAS.triviaMinimo} correctas.
               </li>
-              <li>Práctica: operaciones con montos distintos cada vez. Puedes reintentar.</li>
+              <li>Práctica: {REGLAS.ejerciciosPractica} ejercicios con montos distintos cada vez. Puedes reintentar.</li>
               <li>Jefe final: un desafío para cerrar el nivel.</li>
             </ol>
             <p className="mt-2">Cada error grave le cuesta caja a la empresa 💰. Si llega a cero, entras en insolvencia.</p>
@@ -186,15 +197,34 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
             {triviaAprobada ? (
               <>
                 <Boton onClick={empezarPractica}>Ir a la práctica</Boton>
+                <Boton variante="secundario" onClick={verApuntes}>
+                  📖 Repasar los apuntes
+                </Boton>
                 <Boton variante="secundario" onClick={empezarTrivia}>
                   Repetir la trivia
                 </Boton>
               </>
+            ) : apuntesVistos ? (
+              <>
+                <Boton onClick={empezarTrivia}>Comenzar trivia</Boton>
+                <Boton variante="secundario" onClick={verApuntes}>
+                  📖 Repasar los apuntes
+                </Boton>
+              </>
             ) : (
-              <Boton onClick={empezarTrivia}>Comenzar trivia</Boton>
+              <>
+                <Boton onClick={verApuntes}>📖 Estudiar los apuntes primero</Boton>
+                <Boton variante="fantasma" onClick={empezarTrivia}>
+                  Ir directo a la trivia
+                </Boton>
+              </>
             )}
           </div>
         </div>
+      )}
+
+      {fase === 'apuntes' && (
+        <Apuntes titulo={info.titulo} apuntes={contenido.apuntes} onVolver={() => setFase('intro')} onComenzar={empezarTrivia} />
       )}
 
       {fase === 'trivia' && (
@@ -228,6 +258,7 @@ function Partida({ id, onSalir, onVerEmpresa, pausada }: { id: string; onSalir: 
           aciertos={resultados.filter(Boolean).length}
           onPractica={empezarPractica}
           onReintentar={empezarTrivia}
+          onApuntes={verApuntes}
         />
       )}
 
@@ -325,7 +356,17 @@ function Dato({ valor, etiqueta }: { valor: string; etiqueta: string }) {
   );
 }
 
-function ResultadoTrivia({ aciertos, onPractica, onReintentar }: { aciertos: number; onPractica: () => void; onReintentar: () => void }) {
+function ResultadoTrivia({
+  aciertos,
+  onPractica,
+  onReintentar,
+  onApuntes,
+}: {
+  aciertos: number;
+  onPractica: () => void;
+  onReintentar: () => void;
+  onApuntes: () => void;
+}) {
   const aprobada = aciertos >= REGLAS.triviaMinimo;
   return (
     <div className="aparecer space-y-4 text-center">
@@ -343,9 +384,14 @@ function ResultadoTrivia({ aciertos, onPractica, onReintentar }: { aciertos: num
           Ir a la práctica
         </Boton>
       ) : (
-        <Boton className="w-full" onClick={onReintentar}>
-          Intentar de nuevo
-        </Boton>
+        <div className="grid gap-2">
+          <Boton className="w-full" onClick={onApuntes}>
+            📖 Repasar los apuntes
+          </Boton>
+          <Boton className="w-full" variante="secundario" onClick={onReintentar}>
+            Intentar de nuevo
+          </Boton>
+        </div>
       )}
     </div>
   );

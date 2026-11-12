@@ -1,0 +1,80 @@
+[
+  {
+    "id": "vertical-horizontal",
+    "titulo": "Análisis vertical y horizontal",
+    "puntos": [
+      "Vertical: cada partida como porcentaje de un total del mismo año (de las ventas o de los activos). Muestra la estructura.",
+      "Horizontal: variación de una partida entre dos años = (año 2 − año 1) ÷ año 1 × 100. Muestra la evolución.",
+      "Si el costo crece más rápido que las ventas, el margen bruto cae."
+    ],
+    "ejemplo": "Ventas de $380 a $467 millones: variación de 22,9%.",
+    "fuente": "Análisis financiero"
+  },
+  {
+    "id": "liquidez",
+    "titulo": "Liquidez: ¿podemos pagar lo que vence pronto?",
+    "puntos": [
+      "Razón corriente = activo corriente ÷ pasivo corriente. Bajo 1 es una alerta.",
+      "Prueba ácida = (activo corriente − inventario) ÷ pasivo corriente. Excluye lo más lento en convertirse en dinero.",
+      "Capital de trabajo = activo corriente − pasivo corriente."
+    ],
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "endeudamiento",
+    "titulo": "Endeudamiento y solvencia",
+    "puntos": [
+      "Deuda / Patrimonio = pasivos ÷ patrimonio: cuánto aportan los acreedores por cada peso de los dueños.",
+      "Deuda / Activos = pasivos ÷ activos × 100.",
+      "Cobertura de intereses = resultado operacional ÷ gastos financieros. Cerca de 1 es peligroso."
+    ],
+    "fuente": "Razones de endeudamiento y solvencia"
+  },
+  {
+    "id": "rentabilidad",
+    "titulo": "Rentabilidad",
+    "puntos": [
+      "Margen bruto = (ventas − costo) ÷ ventas × 100.",
+      "Margen neto = utilidad ÷ ventas × 100.",
+      "ROA = utilidad ÷ activos totales × 100.",
+      "ROE = utilidad ÷ patrimonio × 100.",
+      "Análisis DuPont: ROE = margen × rotación de activos × apalancamiento. Más deuda sube el ROE, pero también el riesgo."
+    ],
+    "fuente": "Razones de rentabilidad; análisis DuPont"
+  },
+  {
+    "id": "actividad",
+    "titulo": "Actividad: el ciclo del dinero",
+    "puntos": [
+      "Días de cobro = clientes ÷ ventas × 365.",
+      "Días de inventario = inventario ÷ costo de ventas × 365.",
+      "Días de pago = proveedores ÷ costo de ventas × 365.",
+      "Ciclo de conversión de caja = días de inventario + días de cobro − días de pago.",
+      "Rotación de activos = ventas ÷ activos totales."
+    ],
+    "fuente": "Razones de actividad"
+  },
+  {
+    "id": "flujo",
+    "titulo": "Flujo de efectivo (NIC 7)",
+    "puntos": [
+      "Tres actividades: operación (el negocio), inversión (activos de largo plazo) y financiamiento (préstamos, aportes, dividendos).",
+      "Método indirecto: parte de la utilidad y suma la depreciación, que no fue salida de dinero.",
+      "Un aumento de clientes o de inventario se resta; un aumento de proveedores se suma.",
+      "Una empresa con utilidad puede tener flujo operacional negativo si cobra lento o acumula inventario."
+    ],
+    "ejemplo": "Utilidad $50 millones + depreciación $16 millones − aumento de clientes $52 millones − aumento de inventario $30 millones + aumento de proveedores $7 millones = −$9 millones.",
+    "fuente": "NIC 7 Estado de flujos de efectivo, párrafos 10 y 18 a 20"
+  },
+  {
+    "id": "decisiones",
+    "titulo": "Del diagnóstico a la decisión",
+    "puntos": [
+      "Ninguna razón se interpreta sola: compárala con años anteriores y con otras razones.",
+      "Liquidez que cae mientras la utilidad sube suele indicar caja atrapada en capital de trabajo.",
+      "Remedios típicos: cobrar más rápido, reducir inventario, negociar plazos con proveedores y financiar el capital de trabajo permanente con recursos de largo plazo.",
+      "Repartir dividendos o invertir con deuda de corto plazo en plena crisis de caja la empeora."
+    ],
+    "fuente": "Gestión del capital de trabajo"
+  }
+]

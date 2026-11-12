@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alcance",
+    "titulo": "¿Quién usa la NIIF para las PYMES?",
+    "puntos": [
+      "Entidades sin obligación pública de rendir cuentas: no emiten valores en bolsa ni administran recursos de terceros.",
+      "Publican estados financieros para usuarios externos, como bancos y proveedores.",
+      "Es una versión simplificada de las NIIF completas, organizada en secciones."
+    ],
+    "fuente": "NIIF para las PYMES, Sección 1"
+  },
+  {
+    "id": "devengo",
+    "titulo": "Base de acumulación (devengo)",
+    "puntos": [
+      "Los ingresos y gastos se reconocen cuando ocurren, no cuando se cobra o se paga.",
+      "Sueldos del mes que se pagan el mes siguiente: gasto del mes, con un pasivo Remuneraciones por pagar.",
+      "Arriendo pagado por adelantado: es un activo que se lleva a gasto a medida que se consume.",
+      "Por eso existen los ajustes de cierre."
+    ],
+    "ejemplo": "Pagas $3.000.000 por 6 meses de arriendo: cada mes pasa $500.000 de Arriendo pagado por anticipado a Gasto de arriendo.",
+    "fuente": "NIIF para las PYMES, Sección 2"
+  },
+  {
+    "id": "depreciacion",
+    "titulo": "Depreciación lineal",
+    "puntos": [
+      "La depreciación reparte el costo de un activo fijo durante su vida útil.",
+      "Depreciación anual = (costo − valor residual) ÷ años de vida útil. Mensual = la anual ÷ 12.",
+      "Asiento: Gasto por depreciación (Debe) contra Depreciación acumulada (Haber).",
+      "La Depreciación acumulada es una cuenta complementaria: resta al activo y aumenta por el Haber.",
+      "Valor libro = costo − depreciación acumulada. Los terrenos no se deprecian.",
+      "Un cambio de vida útil es un cambio de estimación: se aplica hacia adelante."
+    ],
+    "ejemplo": "Horno de $6.000.000, residual $600.000, 6 años: $900.000 al año y $75.000 al mes.",
+    "fuente": "NIIF para las PYMES, Secciones 10 y 17"
+  },
+  {
+    "id": "deterioro-clientes",
+    "titulo": "Deterioro de cuentas por cobrar",
+    "puntos": [
+      "Si hay evidencia de que un cliente no pagará, se reconoce una pérdida.",
+      "Asiento: Gasto por deterioro de deudores (Debe) contra Estimación de deudores incobrables (Haber).",
+      "La estimación es una cuenta complementaria de Clientes: no se borra la deuda, se rebaja su valor."
+    ],
+    "fuente": "NIIF para las PYMES, Sección 11"
+  },
+  {
+    "id": "inventarios",
+    "titulo": "Inventarios al menor valor",
+    "puntos": [
+      "Se miden al menor entre el costo y el precio de venta estimado menos los costos de terminación y venta.",
+      "Si la mercadería se daña o baja de precio, la diferencia es una pérdida.",
+      "Asiento: Pérdida por deterioro de inventario (Debe) contra Mercaderías (Haber)."
+    ],
+    "ejemplo": "Harina que costó $400.000 y solo se podrá vender en $250.000: pérdida de $150.000.",
+    "fuente": "NIIF para las PYMES, Sección 13"
+  },
+  {
+    "id": "provisiones",
+    "titulo": "Provisiones y pasivos contingentes",
+    "puntos": [
+      "Se registra una provisión si hay una obligación presente por un hecho pasado, es probable que haya que pagar y el monto se puede estimar con fiabilidad.",
+      "Asiento: Gasto por provisiones (Debe) contra Provisiones (Haber).",
+      "Si la salida de dinero es solo posible (no probable), es un pasivo contingente: no se registra, se informa en notas."
+    ],
+    "fuente": "NIIF para las PYMES, Sección 21"
+  },
+  {
+    "id": "reexpresion",
+    "titulo": "Estados antes y después de los ajustes",
+    "puntos": [
+      "Casi todos los ajustes de cierre son gastos: disminuyen el resultado.",
+      "Depreciación y deterioros disminuyen los activos (por sus cuentas complementarias o rebajando el activo).",
+      "Provisiones y gastos devengados aumentan los pasivos.",
+      "Después de ajustar, sigue cumpliéndose Activo = Pasivo + Patrimonio."
+    ],
+    "fuente": "NIIF para las PYMES, Sección 2"
+  }
+]

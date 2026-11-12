@@ -1,3 +1,4 @@
+import apuntesJson from './apuntes.json';
 import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import razones from './razones.json';
@@ -12,7 +13,7 @@ import {
   calculoVerticalHorizontal,
   generarCrisis,
 } from '../../engine/analisis';
-import type { ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel } from '../tipos';
 
 const banco = situaciones as Pregunta[];
 const bancoRazones = razones as EjercicioClasificar['items'];
@@ -50,6 +51,7 @@ function generarPractica(rng: Rng): Ejercicio[] {
 }
 
 export const nivel6: ContenidoNivel = {
+  apuntes: apuntesJson as Apunte[],
   intro: {
     personaje: 'Tía Rosa',
     emoji: '👩‍🍳',

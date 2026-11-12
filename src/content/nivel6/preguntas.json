@@ -206,5 +206,83 @@
     "correcta": 0,
     "explicacion": "Si se financia con deuda de corto plazo, cada renovación es un riesgo de liquidez. Calzar plazos es una regla básica de finanzas.",
     "fuente": "Gestión del capital de trabajo"
+  },
+  {
+    "id": "n6-q17",
+    "pregunta": "Razón corriente 1,5 y prueba ácida 0,6. ¿Qué concluyes?",
+    "opciones": [
+      "La liquidez depende mucho del inventario",
+      "La empresa tiene demasiada caja",
+      "No tiene inventario",
+      "No tiene deudas"
+    ],
+    "correcta": 0,
+    "explicacion": "La diferencia entre ambas razones es el inventario.",
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "n6-q18",
+    "pregunta": "Ventas $200.000.000 y margen neto 5%. ¿Utilidad?",
+    "opciones": [
+      "$10.000.000",
+      "$5.000.000",
+      "$20.000.000",
+      "$195.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Utilidad = 5% × $200.000.000.",
+    "fuente": "Razones de rentabilidad"
+  },
+  {
+    "id": "n6-q19",
+    "pregunta": "Ventas anuales $365.000.000 y 30 días de cobro. ¿Cuánto hay en Clientes?",
+    "opciones": [
+      "$30.000.000",
+      "$12.000.000",
+      "$365.000.000",
+      "$3.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Clientes = ventas × días ÷ 365 = $30.000.000.",
+    "fuente": "Razones de actividad"
+  },
+  {
+    "id": "n6-q20",
+    "pregunta": "¿Qué va en el flujo de actividades de inversión?",
+    "opciones": [
+      "La compra de una maquinaria",
+      "El pago de sueldos",
+      "Un préstamo recibido",
+      "Las ventas al contado"
+    ],
+    "correcta": 0,
+    "explicacion": "Inversión: compra y venta de activos de largo plazo.",
+    "fuente": "NIC 7, párrafo 16"
+  },
+  {
+    "id": "n6-q21",
+    "pregunta": "¿Qué va en el flujo de actividades de financiamiento?",
+    "opciones": [
+      "Préstamos recibidos y dividendos pagados",
+      "Compras de mercaderías",
+      "Cobros a clientes",
+      "Compra de terrenos"
+    ],
+    "correcta": 0,
+    "explicacion": "Financiamiento: cambios en la deuda y en el patrimonio aportado por los dueños.",
+    "fuente": "NIC 7, párrafo 17"
+  },
+  {
+    "id": "n6-q22",
+    "pregunta": "Si el inventario rota 6 veces al año, ¿cuántos días dura en promedio?",
+    "opciones": [
+      "Unos 61 días",
+      "6 días",
+      "365 días",
+      "30 días"
+    ],
+    "correcta": 0,
+    "explicacion": "365 ÷ 6 ≈ 61 días.",
+    "fuente": "Razones de actividad"
   }
 ]

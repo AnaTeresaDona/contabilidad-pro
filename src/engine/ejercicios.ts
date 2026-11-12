@@ -149,3 +149,24 @@ export function ejBalance8(rng: Rng, plantillas: Plantilla[], extra = 3): Ejerci
 export function ejLibroErrores(rng: Rng, plantillas: Plantilla[]): Ejercicio {
   return { tipo: 'libroErrores', libro: generarLibroConErrores(rng, plantillas) };
 }
+
+/**
+ * Arma la práctica de un nivel con `n` ejercicios: llama varias veces al generador del nivel
+ * (cada vez con montos distintos) y evita repetir la misma pregunta o el mismo cálculo.
+ */
+export function armarPractica(generar: (rng: Rng) => Ejercicio[], rng: Rng, n: number): Ejercicio[] {
+  const clave = (e: Ejercicio): string | null =>
+    e.tipo === 'pregunta' ? `p:${e.pregunta.id}` : e.tipo === 'calculo' ? `c:${e.datos.titulo}` : null;
+  const vistos = new Set<string>();
+  const resultado: Ejercicio[] = [];
+  for (let vuelta = 0; vuelta < 6 && resultado.length < n; vuelta++) {
+    for (const e of generar(rng)) {
+      if (resultado.length >= n) break;
+      const k = clave(e);
+      if (k && vistos.has(k)) continue;
+      if (k) vistos.add(k);
+      resultado.push(e);
+    }
+  }
+  return resultado;
+}

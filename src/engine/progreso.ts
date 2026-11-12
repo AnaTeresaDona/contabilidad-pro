@@ -10,6 +10,8 @@ export interface EstadoNivel {
   completado: boolean;
   jefePerfecto?: boolean;
   sinPistas?: boolean;
+  /** El jugador abrió los apuntes del nivel. */
+  apuntesVistos?: boolean;
 }
 
 export interface Progreso {

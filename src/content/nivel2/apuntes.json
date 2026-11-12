@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ciclo",
+    "titulo": "El ciclo contable",
+    "puntos": [
+      "1. Documento que respalda la operación (factura, boleta, contrato).",
+      "2. Registro en el Libro Diario, en orden cronológico.",
+      "3. Traspaso al Libro Mayor: una Cuenta T por cada cuenta (mayorizar).",
+      "4. Balance de comprobación o de 8 columnas, para verificar y ordenar los saldos.",
+      "5. Estados financieros."
+    ],
+    "fuente": "Ciclo contable"
+  },
+  {
+    "id": "dte",
+    "titulo": "Documentos tributarios electrónicos (DTE)",
+    "puntos": [
+      "Cada documento tiene un código del SII: 33 factura electrónica, 34 factura exenta, 39 boleta, 41 boleta exenta, 46 factura de compra, 52 guía de despacho, 56 nota de débito, 61 nota de crédito.",
+      "Factura (33): se emite a otro contribuyente que necesita respaldar su compra y usar el crédito fiscal.",
+      "Boleta (39): se emite al consumidor final; el precio incluye IVA.",
+      "Guía de despacho (52): respalda el traslado de mercaderías, aunque no haya venta.",
+      "Nota de crédito (61): anula o rebaja una factura. Nota de débito (56): la aumenta.",
+      "Un DTE emitido no se borra: se corrige con una nota de crédito y, si corresponde, un documento nuevo."
+    ],
+    "ejemplo": "Un cliente con factura reclama por empanadas frías y le rebajas el precio: emites una nota de crédito (61).",
+    "fuente": "DL 825, arts. 52 a 57; formato de Documentos Tributarios Electrónicos del SII"
+  },
+  {
+    "id": "boleta",
+    "titulo": "Boletas: separar el IVA incluido",
+    "puntos": [
+      "En la boleta el total ya trae el IVA.",
+      "Neto = Total ÷ 1,19 (redondeado al peso). IVA = Total − Neto.",
+      "Se registra igual que una venta: Caja por el total, Ventas por el neto, IVA Débito Fiscal por el IVA."
+    ],
+    "ejemplo": "Boletas del día por $119.000: Neto $100.000 e IVA $19.000.",
+    "fuente": "DL 825, art. 14"
+  },
+  {
+    "id": "notas-credito",
+    "titulo": "Cómo registrar notas de crédito",
+    "puntos": [
+      "Nota de crédito emitida (rebaja a un cliente): Ventas (Debe), IVA Débito Fiscal (Debe), Clientes (Haber).",
+      "Nota de crédito recibida (el proveedor te rebaja): Proveedores (Debe), Mercaderías (Haber), IVA Crédito Fiscal (Haber).",
+      "Es el mismo asiento de la operación original, pero al revés y por el monto rebajado."
+    ],
+    "fuente": "DL 825, art. 57"
+  },
+  {
+    "id": "f29",
+    "titulo": "El IVA mensual: Formulario 29",
+    "puntos": [
+      "Cada mes se compara el IVA Débito (ventas) con el IVA Crédito (compras).",
+      "Si el débito es mayor, se paga la diferencia en el Formulario 29.",
+      "Si el crédito es mayor, no se paga IVA y el remanente pasa al mes siguiente.",
+      "Asiento del pago: IVA Débito Fiscal (Debe), IVA Crédito Fiscal (Haber), Banco (Haber) por la diferencia.",
+      "El SII arma el Registro de Compras y Ventas (RCV) con los DTE emitidos y recibidos."
+    ],
+    "ejemplo": "Débito $500.000 y crédito $320.000: se pagan $180.000.",
+    "fuente": "DL 825, arts. 20, 23 y 26; Formulario 29 del SII"
+  },
+  {
+    "id": "mayorizar",
+    "titulo": "Libro Diario y Libro Mayor",
+    "puntos": [
+      "El Libro Diario muestra cada operación completa (todas sus cuentas) en orden de fecha.",
+      "El Libro Mayor muestra cada cuenta por separado, con todos sus movimientos.",
+      "Mayorizar: tomar cada línea de cada asiento y anotarla en la Cuenta T que le corresponde, en el mismo lado.",
+      "Luego se suma cada lado y se calcula el saldo."
+    ],
+    "fuente": "Ciclo contable: Libro Diario y Libro Mayor"
+  },
+  {
+    "id": "balance8",
+    "titulo": "El Balance de 8 columnas",
+    "puntos": [
+      "Sumas (Debe | Haber): totales del mayor por cuenta. Deben cuadrar.",
+      "Saldos (Deudor | Acreedor): la diferencia de cada cuenta. También cuadran.",
+      "Inventario (Activo | Pasivo): las cuentas de balance. El patrimonio va en la columna Pasivo.",
+      "Resultados (Pérdidas | Ganancias): las cuentas de ingreso y gasto.",
+      "Resultado = Ganancias − Pérdidas. Una utilidad se anota en Pérdidas y en Pasivo; una pérdida, en Ganancias y en Activo. Así cuadran las dos últimas parejas."
+    ],
+    "ejemplo": "Si Ganancias suman $5.000.000 y Pérdidas $3.800.000, la utilidad de $1.200.000 se suma a Pérdidas y a Pasivo.",
+    "fuente": "Balance de 8 columnas (balance tributario)"
+  }
+]

@@ -1,3 +1,4 @@
+import apuntesJson from './apuntes.json';
 import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import partidasJson from './partidas.json';
@@ -6,7 +7,7 @@ import type { Plantilla } from '../../engine/plantillas';
 import { elegirVarios, type Rng } from '../../engine/azar';
 import { ejCompletar, type Ejercicio, type Pregunta } from '../../engine/ejercicios';
 import { calculoF22, calculoRLI, elegirPartidas, generarOperacionRenta, type PartidaBanco } from '../../engine/tributario';
-import type { ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel } from '../tipos';
 
 const plantillas = plantillasJson as unknown as Plantilla[];
 const banco = situaciones as Pregunta[];
@@ -25,6 +26,7 @@ function generarPractica(rng: Rng): Ejercicio[] {
 }
 
 export const nivel5: ContenidoNivel = {
+  apuntes: apuntesJson as Apunte[],
   intro: {
     personaje: 'Tía Rosa',
     emoji: '👩‍🍳',

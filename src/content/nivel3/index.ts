@@ -1,8 +1,9 @@
+import apuntesJson from './apuntes.json';
 import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import { elegirVarios, type Rng } from '../../engine/azar';
 import { ejSecciones, mesConActivoFijo, type Ejercicio, type Pregunta } from '../../engine/ejercicios';
-import type { ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel } from '../tipos';
 import { nivel2 } from '../nivel2';
 
 /** Las operaciones son las mismas de los niveles 1 y 2: aquí se aprende a presentarlas. */
@@ -21,6 +22,7 @@ function generarPractica(rng: Rng): Ejercicio[] {
 }
 
 export const nivel3: ContenidoNivel = {
+  apuntes: apuntesJson as Apunte[],
   intro: {
     personaje: 'Tía Rosa',
     emoji: '👩‍🍳',
