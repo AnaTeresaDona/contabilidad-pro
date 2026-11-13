@@ -54,6 +54,10 @@ export interface EjercicioClasificar {
   instruccion: string;
   opciones: { id: string; etiqueta: string }[];
   items: { id: string; texto: string; correcta: string; explicacion: string; fuente: string }[];
+  /** Tema para las estadísticas (por defecto, "Familias de razones"). */
+  tema?: string;
+  /** Pista propia (por defecto, la de las familias de razones). */
+  pista?: string;
 }
 
 /** Cuentas variadas para clasificar en las secciones de los estados financieros. */

@@ -1,0 +1,45 @@
+{
+  "ajustes": [
+    { "id": "a_org", "texto": "Gastos de organización y puesta en marcha activados", "correcta": "eliminar", "explicacion": "No cumplen la definición de activo: se eliminan contra patrimonio.", "fuente": "NIIF 1, párrafo 10; NIC 38" },
+    { "id": "a_rep", "texto": "Provisión por reparaciones futuras sin obligación presente", "correcta": "eliminar", "explicacion": "Sin obligación presente no hay pasivo: se elimina.", "fuente": "NIC 37, párrafo 14" },
+    { "id": "a_inv", "texto": "Gastos de investigación registrados como activo", "correcta": "eliminar", "explicacion": "La investigación siempre es gasto: se elimina el activo.", "fuente": "NIC 38, párrafo 54" },
+    { "id": "a_vac", "texto": "Vacaciones devengadas del personal que nunca se registraron", "correcta": "reconocer", "explicacion": "Es una obligación presente con los trabajadores: se reconoce el pasivo.", "fuente": "NIC 19" },
+    { "id": "a_arr", "texto": "Arriendo del local por 5 años registrado solo como gasto mensual", "correcta": "reconocer", "explicacion": "Se reconocen un derecho de uso y un pasivo por arrendamiento.", "fuente": "NIIF 16" },
+    { "id": "a_des", "texto": "Obligación de desmantelar una antena al final del contrato, no registrada", "correcta": "reconocer", "explicacion": "Se reconoce la provisión por desmantelamiento (y forma parte del costo del activo).", "fuente": "NIC 16, párrafo 16; NIC 37" },
+    { "id": "a_der", "texto": "Contrato de cobertura de dólar (derivado) que no figuraba en el balance", "correcta": "reconocer", "explicacion": "Los derivados se reconocen en el balance a valor razonable.", "fuente": "NIIF 9" },
+    { "id": "a_pi", "texto": "Edificio arrendado a terceros presentado como activo fijo", "correcta": "reclasificar", "explicacion": "Se tiene para obtener rentas: va a propiedad de inversión.", "fuente": "NIC 40, párrafo 5" },
+    { "id": "a_corr", "texto": "Cuotas de un préstamo de largo plazo que vencen en los próximos 12 meses", "correcta": "reclasificar", "explicacion": "Esa porción se presenta como pasivo corriente.", "fuente": "NIC 1, párrafo 69" },
+    { "id": "a_venta", "texto": "Camión que se venderá en 4 meses, con plan aprobado, presentado en activo fijo", "correcta": "reclasificar", "explicacion": "Va a activos no corrientes mantenidos para la venta.", "fuente": "NIIF 5, párrafo 6" },
+    { "id": "a_cli", "texto": "Clientes con pérdidas esperadas que no se han estimado", "correcta": "valorizar", "explicacion": "Se mide el deterioro de las cuentas por cobrar.", "fuente": "NIIF 9" },
+    { "id": "a_vnr", "texto": "Inventario cuyo valor neto realizable es menor que su costo", "correcta": "valorizar", "explicacion": "Se mide al menor entre costo y valor neto realizable.", "fuente": "NIC 2, párrafo 9" },
+    { "id": "a_ter", "texto": "Terreno antiguo que se medirá a su valor razonable como costo atribuido", "correcta": "valorizar", "explicacion": "Exención de la NIIF 1: el valor razonable pasa a ser el costo.", "fuente": "NIIF 1, Apéndice D" },
+    { "id": "a_cm", "texto": "Activo fijo con años de corrección monetaria acumulada (Chile no es hiperinflacionario)", "correcta": "valorizar", "explicacion": "Las NIIF no reconocen la corrección monetaria fuera de la hiperinflación: se mide al costo NIIF o al costo atribuido.", "fuente": "NIIF 1; NIC 29" }
+  ],
+  "normas": [
+    { "id": "n_maq", "texto": "Máquina cortadora que se usa en el taller", "correcta": "ppe", "explicacion": "Se usa en la producción por más de un año.", "fuente": "NIC 16, párrafo 6" },
+    { "id": "n_local", "texto": "Local donde atiende la ferretería", "correcta": "ppe", "explicacion": "Se usa en el propio negocio.", "fuente": "NIC 16, párrafo 6" },
+    { "id": "n_veh", "texto": "Camioneta de reparto en uso", "correcta": "ppe", "explicacion": "Se usa en la operación.", "fuente": "NIC 16, párrafo 6" },
+    { "id": "n_bod", "texto": "Bodega arrendada a otra empresa", "correcta": "pi", "explicacion": "Se tiene para obtener rentas.", "fuente": "NIC 40, párrafo 5" },
+    { "id": "n_terr", "texto": "Terreno comprado para venderlo cuando suba de precio (sin uso definido)", "correcta": "pi", "explicacion": "Se tiene por plusvalía.", "fuente": "NIC 40, párrafo 8" },
+    { "id": "n_depto", "texto": "Departamento arrendado a una familia", "correcta": "pi", "explicacion": "Genera rentas; no se usa en el negocio.", "fuente": "NIC 40, párrafo 5" },
+    { "id": "n_cam", "texto": "Camión con venta aprobada que se espera concretar en 3 meses", "correcta": "venta", "explicacion": "Disponible para venta inmediata y venta altamente probable.", "fuente": "NIIF 5, párrafos 6 a 8" },
+    { "id": "n_suc", "texto": "Sucursal cerrada que se ofrece a un comprador a precio de mercado", "correcta": "venta", "explicacion": "Hay un plan de venta en marcha y se espera vender dentro de 12 meses.", "fuente": "NIIF 5, párrafo 8" },
+    { "id": "n_tal", "texto": "Taladros comprados para revender en la ferretería", "correcta": "inventario", "explicacion": "Se venden en el giro normal del negocio.", "fuente": "NIC 2, párrafo 6" },
+    { "id": "n_casas", "texto": "Casas que construye una inmobiliaria para vender", "correcta": "inventario", "explicacion": "Para una inmobiliaria, vender casas es su giro: son inventario, no propiedad de inversión.", "fuente": "NIC 2; NIC 40, párrafo 9" },
+    { "id": "n_mat", "texto": "Clavos y tornillos a granel para la venta", "correcta": "inventario", "explicacion": "Mercadería para vender.", "fuente": "NIC 2, párrafo 6" }
+  ],
+  "nic8": [
+    { "id": "e_vida", "texto": "Cambiar la vida útil de las máquinas de 10 a 8 años", "correcta": "estimacion", "explicacion": "Es una estimación: se aplica de forma prospectiva.", "fuente": "NIC 16, párrafo 51; NIC 8, párrafo 36" },
+    { "id": "e_res", "texto": "Revisar el valor residual de los vehículos", "correcta": "estimacion", "explicacion": "Cambio de estimación, prospectivo.", "fuente": "NIC 8, párrafo 36" },
+    { "id": "e_inc", "texto": "Subir el % de incobrables por la nueva experiencia de cobranza", "correcta": "estimacion", "explicacion": "Nueva información: cambio de estimación.", "fuente": "NIC 8, párrafo 34" },
+    { "id": "e_met", "texto": "Pasar de depreciación lineal a unidades producidas porque cambió el uso de la máquina", "correcta": "estimacion", "explicacion": "La NIC 16 trata el cambio de método de depreciación como un cambio de estimación.", "fuente": "NIC 16, párrafo 61" },
+    { "id": "e_gar", "texto": "Ajustar la provisión por garantías con los reclamos reales", "correcta": "estimacion", "explicacion": "Cambio de estimación, prospectivo.", "fuente": "NIC 8, párrafo 34" },
+    { "id": "p_pi", "texto": "Pasar las propiedades de inversión del modelo del costo al de valor razonable", "correcta": "politica", "explicacion": "Es un cambio de política: se aplica de forma retrospectiva.", "fuente": "NIC 40, párrafo 31; NIC 8, párrafo 19" },
+    { "id": "p_fifo", "texto": "Cambiar el costeo del inventario de FIFO a promedio ponderado para dar información más fiable", "correcta": "politica", "explicacion": "Cambio voluntario de política, retrospectivo.", "fuente": "NIC 8, párrafos 14 y 19" },
+    { "id": "p_nueva", "texto": "Aplicar por primera vez una norma nueva que exige otro tratamiento", "correcta": "politica", "explicacion": "Cambio de política por una norma nueva, según sus disposiciones transitorias.", "fuente": "NIC 8, párrafo 19" },
+    { "id": "r_fact", "texto": "Una factura de compra del año pasado nunca se registró", "correcta": "error", "explicacion": "Error de un período anterior: se reexpresa.", "fuente": "NIC 8, párrafo 42" },
+    { "id": "r_form", "texto": "La depreciación del año pasado se calculó con una fórmula equivocada", "correcta": "error", "explicacion": "Error de cálculo: corrección retrospectiva.", "fuente": "NIC 8, párrafo 41" },
+    { "id": "r_fraude", "texto": "Se descubre un fraude que infló las ventas del año anterior", "correcta": "error", "explicacion": "Los fraudes son errores de períodos anteriores.", "fuente": "NIC 8, párrafo 5" },
+    { "id": "r_inv", "texto": "Gastos de investigación del año pasado se activaron por desconocer la norma", "correcta": "error", "explicacion": "Mala aplicación de una norma: es un error.", "fuente": "NIC 8, párrafo 5" }
+  ]
+}

@@ -1,0 +1,310 @@
+[
+  {
+    "id": "n8-q01",
+    "pregunta": "¿Cuál es uno de los objetivos del Marco Conceptual de las NIIF?",
+    "opciones": [
+      "Ayudar al consejo emisor (IASB) a desarrollar futuras normas",
+      "Reemplazar a las normas específicas cuando haya conflicto",
+      "Elaborar los informes internos para la gerencia",
+      "Fijar las tasas de impuesto de cada país"
+    ],
+    "correcta": 0,
+    "explicacion": "También ayuda a preparadores, usuarios y auditores. No reemplaza a las normas: si hay conflicto, manda la norma específica.",
+    "fuente": "Marco Conceptual para la Información Financiera"
+  },
+  {
+    "id": "n8-q02",
+    "pregunta": "Si el Marco Conceptual y una NIIF específica dicen cosas distintas, ¿qué prevalece?",
+    "opciones": ["La NIIF específica", "El Marco Conceptual", "Lo que decida el auditor", "La norma tributaria"],
+    "correcta": 0,
+    "explicacion": "El Marco Conceptual no es una norma: orienta, pero las NIC y NIIF prevalecen sobre él.",
+    "fuente": "Marco Conceptual para la Información Financiera"
+  },
+  {
+    "id": "n8-q03",
+    "pregunta": "Según el principio de devengado…",
+    "opciones": [
+      "Las transacciones se reconocen cuando ocurren, no cuando se cobra o paga",
+      "Solo se registra lo que se cobró en efectivo",
+      "Los ingresos se registran cuando se emite la boleta, aunque no haya venta",
+      "Solo se aplica a los bancos"
+    ],
+    "correcta": 0,
+    "explicacion": "Todos los estados financieros se preparan sobre base devengada, salvo el estado de flujos de efectivo.",
+    "fuente": "Marco Conceptual; NIC 1, párrafo 27"
+  },
+  {
+    "id": "n8-q04",
+    "pregunta": "¿Qué supone el principio de empresa en marcha?",
+    "opciones": [
+      "Que la entidad seguirá operando en el futuro previsible",
+      "Que la empresa siempre tendrá utilidades",
+      "Que la empresa se liquidará al final del año",
+      "Que el dueño trabaja todos los días"
+    ],
+    "correcta": 0,
+    "explicacion": "La gerencia debe evaluarlo y revelar cualquier incertidumbre importante sobre la continuidad.",
+    "fuente": "NIC 1, párrafos 25 y 26"
+  },
+  {
+    "id": "n8-q05",
+    "pregunta": "Según el Marco Conceptual, un activo es…",
+    "opciones": [
+      "Un recurso controlado por la empresa, que viene de hechos pasados y del que se esperan beneficios económicos futuros",
+      "Cualquier bien físico que la empresa tenga en su bodega",
+      "Solo el dinero en caja y banco",
+      "Un derecho que no necesita estar ligado a un hecho pasado"
+    ],
+    "correcta": 0,
+    "explicacion": "Por eso los gastos de organización no son activos bajo NIIF: no hay un recurso controlado que genere beneficios.",
+    "fuente": "Marco Conceptual para la Información Financiera"
+  },
+  {
+    "id": "n8-q06",
+    "pregunta": "¿Cuál es el propósito principal de la NIIF 1?",
+    "opciones": [
+      "Que los primeros estados bajo NIIF tengan información de alta calidad, transparente y comparable",
+      "Permitir aplicar solo algunas NIIF los primeros años",
+      "Reemplazar la norma local sin necesidad de comparativos",
+      "Aplicar versiones antiguas de las NIIF durante la transición"
+    ],
+    "correcta": 0,
+    "explicacion": "Además, la información debe ser un buen punto de partida y prepararse a un costo que no supere sus beneficios.",
+    "fuente": "NIIF 1, párrafo 1"
+  },
+  {
+    "id": "n8-q07",
+    "pregunta": "Los primeros estados NIIF son al 31-12-2026 con un año comparativo. ¿Cuál es la fecha de transición?",
+    "opciones": ["01-01-2025", "31-12-2026", "01-01-2026", "31-12-2024 a las 23:59, sin balance"],
+    "correcta": 0,
+    "explicacion": "La fecha de transición es el inicio del primer período comparativo: ahí se prepara el balance de apertura.",
+    "fuente": "NIIF 1, párrafo 6 y Apéndice A"
+  },
+  {
+    "id": "n8-q08",
+    "pregunta": "En la NIIF 1, ¿cómo se aplican las normas en el balance de apertura?",
+    "opciones": [
+      "De forma retrospectiva, con todas las NIIF vigentes a la fecha de cierre de los primeros estados NIIF",
+      "Solo de aquí en adelante, sin tocar los saldos",
+      "Con las versiones de las NIIF vigentes el año en que se fundó la empresa",
+      "A elección de la empresa, norma por norma"
+    ],
+    "correcta": 0,
+    "explicacion": "Es como si siempre se hubiera aplicado NIIF, salvo las exenciones y excepciones que la misma NIIF 1 permite.",
+    "fuente": "NIIF 1, párrafo 7"
+  },
+  {
+    "id": "n8-q09",
+    "pregunta": "¿Dónde se registran los ajustes que resultan de adoptar las NIIF por primera vez?",
+    "opciones": [
+      "Directamente en patrimonio (resultados acumulados) a la fecha de transición",
+      "En el resultado del primer año bajo NIIF",
+      "En una cuenta de pasivo transitoria",
+      "No se registran, solo se informan"
+    ],
+    "correcta": 0,
+    "explicacion": "Corresponden a hechos de períodos anteriores: llevarlos a resultados distorsionaría el desempeño del año.",
+    "fuente": "NIIF 1, párrafo 11"
+  },
+  {
+    "id": "n8-q10",
+    "pregunta": "¿Qué conciliaciones exige la NIIF 1 en los primeros estados bajo NIIF?",
+    "opciones": [
+      "Del patrimonio y del resultado entre la norma anterior y las NIIF",
+      "Solo la conciliación bancaria",
+      "Ninguna: basta con declarar que se adoptaron las NIIF",
+      "La conciliación entre el resultado contable y la RLI"
+    ],
+    "correcta": 0,
+    "explicacion": "Las conciliaciones muestran a los usuarios cómo afectó la transición, con el detalle de los principales ajustes.",
+    "fuente": "NIIF 1, párrafos 23 y 24"
+  },
+  {
+    "id": "n8-q11",
+    "pregunta": "¿Qué es el «costo atribuido» en la NIIF 1?",
+    "opciones": [
+      "Un monto, como el valor razonable a la fecha de transición, que se usa como costo del activo fijo desde ese momento",
+      "El costo que el auditor le atribuye a su trabajo",
+      "El precio de compra original sin depreciación",
+      "El costo de los inventarios vendidos"
+    ],
+    "correcta": 0,
+    "explicacion": "Es una exención voluntaria: evita reconstruir el costo histórico de activos muy antiguos.",
+    "fuente": "NIIF 1, Apéndice D, párrafos D5 a D8"
+  },
+  {
+    "id": "n8-q12",
+    "pregunta": "En la transición, ¿qué pasa con las estimaciones hechas con la norma anterior (por ejemplo, la vida útil)?",
+    "opciones": [
+      "Deben ser coherentes con las anteriores, salvo que hubiera un error: no se rehacen con información posterior",
+      "Se rehacen con todo lo que se sabe hoy",
+      "Se eliminan",
+      "Se cambian por las del SII"
+    ],
+    "correcta": 0,
+    "explicacion": "Es una excepción obligatoria: evita usar información posterior a la fecha de transición (el beneficio de la retrospectiva).",
+    "fuente": "NIIF 1, párrafos 14 a 17"
+  },
+  {
+    "id": "n8-q13",
+    "pregunta": "En Chile, ¿desde cuándo la entonces SVS (hoy CMF) exigió las NIIF a las sociedades que fiscaliza?",
+    "opciones": ["Desde 2009, por grupos", "Desde 1990", "Desde 2019", "Nunca: solo son voluntarias"],
+    "correcta": 0,
+    "explicacion": "Las primeras empresas presentaron sus estados 2009 comparativos con 2008 bajo NIIF; las demás se sumaron en los años siguientes.",
+    "fuente": "CMF (ex SVS)"
+  },
+  {
+    "id": "n8-q14",
+    "pregunta": "¿En qué se diferenciaba el método Pro-forma del Full IFRS en la adopción chilena?",
+    "opciones": [
+      "El Pro-forma permitía presentar los trimestrales con la norma local y el anual comparativo bajo NIIF",
+      "El Pro-forma no exigía comparativos",
+      "El Full IFRS permitía seguir con PCGA todo el año",
+      "No hay diferencia"
+    ],
+    "correcta": 0,
+    "explicacion": "El Full IFRS exigía NIIF desde el primer trimestre; el Pro-forma daba un margen a las empresas para adaptar sus sistemas.",
+    "fuente": "CMF (ex SVS)"
+  },
+  {
+    "id": "n8-q15",
+    "pregunta": "¿Cuál de estos desembolsos NO forma parte del costo de una máquina según la NIC 16?",
+    "opciones": ["La mantención mensual", "Los aranceles de importación", "La instalación", "El flete hasta la planta"],
+    "correcta": 0,
+    "explicacion": "La mantención es un gasto del período. Tampoco entran el IVA recuperable, la capacitación ni la publicidad.",
+    "fuente": "NIC 16, párrafos 16 a 20"
+  },
+  {
+    "id": "n8-q16",
+    "pregunta": "¿Por qué el IVA crédito fiscal no forma parte del costo de un activo fijo?",
+    "opciones": [
+      "Porque es recuperable: se descuenta del IVA débito",
+      "Porque el IVA siempre es un gasto",
+      "Porque lo paga el proveedor",
+      "Sí forma parte del costo"
+    ],
+    "correcta": 0,
+    "explicacion": "Solo los impuestos no recuperables se suman al costo.",
+    "fuente": "NIC 16, párrafo 16"
+  },
+  {
+    "id": "n8-q17",
+    "pregunta": "Si una empresa aplica el modelo de revaluación a una clase de activos, ¿qué debe hacer?",
+    "opciones": [
+      "Revaluar con regularidad todos los activos de esa clase",
+      "Revaluar solo el activo de mayor valor",
+      "Cambiar de modelo cada año según convenga",
+      "Revaluar solo los activos nuevos"
+    ],
+    "correcta": 0,
+    "explicacion": "Así se evita revaluar de forma selectiva y mezclar valores de distintas fechas.",
+    "fuente": "NIC 16, párrafos 31 y 36"
+  },
+  {
+    "id": "n8-q18",
+    "pregunta": "Un activo se da de baja y se recibe más que su valor en libros. ¿Qué se reconoce?",
+    "opciones": ["Una ganancia en resultados", "Un pasivo diferido", "Una depreciación acelerada", "Nada"],
+    "correcta": 0,
+    "explicacion": "La diferencia entre lo recibido y el importe en libros es ganancia (o pérdida) del período.",
+    "fuente": "NIC 16, párrafos 68 y 71"
+  },
+  {
+    "id": "n8-q19",
+    "pregunta": "¿Qué caracteriza a una propiedad de inversión?",
+    "opciones": [
+      "Se tiene para obtener rentas o plusvalía",
+      "Se usa en la producción",
+      "Se vende en el giro normal del negocio",
+      "Se usa para la administración"
+    ],
+    "correcta": 0,
+    "explicacion": "Si se usa en el negocio es NIC 16; si se vende en el giro es inventario (NIC 2).",
+    "fuente": "NIC 40, párrafo 5"
+  },
+  {
+    "id": "n8-q20",
+    "pregunta": "¿Cuáles son los dos modelos de medición posterior de las propiedades de inversión?",
+    "opciones": [
+      "El modelo del costo y el del valor razonable",
+      "Revaluación y deterioro",
+      "Revaluación y depreciación",
+      "Costo y depreciación"
+    ],
+    "correcta": 0,
+    "explicacion": "Con valor razonable, los cambios van a resultados y la propiedad no se deprecia.",
+    "fuente": "NIC 40, párrafo 30"
+  },
+  {
+    "id": "n8-q21",
+    "pregunta": "¿Cómo se mide un activo no corriente mantenido para la venta (NIIF 5)?",
+    "opciones": [
+      "Al menor entre su importe en libros y su valor razonable menos los costos de venta",
+      "Siempre a su costo original",
+      "Al mayor entre su costo y su valor razonable",
+      "Al valor que diga el comprador"
+    ],
+    "correcta": 0,
+    "explicacion": "Desde que se clasifica así, además deja de depreciarse.",
+    "fuente": "NIIF 5, párrafos 15 y 25"
+  },
+  {
+    "id": "n8-q22",
+    "pregunta": "Según la NIC 8, ¿cómo se aplica un cambio voluntario de política contable?",
+    "opciones": [
+      "De forma retrospectiva, ajustando los períodos anteriores",
+      "Solo desde la fecha en que lo aprueba la gerencia",
+      "Solo en el período actual",
+      "Solo si la empresa cambia de giro"
+    ],
+    "correcta": 0,
+    "explicacion": "Como si la nueva política siempre se hubiera aplicado. Los cambios de estimación, en cambio, son prospectivos.",
+    "fuente": "NIC 8, párrafos 19 y 22"
+  },
+  {
+    "id": "n8-q23",
+    "pregunta": "Se descubre un error material de un período anterior. ¿Qué exige la NIC 8?",
+    "opciones": [
+      "Reexpresar los comparativos y ajustar los saldos iniciales afectados",
+      "Corregirlo solo si lo exige el regulador",
+      "Ignorarlo si no afecta el resultado de este año",
+      "Registrarlo como gasto del año actual"
+    ],
+    "correcta": 0,
+    "explicacion": "La corrección es retrospectiva y no pasa por el resultado del período actual.",
+    "fuente": "NIC 8, párrafo 42"
+  },
+  {
+    "id": "n8-q24",
+    "pregunta": "¿Cómo define la NIIF 8 un segmento de operación?",
+    "opciones": [
+      "Un componente cuyos resultados revisa la máxima autoridad para decidir y asignar recursos",
+      "Una línea de productos de exportación",
+      "Un área definida solo por el tamaño de sus ingresos",
+      "Una sucursal ubicada en otra región"
+    ],
+    "correcta": 0,
+    "explicacion": "Es el enfoque de la gerencia: los segmentos se informan como la administración los mira para tomar decisiones.",
+    "fuente": "NIIF 8, párrafo 5"
+  },
+  {
+    "id": "n8-q25",
+    "pregunta": "Según la NIC 34, ¿qué debe incluir como mínimo la información financiera intermedia?",
+    "opciones": [
+      "Estados financieros condensados y notas explicativas seleccionadas",
+      "Solo el estado de resultados",
+      "Un informe de sostenibilidad y la memoria anual",
+      "Una proyección a cinco años"
+    ],
+    "correcta": 0,
+    "explicacion": "Balance, resultados integrales, cambios en el patrimonio y flujos de efectivo condensados, más notas, con las mismas políticas del anual.",
+    "fuente": "NIC 34, párrafo 8"
+  },
+  {
+    "id": "n8-q26",
+    "pregunta": "¿Qué norma reemplazó a la NIC 17 de arrendamientos?",
+    "opciones": ["La NIIF 16, desde 2019", "La NIC 40", "La NIIF 5", "Ninguna: sigue vigente"],
+    "correcta": 0,
+    "explicacion": "Con la NIIF 16, el arrendatario reconoce casi todos los arriendos en el balance: un derecho de uso y un pasivo.",
+    "fuente": "NIIF 16"
+  }
+]

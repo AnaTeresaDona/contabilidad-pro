@@ -74,5 +74,6 @@ export const COLORES: Record<NivelInfo['color'], { fondo: string; borde: string;
   indigo: { fondo: 'bg-indigo-500', borde: 'border-indigo-700', suave: 'bg-indigo-50', texto: 'text-indigo-700' },
   amber: { fondo: 'bg-amber-500', borde: 'border-amber-700', suave: 'bg-amber-50', texto: 'text-amber-700' },
   rose: { fondo: 'bg-rose-500', borde: 'border-rose-700', suave: 'bg-rose-50', texto: 'text-rose-700' },
+  fuchsia: { fondo: 'bg-fuchsia-500', borde: 'border-fuchsia-700', suave: 'bg-fuchsia-50', texto: 'text-fuchsia-700' },
   cyan: { fondo: 'bg-cyan-500', borde: 'border-cyan-700', suave: 'bg-cyan-50', texto: 'text-cyan-700' },
 };

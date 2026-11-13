@@ -6,6 +6,7 @@ import { nivel4b } from './nivel4b';
 import { nivel5 } from './nivel5';
 import { nivel6 } from './nivel6';
 import { nivel7 } from './nivel7';
+import { nivel8 } from './nivel8';
 import type { ContenidoNivel, NivelInfo } from './tipos';
 import type { Pregunta } from '../engine/ejercicios';
 
@@ -27,12 +28,21 @@ export const NIVELES: NivelInfo[] = [
     color: 'cyan',
     libre: true,
   },
+  {
+    id: 'n8',
+    numero: '8',
+    titulo: 'Adopción de NIIF',
+    tema: 'NIIF 1, Marco Conceptual, NIC 16, NIC 40, NIIF 5, NIC 8',
+    etapa: 'La ferretería pasa a NIIF',
+    color: 'fuchsia',
+    libre: true,
+  },
 ];
 
 /** Historia principal: cada nivel se abre al completar el anterior. Los niveles libres (ramos aparte) están abiertos desde el inicio. */
 export const ORDEN_NIVELES = NIVELES.filter((n) => !n.libre).map((n) => n.id);
 
-export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3, n4a: nivel4a, n4b: nivel4b, n5: nivel5, n6: nivel6, n7: nivel7 };
+export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3, n4a: nivel4a, n4b: nivel4b, n5: nivel5, n6: nivel6, n7: nivel7, n8: nivel8 };
 
 export const TODAS_LAS_PREGUNTAS: Map<string, Pregunta> = new Map(
   Object.values(CONTENIDO).flatMap((c) => c.preguntas.map((p) => [p.id, p] as const)),

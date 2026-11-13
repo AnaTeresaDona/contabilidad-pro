@@ -51,7 +51,7 @@ export function temaDe(ej: Ejercicio): string {
     case 'operacionRenta':
       return 'Operación Renta';
     case 'clasificarOpciones':
-      return 'Familias de razones';
+      return ej.datos.tema ?? 'Familias de razones';
     case 'crisis':
       return 'Crisis de caja';
     case 'decision':

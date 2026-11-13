@@ -51,7 +51,7 @@ export interface NivelInfo {
   titulo: string;
   tema: string;
   etapa: string;
-  color: 'emerald' | 'sky' | 'violet' | 'amber' | 'rose' | 'indigo' | 'teal' | 'cyan';
+  color: 'emerald' | 'sky' | 'violet' | 'amber' | 'rose' | 'indigo' | 'teal' | 'cyan' | 'fuchsia';
   /** Ramo aparte: abierto desde el inicio, sin esperar la historia principal. */
   libre?: boolean;
 }

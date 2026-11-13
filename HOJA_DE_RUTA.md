@@ -80,8 +80,16 @@
 - Jefe: Don Hernán ofrece dos créditos para el horno (tasa nominal vs efectiva con comisión) y hay que elegir el de menor costo total.
 - El jefe de decisión (números, diagnóstico y decisión) ahora es genérico y lo comparten los niveles 6 y 7.
 
+## Fase 11 — Hecha (Nivel 8: Adopción de NIIF)
+- Ramo aparte, abierto desde el inicio. Historia: la Ferretería El Roble de Don Lucho pasa de PCGA chilenos a NIIF.
+- Apuntes de 9 temas (Marco Conceptual, NIIF 1, balance de apertura, exenciones y conciliaciones, adopción en Chile, NIC 16, NIC 40 y NIIF 5, NIC 8, NIC 1/34/NIIF 8 y NIIF 18), 26 preguntas y 8 situaciones.
+- Básico: tipo de ajuste de transición (eliminar, reconocer, reclasificar, valorizar) y costo de un activo fijo con depreciación.
+- Intermedio: ¿NIC 16, NIC 40, NIIF 5 o NIC 2?, revaluación y valor razonable, activo mantenido para la venta.
+- Avanzado: ¿política, estimación o error? (NIC 8), corrección retrospectiva de un error y patrimonio NIIF de apertura.
+- Jefe: la auditora externa pide el balance de apertura NIIF, la conciliación del patrimonio y cómo se presenta.
+- El ejercicio de clasificar acepta su propio tema y pista (lo comparten los niveles 6 y 8).
+
 ## Siguientes ideas
-- Nivel 8: Adopción de NIIF (NIIF 1, Marco Conceptual, NIC 8, NIC 16/40, NIIF 5), también como ramo aparte.
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.
 

@@ -14,7 +14,7 @@ export function EjClasificarOpciones({ datos, api }: { datos: EjercicioClasifica
       .filter((it) => resp[it.id] !== it.correcta)
       .map((it) => ({
         tipo: 'clasificacion',
-        detalle: `"${it.texto}" es de ${etiqueta(it.correcta)}, no de ${etiqueta(resp[it.id])}. ${it.explicacion}`,
+        detalle: `«${it.texto}»: corresponde a ${etiqueta(it.correcta)}, no a ${etiqueta(resp[it.id])}. ${it.explicacion}`,
         fuente: it.fuente,
       }));
     api.comprobar({ correcto: errores.length === 0, errores });

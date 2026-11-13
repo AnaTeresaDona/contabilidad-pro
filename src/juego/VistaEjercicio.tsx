@@ -61,7 +61,7 @@ export function pistaDe(ej: Ejercicio): string {
     case 'operacionRenta':
       return 'Agregados: multas fiscales, provisiones y estimaciones no pagadas, deterioros contables, gastos sin respaldo o personales. Deducciones: dividendos de S.A. chilenas, mayor depreciación acelerada, provisiones de años anteriores pagadas este año. Gastos necesarios y acreditados: sin ajuste. RLI = resultado + agregados − deducciones; impuesto = RLI × 27%; saldo = impuesto − PPM.';
     case 'clasificarOpciones':
-      return 'Liquidez: ¿puedo pagar lo que vence pronto? Endeudamiento: ¿cuánto debo? Rentabilidad: ¿cuánto gano? Actividad: ¿qué tan rápido cobro, vendo y pago?';
+      return ej.datos.pista ?? 'Liquidez: ¿puedo pagar lo que vence pronto? Endeudamiento: ¿cuánto debo? Rentabilidad: ¿cuánto gano? Actividad: ¿qué tan rápido cobro, vendo y pago?';
     case 'decision':
       return ej.datos.calculo.pista;
     case 'crisis':

@@ -35,6 +35,16 @@ import {
   nominalDesdeEfectiva,
   valorFuturoAnualidad,
 } from './financiera';
+import {
+  AJUSTES_TRANSICION,
+  calculoAjustesTransicion,
+  calculoCostoActivo,
+  calculoErrorNIC8,
+  calculoMantenidoVenta,
+  calculoMedicionPosterior,
+  generarAperturaNIIF,
+} from './niif';
+import { normaDelActivo, politicaEstimacionError, tiposDeAjuste } from '../content/nivel8';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
 import { armarPractica, ejMayorizar, mesConActivoFijo } from './ejercicios';
@@ -780,6 +790,62 @@ describe('Matemática financiera (Nivel 7)', () => {
 
   it('es un ramo aparte: está abierto desde el inicio y no corta la historia principal', () => {
     expect(ORDEN_NIVELES).not.toContain('n7');
+    expect(ORDEN_NIVELES).not.toContain('n8');
     expect(ORDEN_NIVELES.at(-1)).toBe('n6');
+  });
+});
+
+describe('Adopción de NIIF (Nivel 8)', () => {
+  it('todos los cálculos se validan con sus propias respuestas', () => {
+    for (const gen of [calculoCostoActivo, calculoMedicionPosterior, calculoMantenidoVenta, calculoErrorNIC8, calculoAjustesTransicion])
+      for (let s = 1; s <= 60; s++) {
+        const ej = gen(crearRng(s));
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto, `${ej.titulo} semilla ${s}`).toBe(true);
+        for (const p of ej.preguntas) expect(Number.isInteger(p.valor), `${ej.titulo} ${p.id}`).toBe(true);
+      }
+  });
+
+  it('el costo NIC 16 deja fuera el IVA, la capacitación, la mantención y la publicidad', () => {
+    for (let s = 1; s <= 30; s++) {
+      const ej = calculoCostoActivo(crearRng(s));
+      const v = (e: string) => Number(ej.datos.find((d) => d.etiqueta.startsWith(e))?.valor.replace(/\D/g, '') ?? 0);
+      const esperado = v('Precio') - v('Descuento') + v('Derechos') + v('Flete') + v('Instalación') + v('Pruebas');
+      expect(ej.preguntas[0].valor).toBe(esperado);
+    }
+  });
+
+  it('NIIF 5 mide al menor valor y la pérdida nunca es negativa', () => {
+    for (let s = 1; s <= 60; s++) {
+      const v = Object.fromEntries(calculoMantenidoVenta(crearRng(s)).preguntas.map((p) => [p.id, p.valor]));
+      expect(v.medido).toBe(Math.min(v.libros, v.neto));
+      expect(v.perdida).toBeGreaterThanOrEqual(0);
+    }
+  });
+
+  it('el balance de apertura cuadra: patrimonio NIIF = PCGA + efecto de los ajustes', () => {
+    for (let s = 1; s <= 60; s++) {
+      const ej = CONTENIDO.n8.generarJefe(crearRng(s));
+      if (ej.tipo !== 'decision') throw new Error('tipo inesperado');
+      const d = ej.datos as ReturnType<typeof generarAperturaNIIF>;
+      const v = Object.fromEntries(d.calculo.preguntas.map((p) => [p.id, p.valor]));
+      expect(v.act - v.pas).toBe(v.niif);
+      expect(v.pcga + v.efecto).toBe(v.niif);
+      expect(d.balance.ajustes).toHaveLength(5);
+      for (const p of [d.diagnostico, d.decision]) expect(p.opciones).toHaveLength(4);
+    }
+  });
+
+  it('un arriendo NIIF 16 o una reclasificación no cambian el patrimonio', () => {
+    for (const a of AJUSTES_TRANSICION.filter((x) => x.id === 'arriendo' || x.id === 'porcion')) expect(a.activo - a.pasivo).toBe(0);
+  });
+
+  it('las clasificaciones traen al menos una partida de cada categoría', () => {
+    for (let s = 1; s <= 30; s++)
+      for (const ej of [tiposDeAjuste(crearRng(s)), normaDelActivo(crearRng(s)), politicaEstimacionError(crearRng(s))]) {
+        expect(ej.items).toHaveLength(6);
+        expect(new Set(ej.items.map((i) => i.id)).size).toBe(6);
+        for (const o of ej.opciones) expect(ej.items.some((i) => i.correcta === o.id)).toBe(true);
+      }
   });
 });

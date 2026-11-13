@@ -1,0 +1,106 @@
+[
+  {
+    "id": "n8-s01",
+    "pregunta": "La ferretería tiene $4.000.000 de «gastos de puesta en marcha» como activo. Al pasar a NIIF, ¿qué haces?",
+    "opciones": [
+      "Los eliminas contra resultados acumulados: no son un activo bajo NIIF",
+      "Los mantienes y los amortizas en 5 años",
+      "Los pasas a propiedad de inversión",
+      "Los registras como gasto del año actual"
+    ],
+    "correcta": 0,
+    "explicacion": "No hay un recurso controlado que genere beneficios futuros. En la transición, el ajuste va a patrimonio.",
+    "fuente": "NIIF 1, párrafo 10; NIC 38"
+  },
+  {
+    "id": "n8-s02",
+    "pregunta": "Un local que la ferretería arrienda a un banco está registrado como activo fijo. ¿Qué ajuste corresponde?",
+    "opciones": [
+      "Reclasificarlo a propiedad de inversión (NIC 40)",
+      "Eliminarlo",
+      "Pasarlo a inventario",
+      "Ninguno"
+    ],
+    "correcta": 0,
+    "explicacion": "Se tiene para obtener rentas, no para usarlo en el negocio.",
+    "fuente": "NIC 40, párrafo 5"
+  },
+  {
+    "id": "n8-s03",
+    "pregunta": "El galpón se compró en 1985 y nadie sabe bien su costo. ¿Qué permite la NIIF 1?",
+    "opciones": [
+      "Usar su valor razonable a la fecha de transición como costo atribuido",
+      "Dejarlo fuera del balance",
+      "Registrarlo en $1",
+      "Usar el avalúo fiscal sin más"
+    ],
+    "correcta": 0,
+    "explicacion": "Es la exención de costo atribuido: desde ahí se deprecia normalmente.",
+    "fuente": "NIIF 1, Apéndice D, párrafo D5"
+  },
+  {
+    "id": "n8-s04",
+    "pregunta": "La empresa decide que las máquinas durarán 8 años en vez de 10. ¿Cómo se trata?",
+    "opciones": [
+      "Cambio de estimación: se aplica de aquí en adelante (prospectivo)",
+      "Cambio de política: se reexpresan los años anteriores",
+      "Error: se corrigen los saldos iniciales",
+      "No se registra"
+    ],
+    "correcta": 0,
+    "explicacion": "La vida útil es una estimación: la nueva depreciación se calcula con el valor en libros actual y la vida restante.",
+    "fuente": "NIC 8, párrafo 36; NIC 16, párrafo 51"
+  },
+  {
+    "id": "n8-s05",
+    "pregunta": "La bodega arrendada (propiedad de inversión a valor razonable) subió de valor $6.000.000. ¿Dónde se registra?",
+    "opciones": [
+      "Como ganancia en resultados del período",
+      "Como superávit de revaluación en patrimonio",
+      "No se registra hasta venderla",
+      "Como menor depreciación"
+    ],
+    "correcta": 0,
+    "explicacion": "En la NIC 40 con valor razonable, los cambios van a resultados. La revaluación con superávit en patrimonio es de la NIC 16.",
+    "fuente": "NIC 40, párrafo 35"
+  },
+  {
+    "id": "n8-s06",
+    "pregunta": "El directorio aprobó vender un camión, ya se busca comprador y se espera venderlo en 6 meses. ¿Qué cambia?",
+    "opciones": [
+      "Se clasifica como mantenido para la venta, deja de depreciarse y se mide al menor entre libros y valor razonable menos costos de venta",
+      "Se sigue depreciando igual",
+      "Se da de baja de inmediato con pérdida",
+      "Se pasa a inventario"
+    ],
+    "correcta": 0,
+    "explicacion": "Cumple los criterios de la NIIF 5: disponible para venta inmediata y venta altamente probable dentro de 12 meses.",
+    "fuente": "NIIF 5, párrafos 6 a 8"
+  },
+  {
+    "id": "n8-s07",
+    "pregunta": "En el balance de apertura se reconocen un derecho de uso y un pasivo por arrendamiento de $20.000.000 cada uno. ¿Cómo cambia el patrimonio?",
+    "opciones": [
+      "No cambia: suben activos y pasivos por el mismo monto",
+      "Baja $20.000.000",
+      "Sube $20.000.000",
+      "Baja $40.000.000"
+    ],
+    "correcta": 0,
+    "explicacion": "Patrimonio = activos − pasivos: si ambos suben lo mismo, el patrimonio queda igual.",
+    "fuente": "NIIF 16; NIIF 1"
+  },
+  {
+    "id": "n8-s08",
+    "pregunta": "La empresa presenta en su memoria cifras de 2020 con PCGA junto a las NIIF. ¿Qué debe hacer?",
+    "opciones": [
+      "Indicar claramente que esas cifras no están preparadas bajo NIIF",
+      "Nada, se pueden mezclar",
+      "Eliminarlas de la memoria",
+      "Reexpresarlas todas obligatoriamente"
+    ],
+    "correcta": 0,
+    "explicacion": "La información histórica con la norma anterior se puede mostrar, pero rotulada como tal.",
+    "fuente": "NIIF 1, párrafo 22"
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "marco",
+    "titulo": "El Marco Conceptual",
+    "puntos": [
+      "Sirve para desarrollar nuevas normas, ayudar a quienes preparan e interpretan los estados financieros, y guiar a los auditores al dar su opinión.",
+      "Jerarquía: si el Marco Conceptual y una norma específica (NIC o NIIF) se contradicen, manda la norma.",
+      "Devengado: las transacciones se reconocen cuando ocurren, no cuando se cobra o paga. Todos los estados se preparan así, salvo el de flujos de efectivo.",
+      "Empresa en marcha: se supone que la entidad seguirá operando. Si hay dudas importantes, la gerencia debe revelarlo.",
+      "Elementos: activo (recurso controlado, de un hecho pasado, con beneficios futuros), pasivo (obligación presente de un hecho pasado), patrimonio (activos − pasivos), ingresos y gastos."
+    ],
+    "fuente": "Marco Conceptual para la Información Financiera; NIC 1"
+  },
+  {
+    "id": "niif1",
+    "titulo": "NIIF 1: adoptar las NIIF por primera vez",
+    "puntos": [
+      "Objetivo: que los primeros estados bajo NIIF tengan información de alta calidad, transparente, comparable entre períodos y a un costo razonable.",
+      "Fecha de transición: el inicio del primer período comparativo. Si los primeros estados NIIF son al 31-12-2026 con un año comparativo, la transición es el 01-01-2025.",
+      "Se prepara un balance de apertura bajo NIIF a la fecha de transición: es el punto de partida.",
+      "Regla general: aplicar retrospectivamente todas las NIIF vigentes a la fecha de cierre de los primeros estados NIIF, sin usar versiones antiguas."
+    ],
+    "fuente": "NIIF 1, párrafos 1, 6 y 7"
+  },
+  {
+    "id": "apertura",
+    "titulo": "Los pasos del balance de apertura",
+    "puntos": [
+      "Eliminar: sacar los activos y pasivos que las NIIF no permiten (gastos de organización activados, provisiones sin obligación presente).",
+      "Reconocer: agregar los activos y pasivos que las NIIF exigen y no estaban (vacaciones devengadas, arriendos de la NIIF 16).",
+      "Reclasificar: mover partidas a su clasificación NIIF (bodega arrendada a propiedad de inversión, porción corriente de una deuda).",
+      "Valorizar: medir con las reglas de las NIIF (deterioro de clientes, valor neto realizable, costo atribuido).",
+      "Imputar a patrimonio: todos los ajustes van directo a resultados acumulados (u otra cuenta de patrimonio), no al resultado del año."
+    ],
+    "ejemplo": "Patrimonio PCGA $200.000.000; se eliminan $5.000.000 de gastos de organización y se reconocen $3.000.000 de vacaciones: patrimonio NIIF $192.000.000.",
+    "fuente": "NIIF 1, párrafos 10 y 11"
+  },
+  {
+    "id": "exenciones",
+    "titulo": "Exenciones, excepciones y conciliaciones",
+    "puntos": [
+      "Exenciones voluntarias: alivios que la empresa puede elegir. La más usada: medir el activo fijo a su valor razonable a la fecha de transición como «costo atribuido».",
+      "Excepciones obligatorias: cosas que no se pueden rehacer con información posterior. Las estimaciones bajo NIIF deben ser coherentes con las que se hicieron con la norma anterior, salvo que hubiera un error.",
+      "Revelaciones: al menos un año comparativo bajo NIIF y conciliaciones del patrimonio y del resultado entre la norma anterior y las NIIF, explicando los principales ajustes.",
+      "Si se muestra información histórica con la norma anterior, hay que decir claramente que no está bajo NIIF."
+    ],
+    "fuente": "NIIF 1, párrafos 14, 18, 21 a 24 y Apéndice D"
+  },
+  {
+    "id": "chile",
+    "titulo": "La adopción en Chile",
+    "puntos": [
+      "Antes se usaban los PCGA chilenos (los Boletines Técnicos del Colegio de Contadores), con corrección monetaria.",
+      "La Superintendencia de Valores y Seguros (hoy CMF) exigió las NIIF a las sociedades que fiscaliza a partir de 2009, por grupos.",
+      "Hubo dos formas de entrada: Full IFRS (trimestrales ya bajo NIIF) o Pro-forma (trimestrales con la norma local y el anual 2009 comparativo con 2008 bajo NIIF).",
+      "Las PYMES aplican la NIIF para las PYMES, una versión simplificada (la del Nivel 4A)."
+    ],
+    "fuente": "CMF (ex SVS); Colegio de Contadores de Chile"
+  },
+  {
+    "id": "nic16",
+    "titulo": "NIC 16: propiedades, planta y equipo",
+    "puntos": [
+      "Son activos tangibles para producir, arrendar a otros o administrar, que se usarán más de un año. Se reconocen si es probable que den beneficios futuros y su costo se puede medir con fiabilidad.",
+      "El costo incluye el precio (menos descuentos), aranceles e impuestos no recuperables, flete, instalación, pruebas y el costo estimado de desmantelamiento. No incluye el IVA recuperable, la capacitación, la mantención ni la publicidad.",
+      "Medición posterior: modelo del costo (costo − depreciación − deterioro) o modelo de revaluación, aplicado a toda la clase de activos y con regularidad.",
+      "En la revaluación, un aumento va a otro resultado integral (superávit de revaluación en patrimonio); una disminución va a resultados.",
+      "Importe en libros = costo − depreciación acumulada − deterioro acumulado."
+    ],
+    "fuente": "NIC 16, párrafos 6, 7, 16, 29, 31 y 39"
+  },
+  {
+    "id": "nic40-niif5",
+    "titulo": "NIC 40 y NIIF 5",
+    "puntos": [
+      "Propiedad de inversión (NIC 40): un terreno o edificio que se tiene para obtener rentas o plusvalía, no para usarlo ni venderlo en el giro.",
+      "Se mide con el modelo del costo o el del valor razonable. Con valor razonable, los cambios van a resultados y no se deprecia.",
+      "Mantenido para la venta (NIIF 5): activo disponible para venta inmediata, con venta altamente probable (plan aprobado, búsqueda de comprador, venta esperada en 12 meses).",
+      "Se mide al menor entre su importe en libros y su valor razonable menos los costos de venta, deja de depreciarse y se presenta aparte."
+    ],
+    "fuente": "NIC 40, párrafos 5, 30 y 35; NIIF 5, párrafos 6 a 8, 15 y 25"
+  },
+  {
+    "id": "nic8",
+    "titulo": "NIC 8: políticas, estimaciones y errores",
+    "puntos": [
+      "Políticas contables: principios, bases, reglas y prácticas que la entidad aplica al preparar sus estados. Un cambio de política se aplica de forma retrospectiva.",
+      "Cambio de estimación (vida útil, valor residual, incobrables, método de depreciación): se aplica de forma prospectiva, desde ahora en adelante.",
+      "Error de un período anterior: se corrige de forma retrospectiva, reexpresando los comparativos y los saldos iniciales, sin pasar por el resultado del año actual."
+    ],
+    "ejemplo": "Se omitió una depreciación de $3.000.000 el año pasado: se reexpresa la utilidad comparativa y se rebajan en $3.000.000 los resultados acumulados iniciales.",
+    "fuente": "NIC 8, párrafos 5, 19, 36 y 42"
+  },
+  {
+    "id": "presentacion",
+    "titulo": "Presentación: NIC 1, NIC 34 y NIIF 8",
+    "puntos": [
+      "NIC 1: juego completo = estado de situación financiera, estado de resultados integrales, cambios en el patrimonio, flujos de efectivo y notas. Las políticas inapropiadas no se corrigen revelándolas en notas.",
+      "Corriente: lo que se realiza o paga dentro del ciclo operacional o de los 12 meses siguientes.",
+      "NIC 34 (información intermedia): como mínimo estados condensados y notas explicativas seleccionadas, con las mismas políticas que el anual.",
+      "NIIF 8 (segmentos): componentes de la empresa cuyos resultados revisa la máxima autoridad para decidir y asignar recursos.",
+      "Novedad: la NIIF 18 reemplazará a la NIC 1 a partir de 2027. Y la NIC 17 de arrendamientos fue reemplazada por la NIIF 16 en 2019."
+    ],
+    "fuente": "NIC 1, párrafos 10, 18 y 66; NIC 34, párrafo 8; NIIF 8, párrafo 5; NIIF 18"
+  }
+]
