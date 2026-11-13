@@ -3,7 +3,8 @@ import { useProgreso } from '../estado/Progreso';
 import { migrar, progresoInicial } from '../engine/progreso';
 import trib from '../config/tributario.json';
 import { Boton, Tarjeta } from '../componentes/ui';
-import { hablar, lecturaDisponible, reconocimientoDisponible } from '../lib/voz';
+import { callar, hablar, lecturaDisponible, reconocimientoDisponible } from '../lib/voz';
+import { useHablando } from '../componentes/BarraVoz';
 
 export function Ajustes() {
   const { progreso, actualizar, reemplazar } = useProgreso();
@@ -122,12 +123,13 @@ function AjustesVoz() {
   const cambiar = (c: Partial<typeof pref>) => actualizar((p) => ({ ...p, preferencias: { ...p.preferencias, ...c } }));
   const leer = lecturaDisponible();
   const oir = reconocimientoDisponible();
+  const hablando = useHablando();
   return (
     <Tarjeta className="space-y-3">
       <div>
         <p className="font-extrabold">🔊 Voz</p>
         <p className="text-sm text-slate-500">
-          En cada ejercicio tienes «🔊 Escuchar» y «🎤 Responder hablando». Puedes decir la alternativa («la segunda», o parte de su texto), un número
+          En cada ejercicio tienes «🔊 Escuchar» (tócalo otra vez para silenciar) y «🎤 Responder hablando». Puedes decir la alternativa («la segunda», o parte de su texto), un número
           («un millón doscientos mil»), «Caja al Debe», o comandos como «comprobar», «continuar» y «pista».
         </p>
       </div>
@@ -152,8 +154,8 @@ function AjustesVoz() {
               className="w-full accent-emerald-500"
             />
           </label>
-          <Boton variante="secundario" className="w-full" onClick={() => hablar('Hola. Soy la Tía Rosa. El IVA es el diecinueve por ciento del neto.', pref.velocidadVoz)}>
-            Probar la voz
+          <Boton variante="secundario" className="w-full" onClick={() => (hablando ? callar() : hablar('Hola. Soy la Tía Rosa. El IVA es el diecinueve por ciento del neto.', pref.velocidadVoz))}>
+            {hablando ? '🔇 Silenciar' : '🔊 Probar la voz'}
           </Boton>
         </>
       ) : (

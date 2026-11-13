@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
-import { aplicarVoz, callar, escuchar, lecturaDisponible, reconocimientoDisponible } from '../lib/voz';
+import { alCambiarHabla, aplicarVoz, callar, escuchar, estaHablando, lecturaDisponible, reconocimientoDisponible } from '../lib/voz';
+
+/** true mientras la voz está leyendo algo. */
+export function useHablando(): boolean {
+  const [h, setH] = useState(estaHablando);
+  useEffect(() => alCambiarHabla(setH) as () => void, []);
+  return h;
+}
 
 /**
  * Barra fija sobre cada ejercicio: escuchar el enunciado y responder hablando.
@@ -11,6 +18,7 @@ export function BarraVoz({ contenedor, onLeer, children }: { contenedor: RefObje
   const cancelar = useRef<() => void>(() => {});
   const puedeLeer = lecturaDisponible();
   const puedeOir = reconocimientoDisponible();
+  const hablando = useHablando();
 
   useEffect(() => {
     return () => {
@@ -49,11 +57,14 @@ export function BarraVoz({ contenedor, onLeer, children }: { contenedor: RefObje
       <div className="flex flex-wrap items-center justify-end gap-2">
         {puedeLeer && (
           <button
-            onClick={onLeer}
-            className="rounded-full border-2 border-sky-200 bg-white/95 px-3 py-1 text-xs font-extrabold text-sky-700 shadow-sm hover:bg-sky-50"
-            aria-label="Leer el ejercicio en voz alta"
+            onClick={() => (hablando ? callar() : onLeer())}
+            aria-pressed={hablando}
+            className={`rounded-full border-2 px-3 py-1 text-xs font-extrabold shadow-sm ${
+              hablando ? 'border-sky-500 bg-sky-500 text-white' : 'border-sky-200 bg-white/95 text-sky-700 hover:bg-sky-50'
+            }`}
+            aria-label={hablando ? 'Silenciar la lectura' : 'Leer el ejercicio en voz alta'}
           >
-            🔊 Escuchar
+            {hablando ? '🔇 Silenciar' : '🔊 Escuchar'}
           </button>
         )}
         {puedeOir && (

@@ -30,6 +30,24 @@ export function textoParaVoz(texto: string): string {
     .trim();
 }
 
+// Quién está escuchando si la voz habla o calla (para cambiar el botón entre 🔊 y ⏹️).
+let hablando = false;
+let lectura = 0;
+const oyentes = new Set<(h: boolean) => void>();
+function avisar(h: boolean) {
+  hablando = h;
+  oyentes.forEach((f) => f(h));
+}
+
+export function estaHablando(): boolean {
+  return hablando;
+}
+
+export function alCambiarHabla(f: (hablando: boolean) => void): () => void {
+  oyentes.add(f);
+  return () => oyentes.delete(f);
+}
+
 export function hablar(texto: string, velocidad = 1, alTerminar?: () => void): void {
   if (!lecturaDisponible()) return;
   const s = window.speechSynthesis;
@@ -39,15 +57,22 @@ export function hablar(texto: string, velocidad = 1, alTerminar?: () => void): v
   const v = vozEspanol();
   if (v) u.voice = v;
   u.rate = velocidad;
-  if (alTerminar) {
-    u.onend = alTerminar;
-    u.onerror = alTerminar;
-  }
+  const id = ++lectura;
+  const fin = () => {
+    // Si ya empezó otra lectura, esta no apaga el indicador.
+    if (id === lectura) avisar(false);
+    alTerminar?.();
+  };
+  u.onend = fin;
+  u.onerror = fin;
+  avisar(true);
   s.speak(u);
 }
 
 export function callar(): void {
+  lectura++;
   if (lecturaDisponible()) window.speechSynthesis.cancel();
+  avisar(false);
 }
 
 // ───────────── Responder hablando ─────────────
