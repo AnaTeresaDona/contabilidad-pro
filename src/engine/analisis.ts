@@ -2,7 +2,7 @@ import type { Rng } from './azar';
 import { barajar, entero } from './azar';
 import { formatoCLP } from './dinero';
 import { TASA_PRIMERA_CATEGORIA } from './tributario';
-import type { EjercicioCalculo, PreguntaCalculo } from './calculos';
+import type { DatosDecision, EjercicioCalculo, PreguntaCalculo } from './calculos';
 import type { Pregunta } from './ejercicios';
 
 /**
@@ -337,12 +337,9 @@ export function calculoFlujoOperacional(rng: Rng): EjercicioCalculo {
 
 // ───────────── Jefe: la crisis de caja ─────────────
 
-export interface DatosCrisis {
+export interface DatosCrisis extends DatosDecision {
   anio1: AnioFinanciero;
   anio2: AnioFinanciero;
-  calculo: EjercicioCalculo;
-  diagnostico: Pregunta;
-  decision: Pregunta;
 }
 
 const conOrden = (rng: Rng, id: string, pregunta: string, correcta: string, otras: string[], explicacion: string, fuente: string): Pregunta => {

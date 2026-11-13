@@ -1,5 +1,6 @@
 import type { ErrorDetectado, ResultadoValidacion } from './types';
 import { formatoCLP } from './dinero';
+import type { Pregunta } from './ejercicios';
 
 /**
  * Ejercicio de cálculo genérico: un enunciado con datos y una o más preguntas numéricas.
@@ -62,4 +63,20 @@ export function validarCalculo(ej: EjercicioCalculo, resp: Record<string, number
     }
   }
   return { correcto: errores.length === 0, errores };
+}
+
+/**
+ * Desafío de decisión: primero los números, luego un diagnóstico y una decisión de alternativas.
+ * Lo usan los jefes de análisis financiero (crisis de caja) y de matemática financiera (créditos).
+ */
+export interface DatosDecision {
+  calculo: EjercicioCalculo;
+  diagnostico: Pregunta;
+  decision: Pregunta;
+  /** Títulos de las tres partes (por defecto, los de la crisis de caja). */
+  partes?: [string, string, string];
+  /** Texto del botón para presentar. */
+  boton?: string;
+  /** Tema para las estadísticas. */
+  tema?: string;
 }

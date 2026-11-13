@@ -71,7 +71,17 @@
 - Si la app se cierra (o se sale al mapa), al volver se retoma el mismo ejercicio y los errores anteriores siguen contando. Si ya se había respondido, se avanza sin poder responder de nuevo.
 - El mapa avisa qué niveles tienen un paso en curso.
 
+## Fase 10 — Hecha (Nivel 7: Matemática Financiera)
+- Ramo aparte, abierto desde el inicio (no espera la historia principal). En el mapa aparece en «Ramos aparte».
+- Apuntes de 9 temas, 26 preguntas de trivia y 9 situaciones.
+- Básico: interés simple (y despejes), UF reajustada por IPC, días exactos con interés ordinario (360) y exacto (365).
+- Intermedio: descuento comercial y racional de pagarés, interés compuesto con distintas capitalizaciones, regla del 72.
+- Avanzado: tasa nominal ↔ efectiva y tasas equivalentes, cuota de crédito (sistema francés) con la primera fila de la tabla de amortización, ahorro con depósitos mensuales.
+- Jefe: Don Hernán ofrece dos créditos para el horno (tasa nominal vs efectiva con comisión) y hay que elegir el de menor costo total.
+- El jefe de decisión (números, diagnóstico y decisión) ahora es genérico y lo comparten los niveles 6 y 7.
+
 ## Siguientes ideas
+- Nivel 8: Adopción de NIIF (NIIF 1, Marco Conceptual, NIC 8, NIC 16/40, NIIF 5), también como ramo aparte.
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.
 

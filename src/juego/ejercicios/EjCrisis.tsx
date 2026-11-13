@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
-import type { DatosCrisis } from '../../engine/analisis';
 import type { Pregunta } from '../../engine/ejercicios';
 import type { ErrorDetectado } from '../../engine/types';
-import { validarCalculo } from '../../engine/calculos';
+import { validarCalculo, type DatosDecision } from '../../engine/calculos';
 import { Boton, Opcion } from '../../componentes/ui';
 import type { ApiEjercicio } from '../MarcoEjercicio';
 import { FormCalculo } from './EjCalculo';
@@ -30,8 +29,9 @@ function Eleccion({ p, valor, onChange, bloqueado }: { p: Pregunta; valor: numbe
   );
 }
 
-/** Jefe del Nivel 6: calcular los indicadores de dos años, diagnosticar la crisis y recomendar qué hacer. */
-export function EjCrisis({ datos, api }: { datos: DatosCrisis; api: ApiEjercicio }) {
+/** Jefe de decisión (niveles 6 y 7): calcular, diagnosticar y recomendar qué hacer. */
+export function EjCrisis({ datos, api }: { datos: DatosDecision; api: ApiEjercicio }) {
+  const [t1, t2, t3] = datos.partes ?? ['Parte 1 · Los números (año 1 → año 2)', 'Parte 2 · El diagnóstico', 'Parte 3 · La decisión'];
   const [resp, setResp] = useState<Record<string, number | null>>({});
   const [diag, setDiag] = useState<number | null>(null);
   const [dec, setDec] = useState<number | null>(null);
@@ -53,18 +53,18 @@ export function EjCrisis({ datos, api }: { datos: DatosCrisis; api: ApiEjercicio
 
   return (
     <div>
-      <h3 className="mb-2 font-extrabold">Parte 1 · Los números (año 1 → año 2)</h3>
+      <h3 className="mb-2 font-extrabold">{t1}</h3>
       <FormCalculo datos={datos.calculo} resp={resp} onChange={setResp} bloqueado={api.bloqueado} />
 
-      <h3 className="mb-2 mt-6 font-extrabold">Parte 2 · El diagnóstico</h3>
+      <h3 className="mb-2 mt-6 font-extrabold">{t2}</h3>
       <Eleccion p={datos.diagnostico} valor={diag} onChange={setDiag} bloqueado={api.bloqueado} />
 
-      <h3 className="mb-2 mt-6 font-extrabold">Parte 3 · La decisión</h3>
+      <h3 className="mb-2 mt-6 font-extrabold">{t3}</h3>
       <Eleccion p={datos.decision} valor={dec} onChange={setDec} bloqueado={api.bloqueado} />
 
       {!api.bloqueado && (
         <Boton className="mt-6 w-full" disabled={!completo} onClick={comprobar}>
-          Presentar al directorio
+          {datos.boton ?? 'Presentar al directorio'}
         </Boton>
       )}
     </div>

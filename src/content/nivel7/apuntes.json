@@ -1,0 +1,108 @@
+[
+  {
+    "id": "valor-dinero",
+    "titulo": "El valor del dinero en el tiempo",
+    "puntos": [
+      "Un peso hoy vale más que un peso mañana, por tres razones: la inflación, el riesgo y el costo de oportunidad (lo que dejas de ganar si no lo inviertes).",
+      "Capital (C): el dinero al inicio. Interés (I): lo que se paga por usarlo. Monto (M): capital más intereses. Tasa (i): el interés por unidad de tiempo. Plazo (n): la duración.",
+      "Tasa nominal: el costo total del dinero, con la inflación incluida. Tasa real: lo que se gana por sobre la inflación.",
+      "Tasa real aproximada = tasa nominal − inflación. La exacta: (1 + nominal) ÷ (1 + inflación) − 1."
+    ],
+    "ejemplo": "Un depósito paga 8% y la inflación fue 3%: la ganancia real es cerca de 5% (exacto: 1,08 ÷ 1,03 − 1 = 4,85%).",
+    "fuente": "Matemática financiera: conceptos básicos"
+  },
+  {
+    "id": "uf-ipc",
+    "titulo": "IPC, UF y UTM",
+    "puntos": [
+      "El IPC (Índice de Precios al Consumidor) lo calcula el INE y mide cómo cambian los precios de una canasta de consumo. Inflación del período = IPC final ÷ IPC inicial − 1.",
+      "La UF (Unidad de Fomento) la publica el Banco Central. Cambia cada día entre el 10 de un mes y el 9 del siguiente, hasta acumular la variación del IPC del mes anterior.",
+      "UF final = UF inicial × (1 + variación del IPC). Con la UTM (Unidad Tributaria Mensual), que se usa para impuestos y multas, el reajuste es mensual.",
+      "Lo que está en UF ya está protegido de la inflación: por eso los créditos y depósitos en UF usan tasas reales. Los que están en pesos usan tasas nominales."
+    ],
+    "ejemplo": "UF de $36.679,62 con un IPC de 0,7%: 36.679,62 × 1,007 = $36.936,38.",
+    "fuente": "Banco Central de Chile (UF); INE (IPC)"
+  },
+  {
+    "id": "interes-simple",
+    "titulo": "Interés simple",
+    "puntos": [
+      "Los intereses se calculan siempre sobre el capital inicial: no generan nuevos intereses. Crece en línea recta.",
+      "I = C × i × n y M = C × (1 + i × n).",
+      "Despejes: C = M ÷ (1 + i × n); i = I ÷ (C × n); n = I ÷ (C × i).",
+      "Regla de oro: la tasa y el plazo en la misma unidad. Si la tasa es anual y el plazo está en meses, divide los meses por 12."
+    ],
+    "ejemplo": "$1.000.000 al 12% anual simple por 6 meses: I = 1.000.000 × 0,12 × 6/12 = $60.000; M = $1.060.000.",
+    "fuente": "Matemática financiera: interés simple"
+  },
+  {
+    "id": "dias",
+    "titulo": "Contar los días: ordinario y exacto",
+    "puntos": [
+      "Interés ordinario o comercial: año de 360 días. Es el más usado en contratos financieros.",
+      "Interés exacto o racional: año calendario de 365 días (366 en bisiesto).",
+      "Tiempo exacto: se cuentan los días reales del calendario, sin contar el día inicial. Tiempo aproximado: todos los meses de 30 días.",
+      "Con el mismo plazo, el interés con 360 días es un poco mayor que con 365."
+    ],
+    "ejemplo": "Del 5 de abril al 17 de octubre hay 195 días exactos. $7.200.000 al 15% ordinario: 7.200.000 × 0,15 × 195/360 = $585.000.",
+    "fuente": "Matemática financiera: interés ordinario y exacto"
+  },
+  {
+    "id": "descuento",
+    "titulo": "Descuento de documentos",
+    "puntos": [
+      "Descontar un pagaré o una letra es recibir hoy su dinero, antes del vencimiento, a cambio de un descuento.",
+      "Descuento comercial (bancario): se calcula sobre el valor nominal. D = VN × d × n y valor líquido VL = VN − D.",
+      "Descuento racional: el interés se calcula sobre lo que se recibe hoy. VL = VN ÷ (1 + i × n) y D = VN − VL.",
+      "Con la misma tasa, el descuento comercial es mayor: quien descuenta recibe menos que con el racional."
+    ],
+    "ejemplo": "Pagaré de $500.000 al 12% por 90 días: descuento comercial = 500.000 × 0,12 × 90/360 = $15.000; se reciben $485.000.",
+    "fuente": "Matemática financiera: descuento comercial y racional"
+  },
+  {
+    "id": "compuesto",
+    "titulo": "Interés compuesto",
+    "puntos": [
+      "Los intereses de cada período se suman al capital y generan nuevos intereses: el interés sobre el interés.",
+      "M = C × (1 + i)^n, con i la tasa por período y n el número de períodos.",
+      "Con una tasa nominal anual j capitalizable m veces al año: tasa por período = j ÷ m y períodos = m × años.",
+      "Regla del 72: el dinero se duplica en unos 72 ÷ tasa años. Exacto: n = ln 2 ÷ ln(1 + i)."
+    ],
+    "ejemplo": "$1.000.000 al 10% anual compuesto por 2 años: 1.000.000 × 1,1² = $1.210.000 (con interés simple serían $1.200.000).",
+    "fuente": "Matemática financiera: capitalización compuesta"
+  },
+  {
+    "id": "tasas",
+    "titulo": "Tasas nominal, efectiva y equivalentes",
+    "puntos": [
+      "Tasa nominal anual (j): la que se anuncia, capitalizable m veces al año. No es lo que realmente se paga en un año.",
+      "Tasa efectiva anual: TEA = (1 + j/m)^m − 1. Es la que sirve para comparar.",
+      "Para la misma nominal, mientras más veces se capitaliza, mayor es la efectiva.",
+      "Tasas equivalentes: distintas capitalizaciones que producen el mismo monto en el mismo plazo. Desde la efectiva: j = m × ((1 + TEA)^(1/m) − 1)."
+    ],
+    "ejemplo": "12% nominal capitalizable mensualmente: 1% al mes y una TEA de (1,01)^12 − 1 = 12,68%.",
+    "fuente": "Matemática financiera: tasas equivalentes"
+  },
+  {
+    "id": "anualidades",
+    "titulo": "Anualidades, cuotas y tabla de amortización",
+    "puntos": [
+      "Anualidad: una serie de pagos iguales a intervalos regulares (cuotas, arriendos, depósitos). Vencida: el pago se hace al final de cada período. Anticipada: al inicio.",
+      "Cuota de un crédito (sistema francés): R = P × i ÷ (1 − (1 + i)^−n). La cuota es fija.",
+      "En cada fila de la tabla: interés = saldo anterior × i; amortización = cuota − interés; saldo nuevo = saldo − amortización. Al principio casi todo es interés.",
+      "Ahorro con depósitos iguales: VF = A × ((1 + i)^n − 1) ÷ i."
+    ],
+    "ejemplo": "Crédito de $1.000.000 a 12 cuotas al 1% mensual: cuota de $88.849. La primera paga $10.000 de interés y amortiza $78.849.",
+    "fuente": "Matemática financiera: anualidades y amortización"
+  },
+  {
+    "id": "van-tir",
+    "titulo": "Evaluar una inversión: VAN y TIR",
+    "puntos": [
+      "VAN (valor actual neto): se traen a hoy todos los flujos futuros con la tasa exigida y se resta la inversión.",
+      "VAN > 0: el proyecto rinde más que la tasa exigida, conviene. VAN < 0: rinde menos, no conviene.",
+      "TIR (tasa interna de retorno): la tasa que hace que el VAN sea cero. Si la TIR supera la tasa exigida, el proyecto conviene."
+    ],
+    "fuente": "Matemática financiera: evaluación de proyectos"
+  }
+]

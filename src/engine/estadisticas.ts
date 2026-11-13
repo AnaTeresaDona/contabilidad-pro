@@ -54,6 +54,8 @@ export function temaDe(ej: Ejercicio): string {
       return 'Familias de razones';
     case 'crisis':
       return 'Crisis de caja';
+    case 'decision':
+      return ej.datos.tema ?? ej.datos.calculo.titulo;
   }
 }
 

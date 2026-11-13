@@ -1,0 +1,290 @@
+[
+  {
+    "id": "n7-q01",
+    "pregunta": "¿Qué dice el principio del valor del dinero en el tiempo?",
+    "opciones": [
+      "Un peso hoy vale más que un peso en el futuro, por la inflación, el riesgo y el costo de oportunidad",
+      "El dinero vale lo mismo hoy que en el futuro si se guarda en una caja fuerte",
+      "El dinero futuro siempre vale más porque gana intereses solo",
+      "Solo importa para los bancos, no para las empresas"
+    ],
+    "correcta": 0,
+    "explicacion": "Por eso no se pueden sumar montos de fechas distintas sin antes llevarlos a la misma fecha con una tasa de interés.",
+    "fuente": "Matemática financiera: conceptos básicos"
+  },
+  {
+    "id": "n7-q02",
+    "pregunta": "En el interés simple, los intereses se calculan…",
+    "opciones": [
+      "Siempre sobre el capital inicial",
+      "Sobre el capital más los intereses acumulados",
+      "Solo sobre el último período",
+      "Sobre el monto final"
+    ],
+    "correcta": 0,
+    "explicacion": "Los intereses no generan nuevos intereses: I = C × i × n. El monto crece en línea recta.",
+    "fuente": "Matemática financiera: interés simple"
+  },
+  {
+    "id": "n7-q03",
+    "pregunta": "¿Qué caracteriza al interés compuesto?",
+    "opciones": [
+      "Los intereses de cada período se suman al capital y generan nuevos intereses",
+      "Los intereses se pagan una sola vez al final y no cambian",
+      "La tasa sube cada año",
+      "Solo se usa en créditos en UF"
+    ],
+    "correcta": 0,
+    "explicacion": "Es el interés sobre el interés: M = C × (1 + i)^n.",
+    "fuente": "Matemática financiera: capitalización compuesta"
+  },
+  {
+    "id": "n7-q04",
+    "pregunta": "¿Qué tipo de tasa se aplica a los depósitos en UF?",
+    "opciones": ["Tasa real", "Tasa nominal", "Tasa mixta", "Tasa preferencial"],
+    "correcta": 0,
+    "explicacion": "La UF ya se reajusta con la inflación; el interés pactado es la ganancia por sobre ese reajuste, es decir, una tasa real.",
+    "fuente": "Banco Central de Chile (UF); matemática financiera"
+  },
+  {
+    "id": "n7-q05",
+    "pregunta": "Un crédito en pesos chilenos normalmente se pacta con…",
+    "opciones": [
+      "Una tasa nominal, que incluye la inflación esperada",
+      "Una tasa real, porque el peso se reajusta solo",
+      "Una tasa en UTM",
+      "Ninguna tasa"
+    ],
+    "correcta": 0,
+    "explicacion": "El peso no se reajusta automáticamente: la tasa nominal debe cubrir la inflación y, además, dar una ganancia.",
+    "fuente": "Matemática financiera: tasas nominal y real"
+  },
+  {
+    "id": "n7-q06",
+    "pregunta": "Un depósito paga 8% nominal y la inflación del año fue 3%. ¿Cuál es, aproximadamente, la ganancia real?",
+    "opciones": ["5%", "11%", "8%", "2,7%"],
+    "correcta": 0,
+    "explicacion": "Real aproximada = nominal − inflación = 5%. La exacta es 1,08 ÷ 1,03 − 1 = 4,85%.",
+    "fuente": "Matemática financiera: tasas nominal y real"
+  },
+  {
+    "id": "n7-q07",
+    "pregunta": "¿Cómo se reajusta la UF?",
+    "opciones": [
+      "Cada día, entre el 10 de un mes y el 9 del siguiente, según la variación del IPC del mes anterior",
+      "Una vez al año, según el dólar",
+      "Según la tasa de interés de los bancos",
+      "No se reajusta: siempre vale lo mismo"
+    ],
+    "correcta": 0,
+    "explicacion": "La publica el Banco Central. UF final = UF inicial × (1 + variación del IPC).",
+    "fuente": "Banco Central de Chile (UF); INE (IPC)"
+  },
+  {
+    "id": "n7-q08",
+    "pregunta": "¿Para qué se usa principalmente la UTM?",
+    "opciones": [
+      "Para calcular impuestos y multas",
+      "Para fijar el precio del dólar",
+      "Para pagar los créditos hipotecarios",
+      "Para medir la inflación"
+    ],
+    "correcta": 0,
+    "explicacion": "La Unidad Tributaria Mensual se reajusta cada mes según el IPC y se usa en materias tributarias y multas.",
+    "fuente": "Matemática financiera: reajustabilidad (UTM)"
+  },
+  {
+    "id": "n7-q09",
+    "pregunta": "El interés ordinario o comercial usa un año de…",
+    "opciones": ["360 días", "365 días", "366 días", "12 semanas"],
+    "correcta": 0,
+    "explicacion": "Es el más común en contratos financieros. El interés exacto usa 365 (o 366 en año bisiesto).",
+    "fuente": "Matemática financiera: interés ordinario y exacto"
+  },
+  {
+    "id": "n7-q10",
+    "pregunta": "¿Qué es el «tiempo exacto» al contar un plazo?",
+    "opciones": [
+      "Contar los días reales del calendario, sin contar el día inicial",
+      "Suponer que todos los meses tienen 30 días",
+      "Contar solo los días hábiles",
+      "Redondear el plazo a meses completos"
+    ],
+    "correcta": 0,
+    "explicacion": "El tiempo aproximado, en cambio, supone meses de 30 días.",
+    "fuente": "Matemática financiera: interés ordinario y exacto"
+  },
+  {
+    "id": "n7-q11",
+    "pregunta": "La tasa es anual y el plazo está en meses. ¿Qué haces antes de aplicar I = C × i × n?",
+    "opciones": [
+      "Pasar el plazo a años dividiendo los meses por 12 (o la tasa a mensual)",
+      "Multiplicar la tasa por 12",
+      "Nada: se pueden mezclar unidades",
+      "Sumar 12 al plazo"
+    ],
+    "correcta": 0,
+    "explicacion": "La tasa y el plazo siempre deben estar en la misma unidad de tiempo.",
+    "fuente": "Matemática financiera: interés simple"
+  },
+  {
+    "id": "n7-q12",
+    "pregunta": "Si un capital se duplica en 10 años con interés simple, ¿cuál es la tasa anual?",
+    "opciones": ["10%", "5%", "20%", "7,2%"],
+    "correcta": 0,
+    "explicacion": "Duplicarse es ganar un interés igual al capital: C = C × i × 10, entonces i = 1/10 = 10%.",
+    "fuente": "Matemática financiera: interés simple"
+  },
+  {
+    "id": "n7-q13",
+    "pregunta": "Si en 6 meses una inversión crece 25% con interés simple, ¿qué tasa anual pagó?",
+    "opciones": ["50%", "25%", "12,5%", "4,17%"],
+    "correcta": 0,
+    "explicacion": "i = I ÷ (C × n) = 0,25 ÷ 0,5 años = 0,50, es decir, 50% anual.",
+    "fuente": "Matemática financiera: interés simple"
+  },
+  {
+    "id": "n7-q14",
+    "pregunta": "Un pagaré de $500.000 se descuenta al 12% anual por 90 días (año de 360). ¿Cuál es el descuento comercial?",
+    "opciones": ["$15.000", "$60.000", "$18.000", "$12.000"],
+    "correcta": 0,
+    "explicacion": "D = 500.000 × 0,12 × 90/360 = $15.000. Se reciben $485.000.",
+    "fuente": "Matemática financiera: descuento comercial y racional"
+  },
+  {
+    "id": "n7-q15",
+    "pregunta": "¿En qué se diferencian el descuento comercial y el racional?",
+    "opciones": [
+      "El comercial se calcula sobre el valor nominal; el racional, sobre el valor que se recibe hoy",
+      "El comercial usa interés compuesto y el racional, simple",
+      "El racional siempre es mayor que el comercial",
+      "Son lo mismo con distinto nombre"
+    ],
+    "correcta": 0,
+    "explicacion": "Por eso, con la misma tasa, el descuento comercial es mayor y quien descuenta recibe menos.",
+    "fuente": "Matemática financiera: descuento comercial y racional"
+  },
+  {
+    "id": "n7-q16",
+    "pregunta": "$1.000.000 al 10% anual compuesto durante 2 años se convierten en…",
+    "opciones": ["$1.210.000", "$1.200.000", "$1.100.000", "$1.221.000"],
+    "correcta": 0,
+    "explicacion": "1.000.000 × 1,1² = $1.210.000. Con interés simple serían $1.200.000: la diferencia es el interés sobre el interés.",
+    "fuente": "Matemática financiera: capitalización compuesta"
+  },
+  {
+    "id": "n7-q17",
+    "pregunta": "Para una misma tasa nominal anual, ¿qué pasa con la tasa efectiva si se capitaliza más veces al año?",
+    "opciones": [
+      "Aumenta",
+      "Disminuye",
+      "No cambia",
+      "Se vuelve negativa"
+    ],
+    "correcta": 0,
+    "explicacion": "Mientras más seguido se suman los intereses al capital, más interés sobre interés se genera: la efectiva mensual supera a la semestral.",
+    "fuente": "Matemática financiera: tasas equivalentes"
+  },
+  {
+    "id": "n7-q18",
+    "pregunta": "Una tasa de 12% nominal anual capitalizable mensualmente equivale a…",
+    "opciones": ["1% mensual", "12% mensual", "0,12% mensual", "1,2% mensual"],
+    "correcta": 0,
+    "explicacion": "La tasa por período es la nominal dividida por las capitalizaciones del año: 12% ÷ 12 = 1%.",
+    "fuente": "Matemática financiera: tasas equivalentes"
+  },
+  {
+    "id": "n7-q19",
+    "pregunta": "¿Cuál es la tasa efectiva anual de 12% nominal capitalizable mensualmente?",
+    "opciones": ["12,68%", "12%", "13,2%", "144%"],
+    "correcta": 0,
+    "explicacion": "TEA = (1 + 0,12/12)^12 − 1 = 1,01^12 − 1 = 12,68%.",
+    "fuente": "Matemática financiera: tasas equivalentes"
+  },
+  {
+    "id": "n7-q20",
+    "pregunta": "¿Cuándo dos tasas son equivalentes?",
+    "opciones": [
+      "Cuando, con distinta capitalización, producen el mismo monto en el mismo plazo",
+      "Cuando tienen el mismo número",
+      "Cuando las publica el mismo banco",
+      "Cuando una es el doble de la otra"
+    ],
+    "correcta": 0,
+    "explicacion": "Por ejemplo, 12% nominal mensual y 12,68% efectiva anual son equivalentes.",
+    "fuente": "Matemática financiera: tasas equivalentes"
+  },
+  {
+    "id": "n7-q21",
+    "pregunta": "Según la regla del 72, ¿en cuántos años se duplica una inversión al 8% anual compuesto?",
+    "opciones": ["Unos 9 años", "Unos 12,5 años", "Unos 8 años", "Unos 5,8 años"],
+    "correcta": 0,
+    "explicacion": "72 ÷ 8 = 9 años. El cálculo exacto da ln 2 ÷ ln 1,08 = 9,01 años.",
+    "fuente": "Matemática financiera: capitalización compuesta"
+  },
+  {
+    "id": "n7-q22",
+    "pregunta": "¿Qué es una anualidad en matemática financiera?",
+    "opciones": [
+      "Una serie de pagos iguales hechos a intervalos regulares",
+      "Un pago que se hace solo una vez al año",
+      "El interés de un año completo",
+      "Un impuesto anual"
+    ],
+    "correcta": 0,
+    "explicacion": "Cuotas de un crédito, arriendos o depósitos mensuales iguales son anualidades, aunque los pagos sean mensuales.",
+    "fuente": "Matemática financiera: anualidades"
+  },
+  {
+    "id": "n7-q23",
+    "pregunta": "En una anualidad vencida, los pagos se hacen…",
+    "opciones": [
+      "Al final de cada período",
+      "Al inicio de cada período",
+      "Todos juntos al final del plazo",
+      "Cuando el deudor quiera"
+    ],
+    "correcta": 0,
+    "explicacion": "En la anticipada, los pagos se hacen al inicio de cada período, como un arriendo que se paga por adelantado.",
+    "fuente": "Matemática financiera: anualidades"
+  },
+  {
+    "id": "n7-q24",
+    "pregunta": "En un crédito con cuota fija (sistema francés), a medida que pasan las cuotas…",
+    "opciones": [
+      "El interés de cada cuota baja y la amortización sube",
+      "El interés sube y la amortización baja",
+      "Interés y amortización son siempre iguales",
+      "La cuota baja cada mes"
+    ],
+    "correcta": 0,
+    "explicacion": "El interés se calcula sobre el saldo, que va bajando; como la cuota es fija, una parte cada vez mayor va a pagar capital.",
+    "fuente": "Matemática financiera: anualidades y amortización"
+  },
+  {
+    "id": "n7-q25",
+    "pregunta": "Un proyecto tiene un VAN positivo con la tasa exigida del 12%. ¿Qué significa?",
+    "opciones": [
+      "Que rinde más que el 12% exigido: conviene hacerlo",
+      "Que pierde plata",
+      "Que rinde exactamente 12%",
+      "Que la inversión inicial es cero"
+    ],
+    "correcta": 0,
+    "explicacion": "VAN > 0: los flujos traídos a hoy superan la inversión. Si el VAN fuera cero, rendiría justo el 12%.",
+    "fuente": "Matemática financiera: evaluación de proyectos"
+  },
+  {
+    "id": "n7-q26",
+    "pregunta": "¿Qué es la TIR de un proyecto?",
+    "opciones": [
+      "La tasa que hace que el VAN sea cero",
+      "La tasa que cobra el banco",
+      "La inflación del período",
+      "El plazo en que se recupera la inversión"
+    ],
+    "correcta": 0,
+    "explicacion": "Si la TIR es mayor que la tasa exigida, el proyecto conviene.",
+    "fuente": "Matemática financiera: evaluación de proyectos"
+  }
+]

@@ -62,6 +62,8 @@ export function pistaDe(ej: Ejercicio): string {
       return 'Agregados: multas fiscales, provisiones y estimaciones no pagadas, deterioros contables, gastos sin respaldo o personales. Deducciones: dividendos de S.A. chilenas, mayor depreciación acelerada, provisiones de años anteriores pagadas este año. Gastos necesarios y acreditados: sin ajuste. RLI = resultado + agregados − deducciones; impuesto = RLI × 27%; saldo = impuesto − PPM.';
     case 'clasificarOpciones':
       return 'Liquidez: ¿puedo pagar lo que vence pronto? Endeudamiento: ¿cuánto debo? Rentabilidad: ¿cuánto gano? Actividad: ¿qué tan rápido cobro, vendo y pago?';
+    case 'decision':
+      return ej.datos.calculo.pista;
     case 'crisis':
       return 'Razón corriente = activo corriente ÷ pasivo corriente. Días de cobro = clientes ÷ ventas × 365. Flujo operacional = utilidad + depreciación − aumento de clientes − aumento de inventario + aumento de proveedores.';
   }
@@ -100,6 +102,7 @@ export function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }
     case 'clasificarOpciones':
       return <EjClasificarOpciones datos={ej.datos} api={api} />;
     case 'crisis':
+    case 'decision':
       return <EjCrisis datos={ej.datos} api={api} />;
     case 'clasificar':
       return <EjClasificar cuentas={ej.cuentas} api={api} />;

@@ -16,6 +16,25 @@ import { calcular, numeroDeTexto } from '../componentes/Calculadora';
 import { textoNumero } from '../lib/campos';
 import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actualizarNivel } from './progreso';
 import { CONTENIDO, ORDEN_NIVELES } from '../content';
+import {
+  calculoAhorro,
+  calculoCompuesto,
+  calculoCuota,
+  calculoDescuento,
+  calculoDiasExactos,
+  calculoDuplicar,
+  calculoInteresSimple,
+  calculoReajusteUF,
+  calculoTasas,
+  cuotaFija,
+  diasEntre,
+  efectivaAnual,
+  generarCreditoHorno,
+  interesSimple,
+  montoCompuesto,
+  nominalDesdeEfectiva,
+  valorFuturoAnualidad,
+} from './financiera';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
 import { armarPractica, ejMayorizar, mesConActivoFijo } from './ejercicios';
@@ -699,5 +718,68 @@ describe('retomar un paso después de cerrar la app', () => {
     expect(cargado.partidas.n1).toEqual(partida);
     expect(guardarPartida(cargado, 'n1', null).partidas).toEqual({});
     expect(migrar({ partidas: { n1: { basura: true } } }).partidas).toEqual({});
+  });
+});
+
+describe('Matemática financiera (Nivel 7)', () => {
+  it('las fórmulas dan los resultados de los apuntes', () => {
+    expect(Math.round(interesSimple(7_200_000, 0.15, 195 / 360))).toBe(585_000);
+    expect(Math.round(montoCompuesto(1_000_000, 0.1, 2))).toBe(1_210_000);
+    expect(efectivaAnual(0.12, 12)).toBeCloseTo(0.126825, 5);
+    expect(nominalDesdeEfectiva(efectivaAnual(0.12, 12), 12)).toBeCloseTo(0.12, 10);
+    expect(Math.round(cuotaFija(1_000_000, 0.01, 12))).toBe(88_849);
+    expect(Math.round(valorFuturoAnualidad(100_000, 0.01, 12))).toBe(1_268_250);
+    expect(diasEntre(new Date(Date.UTC(2024, 3, 5)), new Date(Date.UTC(2024, 9, 17)))).toBe(195);
+    // Pruebas del curso: 4.000.000 al 25% nominal, 2 años, semestral y trimestral.
+    expect(montoCompuesto(4_000_000, 0.25 / 2, 4)).toBeCloseTo(6_407_226.56, 1);
+    expect(montoCompuesto(4_000_000, 0.25 / 4, 8)).toBeCloseTo(6_496_680.38, 1);
+    expect(nominalDesdeEfectiva(0.085, 3) * 100).toBeCloseTo(8.27, 2); // la alternativa de la prueba decía 8,2767%
+  });
+
+  it('todos los cálculos se validan con sus propias respuestas', () => {
+    const generadores = [calculoInteresSimple, calculoReajusteUF, calculoDiasExactos, calculoDescuento, calculoCompuesto, calculoDuplicar, calculoTasas, calculoCuota, calculoAhorro];
+    for (const gen of generadores)
+      for (let s = 1; s <= 60; s++) {
+        const ej = gen(crearRng(s));
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto, `${ej.titulo} semilla ${s}`).toBe(true);
+        for (const p of ej.preguntas) expect(Number.isFinite(p.valor) && p.valor > 0, `${ej.titulo} ${p.id}`).toBe(true);
+      }
+  });
+
+  it('el descuento comercial siempre descuenta más que el racional', () => {
+    for (let s = 1; s <= 40; s++) {
+      const ej = calculoDescuento(crearRng(s));
+      const v = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+      expect(v.vlr).toBeGreaterThan(v.vlc);
+    }
+  });
+
+  it('la cuota cierra la tabla de amortización en cero', () => {
+    for (const [p, i, n] of [[1_000_000, 0.01, 12], [5_000_000, 0.015, 36]]) {
+      const r = cuotaFija(p, i, n);
+      let saldo = p;
+      for (let k = 0; k < n; k++) saldo -= r - saldo * i;
+      expect(Math.abs(saldo)).toBeLessThan(0.01);
+    }
+  });
+
+  it('el jefe recomienda el crédito con menor costo total', () => {
+    for (let s = 1; s <= 60; s++) {
+      const ej = CONTENIDO.n7.generarJefe(crearRng(s));
+      if (ej.tipo !== 'decision') throw new Error('tipo inesperado');
+      const d = ej.datos as ReturnType<typeof generarCreditoHorno>;
+      const [a, b] = d.ofertas;
+      const gana = a.total < b.total ? a : b;
+      expect(d.decision.opciones[d.decision.correcta]).toContain(gana.banco);
+      for (const p of [d.diagnostico, d.decision]) expect(p.opciones).toHaveLength(4);
+      const resp = Object.fromEntries(d.calculo.preguntas.map((p) => [p.id, p.valor]));
+      expect(validarCalculo(d.calculo, resp).correcto).toBe(true);
+    }
+  });
+
+  it('es un ramo aparte: está abierto desde el inicio y no corta la historia principal', () => {
+    expect(ORDEN_NIVELES).not.toContain('n7');
+    expect(ORDEN_NIVELES.at(-1)).toBe('n6');
   });
 });

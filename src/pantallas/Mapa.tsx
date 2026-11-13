@@ -4,6 +4,7 @@ import { estadoNivel, nivelDesbloqueado } from '../engine/progreso';
 import { useProgreso } from '../estado/Progreso';
 import { COLORES } from '../componentes/ui';
 import type { Ruta } from '../App';
+import type { NivelInfo } from '../content/tipos';
 import { avanceAlSiguiente, premioActual, siguientePremio } from '../content/premios';
 import { IconoPremio } from '../componentes/IconoPremio';
 
@@ -12,7 +13,9 @@ const DESPLAZAMIENTO = ['ml-0', 'ml-10 sm:ml-16', 'ml-20 sm:ml-32', 'ml-10 sm:ml
 
 export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
   const { progreso } = useProgreso();
-  const actual = NIVELES.find((n) => nivelDesbloqueado(progreso, ORDEN_NIVELES, n.id) && !estadoNivel(progreso, n.id).completado) ?? NIVELES[0];
+  const principales = NIVELES.filter((n) => !n.libre);
+  const libres = NIVELES.filter((n) => n.libre);
+  const actual = principales.find((n) => nivelDesbloqueado(progreso, ORDEN_NIVELES, n.id) && !estadoNivel(progreso, n.id).completado) ?? principales[principales.length - 1];
 
   return (
     <div className="space-y-6">
@@ -32,36 +35,22 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
       <CaminoResumen chispas={progreso.chispas} onClick={() => ir({ pantalla: 'premios' })} />
 
       <section aria-label="Niveles" className="space-y-4">
-        {NIVELES.map((n, i) => {
-          const disponible = !!CONTENIDO[n.id];
-          const abierto = nivelDesbloqueado(progreso, ORDEN_NIVELES, n.id);
-          const completo = estadoNivel(progreso, n.id).completado;
-          const jugable = disponible && abierto;
-          const c = COLORES[n.color];
-          return (
-            <div key={n.id} className={`flex items-center gap-4 ${DESPLAZAMIENTO[i % DESPLAZAMIENTO.length]}`}>
-              <button
-                disabled={!jugable}
-                onClick={() => ir({ pantalla: 'nivel', id: n.id })}
-                aria-label={`Nivel ${n.numero}: ${n.titulo}`}
-                className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-b-[6px] text-xl font-extrabold transition active:translate-y-1 active:border-b-2 ${
-                  jugable ? `${c.fondo} ${c.borde} text-white ${!completo ? 'latido' : ''}` : 'border-slate-300 bg-slate-200 text-slate-400'
-                }`}
-              >
-                {completo ? '✓' : !abierto ? '🔒' : n.numero}
-              </button>
-              <div className="min-w-0">
-                <p className={`text-xs font-extrabold uppercase ${jugable ? c.texto : 'text-slate-400'}`}>
-                  Nivel {n.numero} · {n.etapa}
-                </p>
-                <p className={`font-extrabold leading-tight ${jugable ? '' : 'text-slate-400'}`}>{n.titulo}</p>
-                <p className="text-xs text-slate-400">{disponible ? n.tema : 'Próximamente'}</p>
-                {progreso.partidas[n.id] && <p className="text-xs font-extrabold text-sky-600">⏯️ Tienes un paso en curso: continúa donde quedaste</p>}
-              </div>
-            </div>
-          );
-        })}
+        {principales.map((n, i) => (
+          <NodoNivel key={n.id} n={n} desplazamiento={DESPLAZAMIENTO[i % DESPLAZAMIENTO.length]} ir={ir} />
+        ))}
       </section>
+
+      {libres.length > 0 && (
+        <section aria-label="Ramos aparte" className="space-y-4 rounded-3xl border-2 border-dashed border-cyan-200 bg-cyan-50/40 p-4">
+          <div>
+            <h2 className="font-extrabold">📐 Ramos aparte</h2>
+            <p className="text-xs font-bold text-slate-500">Abiertos desde el inicio: puedes jugarlos cuando quieras, sin terminar la historia.</p>
+          </div>
+          {libres.map((n) => (
+            <NodoNivel key={n.id} n={n} desplazamiento="ml-0" ir={ir} />
+          ))}
+        </section>
+      )}
 
       <section className="grid grid-cols-2 gap-3">
         <Acceso emoji="🏪" titulo="Mi empresa" detalle="Libro diario y mayor" onClick={() => ir({ pantalla: 'empresa' })} />
@@ -76,6 +65,37 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
         <Acceso emoji="📊" titulo="Estadísticas" detalle="Tiempo y mejora" onClick={() => ir({ pantalla: 'estadisticas' })} />
         <Acceso emoji="⚙️" titulo="Ajustes" detalle="Voz, instalar y respaldo" onClick={() => ir({ pantalla: 'ajustes' })} />
       </section>
+    </div>
+  );
+}
+
+function NodoNivel({ n, desplazamiento, ir }: { n: NivelInfo; desplazamiento: string; ir: (r: Ruta) => void }) {
+  const { progreso } = useProgreso();
+  const disponible = !!CONTENIDO[n.id];
+  const abierto = !!n.libre || nivelDesbloqueado(progreso, ORDEN_NIVELES, n.id);
+  const completo = estadoNivel(progreso, n.id).completado;
+  const jugable = disponible && abierto;
+  const c = COLORES[n.color];
+  return (
+    <div className={`flex items-center gap-4 ${desplazamiento}`}>
+      <button
+        disabled={!jugable}
+        onClick={() => ir({ pantalla: 'nivel', id: n.id })}
+        aria-label={`Nivel ${n.numero}: ${n.titulo}`}
+        className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-b-[6px] text-xl font-extrabold transition active:translate-y-1 active:border-b-2 ${
+          jugable ? `${c.fondo} ${c.borde} text-white ${!completo ? 'latido' : ''}` : 'border-slate-300 bg-slate-200 text-slate-400'
+        }`}
+      >
+        {completo ? '✓' : !abierto ? '🔒' : n.numero}
+      </button>
+      <div className="min-w-0">
+        <p className={`text-xs font-extrabold uppercase ${jugable ? c.texto : 'text-slate-400'}`}>
+          Nivel {n.numero} · {n.etapa}
+        </p>
+        <p className={`font-extrabold leading-tight ${jugable ? '' : 'text-slate-400'}`}>{n.titulo}</p>
+        <p className="text-xs text-slate-400">{disponible ? n.tema : 'Próximamente'}</p>
+        {progreso.partidas[n.id] && <p className="text-xs font-extrabold text-sky-600">⏯️ Tienes un paso en curso: continúa donde quedaste</p>}
+      </div>
     </div>
   );
 }

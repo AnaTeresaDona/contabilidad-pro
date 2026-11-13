@@ -5,6 +5,7 @@ import { nivel4a } from './nivel4a';
 import { nivel4b } from './nivel4b';
 import { nivel5 } from './nivel5';
 import { nivel6 } from './nivel6';
+import { nivel7 } from './nivel7';
 import type { ContenidoNivel, NivelInfo } from './tipos';
 import type { Pregunta } from '../engine/ejercicios';
 
@@ -17,11 +18,21 @@ export const NIVELES: NivelInfo[] = [
   { id: 'n4b', numero: '4B', titulo: 'Full IFRS y la CMF', tema: 'NIC/NIIF plenas, S.A. abiertas, auditoría', etapa: 'Salida a la bolsa', color: 'indigo' },
   { id: 'n5', numero: '5', titulo: 'Tributación y Operación Renta', tema: 'RLI, agregados, deducciones, Art. 21 LIR', etapa: 'Operación Renta', color: 'amber' },
   { id: 'n6', numero: '6', titulo: 'Análisis Financiero (CFO)', tema: 'Vertical, horizontal, ratios, flujo de efectivo NIC 7', etapa: 'Crisis de caja', color: 'rose' },
+  {
+    id: 'n7',
+    numero: '7',
+    titulo: 'Matemática Financiera',
+    tema: 'Interés simple y compuesto, UF, descuento, tasas, cuotas',
+    etapa: 'El horno nuevo',
+    color: 'cyan',
+    libre: true,
+  },
 ];
 
-export const ORDEN_NIVELES = NIVELES.map((n) => n.id);
+/** Historia principal: cada nivel se abre al completar el anterior. Los niveles libres (ramos aparte) están abiertos desde el inicio. */
+export const ORDEN_NIVELES = NIVELES.filter((n) => !n.libre).map((n) => n.id);
 
-export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3, n4a: nivel4a, n4b: nivel4b, n5: nivel5, n6: nivel6 };
+export const CONTENIDO: Record<string, ContenidoNivel> = { n1: nivel1, n2: nivel2, n3: nivel3, n4a: nivel4a, n4b: nivel4b, n5: nivel5, n6: nivel6, n7: nivel7 };
 
 export const TODAS_LAS_PREGUNTAS: Map<string, Pregunta> = new Map(
   Object.values(CONTENIDO).flatMap((c) => c.preguntas.map((p) => [p.id, p] as const)),
