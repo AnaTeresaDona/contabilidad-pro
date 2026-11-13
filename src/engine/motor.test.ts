@@ -12,7 +12,7 @@ import { armarRegistro, diagnosticar, fuenteCorta, temaDe, tendencia } from './e
 import { numeroDesdeTexto } from './numerosHablados';
 import { pasoCompletado, pasoDesbloqueado, registrarPaso, sumarTiempo } from './progreso';
 import { PREMIOS, premioActual, premiosDesbloqueados, siguientePremio } from '../content/premios';
-import { calcular } from '../componentes/Calculadora';
+import { calcular, numeroDeTexto } from '../componentes/Calculadora';
 import { textoNumero } from '../lib/campos';
 import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actualizarNivel } from './progreso';
 import { CONTENIDO, ORDEN_NIVELES } from '../content';
@@ -663,5 +663,16 @@ describe('voz y calculadora', () => {
     expect(textoNumero(1234567.5)).toBe('1.234.567,5');
     expect(textoNumero(-2000)).toBe('-2.000');
     expect(textoNumero(0.333333)).toBe('0,3333');
+  });
+  it('reconoce los números tocados en la pantalla', () => {
+    expect(numeroDeTexto('$1.250.000')).toBe('1.250.000');
+    expect(numeroDeTexto('$ 1.250.000')).toBe('1.250.000');
+    expect(numeroDeTexto('-$300.000')).toBe('(−300.000)');
+    expect(numeroDeTexto('−300.000')).toBe('(−300.000)');
+    expect(numeroDeTexto('19%')).toBe('19%');
+    expect(numeroDeTexto('0,75')).toBe('0,75');
+    expect(numeroDeTexto('Caja')).toBeNull();
+    expect(numeroDeTexto('Saldo inicial $1.000')).toBeNull();
+    expect(calcular('1.250.000+(−300.000)')).toBe(950_000);
   });
 });

@@ -167,7 +167,7 @@ Los números del juego (XP y chispas por acierto, daño a la caja, preguntas par
 
 - **Instalar:** en Chrome, menú ⋮ → «Agregar a la pantalla principal». En iPhone (Safari): Compartir → «Agregar a inicio». Aparece con el ícono de la empanada.
 - **Voz:** cada ejercicio tiene «🔊 Escuchar» (un segundo toque silencia la lectura) y «🎤 Responder hablando». Puedes decir una alternativa («la segunda» o parte del texto), un número («un millón doscientos mil»), «Caja al Debe», o «comprobar», «continuar», «pista».
-- **Calculadora:** el botón 🧮 de la barra superior. «Usar en la casilla» pone el resultado en la última casilla que tocaste.
+- **Calculadora:** el botón 🧮 de la barra superior. Toca cualquier número de la pantalla y se agrega a la cuenta. «▾ Achicar» la deja como una barra delgada con el resultado. «Usar en la casilla» pone el resultado en la última casilla que tocaste.
 
 ---
 
