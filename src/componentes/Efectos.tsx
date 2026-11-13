@@ -1,5 +1,6 @@
 import { useEffect, useMemo, type CSSProperties, type ReactNode } from 'react';
 import { useProgreso } from '../estado/Progreso';
+import { IconoPremio } from './IconoPremio';
 
 const COLORES_CONFETI = ['#10b981', '#f59e0b', '#0ea5e9', '#f43f5e', '#8b5cf6', '#facc15'];
 
@@ -68,17 +69,20 @@ export function AvisosLogros() {
     return () => clearTimeout(t);
   }, [avisos, cerrarAviso]);
   if (avisos.length === 0) return null;
-  const { logro, id } = avisos[0];
+  const { emoji, titulo, etiqueta, premio, id } = avisos[0];
   return (
     <div className="fixed inset-x-0 top-16 z-50 flex justify-center px-4" role="status">
       <button
         onClick={() => cerrarAviso(id)}
-        className="aparecer flex items-center gap-3 rounded-2xl border-2 border-amber-300 bg-amber-50 px-4 py-3 text-left shadow-lg"
+        className={`aparecer flex items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left shadow-lg ${
+          premio ? 'border-violet-300 bg-gradient-to-r from-indigo-50 to-sky-50' : 'border-amber-300 bg-amber-50'
+        }`}
       >
-        <span className="text-3xl">{logro.emoji}</span>
+        <span className="text-3xl">{premio ? <IconoPremio premio={premio} tam={40} /> : emoji}</span>
         <span>
-          <span className="block text-xs font-extrabold uppercase text-amber-600">¡Logro desbloqueado!</span>
-          <span className="block font-extrabold">{logro.titulo}</span>
+          <span className={`block text-xs font-extrabold uppercase ${premio ? 'text-violet-600' : 'text-amber-600'}`}>{etiqueta}</span>
+          <span className="block font-extrabold">{titulo}</span>
+          {premio && <span className="block text-xs text-slate-500">{premio.frase}</span>}
         </span>
       </button>
     </div>

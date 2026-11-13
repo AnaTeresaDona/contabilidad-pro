@@ -14,24 +14,47 @@ import {
   generarFiscalizacion,
   type Afirmacion,
 } from '../../engine/ifrs';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 
 const plantillas = plantillasJson as unknown as Plantilla[];
 const banco = situaciones as Pregunta[];
 const bancoAfirmaciones = afirmaciones as Afirmacion[];
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const [a, b] = elegirVarios(rng, plantillas, 2);
-  const [p] = elegirVarios(rng, banco, 1);
-  const otroCalculo = elegir(rng, [calculoDeterioro, calculoGananciaPorAccion, calculoDividendoMinimo]);
-  return [
-    { tipo: 'calculo', datos: calculoArrendamiento(rng) },
-    ejCompletar(rng, a),
-    { tipo: 'pregunta', pregunta: p },
-    { tipo: 'calculo', datos: otroCalculo(rng) },
-    ejCompletar(rng, b),
-  ];
-}
+const otrosCalculos = [calculoDeterioro, calculoGananciaPorAccion, calculoDividendoMinimo];
+
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Preguntas de NIIF plenas y CMF, y un arrendamiento.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [p1, p2, p3] = elegirVarios(rng, banco, 3);
+      return [
+        { tipo: 'pregunta', pregunta: p1 },
+        { tipo: 'pregunta', pregunta: p2 },
+        { tipo: 'calculo', datos: calculoArrendamiento(rng) },
+        { tipo: 'pregunta', pregunta: p3 },
+      ];
+    },
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Deterioro, ganancia por acción, dividendos y asientos.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b] = elegirVarios(rng, plantillas, 2);
+      const [c1, c2] = elegirVarios(rng, otrosCalculos, 2);
+      return [ejCompletar(rng, a), { tipo: 'calculo', datos: c1(rng) }, ejCompletar(rng, b), { tipo: 'calculo', datos: c2(rng) }];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Una fiscalización más corta que la del jefe.',
+    generar: (rng: Rng): Ejercicio[] => [
+      { tipo: 'calculo', datos: calculoArrendamiento(rng) },
+      { tipo: 'fiscalizacion', afirmaciones: generarFiscalizacion(rng, bancoAfirmaciones, 2, 2) },
+      { tipo: 'calculo', datos: elegir(rng, otrosCalculos)(rng) },
+    ],
+  },
+];
 
 export const nivel4b: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -43,7 +66,7 @@ export const nivel4b: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas,
-  generarPractica,
+  pasos,
   generarJefe: (rng) => ({ tipo: 'fiscalizacion', afirmaciones: generarFiscalizacion(rng, bancoAfirmaciones, 3, 3) }),
   jefe: {
     nombre: 'Sr. Fuentes, fiscalizador de la CMF',

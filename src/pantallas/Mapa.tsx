@@ -4,6 +4,8 @@ import { estadoNivel, nivelDesbloqueado } from '../engine/progreso';
 import { useProgreso } from '../estado/Progreso';
 import { COLORES } from '../componentes/ui';
 import type { Ruta } from '../App';
+import { avanceAlSiguiente, premioActual, siguientePremio } from '../content/premios';
+import { IconoPremio } from '../componentes/IconoPremio';
 
 // Desplazamiento en zigzag de los nodos del camino.
 const DESPLAZAMIENTO = ['ml-0', 'ml-10 sm:ml-16', 'ml-20 sm:ml-32', 'ml-10 sm:ml-16'];
@@ -21,11 +23,13 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
           Etapa actual: <b>{actual.etapa}</b>
         </p>
         <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-          <Mini valor={progreso.xp} etiqueta="XP" />
+          <Mini valor={progreso.chispas.toLocaleString('es-CL')} etiqueta="Chispas ✨" />
           <Mini valor={progreso.libro.length} etiqueta="Asientos" />
           <Mini valor={`${progreso.hp}%`} etiqueta="Caja" />
         </div>
       </section>
+
+      <CaminoResumen chispas={progreso.chispas} onClick={() => ir({ pantalla: 'premios' })} />
 
       <section aria-label="Niveles" className="space-y-4">
         {NIVELES.map((n, i) => {
@@ -68,7 +72,8 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
           onClick={() => ir({ pantalla: 'repaso' })}
         />
         <Acceso emoji="🏆" titulo="Logros" detalle={`${progreso.logros.length} de ${LOGROS.length}`} onClick={() => ir({ pantalla: 'logros' })} />
-        <Acceso emoji="⚙️" titulo="Ajustes" detalle="Guardar y respaldar" onClick={() => ir({ pantalla: 'ajustes' })} />
+        <Acceso emoji="📊" titulo="Estadísticas" detalle="Tiempo y mejora" onClick={() => ir({ pantalla: 'estadisticas' })} />
+        <Acceso emoji="⚙️" titulo="Ajustes" detalle="Voz, instalar y respaldo" onClick={() => ir({ pantalla: 'ajustes' })} />
       </section>
     </div>
   );
@@ -92,6 +97,38 @@ function Acceso({ emoji, titulo, detalle, onClick, resaltar }: { emoji: string; 
       <span className="text-2xl">{emoji}</span>
       <span className="mt-1 block font-extrabold">{titulo}</span>
       <span className={`block text-xs font-bold ${resaltar ? 'text-amber-600' : 'text-slate-400'}`}>{detalle}</span>
+    </button>
+  );
+}
+
+function CaminoResumen({ chispas, onClick }: { chispas: number; onClick: () => void }) {
+  const actual = premioActual(chispas);
+  const sig = siguientePremio(chispas);
+  return (
+    <button
+      onClick={onClick}
+      className="flex w-full items-center gap-3 rounded-3xl border-b-4 border-indigo-800 bg-gradient-to-r from-indigo-600 via-sky-500 to-amber-400 p-4 text-left text-white transition active:translate-y-[2px]"
+    >
+      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/25">
+        <IconoPremio premio={actual} tam={40} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-xs font-extrabold uppercase tracking-wider opacity-85">Camino al cielo ☁️</span>
+        <span className="block font-extrabold leading-tight">
+          {actual.nombre} · {chispas.toLocaleString('es-CL')} ✨
+        </span>
+        {sig && (
+          <>
+            <span className="mt-1.5 block h-2 overflow-hidden rounded-full bg-white/30">
+              <span className="block h-full rounded-full bg-white" style={{ width: `${Math.round(avanceAlSiguiente(chispas) * 100)}%` }} />
+            </span>
+            <span className="mt-0.5 block text-xs font-bold opacity-90">
+              Próximo: {sig.emoji === 'topo' ? 'Topo' : `${sig.emoji} ${sig.nombre}`} · faltan {(sig.umbral - chispas).toLocaleString('es-CL')} ✨
+            </span>
+          </>
+        )}
+      </span>
+      <span className="text-2xl">›</span>
     </button>
   );
 }

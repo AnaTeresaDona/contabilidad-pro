@@ -55,6 +55,17 @@
 - Trivia: se sortean 8 preguntas y se aprueba con 6 (antes 5 y 4). Bancos de 22 a 24 preguntas por nivel.
 - Práctica: 8 ejercicios por ronda (antes 5 a 6), sin preguntas repetidas.
 
+## Fase 8 — Hecha (pasos, estadísticas, premios y herramientas)
+- Cada nivel tiene 5 pasos de dificultad creciente: Conceptos (trivia), Básico, Intermedio, Avanzado y Jefe final. Se abren en orden y dan 1 a 3 estrellas.
+- Al terminar un paso: aciertos al primer intento, tiempo, chispas, comparación con la vez anterior, fortalezas, debilidades y errores más repetidos. Práctica opcional de debilidades, sin daño a la caja.
+- Pantalla de estadísticas: tiempo jugado por día (14 días, con vista de tabla), tendencia de errores, errores que más se repiten, fortalezas y debilidades históricas, estrellas por paso.
+- Chispas de saber ✨ (nunca se pierden) y el Camino al cielo: 29 premios desde la papita y el topo hasta el Sol, el unicornio volador y la Constelación Contable.
+- Compartir en redes: imagen 1080×1080 con el avance, menú de compartir del celular y enlaces a WhatsApp, Facebook, X, LinkedIn y Telegram.
+- Calculadora flotante (🧮) con atajos de IVA y «Usar en la casilla».
+- Ícono de empanada y manifiesto: se puede instalar en la pantalla de inicio del celular.
+- Tarjetas de error resumidas en dos líneas que crecen al tocarlas.
+- Voz: «🔊 Escuchar» y «🎤 Responder hablando» (alternativas, números dichos, «Caja al Debe», comandos). Lectura automática opcional en Ajustes.
+
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.

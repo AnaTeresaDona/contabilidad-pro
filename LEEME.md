@@ -157,7 +157,17 @@ Edita `src/content/nivel1/plantillas.json`. Ejemplo:
 
 ### Ajustar la dificultad
 
-Los números del juego (XP por acierto, daño a la caja, preguntas para aprobar, etc.) están en `src/engine/recompensas.ts`.
+Los números del juego (XP y chispas por acierto, daño a la caja, preguntas para aprobar, estrellas, etc.) están en `src/engine/recompensas.ts`.
+
+- **Pasos de cada nivel:** en el `index.ts` de cada nivel, la lista `pasos` define los ejercicios de los pasos Básico, Intermedio y Avanzado (de menor a mayor dificultad). El paso 1 es la trivia y el 5 es el jefe.
+- **Camino de premios:** `src/content/premios.ts` (nombre, emoji, frase y cuántas chispas se necesitan).
+- **Ícono:** `public/icono.svg` y los PNG de `public/` (para instalar el juego en el celular).
+
+## En el celular
+
+- **Instalar:** en Chrome, menú ⋮ → «Agregar a la pantalla principal». En iPhone (Safari): Compartir → «Agregar a inicio». Aparece con el ícono de la empanada.
+- **Voz:** cada ejercicio tiene «🔊 Escuchar» y «🎤 Responder hablando». Puedes decir una alternativa («la segunda» o parte del texto), un número («un millón doscientos mil»), «Caja al Debe», o «comprobar», «continuar», «pista».
+- **Calculadora:** el botón 🧮 de la barra superior. «Usar en la casilla» pone el resultado en la última casilla que tocaste.
 
 ---
 

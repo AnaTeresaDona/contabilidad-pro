@@ -12,14 +12,36 @@ import {
   type Ejercicio,
   type Pregunta,
 } from '../../engine/ejercicios';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 
 const plantillas = plantillasJson as unknown as Plantilla[];
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const [a, b, c] = elegirVarios(rng, plantillas, 3);
-  return [ejClasificar(rng), ejDebeHaber(rng, a), ejCuentaT(rng), ejDebeHaber(rng, b), ejCompletar(rng, c)];
-}
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Clasificar cuentas y decidir si van al Debe o al Haber.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b, c] = elegirVarios(rng, plantillas, 3);
+      return [ejClasificar(rng), ejDebeHaber(rng, a), ejDebeHaber(rng, b), ejDebeHaber(rng, c)];
+    },
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Saldos de la Cuenta T y asientos completos.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b] = elegirVarios(rng, plantillas, 2);
+      return [ejCuentaT(rng), ejCompletar(rng, a), ejCuentaT(rng), ejCompletar(rng, b)];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Asientos completos con más cuentas para elegir.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b, c] = elegirVarios(rng, plantillas, 3);
+      return [ejCompletar(rng, a, 12), ejClasificar(rng, 6), ejCompletar(rng, b, 12), ejCompletar(rng, c, 12)];
+    },
+  },
+];
 
 export const nivel1: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -31,7 +53,7 @@ export const nivel1: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas,
-  generarPractica,
+  pasos,
   generarJefe: (rng) => ejLibroErrores(rng, plantillas),
   jefe: {
     nombre: 'Don Ramiro',

@@ -14,13 +14,22 @@ export interface Apunte {
   fuente: string;
 }
 
+/** Un paso de práctica del nivel. Los pasos van de menor a mayor dificultad. */
+export interface PasoPractica {
+  id: 'basico' | 'intermedio' | 'avanzado';
+  /** Qué se practica en este paso, en pocas palabras. */
+  descripcion: string;
+  generar: (rng: Rng) => Ejercicio[];
+}
+
 export interface ContenidoNivel {
   /** Apuntes para estudiar antes de la trivia, en el orden del índice. */
   apuntes: Apunte[];
   intro: { personaje: string; emoji: string; texto: string };
   preguntas: Pregunta[];
   plantillas: Plantilla[];
-  generarPractica: (rng: Rng) => Ejercicio[];
+  /** Tres pasos de práctica: básico, intermedio y avanzado. */
+  pasos: PasoPractica[];
   generarJefe: (rng: Rng) => Ejercicio;
   jefe: {
     nombre: string;

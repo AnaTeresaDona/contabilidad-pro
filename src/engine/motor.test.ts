@@ -7,7 +7,13 @@ import { generarCuentaT, sumasT, validarCuentaT } from './cuentaT';
 import { generarLibroConErrores } from './libroConErrores';
 import { existeCuenta } from './cuentas';
 import { infoError, tiposDeError } from './errores';
-import { danioPorErrores, REGLAS, xpPorAcierto } from './recompensas';
+import { chispasPorAcierto, chispasPorPaso, danioPorErrores, estrellasPorPrecision, REGLAS, xpPorAcierto } from './recompensas';
+import { armarRegistro, diagnosticar, fuenteCorta, temaDe, tendencia } from './estadisticas';
+import { numeroDesdeTexto } from './numerosHablados';
+import { pasoCompletado, pasoDesbloqueado, registrarPaso, sumarTiempo } from './progreso';
+import { PREMIOS, premioActual, premiosDesbloqueados, siguientePremio } from '../content/premios';
+import { calcular } from '../componentes/Calculadora';
+import { textoNumero } from '../lib/campos';
 import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actualizarNivel } from './progreso';
 import { CONTENIDO, ORDEN_NIVELES } from '../content';
 import type { LineaAsiento } from './types';
@@ -198,7 +204,8 @@ describe('Balance de 8 columnas', () => {
   it('cada nivel genera su práctica y su jefe sin errores', () => {
     for (const c of Object.values(CONTENIDO))
       for (let s = 1; s <= 50; s++) {
-        expect(c.generarPractica(crearRng(s)).length).toBeGreaterThan(0);
+        expect(c.pasos.map((p) => p.id)).toEqual(['basico', 'intermedio', 'avanzado']);
+        for (const p of c.pasos) expect(p.generar(crearRng(s)).length).toBeGreaterThanOrEqual(3);
         expect(c.generarJefe(crearRng(s))).toBeTruthy();
       }
   });
@@ -477,15 +484,20 @@ describe('contenido', () => {
       }
     }
   });
-  it('la práctica de cada nivel trae 8 ejercicios sin preguntas repetidas', () => {
-    for (const c of Object.values(CONTENIDO)) {
-      for (let s = 1; s <= 10; s++) {
-        const ejs = armarPractica(c.generarPractica, crearRng(s), REGLAS.ejerciciosPractica);
-        expect(ejs).toHaveLength(REGLAS.ejerciciosPractica);
-        const ps = ejs.flatMap((e) => (e.tipo === 'pregunta' ? [e.pregunta.id] : []));
-        expect(new Set(ps).size).toBe(ps.length);
-      }
-    }
+  it('cada paso de práctica trae sus ejercicios sin preguntas repetidas', () => {
+    for (const c of Object.values(CONTENIDO))
+      for (const paso of c.pasos)
+        for (let s = 1; s <= 10; s++) {
+          const n = paso.generar(crearRng(s)).length;
+          const ejs = armarPractica(paso.generar, crearRng(s), n);
+          expect(ejs).toHaveLength(n);
+          const ps = ejs.flatMap((e) => (e.tipo === 'pregunta' ? [e.pregunta.id] : []));
+          expect(new Set(ps).size).toBe(ps.length);
+        }
+  });
+  it('cada ejercicio de los pasos tiene un tema para las estadísticas', () => {
+    for (const c of Object.values(CONTENIDO))
+      for (const paso of c.pasos) for (const e of paso.generar(crearRng(3))) expect(temaDe(e).length).toBeGreaterThan(3);
   });
   it('cada tipo de error del motor existe en el catálogo', () => {
     const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto', 'clasificacion_tributaria'];
@@ -521,5 +533,135 @@ describe('recompensas y progreso', () => {
     expect(nivelDesbloqueado(p, ORDEN_NIVELES, 'n1')).toBe(true);
     expect(nivelDesbloqueado(p, ORDEN_NIVELES, 'n2')).toBe(false);
     expect(nivelDesbloqueado(actualizarNivel(p, 'n1', { completado: true }), ORDEN_NIVELES, 'n2')).toBe(true);
+  });
+});
+
+describe('pasos, estadísticas y premios', () => {
+  it('los pasos se abren en orden y respetan el progreso antiguo', () => {
+    let p = progresoInicial();
+    expect(pasoDesbloqueado(p, 'n1', 'conceptos')).toBe(true);
+    expect(pasoDesbloqueado(p, 'n1', 'basico')).toBe(false);
+    p = actualizarNivel(p, 'n1', { triviaAprobada: true });
+    expect(pasoCompletado(p, 'n1', 'conceptos')).toBe(true);
+    expect(pasoDesbloqueado(p, 'n1', 'basico')).toBe(true);
+    expect(pasoDesbloqueado(p, 'n1', 'intermedio')).toBe(false);
+    p = actualizarNivel(p, 'n2', { completado: true });
+    expect(pasoDesbloqueado(p, 'n2', 'jefe')).toBe(true);
+  });
+  it('registrar un paso guarda la mejor marca y el historial', () => {
+    const r1 = armarRegistro(
+      'n1',
+      'basico',
+      [
+        { tema: 'Debe y Haber', primerIntento: false, fallos: 2, errores: ['lado_invertido', 'lado_invertido'] },
+        { tema: 'Clasificar cuentas', primerIntento: true, fallos: 0, errores: [] },
+      ],
+      95,
+    );
+    let p = registrarPaso(progresoInicial(), r1, estrellasPorPrecision(50), true);
+    expect(p.niveles.n1.pasos?.basico).toEqual({ completado: true, estrellas: 1, mejorPrecision: 50, veces: 1 });
+    const r2 = { ...r1, aciertosPrimera: 2, fallos: 0, fecha: '2026-11-14T10:00:00.000Z' };
+    p = registrarPaso(p, r2, 3, true);
+    expect(p.niveles.n1.pasos?.basico.estrellas).toBe(3);
+    expect(p.niveles.n1.pasos?.basico.veces).toBe(2);
+    expect(p.historial).toHaveLength(2);
+    expect(pasoDesbloqueado(p, 'n1', 'intermedio')).toBe(true);
+    expect(pasoDesbloqueado(p, 'n1', 'avanzado')).toBe(false);
+  });
+  it('el diagnóstico separa fortalezas y debilidades', () => {
+    const r = armarRegistro(
+      'n1',
+      'basico',
+      [
+        { tema: 'Debe y Haber', primerIntento: false, fallos: 1, errores: ['lado_invertido'] },
+        { tema: 'Debe y Haber', primerIntento: true, fallos: 0, errores: [] },
+        { tema: 'Clasificar cuentas', primerIntento: true, fallos: 0, errores: [] },
+      ],
+      60,
+    );
+    const d = diagnosticar(r);
+    expect(d.fortalezas).toEqual(['Clasificar cuentas']);
+    expect(d.debilidades).toEqual(['Debe y Haber']);
+    expect(d.erroresFrecuentes[0]).toEqual({ tipo: 'lado_invertido', veces: 1 });
+  });
+  it('la tendencia detecta si se cometen menos errores', () => {
+    const r = (fallos: number) => armarRegistro('n1', 'basico', [{ tema: 'x', primerIntento: fallos === 0, fallos, errores: [] }], 10);
+    expect(tendencia([r(3), r(3)]).veredicto).toBe('sin_datos');
+    expect(tendencia([r(3), r(2), r(0), r(0)]).veredicto).toBe('mejorando');
+    expect(tendencia([r(0), r(0), r(2), r(3)]).veredicto).toBe('empeorando');
+    expect(tendencia([r(1), r(1), r(1), r(1)]).veredicto).toBe('igual');
+  });
+  it('la fuente corta agrupa preguntas por norma', () => {
+    expect(fuenteCorta('DL 825, art. 23')).toBe('DL 825');
+    expect(fuenteCorta('NIC 1, párrafo 66')).toBe('NIC 1');
+    expect(fuenteCorta('LIR, art. 31 N°1')).toBe('LIR');
+  });
+  it('el tiempo se suma por día', () => {
+    let p = sumarTiempo(progresoInicial(), 15, '2026-11-13');
+    p = sumarTiempo(p, 30, '2026-11-13');
+    p = sumarTiempo(p, 15, '2026-11-14');
+    expect(p.tiempo).toEqual({ total: 60, porDia: { '2026-11-13': 45, '2026-11-14': 15 } });
+  });
+  it('las chispas son generosas y las estrellas dependen de la precisión', () => {
+    expect(chispasPorAcierto(1, true)).toBe(25);
+    expect(chispasPorAcierto(1, false)).toBe(15);
+    expect(chispasPorAcierto(3, true)).toBe(30);
+    expect(estrellasPorPrecision(100)).toBe(3);
+    expect(estrellasPorPrecision(75)).toBe(2);
+    expect(estrellasPorPrecision(40)).toBe(1);
+    expect(chispasPorPaso(3)).toBe(150);
+    const p = registrarActividad(progresoInicial(), '2026-11-13', 40);
+    expect(p.chispas).toBe(40);
+    expect(registrarActividad(p, '2026-11-13', 40).chispas).toBe(40);
+  });
+  it('el camino de premios sube de la papita a las estrellas', () => {
+    expect(PREMIOS[0].id).toBe('papita');
+    expect(PREMIOS[1].id).toBe('topo');
+    expect(PREMIOS.map((p) => p.id)).toEqual(expect.arrayContaining(['sol', 'unicornio', 'estrella']));
+    for (let i = 1; i < PREMIOS.length; i++) expect(PREMIOS[i].umbral).toBeGreaterThan(PREMIOS[i - 1].umbral);
+    expect(premiosDesbloqueados(0)).toBe(1);
+    expect(premioActual(59).id).toBe('papita');
+    expect(premioActual(60).id).toBe('topo');
+    expect(siguientePremio(60)?.id).toBe('lombriz');
+    expect(siguientePremio(1e9)).toBeNull();
+  });
+  it('migrar completa los campos nuevos de un progreso antiguo', () => {
+    const p = migrar({ version: 1, xp: 120, niveles: { n1: { triviaAprobada: true, completado: false } } });
+    expect(p.chispas).toBe(0);
+    expect(p.historial).toEqual([]);
+    expect(p.tiempo).toEqual({ total: 0, porDia: {} });
+    expect(p.preferencias).toEqual({ leerAuto: false, velocidadVoz: 1 });
+    expect(pasoCompletado(p, 'n1', 'conceptos')).toBe(true);
+  });
+});
+
+describe('voz y calculadora', () => {
+  it('entiende números dichos en voz alta', () => {
+    expect(numeroDesdeTexto('un millón doscientos cincuenta mil')).toBe(1_250_000);
+    expect(numeroDesdeTexto('doscientos treinta y ocho mil')).toBe(238_000);
+    expect(numeroDesdeTexto('1.250.000')).toBe(1_250_000);
+    expect(numeroDesdeTexto('$1.250.000 pesos')).toBe(1_250_000);
+    expect(numeroDesdeTexto('12 mil')).toBe(12_000);
+    expect(numeroDesdeTexto('1,5 millones')).toBe(1_500_000);
+    expect(numeroDesdeTexto('dos millones')).toBe(2_000_000);
+    expect(numeroDesdeTexto('mil quinientos')).toBe(1500);
+    expect(numeroDesdeTexto('cero coma setenta y cinco')).toBeCloseTo(0.75);
+    expect(numeroDesdeTexto('uno coma cinco')).toBeCloseTo(1.5);
+    expect(numeroDesdeTexto('cero coma cero cinco')).toBeCloseTo(0.05);
+    expect(numeroDesdeTexto('0,8')).toBeCloseTo(0.8);
+    expect(numeroDesdeTexto('menos trescientos mil')).toBe(-300_000);
+    expect(numeroDesdeTexto('1 250 000')).toBe(1_250_000);
+    expect(numeroDesdeTexto('comprobar')).toBeNull();
+  });
+  it('la calculadora entiende coma decimal, ×, ÷, % y miles con punto', () => {
+    expect(calcular('100.000×1,19')).toBeCloseTo(119_000);
+    expect(calcular('1.190.000÷1,19')).toBeCloseTo(1_000_000);
+    expect(calcular('(2+3)×4')).toBe(20);
+    expect(calcular('50%×200')).toBe(100);
+    expect(calcular('10−4')).toBe(6);
+    expect(calcular('3×')).toBeNull();
+    expect(textoNumero(1234567.5)).toBe('1.234.567,5');
+    expect(textoNumero(-2000)).toBe('-2.000');
+    expect(textoNumero(0.333333)).toBe('0,3333');
   });
 });

@@ -23,5 +23,8 @@ export const LOGROS: Logro[] = [
   { id: 'jefe_perfecto', emoji: '🎯', titulo: 'Cuadré a la primera', descripcion: 'Vence a un jefe en el primer intento.', cumple: (p) => Object.values(p.niveles).some((n) => n.jefePerfecto) },
   { id: 'sin_pistas', emoji: '🧠', titulo: 'Sin ayuda', descripcion: 'Completa un nivel sin usar pistas.', cumple: (p) => Object.values(p.niveles).some((n) => n.sinPistas) },
   { id: 'repaso_5', emoji: '📚', titulo: 'Aprender del error', descripcion: 'Resuelve 5 preguntas en el mazo de Repaso.', cumple: (p) => p.repasoResueltas >= 5 },
+  { id: 'tres_estrellas', emoji: '🌟', titulo: 'Perfeccionista', descripcion: 'Consigue 3 estrellas en un paso.', cumple: (p) => Object.values(p.niveles).some((n) => Object.values(n.pasos ?? {}).some((x) => x.estrellas === 3)) },
+  { id: 'refuerzo', emoji: '🎯', titulo: 'Entrenamiento extra', descripcion: 'Practica tus debilidades al terminar un paso.', cumple: (p) => p.historial.some((r) => r.paso === 'refuerzo') },
+  { id: 'una_hora', emoji: '⏳', titulo: 'Una hora de estudio', descripcion: 'Juega una hora en total.', cumple: (p) => p.tiempo.total >= 3600 },
   { id: 'xp_500', emoji: '⭐', titulo: 'Contador en formación', descripcion: 'Junta 500 XP.', cumple: (p) => p.xp >= 500 },
 ];

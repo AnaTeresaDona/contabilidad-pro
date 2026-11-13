@@ -1,14 +1,18 @@
 import { createContext, useContext, useRef, useState, type ReactNode } from 'react';
 import { useProgreso } from './Progreso';
-import { cambiarHp, fechaISO, registrarActividad, sumarXp } from '../engine/progreso';
-import { danioPorErrores, REGLAS, xpPorAcierto } from '../engine/recompensas';
+import { cambiarHp, fechaISO, registrarActividad, sumarChispas, sumarXp } from '../engine/progreso';
+import { chispasPorAcierto, danioPorErrores, REGLAS, xpPorAcierto } from '../engine/recompensas';
 
 /** Estado de una partida (un nivel o una sesión de repaso): combo, XP ganado, pistas usadas. */
 interface ValorSesion {
   combo: number;
   xpSesion: number;
+  chispasSesion: number;
   usoPistas: boolean;
-  registrarAcierto: (conAyuda: boolean, xpBase?: number) => number;
+  /** Devuelve el XP y las chispas ganadas. */
+  registrarAcierto: (conAyuda: boolean, xpBase?: number) => { xp: number; chispas: number };
+  /** Bonos de chispas (paso terminado, estrellas, nivel). */
+  ganarChispas: (n: number) => void;
   /** Devuelve cuánta caja se perdió (0 si la sesión no daña). */
   registrarFallo: (tiposError: string[]) => number;
   etiquetaDanio: string;
@@ -33,11 +37,13 @@ export function ProveedorSesion({
   const comboRef = useRef(0);
   const [combo, setCombo] = useState(0);
   const [xpSesion, setXpSesion] = useState(0);
+  const [chispasSesion, setChispasSesion] = useState(0);
   const [usoPistas, setUsoPistas] = useState(false);
 
   const valor: ValorSesion = {
     combo,
     xpSesion,
+    chispasSesion,
     usoPistas,
     etiquetaDanio,
     registrarAcierto(conAyuda, xpBase) {
@@ -45,9 +51,18 @@ export function ProveedorSesion({
       comboRef.current = c;
       setCombo(c);
       const xp = xpBase !== undefined ? (conAyuda ? xpBase / 2 : xpBase) : xpPorAcierto(c, conAyuda);
-      actualizar((p) => ({ ...registrarActividad(sumarXp(p, xp), fechaISO()), mejorCombo: Math.max(p.mejorCombo, c) }));
+      const chispas = chispasPorAcierto(c, !conAyuda) * (xpBase !== undefined ? 3 : 1);
+      actualizar((p) => ({
+        ...registrarActividad(sumarChispas(sumarXp(p, xp), chispas), fechaISO(), REGLAS.chispasDia),
+        mejorCombo: Math.max(p.mejorCombo, c),
+      }));
       setXpSesion((x) => x + xp);
-      return xp;
+      setChispasSesion((x) => x + chispas);
+      return { xp, chispas };
+    },
+    ganarChispas(n) {
+      actualizar((p) => sumarChispas(p, n));
+      setChispasSesion((x) => x + n);
     },
     registrarFallo(tipos) {
       comboRef.current = 0;

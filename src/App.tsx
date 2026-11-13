@@ -8,6 +8,11 @@ import { MiEmpresa } from './pantallas/MiEmpresa';
 import { Repaso } from './pantallas/Repaso';
 import { Logros } from './pantallas/Logros';
 import { Ajustes } from './pantallas/Ajustes';
+import { Premios } from './pantallas/Premios';
+import { Estadisticas } from './pantallas/Estadisticas';
+import { seguirCampos } from './lib/campos';
+
+seguirCampos();
 
 export type Ruta =
   | { pantalla: 'mapa' }
@@ -15,13 +20,17 @@ export type Ruta =
   | { pantalla: 'empresa' }
   | { pantalla: 'repaso' }
   | { pantalla: 'logros' }
-  | { pantalla: 'ajustes' };
+  | { pantalla: 'ajustes' }
+  | { pantalla: 'premios' }
+  | { pantalla: 'estadisticas' };
 
 const TITULOS: Record<Exclude<Ruta['pantalla'], 'nivel' | 'mapa'>, string> = {
   empresa: 'Mi empresa',
   repaso: 'Repaso',
   logros: 'Logros',
   ajustes: 'Ajustes',
+  premios: 'Camino al cielo',
+  estadisticas: 'Mis estadísticas',
 };
 
 export default function App() {
@@ -37,17 +46,25 @@ export default function App() {
 
   return (
     <div className="min-h-dvh">
-      <Encabezado titulo={titulo} onVolver={ruta.pantalla === 'mapa' ? undefined : volver} />
+      <Encabezado titulo={titulo} onVolver={ruta.pantalla === 'mapa' ? undefined : volver} onPremios={() => setRuta({ pantalla: 'premios' })} />
       <AvisosLogros />
       <main className="mx-auto max-w-3xl px-4 py-5">
         {ruta.pantalla === 'mapa' && <Mapa ir={setRuta} />}
         {ruta.pantalla === 'nivel' && (
-          <PantallaNivel key={ruta.id} id={ruta.id} onSalir={volver} onVerEmpresa={() => setRuta({ pantalla: 'empresa' })} />
+          <PantallaNivel
+            key={ruta.id}
+            id={ruta.id}
+            onSalir={volver}
+            onVerEmpresa={() => setRuta({ pantalla: 'empresa' })}
+            onVerPremios={() => setRuta({ pantalla: 'premios' })}
+          />
         )}
         {ruta.pantalla === 'empresa' && <MiEmpresa />}
         {ruta.pantalla === 'repaso' && <Repaso onSalir={volver} />}
         {ruta.pantalla === 'logros' && <Logros />}
         {ruta.pantalla === 'ajustes' && <Ajustes />}
+        {ruta.pantalla === 'premios' && <Premios />}
+        {ruta.pantalla === 'estadisticas' && <Estadisticas />}
       </main>
     </div>
   );

@@ -3,10 +3,10 @@ import preguntas from './preguntas.json';
 import situaciones from './situaciones.json';
 import plantillasJson from './plantillas.json';
 import type { Plantilla } from '../../engine/plantillas';
-import { elegirVarios, type Rng } from '../../engine/azar';
+import { elegir, elegirVarios, type Rng } from '../../engine/azar';
 import { ejCompletar, type Ejercicio, type Pregunta } from '../../engine/ejercicios';
 import { calculoDepreciacion, calculoReexpresion, generarAjustesCierre } from '../../engine/ajustes';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 import { nivel3 } from '../nivel3';
 
 const ajustes = plantillasJson as unknown as Plantilla[];
@@ -15,17 +15,38 @@ const ajustesDelMes = ajustes.filter((p) => p.id !== 'ajuste_depreciacion_anual'
 const delMes = nivel3.plantillas;
 const banco = situaciones as Pregunta[];
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const [a, b] = elegirVarios(rng, ajustes, 2);
-  const [p] = elegirVarios(rng, banco, 1);
-  return [
-    { tipo: 'calculo', datos: calculoDepreciacion(rng) },
-    ejCompletar(rng, a),
-    { tipo: 'pregunta', pregunta: p },
-    ejCompletar(rng, b),
-    { tipo: 'calculo', datos: calculoReexpresion(rng, delMes) },
-  ];
-}
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Depreciación y preguntas de NIIF para las PYMES.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [p1, p2] = elegirVarios(rng, banco, 2);
+      return [
+        { tipo: 'pregunta', pregunta: p1 },
+        { tipo: 'calculo', datos: calculoDepreciacion(rng) },
+        { tipo: 'pregunta', pregunta: p2 },
+        { tipo: 'calculo', datos: calculoDepreciacion(rng) },
+      ];
+    },
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Asientos de ajuste y su efecto en los estados.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b, c] = elegirVarios(rng, ajustes, 3);
+      return [ejCompletar(rng, a), ejCompletar(rng, b), { tipo: 'calculo', datos: calculoReexpresion(rng, delMes) }, ejCompletar(rng, c)];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Cierres con dos ajustes a la vez.',
+    generar: (rng: Rng): Ejercicio[] => [
+      { tipo: 'ajustesCierre', datos: generarAjustesCierre(rng, delMes, ajustesDelMes, 2) },
+      { tipo: 'calculo', datos: calculoReexpresion(rng, delMes) },
+      ejCompletar(rng, elegir(rng, ajustes), 12),
+    ],
+  },
+];
 
 export const nivel4a: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -37,7 +58,7 @@ export const nivel4a: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas: ajustes,
-  generarPractica,
+  pasos,
   // El jefe ajusta el cierre de un mes: se excluye la depreciación anual para no mezclar períodos.
   generarJefe: (rng) => ({ tipo: 'ajustesCierre', datos: generarAjustesCierre(rng, delMes, ajustesDelMes, 3) }),
   jefe: {

@@ -4,6 +4,8 @@ export const CLAVE_GUARDADO = 'contabilidad-pro';
 export const VERSION = 1;
 export const HP_MAX = 100;
 export const MAX_LIBRO = 300;
+export const MAX_HISTORIAL = 400;
+export const DIAS_TIEMPO = 120;
 
 export interface EstadoNivel {
   triviaAprobada: boolean;
@@ -12,6 +14,41 @@ export interface EstadoNivel {
   sinPistas?: boolean;
   /** El jugador abrió los apuntes del nivel. */
   apuntesVistos?: boolean;
+  /** Resultado de cada paso del nivel (conceptos, basico, intermedio, avanzado, jefe). */
+  pasos?: Record<string, ResumenPaso>;
+}
+
+export interface ResumenPaso {
+  completado: boolean;
+  /** 1 a 3, la mejor obtenida. */
+  estrellas: number;
+  /** Mejor porcentaje de aciertos al primer intento (0 a 100). */
+  mejorPrecision: number;
+  veces: number;
+}
+
+/** Lo que se guarda cada vez que se termina un paso: sirve para las estadísticas. */
+export interface RegistroPaso {
+  /** Fecha y hora ISO. */
+  fecha: string;
+  nivel: string;
+  paso: string;
+  ejercicios: number;
+  aciertosPrimera: number;
+  /** Intentos fallidos en total. */
+  fallos: number;
+  segundos: number;
+  /** Tipos de error y cuántas veces aparecieron. */
+  errores: Record<string, number>;
+  /** Por tema: cuántos ejercicios hubo y cuántos salieron bien al primer intento. */
+  temas: Record<string, { ok: number; total: number }>;
+}
+
+export interface Preferencias {
+  /** Leer en voz alta cada ejercicio al aparecer. */
+  leerAuto: boolean;
+  /** Velocidad de la voz (0,7 a 1,4). */
+  velocidadVoz: number;
 }
 
 export interface Progreso {
@@ -29,6 +66,14 @@ export interface Progreso {
   /** Libro diario de la empresa del jugador: crece con cada asiento correcto. */
   libro: Asiento[];
   empresa: { nombre: string };
+  /** Chispas de saber: lo que has aprendido. Nunca se pierden y suben el camino de premios. */
+  chispas: number;
+  /** Cuántos premios del camino ya se anunciaron. */
+  premiosVistos: number;
+  historial: RegistroPaso[];
+  /** Segundos jugados: total y por día (AAAA-MM-DD). */
+  tiempo: { total: number; porDia: Record<string, number> };
+  preferencias: Preferencias;
 }
 
 export function progresoInicial(): Progreso {
@@ -45,6 +90,11 @@ export function progresoInicial(): Progreso {
     logros: [],
     libro: [],
     empresa: { nombre: 'Empanadas La Tía SpA' },
+    chispas: 0,
+    premiosVistos: 1,
+    historial: [],
+    tiempo: { total: 0, porDia: {} },
+    preferencias: { leerAuto: false, velocidadVoz: 1 },
   };
 }
 
@@ -68,6 +118,17 @@ export function migrar(datos: unknown): Progreso {
     logros: Array.isArray(d.logros) ? d.logros.filter((x) => typeof x === 'string') : [],
     libro: Array.isArray(d.libro) ? d.libro.slice(-MAX_LIBRO) : [],
     empresa: d.empresa && typeof d.empresa.nombre === 'string' ? d.empresa : base.empresa,
+    chispas: Math.max(0, num(d.chispas, 0)),
+    premiosVistos: Math.max(1, num(d.premiosVistos, 1)),
+    historial: Array.isArray(d.historial) ? d.historial.filter((r) => r && typeof r === 'object').slice(-MAX_HISTORIAL) : [],
+    tiempo: {
+      total: Math.max(0, num(d.tiempo?.total, 0)),
+      porDia: d.tiempo?.porDia && typeof d.tiempo.porDia === 'object' ? d.tiempo.porDia : {},
+    },
+    preferencias: {
+      leerAuto: typeof d.preferencias?.leerAuto === 'boolean' ? d.preferencias.leerAuto : false,
+      velocidadVoz: Math.min(1.4, Math.max(0.7, num(d.preferencias?.velocidadVoz, 1))),
+    },
     version: VERSION,
   };
 }
@@ -101,10 +162,38 @@ function diaAnterior(iso: string): string {
   return fechaISO(d);
 }
 
-export function registrarActividad(p: Progreso, hoy: string): Progreso {
+/** Primer acierto del día: sube la racha y regala chispas de bienvenida. */
+export function registrarActividad(p: Progreso, hoy: string, chispasDelDia = 0): Progreso {
   if (p.ultimoDia === hoy) return p;
   const racha = p.ultimoDia === diaAnterior(hoy) ? p.racha + 1 : 1;
-  return { ...p, racha, ultimoDia: hoy };
+  return { ...p, racha, ultimoDia: hoy, chispas: p.chispas + chispasDelDia };
+}
+
+export function sumarChispas(p: Progreso, n: number): Progreso {
+  return n > 0 ? { ...p, chispas: p.chispas + Math.round(n) } : p;
+}
+
+export function sumarTiempo(p: Progreso, segundos: number, hoy: string): Progreso {
+  if (segundos <= 0) return p;
+  const porDia = { ...p.tiempo.porDia, [hoy]: (p.tiempo.porDia[hoy] ?? 0) + segundos };
+  // Solo se guardan los últimos días para que el respaldo no crezca sin límite.
+  const dias = Object.keys(porDia).sort();
+  for (const d of dias.slice(0, Math.max(0, dias.length - DIAS_TIEMPO))) delete porDia[d];
+  return { ...p, tiempo: { total: p.tiempo.total + segundos, porDia } };
+}
+
+export function registrarPaso(p: Progreso, r: RegistroPaso, estrellas: number, completado: boolean): Progreso {
+  const est = estadoNivel(p, r.nivel);
+  const previo = est.pasos?.[r.paso];
+  const precision = r.ejercicios ? Math.round((r.aciertosPrimera / r.ejercicios) * 100) : 0;
+  const resumen: ResumenPaso = {
+    completado: !!previo?.completado || completado,
+    estrellas: Math.max(previo?.estrellas ?? 0, completado ? estrellas : 0),
+    mejorPrecision: Math.max(previo?.mejorPrecision ?? 0, precision),
+    veces: (previo?.veces ?? 0) + 1,
+  };
+  const q = actualizarNivel(p, r.nivel, { pasos: { ...est.pasos, [r.paso]: resumen } });
+  return { ...q, historial: [...q.historial, r].slice(-MAX_HISTORIAL) };
 }
 
 export function sumarXp(p: Progreso, n: number): Progreso {
@@ -140,4 +229,21 @@ export function nivelDesbloqueado(p: Progreso, orden: string[], id: string): boo
   const i = orden.indexOf(id);
   if (i <= 0) return i === 0;
   return estadoNivel(p, orden[i - 1]).completado;
+}
+
+/** Pasos de cada nivel, de menor a mayor dificultad. */
+export const PASOS_NIVEL = ['conceptos', 'basico', 'intermedio', 'avanzado', 'jefe'] as const;
+export type IdPaso = (typeof PASOS_NIVEL)[number];
+
+/** Considera el progreso guardado antes de que existieran los pasos. */
+export function pasoCompletado(p: Progreso, nivel: string, paso: string): boolean {
+  const e = estadoNivel(p, nivel);
+  if (e.pasos?.[paso]?.completado) return true;
+  if (e.completado) return true;
+  return paso === 'conceptos' && e.triviaAprobada;
+}
+
+export function pasoDesbloqueado(p: Progreso, nivel: string, paso: string): boolean {
+  const i = PASOS_NIVEL.indexOf(paso as IdPaso);
+  return i <= 0 || pasoCompletado(p, nivel, PASOS_NIVEL[i - 1]);
 }

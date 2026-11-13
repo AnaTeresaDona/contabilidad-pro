@@ -7,23 +7,44 @@ import type { Plantilla } from '../../engine/plantillas';
 import { elegirVarios, type Rng } from '../../engine/azar';
 import { ejCompletar, type Ejercicio, type Pregunta } from '../../engine/ejercicios';
 import { calculoF22, calculoRLI, elegirPartidas, generarOperacionRenta, type PartidaBanco } from '../../engine/tributario';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 
 const plantillas = plantillasJson as unknown as Plantilla[];
 const banco = situaciones as Pregunta[];
 export const PARTIDAS = partidasJson as PartidaBanco[];
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const [a, b] = elegirVarios(rng, plantillas, 2);
-  const [p] = elegirVarios(rng, banco, 1);
-  return [
-    { tipo: 'clasificarPartidas', partidas: elegirPartidas(rng, PARTIDAS, 2, 2, 1) },
-    { tipo: 'calculo', datos: calculoRLI(rng, PARTIDAS) },
-    ejCompletar(rng, a),
-    { tipo: 'pregunta', pregunta: p },
-    rng() < 0.5 ? { tipo: 'calculo', datos: calculoF22(rng) } : ejCompletar(rng, b),
-  ];
-}
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Agregados, deducciones y preguntas tributarias.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [p1, p2] = elegirVarios(rng, banco, 2);
+      return [
+        { tipo: 'clasificarPartidas', partidas: elegirPartidas(rng, PARTIDAS, 2, 2, 1) },
+        { tipo: 'pregunta', pregunta: p1 },
+        { tipo: 'clasificarPartidas', partidas: elegirPartidas(rng, PARTIDAS, 2, 1, 2) },
+        { tipo: 'pregunta', pregunta: p2 },
+      ];
+    },
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Calcular la RLI y el F22, y asientos tributarios.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [a, b] = elegirVarios(rng, plantillas, 2);
+      return [{ tipo: 'calculo', datos: calculoRLI(rng, PARTIDAS) }, ejCompletar(rng, a), { tipo: 'calculo', datos: calculoF22(rng) }, ejCompletar(rng, b)];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Una Operación Renta más corta que la del jefe.',
+    generar: (rng: Rng): Ejercicio[] => [
+      { tipo: 'calculo', datos: calculoRLI(rng, PARTIDAS) },
+      { tipo: 'operacionRenta', datos: generarOperacionRenta(rng, PARTIDAS, { agregados: 2, deducciones: 1, sinAjuste: 1 }) },
+      { tipo: 'calculo', datos: calculoF22(rng) },
+    ],
+  },
+];
 
 export const nivel5: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -35,7 +56,7 @@ export const nivel5: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas,
-  generarPractica,
+  pasos,
   generarJefe: (rng) => ({ tipo: 'operacionRenta', datos: generarOperacionRenta(rng, PARTIDAS, { agregados: 3, deducciones: 2, sinAjuste: 1 }) }),
   jefe: {
     nombre: 'Sra. Carmen, fiscalizadora del SII',

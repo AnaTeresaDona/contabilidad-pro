@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useProgreso } from '../estado/Progreso';
 import { migrar, progresoInicial } from '../engine/progreso';
 import trib from '../config/tributario.json';
 import { Boton, Tarjeta } from '../componentes/ui';
+import { hablar, lecturaDisponible, reconocimientoDisponible } from '../lib/voz';
 
 export function Ajustes() {
   const { progreso, actualizar, reemplazar } = useProgreso();
@@ -59,6 +60,9 @@ export function Ajustes() {
         </label>
       </Tarjeta>
 
+      <AjustesVoz />
+      <Instalar />
+
       <Tarjeta className="space-y-3">
         <div>
           <p className="font-extrabold">Tu progreso</p>
@@ -109,5 +113,103 @@ export function Ajustes() {
         </p>
       </Tarjeta>
     </div>
+  );
+}
+
+function AjustesVoz() {
+  const { progreso, actualizar } = useProgreso();
+  const pref = progreso.preferencias;
+  const cambiar = (c: Partial<typeof pref>) => actualizar((p) => ({ ...p, preferencias: { ...p.preferencias, ...c } }));
+  const leer = lecturaDisponible();
+  const oir = reconocimientoDisponible();
+  return (
+    <Tarjeta className="space-y-3">
+      <div>
+        <p className="font-extrabold">🔊 Voz</p>
+        <p className="text-sm text-slate-500">
+          En cada ejercicio tienes «🔊 Escuchar» y «🎤 Responder hablando». Puedes decir la alternativa («la segunda», o parte de su texto), un número
+          («un millón doscientos mil»), «Caja al Debe», o comandos como «comprobar», «continuar» y «pista».
+        </p>
+      </div>
+      {leer ? (
+        <>
+          <label className="flex items-center justify-between gap-3">
+            <span className="text-sm font-bold">Leer cada ejercicio automáticamente</span>
+            <input type="checkbox" className="h-6 w-6 accent-emerald-500" checked={pref.leerAuto} onChange={(e) => cambiar({ leerAuto: e.target.checked })} />
+          </label>
+          <label className="block">
+            <span className="flex justify-between text-sm font-bold">
+              <span>Velocidad de la voz</span>
+              <span>{pref.velocidadVoz.toFixed(1).replace('.', ',')}×</span>
+            </span>
+            <input
+              type="range"
+              min={0.7}
+              max={1.4}
+              step={0.1}
+              value={pref.velocidadVoz}
+              onChange={(e) => cambiar({ velocidadVoz: Number(e.target.value) })}
+              className="w-full accent-emerald-500"
+            />
+          </label>
+          <Boton variante="secundario" className="w-full" onClick={() => hablar('Hola. Soy la Tía Rosa. El IVA es el diecinueve por ciento del neto.', pref.velocidadVoz)}>
+            Probar la voz
+          </Boton>
+        </>
+      ) : (
+        <p className="text-sm font-bold text-amber-700">Este navegador no puede leer en voz alta.</p>
+      )}
+      {!oir && (
+        <p className="text-sm font-bold text-amber-700">
+          Este navegador no permite responder hablando. En el celular funciona con Chrome (Android) o Safari (iPhone, con Siri activado).
+        </p>
+      )}
+    </Tarjeta>
+  );
+}
+
+interface EventoInstalar extends Event {
+  prompt: () => Promise<void>;
+}
+
+function Instalar() {
+  const [evento, setEvento] = useState<EventoInstalar | null>(null);
+  const instalada = typeof window !== 'undefined' && window.matchMedia?.('(display-mode: standalone)').matches;
+  const iphone = typeof navigator !== 'undefined' && /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+  useEffect(() => {
+    const f = (e: Event) => {
+      e.preventDefault();
+      setEvento(e as EventoInstalar);
+    };
+    window.addEventListener('beforeinstallprompt', f);
+    return () => window.removeEventListener('beforeinstallprompt', f);
+  }, []);
+
+  return (
+    <Tarjeta className="space-y-2">
+      <div className="flex items-center gap-3">
+        <img src="/icono.svg" alt="" className="h-12 w-12" />
+        <div>
+          <p className="font-extrabold">📲 El juego en tu celular</p>
+          <p className="text-sm text-slate-500">Agrégalo a tu pantalla de inicio: se abre como una app, con su ícono de empanada.</p>
+        </div>
+      </div>
+      {instalada ? (
+        <p className="text-sm font-bold text-emerald-700">✓ Ya lo estás usando como app.</p>
+      ) : evento ? (
+        <Boton className="w-full" onClick={() => evento.prompt().then(() => setEvento(null))}>
+          Instalar Contabilidad Pro
+        </Boton>
+      ) : iphone ? (
+        <p className="text-sm">
+          En Safari, toca <b>Compartir</b> (el cuadrado con la flecha) y luego <b>«Agregar a inicio»</b>.
+        </p>
+      ) : (
+        <p className="text-sm">
+          En Chrome, abre el menú <b>⋮</b> y elige <b>«Agregar a la pantalla principal»</b> o <b>«Instalar app»</b>.
+        </p>
+      )}
+    </Tarjeta>
   );
 }

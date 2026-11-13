@@ -13,24 +13,36 @@ import {
   type Ejercicio,
   type Pregunta,
 } from '../../engine/ejercicios';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 import { nivel1 } from '../nivel1';
 
 const propias = plantillasJson as unknown as Plantilla[];
 /** Para armar un mes completo se mezclan las operaciones del Nivel 1 con los documentos del Nivel 2. */
 const todas = [...nivel1.plantillas, ...propias];
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const conDocumento = elegir(rng, propias.filter((p) => p.documento));
-  const otra = elegir(rng, propias.filter((p) => p !== conDocumento));
-  return [
-    ejPregunta(rng, situaciones as Pregunta[]),
-    ejCompletar(rng, conDocumento),
-    ejMayorizar(rng, todas),
-    ejColumna8(rng),
-    ejCompletar(rng, otra),
-  ];
-}
+const banco = situaciones as Pregunta[];
+
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Qué documento emitir y a qué columna del balance va cada cuenta.',
+    generar: (rng: Rng): Ejercicio[] => [ejPregunta(rng, banco), ejColumna8(rng), ejPregunta(rng, banco), ejColumna8(rng, 6)],
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Asientos con facturas y boletas, y mayorizar.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const conDocumento = elegir(rng, propias.filter((p) => p.documento));
+      const otra = elegir(rng, propias.filter((p) => p !== conDocumento));
+      return [ejCompletar(rng, conDocumento), ejMayorizar(rng, todas), ejCompletar(rng, otra), ejMayorizar(rng, todas)];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Un Balance de 8 columnas más corto que el del jefe.',
+    generar: (rng: Rng): Ejercicio[] => [ejCompletar(rng, elegir(rng, propias), 12), ejMayorizar(rng, todas), ejBalance8(rng, todas, 2)],
+  },
+];
 
 export const nivel2: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -42,7 +54,7 @@ export const nivel2: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas: todas,
-  generarPractica,
+  pasos,
   generarJefe: (rng) => ejBalance8(rng, todas, 4),
   jefe: {
     nombre: 'Sra. Marta, ejecutiva del banco',

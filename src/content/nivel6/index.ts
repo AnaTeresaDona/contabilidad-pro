@@ -13,7 +13,7 @@ import {
   calculoVerticalHorizontal,
   generarCrisis,
 } from '../../engine/analisis';
-import type { Apunte, ContenidoNivel } from '../tipos';
+import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 
 const banco = situaciones as Pregunta[];
 const bancoRazones = razones as EjercicioClasificar['items'];
@@ -37,18 +37,43 @@ export function familiasDeRazones(rng: Rng): EjercicioClasificar {
   };
 }
 
-function generarPractica(rng: Rng): Ejercicio[] {
-  const [p] = elegirVarios(rng, banco, 1);
-  const [c1, c2] = elegirVarios(rng, [calculoLiquidez, calculoEndeudamiento, calculoRentabilidad, calculoActividad], 2);
-  const final = elegir(rng, [calculoVerticalHorizontal, calculoFlujoOperacional]);
-  return [
-    { tipo: 'clasificarOpciones', datos: familiasDeRazones(rng) },
-    { tipo: 'calculo', datos: c1(rng) },
-    { tipo: 'pregunta', pregunta: p },
-    { tipo: 'calculo', datos: c2(rng) },
-    { tipo: 'calculo', datos: final(rng) },
-  ];
-}
+const pasos: PasoPractica[] = [
+  {
+    id: 'basico',
+    descripcion: 'Familias de razones, liquidez e interpretación.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [p1, p2] = elegirVarios(rng, banco, 2);
+      return [
+        { tipo: 'clasificarOpciones', datos: familiasDeRazones(rng) },
+        { tipo: 'pregunta', pregunta: p1 },
+        { tipo: 'calculo', datos: calculoLiquidez(rng) },
+        { tipo: 'pregunta', pregunta: p2 },
+      ];
+    },
+  },
+  {
+    id: 'intermedio',
+    descripcion: 'Endeudamiento, rentabilidad y actividad.',
+    generar: (rng: Rng): Ejercicio[] => {
+      const [p] = elegirVarios(rng, banco, 1);
+      return [
+        { tipo: 'calculo', datos: calculoEndeudamiento(rng) },
+        { tipo: 'calculo', datos: calculoRentabilidad(rng) },
+        { tipo: 'calculo', datos: calculoActividad(rng) },
+        { tipo: 'pregunta', pregunta: p },
+      ];
+    },
+  },
+  {
+    id: 'avanzado',
+    descripcion: 'Análisis vertical y horizontal, y flujo de efectivo.',
+    generar: (rng: Rng): Ejercicio[] => [
+      { tipo: 'calculo', datos: calculoVerticalHorizontal(rng) },
+      { tipo: 'calculo', datos: calculoFlujoOperacional(rng) },
+      { tipo: 'calculo', datos: elegir(rng, [calculoLiquidez, calculoEndeudamiento, calculoRentabilidad, calculoActividad])(rng) },
+    ],
+  },
+];
 
 export const nivel6: ContenidoNivel = {
   apuntes: apuntesJson as Apunte[],
@@ -60,7 +85,7 @@ export const nivel6: ContenidoNivel = {
   },
   preguntas: preguntas as Pregunta[],
   plantillas: [],
-  generarPractica,
+  pasos,
   generarJefe: (rng) => ({ tipo: 'crisis', datos: generarCrisis(rng) }),
   jefe: {
     nombre: 'El directorio',
