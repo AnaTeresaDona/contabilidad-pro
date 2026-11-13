@@ -74,6 +74,43 @@ export interface Progreso {
   /** Segundos jugados: total y por día (AAAA-MM-DD). */
   tiempo: { total: number; porDia: Record<string, number> };
   preferencias: Preferencias;
+  /**
+   * Paso en curso de cada nivel (ejercicios, avance y fallos del ejercicio actual).
+   * Si la app se cierra, al volver se retoma exactamente el mismo problema: así no se puede
+   * salir para cambiar un ejercicio difícil o borrar un error.
+   */
+  partidas: Record<string, PartidaGuardada>;
+}
+
+/** Lo que se guarda del ejercicio que se está resolviendo. */
+export interface EjercicioEnCurso {
+  fallos: number;
+  errores: string[];
+  pista: boolean;
+  /** Si ya se respondió y solo faltaba tocar "Continuar". */
+  terminado: { ok: boolean } | null;
+}
+
+/** Foto de un paso a medio jugar. Los ejercicios se guardan tal cual para que no cambien. */
+export interface PartidaGuardada {
+  fase: 'jugando' | 'refuerzo' | 'jefeIntro' | 'jefe';
+  paso: string;
+  /** Datos propios de la pantalla del nivel (ejercicios, índice, resultados…). */
+  datos: Record<string, unknown>;
+  actual: EjercicioEnCurso;
+  segundos: number;
+  guardado: string;
+}
+
+export function ejercicioNuevo(): EjercicioEnCurso {
+  return { fallos: 0, errores: [], pista: false, terminado: null };
+}
+
+export function guardarPartida(p: Progreso, nivel: string, partida: PartidaGuardada | null): Progreso {
+  const partidas = { ...p.partidas };
+  if (partida) partidas[nivel] = partida;
+  else delete partidas[nivel];
+  return { ...p, partidas };
 }
 
 export function progresoInicial(): Progreso {
@@ -95,6 +132,7 @@ export function progresoInicial(): Progreso {
     historial: [],
     tiempo: { total: 0, porDia: {} },
     preferencias: { leerAuto: false, velocidadVoz: 1 },
+    partidas: {},
   };
 }
 
@@ -129,6 +167,14 @@ export function migrar(datos: unknown): Progreso {
       leerAuto: typeof d.preferencias?.leerAuto === 'boolean' ? d.preferencias.leerAuto : false,
       velocidadVoz: Math.min(1.4, Math.max(0.7, num(d.preferencias?.velocidadVoz, 1))),
     },
+    partidas:
+      d.partidas && typeof d.partidas === 'object'
+        ? Object.fromEntries(
+            Object.entries(d.partidas).filter(
+              ([, v]) => v && typeof v === 'object' && typeof v.paso === 'string' && v.datos && typeof v.datos === 'object' && v.actual && typeof v.actual === 'object',
+            ),
+          )
+        : {},
     version: VERSION,
   };
 }

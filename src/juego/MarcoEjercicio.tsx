@@ -8,6 +8,7 @@ import { Boton } from '../componentes/ui';
 import { Modal } from '../componentes/Efectos';
 import { BarraVoz } from '../componentes/BarraVoz';
 import { hablar } from '../lib/voz';
+import type { EjercicioEnCurso } from '../engine/progreso';
 
 export interface ApiEjercicio {
   /** Llamar al presionar "Comprobar". `solucion` se muestra en la auditoría si hay error. */
@@ -24,6 +25,10 @@ interface Props {
   alFallar?: (tipos: string[]) => void;
   /** `fallos`: cuántas veces se equivocó antes de terminar. `errores`: tipos de error que cometió. */
   onTerminar: (correcto: boolean, fallos: number, errores: string[]) => void;
+  /** Estado guardado del ejercicio (si se retoma después de cerrar la app). */
+  inicial?: EjercicioEnCurso;
+  /** Avisa cada cambio que hay que guardar: respuestas, fallos y uso de la pista. */
+  alCambiar?: (e: EjercicioEnCurso) => void;
   children: (api: ApiEjercicio) => ReactNode;
 }
 
@@ -35,14 +40,14 @@ type Feedback =
  * Envuelve cualquier ejercicio y le da: pista, lectura en voz alta, respuesta por voz,
  * comprobación, XP, chispas, daño a la caja, reintento y el botón "¿En qué me equivoqué?".
  */
-export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcertar, alFallar, onTerminar, children }: Props) {
+export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcertar, alFallar, onTerminar, inicial, alCambiar, children }: Props) {
   const sesion = useSesion();
   const { progreso } = useProgreso();
   const pref = progreso.preferencias;
   const [feedback, setFeedback] = useState<Feedback | null>(null);
-  const [pistaVisible, setPistaVisible] = useState(false);
-  const [fallos, setFallos] = useState(0);
-  const [tipos, setTipos] = useState<string[]>([]);
+  const [pistaVisible, setPistaVisible] = useState(inicial?.pista ?? false);
+  const [fallos, setFallos] = useState(inicial?.fallos ?? 0);
+  const [tipos, setTipos] = useState<string[]>(inicial?.errores ?? []);
   const [auditorias, setAuditorias] = useState(0);
   const [auditoriaAbierta, setAuditoriaAbierta] = useState(false);
   const contenido = useRef<HTMLDivElement>(null);
@@ -62,14 +67,16 @@ export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcer
     if (r.correcto) {
       const { xp, chispas } = sesion.registrarAcierto(pistaVisible || fallos > 0, xpBase);
       alAcertar?.();
+      alCambiar?.({ fallos, errores: tipos, pista: pistaVisible, terminado: { ok: true } });
       setFeedback({ correcto: true, xp, chispas });
       if (pref.leerAuto) hablar('¡Correcto!', pref.velocidadVoz);
     } else {
       const nuevos = r.errores.map((e) => e.tipo);
       const danio = sesion.registrarFallo(nuevos);
-      setFallos((f) => f + 1);
-      setTipos((t) => [...t, ...nuevos]);
+      setFallos(fallos + 1);
+      setTipos([...tipos, ...nuevos]);
       alFallar?.(nuevos);
+      alCambiar?.({ fallos: fallos + 1, errores: [...tipos, ...nuevos], pista: pistaVisible, terminado: permitirReintento ? null : { ok: false } });
       setFeedback({ correcto: false, errores: r.errores, solucion, danio });
       if (pref.leerAuto) {
         const e = r.errores[0];
@@ -87,6 +94,7 @@ export function MarcoEjercicio({ pista, permitirReintento = true, xpBase, alAcer
   const verPista = () => {
     setPistaVisible(true);
     sesion.marcarPista();
+    alCambiar?.({ fallos, errores: tipos, pista: true, terminado: null });
   };
 
   const primerError = feedback && !feedback.correcto ? feedback.errores[0] : null;

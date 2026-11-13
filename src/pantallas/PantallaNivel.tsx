@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CONTENIDO, infoNivel } from '../content';
 import type { ContenidoNivel } from '../content/tipos';
 import { premioActual } from '../content/premios';
@@ -9,15 +9,19 @@ import {
   actualizarNivel,
   agregarRepaso,
   cambiarHp,
+  ejercicioNuevo,
   estadoNivel,
   fechaISO,
+  guardarPartida,
   HP_MAX,
   PASOS_NIVEL,
   pasoCompletado,
   pasoDesbloqueado,
   registrarAsiento,
   registrarPaso,
+  type EjercicioEnCurso,
   type IdPaso,
+  type PartidaGuardada,
   type RegistroPaso,
 } from '../engine/progreso';
 import { chispasPorPaso, estrellasPorPrecision, REGLAS } from '../engine/recompensas';
@@ -140,24 +144,58 @@ function Partida({
   const sesion = useSesion();
   const est = estadoNivel(progreso, id);
 
-  const [fase, setFase] = useState<Fase>('hub');
-  const [paso, setPaso] = useState<IdPaso>('conceptos');
-  const [ejercicios, setEjercicios] = useState<Ejercicio[]>([]);
-  const [indice, setIndice] = useState(0);
-  const [resultados, setResultados] = useState<ResultadoEjercicio[]>([]);
-  const [inicio, setInicio] = useState(0);
-  const [semilla, setSemilla] = useState(semillaAleatoria);
-  const [resultado, setResultado] = useState<{ registro: RegistroPaso; completado: boolean; estrellas: number; chispas: number; previo: RegistroPaso | null } | null>(null);
-  const [refuerzo, setRefuerzo] = useState<{ ejercicios: Ejercicio[]; indice: number; resultados: ResultadoEjercicio[]; inicio: number }>({
-    ejercicios: [],
-    indice: 0,
-    resultados: [],
-    inicio: 0,
-  });
-  const [intentosJefe, setIntentosJefe] = useState(0);
-  const [jefe, setJefe] = useState<Ejercicio | null>(null);
-  const [jefeResultado, setJefeResultado] = useState<ResultadoEjercicio>({ tema: contenido.jefe.titulo, primerIntento: true, fallos: 0, errores: [] });
+  // Si quedó un paso a medio jugar (la app se cerró), se retoma exactamente igual.
+  const [guardada] = useState<PartidaGuardada | null>(() => obtener().partidas[id] ?? null);
+  const g = (guardada?.datos ?? {}) as Partial<DatosPartida>;
+  const desde = (segundos: number) => Date.now() - segundos * 1000;
+
+  const [fase, setFase] = useState<Fase>(guardada?.fase ?? 'hub');
+  const [paso, setPaso] = useState<IdPaso>((guardada?.paso as IdPaso) ?? 'conceptos');
+  const [ejercicios, setEjercicios] = useState<Ejercicio[]>(g.ejercicios ?? []);
+  const [indice, setIndice] = useState(g.indice ?? 0);
+  const [resultados, setResultados] = useState<ResultadoEjercicio[]>(g.resultados ?? []);
+  const [inicio, setInicio] = useState(() => (guardada && guardada.fase !== 'refuerzo' ? desde(guardada.segundos) : 0));
+  const [semilla, setSemilla] = useState(() => g.semilla ?? semillaAleatoria());
+  const [resultado, setResultado] = useState<ResultadoPasoGuardado | null>(g.resultado ?? null);
+  const [refuerzo, setRefuerzo] = useState<EstadoRefuerzo>(() =>
+    g.refuerzo ? { ...g.refuerzo, inicio: desde(guardada?.segundos ?? 0) } : { ejercicios: [], indice: 0, resultados: [], inicio: 0 },
+  );
+  const [intentosJefe, setIntentosJefe] = useState(g.intentosJefe ?? 0);
+  const [jefe, setJefe] = useState<Ejercicio | null>(g.jefe ?? null);
+  const [jefeResultado, setJefeResultado] = useState<ResultadoEjercicio>(
+    g.jefeResultado ?? { tema: contenido.jefe.titulo, primerIntento: true, fallos: 0, errores: [] },
+  );
+  const [actual, setActual] = useState<EjercicioEnCurso>(guardada?.actual ?? ejercicioNuevo());
+  const [retomada, setRetomada] = useState(!!guardada);
   const [chispasInicioNivel] = useState(() => obtener().chispas);
+
+  /** Al pasar a otro ejercicio, su estado guardado empieza de cero. */
+  const ejercicioSiguiente = () => {
+    setActual(ejercicioNuevo());
+    setRetomada(false);
+  };
+
+  // Guarda la partida cada vez que cambia algo; se borra al terminar el paso.
+  useEffect(() => {
+    const enCurso = fase === 'jugando' || fase === 'refuerzo' || fase === 'jefeIntro' || fase === 'jefe';
+    if (!enCurso) {
+      if (obtener().partidas[id]) actualizar((p) => guardarPartida(p, id, null));
+      return;
+    }
+    const datos: DatosPartida = { ejercicios, indice, resultados, semilla, refuerzo, intentosJefe, jefe, jefeResultado, resultado };
+    const desdeInicio = fase === 'refuerzo' ? refuerzo.inicio : inicio;
+    actualizar((p) =>
+      guardarPartida(p, id, {
+        fase,
+        paso,
+        datos: datos as unknown as Record<string, unknown>,
+        actual,
+        segundos: Math.max(0, Math.round((Date.now() - desdeInicio) / 1000)),
+        guardado: new Date().toISOString(),
+      }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fase, paso, ejercicios, indice, resultados, semilla, refuerzo, intentosJefe, jefe, jefeResultado, resultado, actual]);
 
   const irArriba = () => window.scrollTo(0, 0);
 
@@ -174,6 +212,7 @@ function Partida({
       setJefe(contenido.generarJefe(crearRng(semillaAleatoria())));
       setJefeResultado({ tema: contenido.jefe.titulo, primerIntento: true, fallos: 0, errores: [] });
       setInicio(Date.now());
+      ejercicioSiguiente();
       setFase('jefeIntro');
       irArriba();
       return;
@@ -192,6 +231,7 @@ function Partida({
     setIndice(0);
     setResultados([]);
     setInicio(Date.now());
+    ejercicioSiguiente();
     setFase('jugando');
     irArriba();
   };
@@ -231,6 +271,7 @@ function Partida({
     const ej = ejercicios[indice];
     const nuevos = [...resultados, { tema: temaDe(ej), primerIntento: ok && fallos === 0, fallos: ok ? fallos : Math.max(1, fallos), errores }];
     setResultados(nuevos);
+    ejercicioSiguiente();
     if (indice + 1 < ejercicios.length) setIndice(indice + 1);
     else {
       cerrarPaso(paso, nuevos);
@@ -257,6 +298,47 @@ function Partida({
     irArriba();
   };
 
+  const terminarRefuerzo = (ok: boolean, fallos: number, errores: string[]) => {
+    const ej = refuerzo.ejercicios[refuerzo.indice];
+    const res = [...refuerzo.resultados, { tema: temaDe(ej), primerIntento: ok && fallos === 0, fallos, errores }];
+    ejercicioSiguiente();
+    if (refuerzo.indice + 1 < refuerzo.ejercicios.length) setRefuerzo({ ...refuerzo, indice: refuerzo.indice + 1, resultados: res });
+    else {
+      const registro = armarRegistro(id, 'refuerzo', res, (Date.now() - refuerzo.inicio) / 1000);
+      actualizar((p) => ({ ...p, historial: [...p.historial, registro].slice(-400) }));
+      setRefuerzo({ ...refuerzo, indice: refuerzo.indice + 1, resultados: res });
+      setFase('finRefuerzo');
+      irArriba();
+    }
+  };
+
+  const terminarJefe = (ok: boolean, fallos: number, errores: string[]) => {
+    const acumulado: ResultadoEjercicio = {
+      ...jefeResultado,
+      primerIntento: jefeResultado.primerIntento && ok && fallos === 0,
+      fallos: jefeResultado.fallos + (ok ? fallos : Math.max(1, fallos)),
+      errores: [...jefeResultado.errores, ...errores],
+    };
+    setJefeResultado(acumulado);
+    ejercicioSiguiente();
+    if (ok) terminarNivel(acumulado);
+    else {
+      setIntentosJefe((n) => n + 1);
+      setJefe(contenido.generarJefe(crearRng(semillaAleatoria())));
+    }
+  };
+
+  // Si la app se cerró justo después de responder (antes de "Continuar"), se avanza sin volver a responder.
+  useEffect(() => {
+    const t = guardada?.actual.terminado;
+    if (!guardada || !t) return;
+    const { fallos, errores } = guardada.actual;
+    if (guardada.fase === 'jugando') terminarEjercicio(t.ok, fallos, errores);
+    else if (guardada.fase === 'refuerzo') terminarRefuerzo(t.ok, fallos, errores);
+    else if (guardada.fase === 'jefe') terminarJefe(t.ok, fallos, errores);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const siguientePaso = (p: IdPaso): IdPaso | null => PASOS_NIVEL[PASOS_NIVEL.indexOf(p) + 1] ?? null;
 
   const empezarRefuerzo = () => {
@@ -264,6 +346,7 @@ function Partida({
     const ejs = ejerciciosDeRefuerzo(contenido, paso, diagnosticar(resultado.registro).debilidades, semillaAleatoria());
     if (ejs.length === 0) return;
     setRefuerzo({ ejercicios: ejs, indice: 0, resultados: [], inicio: Date.now() });
+    ejercicioSiguiente();
     setFase('refuerzo');
     irArriba();
   };
@@ -390,6 +473,12 @@ function Partida({
         />
       )}
 
+      {retomada && (fase === 'jugando' || fase === 'refuerzo' || fase === 'jefe') && (
+        <p className="aparecer mb-3 rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-sm font-bold text-sky-900">
+          ⏯️ Retomaste donde quedaste. El ejercicio es el mismo y tus intentos anteriores siguen contando.
+        </p>
+      )}
+
       {fase === 'jugando' && ejercicios[indice] && (
         <MarcoEjercicio
           key={`${paso}-${semilla}-${indice}`}
@@ -400,6 +489,8 @@ function Partida({
             const ej = ejercicios[indice];
             if (ej.tipo === 'pregunta') actualizar((p) => agregarRepaso(p, ej.pregunta.id));
           }}
+          inicial={actual}
+          alCambiar={setActual}
           onTerminar={terminarEjercicio}
         >
           {(api) => (
@@ -450,18 +541,9 @@ function Partida({
           <MarcoEjercicio
             key={`r-${refuerzo.inicio}-${refuerzo.indice}`}
             pista={pistaDe(refuerzo.ejercicios[refuerzo.indice])}
-            onTerminar={(ok, fallos, errores) => {
-              const ej = refuerzo.ejercicios[refuerzo.indice];
-              const res = [...refuerzo.resultados, { tema: temaDe(ej), primerIntento: ok && fallos === 0, fallos, errores }];
-              if (refuerzo.indice + 1 < refuerzo.ejercicios.length) setRefuerzo({ ...refuerzo, indice: refuerzo.indice + 1, resultados: res });
-              else {
-                const registro = armarRegistro(id, 'refuerzo', res, (Date.now() - refuerzo.inicio) / 1000);
-                actualizar((p) => ({ ...p, historial: [...p.historial, registro].slice(-400) }));
-                setRefuerzo({ ...refuerzo, indice: refuerzo.indice + 1, resultados: res });
-                setFase('finRefuerzo');
-                irArriba();
-              }
-            }}
+            inicial={actual}
+            alCambiar={setActual}
+            onTerminar={terminarRefuerzo}
           >
             {(api) => (
               <>
@@ -523,20 +605,9 @@ function Partida({
           permitirReintento={contenido.jefe.reintentable}
           xpBase={REGLAS.xpJefe}
           alAcertar={() => registrarEnLibro(jefe)}
-          onTerminar={(ok, fallos, errores) => {
-            const acumulado: ResultadoEjercicio = {
-              ...jefeResultado,
-              primerIntento: jefeResultado.primerIntento && ok && fallos === 0,
-              fallos: jefeResultado.fallos + (ok ? fallos : Math.max(1, fallos)),
-              errores: [...jefeResultado.errores, ...errores],
-            };
-            setJefeResultado(acumulado);
-            if (ok) terminarNivel(acumulado);
-            else {
-              setIntentosJefe((n) => n + 1);
-              setJefe(contenido.generarJefe(crearRng(semillaAleatoria())));
-            }
-          }}
+          inicial={actual}
+          alCambiar={setActual}
+          onTerminar={terminarJefe}
         >
           {(api) => (
             <>
@@ -588,4 +659,20 @@ function Dato({ valor, etiqueta }: { valor: string; etiqueta: string }) {
       <p className="text-xs font-bold text-slate-500">{etiqueta}</p>
     </div>
   );
+}
+
+type ResultadoPasoGuardado = { registro: RegistroPaso; completado: boolean; estrellas: number; chispas: number; previo: RegistroPaso | null };
+type EstadoRefuerzo = { ejercicios: Ejercicio[]; indice: number; resultados: ResultadoEjercicio[]; inicio: number };
+
+/** Lo que se guarda de la pantalla del nivel para retomar el paso. */
+interface DatosPartida {
+  ejercicios: Ejercicio[];
+  indice: number;
+  resultados: ResultadoEjercicio[];
+  semilla: number;
+  refuerzo: EstadoRefuerzo;
+  intentosJefe: number;
+  jefe: Ejercicio | null;
+  jefeResultado: ResultadoEjercicio;
+  resultado: ResultadoPasoGuardado | null;
 }

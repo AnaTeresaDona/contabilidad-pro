@@ -56,6 +56,7 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
                 </p>
                 <p className={`font-extrabold leading-tight ${jugable ? '' : 'text-slate-400'}`}>{n.titulo}</p>
                 <p className="text-xs text-slate-400">{disponible ? n.tema : 'Próximamente'}</p>
+                {progreso.partidas[n.id] && <p className="text-xs font-extrabold text-sky-600">⏯️ Tienes un paso en curso: continúa donde quedaste</p>}
               </div>
             </div>
           );

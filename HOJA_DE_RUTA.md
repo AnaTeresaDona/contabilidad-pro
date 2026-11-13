@@ -66,6 +66,11 @@
 - Tarjetas de error resumidas en dos líneas que crecen al tocarlas.
 - Voz: «🔊 Escuchar» y «🎤 Responder hablando» (alternativas, números dichos, «Caja al Debe», comandos). Lectura automática opcional en Ajustes.
 
+## Fase 9 — Hecha (sin trampas al cerrar la app)
+- El paso en curso se guarda en cada respuesta: ejercicios, avance, fallos, errores y uso de la pista.
+- Si la app se cierra (o se sale al mapa), al volver se retoma el mismo ejercicio y los errores anteriores siguen contando. Si ya se había respondido, se avanza sin poder responder de nuevo.
+- El mapa avisa qué niveles tienen un paso en curso.
+
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.

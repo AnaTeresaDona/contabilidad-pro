@@ -10,7 +10,7 @@ import { infoError, tiposDeError } from './errores';
 import { chispasPorAcierto, chispasPorPaso, danioPorErrores, estrellasPorPrecision, REGLAS, xpPorAcierto } from './recompensas';
 import { armarRegistro, diagnosticar, fuenteCorta, temaDe, tendencia } from './estadisticas';
 import { numeroDesdeTexto } from './numerosHablados';
-import { pasoCompletado, pasoDesbloqueado, registrarPaso, sumarTiempo } from './progreso';
+import { ejercicioNuevo, guardarPartida, pasoCompletado, pasoDesbloqueado, registrarPaso, sumarTiempo } from './progreso';
 import { PREMIOS, premioActual, premiosDesbloqueados, siguientePremio } from '../content/premios';
 import { calcular, numeroDeTexto } from '../componentes/Calculadora';
 import { textoNumero } from '../lib/campos';
@@ -674,5 +674,30 @@ describe('voz y calculadora', () => {
     expect(numeroDeTexto('Caja')).toBeNull();
     expect(numeroDeTexto('Saldo inicial $1.000')).toBeNull();
     expect(calcular('1.250.000+(−300.000)')).toBe(950_000);
+  });
+});
+
+describe('retomar un paso después de cerrar la app', () => {
+  it('todos los ejercicios se guardan y se recuperan idénticos', () => {
+    for (const c of Object.values(CONTENIDO))
+      for (let sem = 1; sem <= 5; sem++) {
+        const ejs = [...c.pasos.flatMap((p) => p.generar(crearRng(sem))), c.generarJefe(crearRng(sem))];
+        for (const e of ejs) expect(JSON.parse(JSON.stringify(e))).toEqual(e);
+      }
+  });
+  it('la partida guardada sobrevive a guardar, cargar y migrar, y se borra al terminar', () => {
+    const partida = {
+      fase: 'jugando' as const,
+      paso: 'basico',
+      datos: { indice: 2 },
+      actual: { ...ejercicioNuevo(), fallos: 1, errores: ['lado_invertido'] },
+      segundos: 40,
+      guardado: '2026-11-13T12:00:00.000Z',
+    };
+    const p = guardarPartida(progresoInicial(), 'n1', partida);
+    const cargado = migrar(JSON.parse(JSON.stringify(p)));
+    expect(cargado.partidas.n1).toEqual(partida);
+    expect(guardarPartida(cargado, 'n1', null).partidas).toEqual({});
+    expect(migrar({ partidas: { n1: { basura: true } } }).partidas).toEqual({});
   });
 });
