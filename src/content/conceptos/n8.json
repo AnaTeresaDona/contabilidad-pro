@@ -2,120 +2,150 @@
   {
     "id": "c8-01",
     "pregunta": "¿Cuáles son los objetivos del Marco Conceptual?",
-    "completa": "Ayudar al IASB a desarrollar normas, a los preparadores a aplicarlas, a los usuarios a interpretarlas y a los auditores a opinar; no reemplaza a las normas",
+    "completa": "Ayudar al IASB, a preparadores, a usuarios y a auditores; no reemplaza normas",
     "incompletas": [
-      { "texto": "Ayudar a desarrollar nuevas normas", "falta": "También ayuda a preparadores, usuarios y auditores." },
-      { "texto": "Guiar a los auditores", "falta": "Es uno de varios objetivos." }
+      { "texto": "Ayudar al consejo emisor (IASB) a desarrollar nuevas normas que sean coherentes", "falta": "También ayuda a preparadores, usuarios y auditores." },
+      { "texto": "Guiar a los auditores cuando se forman una opinión sobre los estados", "falta": "Es uno de varios objetivos." }
     ],
-    "incorrectas": ["Reemplazar a las normas cuando hay conflicto", "Fijar las tasas de impuesto"],
+    "incorrectas": [
+      "Reemplazar a las normas específicas cuando haya un conflicto entre ellas y el Marco",
+      "Fijar las tasas de impuesto que deben usar las empresas de cada país"
+    ],
     "explicacion": "Si hay conflicto, manda la norma específica.",
     "fuente": "Marco Conceptual"
   },
   {
     "id": "c8-02",
     "pregunta": "¿Qué es el balance de apertura en la NIIF 1?",
-    "completa": "El estado de situación bajo NIIF a la fecha de transición (inicio del primer comparativo), aplicando retroactivamente todas las NIIF vigentes: es el punto de partida",
+    "completa": "El primer balance NIIF, a la fecha de transición, aplicando las NIIF hacia atrás",
     "incompletas": [
-      { "texto": "El primer balance bajo NIIF", "falta": "Falta a qué fecha y cómo se prepara." },
-      { "texto": "Se prepara a la fecha de transición", "falta": "Falta qué es y cómo se aplican las normas." }
+      { "texto": "El primer estado de situación financiera que se prepara bajo NIIF", "falta": "Falta a qué fecha y cómo se prepara." },
+      { "texto": "Un balance que se prepara al inicio del primer período comparativo", "falta": "Falta qué es y cómo se aplican las normas." }
     ],
-    "incorrectas": ["El último balance con PCGA", "El balance del primer mes del año"],
+    "incorrectas": [
+      "El último balance preparado con PCGA antes de cambiarse a las NIIF",
+      "El balance del primer mes del año en que la empresa empieza a operar con su nuevo RUT"
+    ],
     "explicacion": "Si los primeros estados NIIF son al 31-12-2026, la transición es el 01-01-2025.",
     "fuente": "NIIF 1, párrafos 6 y 7"
   },
   {
     "id": "c8-03",
     "pregunta": "¿Qué pasos tiene el balance de apertura NIIF?",
-    "completa": "Eliminar lo que no es activo o pasivo, reconocer lo que falta, reclasificar, valorizar con reglas NIIF y llevar todos los ajustes a patrimonio",
+    "completa": "Eliminar, reconocer, reclasificar, valorizar y llevar los ajustes a patrimonio",
     "incompletas": [
-      { "texto": "Eliminar, reconocer y reclasificar", "falta": "Faltan valorizar e imputar a patrimonio." },
-      { "texto": "Los ajustes van a patrimonio", "falta": "Faltan los pasos que generan los ajustes." }
+      { "texto": "Eliminar lo que no es activo o pasivo, reconocer lo que falta y reclasificar", "falta": "Faltan valorizar e imputar a patrimonio." },
+      { "texto": "Llevar todos los ajustes directamente a los resultados acumulados", "falta": "Faltan los pasos que generan los ajustes." }
     ],
-    "incorrectas": ["Copiar el balance PCGA tal cual", "Llevar los ajustes al resultado del año"],
+    "incorrectas": [
+      "Copiar el balance PCGA tal cual y explicar las diferencias en una nota",
+      "Llevar todos los ajustes al Estado de Resultados del primer año NIIF"
+    ],
     "explicacion": "Los ajustes van a resultados acumulados.",
     "fuente": "NIIF 1, párrafos 10 y 11"
   },
   {
     "id": "c8-04",
     "pregunta": "¿Qué exige revelar la NIIF 1 en los primeros estados NIIF?",
-    "completa": "Al menos un año comparativo bajo NIIF y conciliaciones del patrimonio y del resultado entre la norma anterior y las NIIF, explicando los ajustes",
+    "completa": "Un año comparativo y conciliaciones del patrimonio y del resultado",
     "incompletas": [
-      { "texto": "Un año comparativo bajo NIIF", "falta": "Faltan las conciliaciones del patrimonio y del resultado." },
-      { "texto": "La conciliación del patrimonio", "falta": "También la del resultado y el comparativo." }
+      { "texto": "Al menos un año completo de información comparativa bajo NIIF", "falta": "Faltan las conciliaciones del patrimonio y del resultado." },
+      { "texto": "La conciliación del patrimonio entre la norma anterior y las NIIF", "falta": "También la del resultado y el comparativo." }
     ],
-    "incorrectas": ["Nada adicional", "Solo una declaración del gerente"],
+    "incorrectas": [
+      "Nada adicional: basta con declarar que los estados están bajo NIIF",
+      "Solo una carta del gerente general explicando el cambio de norma"
+    ],
     "explicacion": "Así los usuarios entienden el efecto de la transición.",
     "fuente": "NIIF 1, párrafos 21, 23 y 24"
   },
   {
     "id": "c8-05",
     "pregunta": "¿Qué forma parte del costo de un activo fijo según la NIC 16?",
-    "completa": "El precio neto de descuentos, aranceles e impuestos no recuperables, flete, instalación, pruebas y el costo estimado de desmantelar",
+    "completa": "Precio neto, aranceles, flete, instalación, pruebas y desmantelamiento",
     "incompletas": [
-      { "texto": "El precio de compra y los aranceles", "falta": "Faltan flete, instalación, pruebas y desmantelamiento." },
-      { "texto": "Todo lo necesario para dejarlo funcionando", "falta": "Falta detallar qué incluye y el desmantelamiento." }
+      { "texto": "El precio de compra menos los descuentos y los aranceles de importación", "falta": "Faltan flete, instalación, pruebas y desmantelamiento." },
+      { "texto": "Todo lo necesario para dejar el activo listo para funcionar", "falta": "Falta detallar qué incluye y el desmantelamiento." }
     ],
-    "incorrectas": ["También el IVA recuperable y la capacitación", "Solo el precio de lista"],
+    "incorrectas": [
+      "El precio, el IVA recuperable, la capacitación del personal y la primera mantención",
+      "Solo el precio de lista que aparece en la factura del proveedor"
+    ],
     "explicacion": "La mantención y la publicidad tampoco forman parte del costo.",
     "fuente": "NIC 16, párrafos 16 a 20"
   },
   {
     "id": "c8-06",
     "pregunta": "¿Cómo funciona el modelo de revaluación de la NIC 16?",
-    "completa": "Se aplica a toda la clase de activos y con regularidad; los aumentos van a otro resultado integral (superávit en patrimonio) y las disminuciones, a resultados",
+    "completa": "Toda la clase, con regularidad; aumentos a superávit en patrimonio y bajas a resultados",
     "incompletas": [
-      { "texto": "Los aumentos van a superávit de revaluación", "falta": "Falta la regla de toda la clase y las disminuciones." },
-      { "texto": "Se revalúa toda la clase de activos", "falta": "Falta dónde van los aumentos y disminuciones." }
+      { "texto": "Los aumentos de valor van a otro resultado integral, como superávit de revaluación", "falta": "Falta la regla de toda la clase y las disminuciones." },
+      { "texto": "Se revalúan con regularidad todos los activos de una misma clase", "falta": "Falta dónde van los aumentos y disminuciones." }
     ],
-    "incorrectas": ["Se revalúa solo el activo de mayor valor", "Los aumentos van a resultados"],
+    "incorrectas": [
+      "Se revalúa solo el activo de mayor valor, cuando la gerencia lo decide",
+      "Los aumentos de valor van directo a resultados como una ganancia"
+    ],
     "explicacion": "Una disminución puede rebajar primero un superávit previo del mismo activo.",
     "fuente": "NIC 16, párrafos 31, 36, 39 y 40"
   },
   {
     "id": "c8-07",
     "pregunta": "¿Qué es una propiedad de inversión y cómo se mide?",
-    "completa": "Un terreno o edificio para obtener rentas o plusvalía; se mide al costo o al valor razonable, y con valor razonable los cambios van a resultados",
+    "completa": "Un inmueble para rentas o plusvalía, al costo o a valor razonable",
     "incompletas": [
-      { "texto": "Un inmueble para obtener rentas o plusvalía", "falta": "Falta cómo se mide." },
-      { "texto": "Se mide al costo o al valor razonable", "falta": "Falta qué es y dónde van los cambios." }
+      { "texto": "Un terreno o edificio que se tiene para obtener rentas o plusvalía", "falta": "Falta cómo se mide." },
+      { "texto": "Se mide al costo o a valor razonable; con este, los cambios van a resultados", "falta": "Falta qué es." }
     ],
-    "incorrectas": ["El local donde funciona la empresa", "Las casas que vende una inmobiliaria"],
+    "incorrectas": [
+      "El local donde funciona la empresa, medido a su valor de tasación",
+      "Las casas que construye una inmobiliaria para venderlas en su giro"
+    ],
     "explicacion": "El local propio es NIC 16; las casas de una inmobiliaria, inventario.",
     "fuente": "NIC 40, párrafos 5, 30 y 35"
   },
   {
     "id": "c8-08",
     "pregunta": "¿Qué exige la NIIF 5 para un activo mantenido para la venta?",
-    "completa": "Clasificarlo así si está disponible para venta inmediata y la venta es muy probable en 12 meses; medirlo al menor entre libros y valor razonable menos costos de venta, sin depreciarlo",
+    "completa": "Venta muy probable en 12 meses; menor entre libros y valor razonable − costos, sin depreciar",
     "incompletas": [
-      { "texto": "Medirlo al menor entre libros y valor razonable menos costos de venta", "falta": "Faltan los criterios y que deja de depreciarse." },
-      { "texto": "Deja de depreciarse", "falta": "Faltan los criterios y la medición." }
+      { "texto": "Medirlo al menor entre su importe en libros y su valor razonable menos costos de venta", "falta": "Faltan los criterios y que deja de depreciarse." },
+      { "texto": "Presentarlo aparte en el balance y dejar de depreciarlo desde que se clasifica", "falta": "Faltan los criterios y la medición." }
     ],
-    "incorrectas": ["Seguir depreciándolo normalmente", "Darlo de baja de inmediato"],
+    "incorrectas": [
+      "Seguir depreciándolo normalmente y presentarlo junto al resto del activo fijo de la empresa",
+      "Darlo de baja de inmediato con pérdida, aunque todavía no se haya vendido"
+    ],
     "explicacion": "Se presenta por separado en el balance.",
     "fuente": "NIIF 5, párrafos 6 a 8, 15 y 25"
   },
   {
     "id": "c8-09",
     "pregunta": "¿Cómo trata la NIC 8 las políticas, las estimaciones y los errores?",
-    "completa": "Cambio de política: retrospectivo; cambio de estimación: prospectivo; error de un período anterior: reexpresión retrospectiva de comparativos y saldos iniciales",
+    "completa": "Política: retrospectivo. Estimación: prospectivo. Error: reexpresión retrospectiva",
     "incompletas": [
-      { "texto": "Los cambios de estimación son prospectivos", "falta": "Faltan las políticas y los errores." },
-      { "texto": "Los errores se corrigen hacia atrás", "falta": "Faltan las políticas y estimaciones." }
+      { "texto": "Los cambios de estimación se aplican de aquí en adelante, en forma prospectiva", "falta": "Faltan las políticas y los errores." },
+      { "texto": "Los errores de períodos anteriores se corrigen reexpresando los comparativos", "falta": "Faltan las políticas y estimaciones." }
     ],
-    "incorrectas": ["Todo se corrige en el resultado del año actual", "Los errores se ignoran si son antiguos"],
+    "incorrectas": [
+      "Todo se corrige en el resultado del año actual, sin tocar los comparativos",
+      "Los errores antiguos se ignoran si ya pasaron más de dos años"
+    ],
     "explicacion": "Cambiar el método de depreciación es un cambio de estimación.",
     "fuente": "NIC 8, párrafos 19, 36 y 42"
   },
   {
     "id": "c8-10",
     "pregunta": "¿Qué permite la exención de «costo atribuido» de la NIIF 1?",
-    "completa": "Medir un activo fijo a su valor razonable a la fecha de transición y usar ese valor como su costo desde entonces, sin reconstruir el costo histórico",
+    "completa": "Usar el valor razonable a la fecha de transición como costo del activo fijo",
     "incompletas": [
-      { "texto": "Usar el valor razonable del activo fijo", "falta": "Falta a qué fecha y que pasa a ser su costo." },
-      { "texto": "Evitar reconstruir el costo histórico", "falta": "Falta cómo: usando el valor razonable como costo." }
+      { "texto": "Medir el activo fijo a su valor razonable en el balance de apertura", "falta": "Falta que ese valor pasa a ser su costo." },
+      { "texto": "Evitar tener que reconstruir el costo histórico de activos muy antiguos", "falta": "Falta cómo: usando el valor razonable como costo." }
     ],
-    "incorrectas": ["Registrar los activos en $1", "Dejar los activos antiguos fuera del balance"],
+    "incorrectas": [
+      "Registrar los activos antiguos en $1 para no tener que tasarlos",
+      "Dejar los activos muy antiguos fuera del balance de apertura"
+    ],
     "explicacion": "Es una exención voluntaria muy usada en Chile.",
     "fuente": "NIIF 1, Apéndice D"
   }

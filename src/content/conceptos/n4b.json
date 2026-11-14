@@ -2,120 +2,150 @@
   {
     "id": "c4b-01",
     "pregunta": "¿Quiénes aplican las NIIF completas en Chile?",
-    "completa": "Las entidades con obligación pública de rendir cuentas: emisores de acciones o bonos, bancos y aseguradoras, fiscalizados por la CMF",
+    "completa": "Quienes tienen obligación pública de rendir cuentas: emisores, bancos y aseguradoras",
     "incompletas": [
-      { "texto": "Las sociedades anónimas abiertas", "falta": "También bancos, aseguradoras y emisores de bonos." },
-      { "texto": "Las empresas que fiscaliza la CMF", "falta": "Falta el criterio: obligación pública de rendir cuentas." }
+      { "texto": "Las sociedades anónimas abiertas que transan sus acciones en la Bolsa de Santiago", "falta": "También bancos, aseguradoras y emisores de bonos." },
+      { "texto": "Las entidades que fiscaliza la Comisión para el Mercado Financiero", "falta": "Falta el criterio: obligación pública de rendir cuentas." }
     ],
-    "incorrectas": ["Todas las pymes", "Solo las empresas con pérdidas"],
+    "incorrectas": [
+      "Todas las pymes que piden un crédito a un banco con más de 1.000 UF",
+      "Solo las empresas que tuvieron pérdidas en los últimos tres años"
+    ],
     "explicacion": "Las demás pueden usar la NIIF para las PYMES.",
     "fuente": "CMF; NIIF"
   },
   {
     "id": "c4b-02",
     "pregunta": "¿Qué reconoce un arrendatario según la NIIF 16?",
-    "completa": "Un activo por derecho de uso y un pasivo por arrendamiento, ambos al valor presente de las cuotas; cada cuota se divide en interés y capital",
+    "completa": "Un derecho de uso y un pasivo por arrendamiento al valor presente de las cuotas",
     "incompletas": [
-      { "texto": "Un activo por derecho de uso", "falta": "También un pasivo por arrendamiento, al valor presente de las cuotas." },
-      { "texto": "Un pasivo por arrendamiento", "falta": "También el activo por derecho de uso." }
+      { "texto": "Un activo por derecho de uso del bien arrendado durante el contrato", "falta": "También un pasivo por arrendamiento, al valor presente de las cuotas." },
+      { "texto": "Un pasivo por arrendamiento, cuyas cuotas se dividen en interés y capital", "falta": "También el activo por derecho de uso." }
     ],
-    "incorrectas": ["Solo el gasto de arriendo de cada mes", "Nada: el bien es del arrendador"],
+    "incorrectas": [
+      "Solo el gasto de arriendo de cada mes, igual que se hacía con la antigua NIC 17",
+      "Nada: el bien sigue siendo del arrendador y solo él lo registra"
+    ],
     "explicacion": "Reemplazó a la NIC 17 desde 2019.",
     "fuente": "NIIF 16"
   },
   {
     "id": "c4b-03",
     "pregunta": "¿Qué es el importe recuperable según la NIC 36?",
-    "completa": "El mayor entre el valor razonable menos los costos de venta y el valor en uso; si el valor libro lo supera, hay deterioro",
+    "completa": "El mayor entre valor razonable menos costos de venta y valor en uso",
     "incompletas": [
-      { "texto": "El mayor entre valor razonable menos costos de venta y valor en uso", "falta": "Falta para qué sirve: comparar con el valor libro." },
-      { "texto": "Si el valor libro lo supera, se reconoce una pérdida por deterioro", "falta": "Falta cómo se calcula el importe recuperable." }
+      { "texto": "Un valor que se compara con el valor libro para saber si hay deterioro", "falta": "Falta cómo se calcula: el mayor entre dos valores." },
+      { "texto": "Si el valor libro lo supera, la diferencia es una pérdida por deterioro", "falta": "Falta cómo se calcula el importe recuperable." }
     ],
-    "incorrectas": ["El menor entre costo y valor en uso", "El precio de compra original"],
+    "incorrectas": [
+      "El menor entre el costo del activo y su valor en uso",
+      "El precio de compra original del activo, menos su depreciación"
+    ],
     "explicacion": "Asiento: Pérdida por deterioro contra Deterioro acumulado.",
     "fuente": "NIC 36, párrafos 18 y 59"
   },
   {
     "id": "c4b-04",
     "pregunta": "¿Cómo se calcula la ganancia por acción?",
-    "completa": "Utilidad atribuible a los accionistas ÷ promedio ponderado de acciones en circulación, contando las nuevas solo por los meses en circulación",
+    "completa": "Utilidad de los accionistas ÷ promedio ponderado de acciones en circulación",
     "incompletas": [
-      { "texto": "Utilidad ÷ número de acciones", "falta": "Se usa el promedio ponderado de acciones, no el número al cierre." },
-      { "texto": "Las acciones nuevas cuentan solo por los meses que estuvieron en circulación", "falta": "Falta la fórmula completa." }
+      { "texto": "Dividiendo la utilidad del año por el número de acciones que tiene la sociedad al cierre", "falta": "Se usa el promedio ponderado de acciones, no el número al cierre." },
+      { "texto": "Las acciones emitidas durante el año cuentan solo por los meses en que circularon", "falta": "Falta la fórmula completa." }
     ],
-    "incorrectas": ["Dividendos ÷ patrimonio", "Ventas ÷ acciones"],
+    "incorrectas": [
+      "Dividendos pagados ÷ patrimonio al cierre del año",
+      "Ventas del año ÷ número de acciones emitidas al cierre"
+    ],
     "explicacion": "Así no se distorsiona por emisiones a mitad de año.",
     "fuente": "NIC 33"
   },
   {
     "id": "c4b-05",
-    "pregunta": "¿Cuál es la regla del dividendo mínimo en una sociedad anónima abierta?",
-    "completa": "Repartir al menos el 30% de la utilidad líquida del ejercicio, salvo acuerdo unánime de las acciones emitidas",
+    "pregunta": "¿Cuál es la regla del dividendo mínimo en una S.A. abierta?",
+    "completa": "Repartir al menos el 30% de la utilidad, salvo acuerdo unánime",
     "incompletas": [
-      { "texto": "Repartir al menos el 30% de la utilidad", "falta": "Falta la excepción: acuerdo unánime." },
-      { "texto": "Se puede repartir menos si todos los accionistas están de acuerdo", "falta": "Falta el mínimo: 30%." }
+      { "texto": "Repartir como mínimo el 30% de la utilidad líquida del ejercicio", "falta": "Falta la excepción: acuerdo unánime." },
+      { "texto": "Se puede repartir menos si están de acuerdo todas las acciones emitidas", "falta": "Falta el mínimo: 30%." }
     ],
-    "incorrectas": ["Repartir el 100% de la utilidad", "No hay mínimo legal"],
+    "incorrectas": [
+      "Repartir el 100% de la utilidad del año entre todos los accionistas",
+      "No hay un mínimo legal: lo decide libremente el directorio cada año"
+    ],
     "explicacion": "El dividendo mínimo se registra como pasivo al cierre.",
     "fuente": "Ley 18.046, artículo 79"
   },
   {
     "id": "c4b-06",
     "pregunta": "¿Qué es un hecho esencial?",
-    "completa": "Información que puede influir en las decisiones de los inversionistas y que debe informarse de inmediato a la CMF y al mercado",
+    "completa": "Información que puede influir en los inversionistas; se informa de inmediato",
     "incompletas": [
-      { "texto": "Información importante para los inversionistas", "falta": "Falta que se informa de inmediato a la CMF y al mercado." },
-      { "texto": "Algo que se informa a la CMF", "falta": "Falta qué lo hace esencial." }
+      { "texto": "Información relevante para quienes invierten en la sociedad", "falta": "Falta que se informa de inmediato a la CMF y al mercado." },
+      { "texto": "Algo que la sociedad comunica a la CMF y al mercado", "falta": "Falta qué lo hace esencial." }
     ],
-    "incorrectas": ["Cualquier venta del día", "Un dato interno que se mantiene en secreto"],
+    "incorrectas": [
+      "Cualquier venta del día que supere el promedio de las ventas diarias del mes anterior",
+      "Un dato interno que la gerencia debe mantener en secreto hasta la junta"
+    ],
     "explicacion": "Ejemplos: una gran compra, la renuncia del gerente general.",
     "fuente": "Ley 18.045, artículo 10"
   },
   {
     "id": "c4b-07",
     "pregunta": "¿Qué prohíbe la regla de información privilegiada?",
-    "completa": "Usar o comunicar información no divulgada que puede influir en el precio: quien la conoce debe guardar reserva y no puede transar esos valores",
+    "completa": "Usar o comunicar información no divulgada que puede mover el precio",
     "incompletas": [
-      { "texto": "Comprar o vender acciones con información no pública", "falta": "También comunicarla: hay que guardar reserva." },
-      { "texto": "Divulgar información reservada", "falta": "También usarla para transar." }
+      { "texto": "Comprar o vender acciones de la sociedad con información que no es pública", "falta": "También comunicarla: hay que guardar reserva." },
+      { "texto": "Divulgar información reservada de la sociedad a terceros", "falta": "También usarla para transar." }
     ],
-    "incorrectas": ["Publicar los estados financieros", "Votar en la junta de accionistas"],
+    "incorrectas": [
+      "Publicar los estados financieros antes de que los apruebe la junta de accionistas",
+      "Votar en la junta de accionistas si se trabaja en la sociedad"
+    ],
     "explicacion": "Busca que todos los inversionistas compitan con la misma información.",
     "fuente": "Ley 18.045, artículos 164 y 165"
   },
   {
     "id": "c4b-08",
     "pregunta": "¿Qué diferencia hay en los costos por préstamos entre NIIF completas y PYMES?",
-    "completa": "En NIIF completas los intereses de préstamos para construir un activo apto se capitalizan (NIC 23); en la NIIF para las PYMES se llevan a gasto",
+    "completa": "En NIIF completas se capitalizan para activos aptos; en PYMES son gasto",
     "incompletas": [
-      { "texto": "En NIIF completas se capitalizan", "falta": "Falta el tratamiento en PYMES y que es para activos aptos." },
-      { "texto": "En PYMES son gasto", "falta": "Falta el tratamiento en NIIF completas." }
+      { "texto": "En las NIIF completas los intereses de un activo apto se suman a su costo", "falta": "Falta el tratamiento en PYMES." },
+      { "texto": "En la NIIF para las PYMES los intereses se llevan siempre a gasto", "falta": "Falta el tratamiento en NIIF completas." }
     ],
-    "incorrectas": ["En ambas siempre son gasto", "En ambas siempre se capitalizan"],
+    "incorrectas": [
+      "En ambas normas los intereses de los préstamos son siempre gasto del período",
+      "En ambas normas los intereses se capitalizan en el activo financiado"
+    ],
     "explicacion": "Un activo apto requiere un período sustancial para estar listo.",
     "fuente": "NIC 23; NIIF para las PYMES, Sección 25"
   },
   {
     "id": "c4b-09",
-    "pregunta": "¿Cuándo puede reconocerse un desarrollo como intangible en NIIF completas?",
-    "completa": "Cuando cumple los criterios de la NIC 38 (factibilidad técnica, intención y capacidad de usarlo o venderlo, beneficios probables); la investigación siempre es gasto",
+    "pregunta": "¿Cuándo puede activarse un desarrollo en NIIF completas?",
+    "completa": "Si cumple los criterios de la NIC 38; la investigación siempre es gasto",
     "incompletas": [
-      { "texto": "Cuando cumple ciertos criterios", "falta": "Falta cuáles y que la investigación siempre es gasto." },
-      { "texto": "La investigación siempre es gasto", "falta": "Falta cuándo el desarrollo puede activarse." }
+      { "texto": "Cuando es técnicamente factible y la empresa puede usarlo o venderlo", "falta": "Falta que la investigación siempre es gasto y los demás criterios." },
+      { "texto": "La fase de investigación de un proyecto siempre se lleva a gasto", "falta": "Falta cuándo el desarrollo puede activarse." }
     ],
-    "incorrectas": ["Siempre, desde la primera idea", "Nunca: todo es gasto también en NIIF completas"],
+    "incorrectas": [
+      "Siempre, desde la primera idea del proyecto, si el gerente general lo aprueba",
+      "Nunca: en las NIIF completas todo desembolso de este tipo es gasto"
+    ],
     "explicacion": "En la NIIF para las PYMES, el desarrollo es gasto.",
     "fuente": "NIC 38, párrafos 54 y 57"
   },
   {
     "id": "c4b-10",
-    "pregunta": "¿Cuándo se celebra la junta ordinaria de accionistas y qué hace?",
-    "completa": "Dentro del cuatrimestre siguiente al cierre: aprueba los estados financieros, decide los dividendos y elige al directorio cuando corresponde",
+    "pregunta": "¿Cuándo se celebra la junta ordinaria y qué hace?",
+    "completa": "En el cuatrimestre siguiente al cierre: aprueba estados y decide dividendos",
     "incompletas": [
-      { "texto": "Aprueba los estados financieros", "falta": "Falta cuándo se celebra y que decide dividendos." },
-      { "texto": "Se celebra dentro del cuatrimestre siguiente al balance", "falta": "Falta qué decide." }
+      { "texto": "Aprueba los estados financieros y la memoria del ejercicio anterior", "falta": "Falta cuándo se celebra y que decide dividendos." },
+      { "texto": "Se celebra dentro de los cuatro meses siguientes a la fecha de cierre del balance anual", "falta": "Falta qué decide." }
     ],
-    "incorrectas": ["Cada mes, para revisar el F29", "Solo cuando la empresa quiebra"],
+    "incorrectas": [
+      "Se celebra cada mes para revisar el F29 y aprobar el pago del IVA del período",
+      "Solo se celebra cuando la sociedad entra en quiebra o se disuelve"
+    ],
     "explicacion": "Las materias extraordinarias van a junta extraordinaria.",
     "fuente": "Ley 18.046, artículos 55 y 56"
   }

@@ -2,120 +2,150 @@
   {
     "id": "c4a-01",
     "pregunta": "¿Quién aplica la NIIF para las PYMES?",
-    "completa": "Entidades sin obligación pública de rendir cuentas que publican estados financieros para usuarios externos, como bancos y proveedores",
+    "completa": "Entidades sin obligación pública de rendir cuentas que informan a usuarios externos",
     "incompletas": [
-      { "texto": "Empresas que no transan valores en bolsa", "falta": "Tampoco administran recursos de terceros, y publican estados para usuarios externos." },
-      { "texto": "Empresas que publican estados para bancos y proveedores", "falta": "Falta que no tienen obligación pública de rendir cuentas." }
+      { "texto": "Empresas que no transan sus acciones ni sus bonos en ninguna bolsa de valores del país", "falta": "Tampoco administran recursos de terceros, y publican estados para usuarios externos." },
+      { "texto": "Empresas que publican estados financieros para bancos y proveedores", "falta": "Falta que no tienen obligación pública de rendir cuentas." }
     ],
-    "incorrectas": ["Solo las empresas con menos de 10 trabajadores", "Los bancos y aseguradoras"],
+    "incorrectas": [
+      "Solo las empresas con menos de 10 trabajadores y con ventas anuales bajo las 2.400 UF",
+      "Los bancos y las aseguradoras, porque son empresas medianas"
+    ],
     "explicacion": "Bancos, aseguradoras y emisores de valores usan las NIIF completas.",
     "fuente": "NIIF para las PYMES, Sección 1"
   },
   {
     "id": "c4a-02",
     "pregunta": "¿Qué es la base de acumulación (devengo)?",
-    "completa": "Reconocer ingresos y gastos cuando ocurren, no cuando se cobra o paga, y registrar lo pendiente como activo o pasivo",
+    "completa": "Reconocer cuando ocurre, no cuando se paga, dejando lo pendiente como activo o pasivo",
     "incompletas": [
-      { "texto": "Registrar cuando ocurre, no cuando se paga", "falta": "Falta que lo pendiente se registra como activo o pasivo." },
-      { "texto": "Los sueldos del mes se registran aunque se paguen después", "falta": "Es un ejemplo; falta el principio general." }
+      { "texto": "Registrar ingresos y gastos cuando ocurren, no cuando se cobran o se pagan", "falta": "Falta que lo pendiente se registra como activo o pasivo." },
+      { "texto": "Registrar los sueldos del mes como gasto aunque se paguen el mes siguiente", "falta": "Es un ejemplo; falta el principio general." }
     ],
-    "incorrectas": ["Registrar solo lo que entra y sale de caja", "Acumular los gastos y registrarlos a fin de año"],
+    "incorrectas": [
+      "Registrar solo lo que entra y sale de la caja, en la fecha exacta en que se cobra o se paga",
+      "Acumular todos los gastos del año y registrarlos juntos en diciembre"
+    ],
     "explicacion": "Ejemplo: sueldos devengados → Remuneraciones por pagar.",
     "fuente": "NIIF para las PYMES, Sección 2"
   },
   {
     "id": "c4a-03",
     "pregunta": "¿Cómo se calcula y registra la depreciación lineal?",
-    "completa": "(Costo − valor residual) ÷ vida útil, registrada como Gasto por depreciación contra Depreciación acumulada",
+    "completa": "(Costo − residual) ÷ vida útil; Gasto por depreciación contra Depreciación acumulada",
     "incompletas": [
-      { "texto": "(Costo − valor residual) ÷ vida útil", "falta": "Falta el asiento." },
-      { "texto": "Gasto por depreciación contra Depreciación acumulada", "falta": "Falta cómo se calcula." }
+      { "texto": "Restando el valor residual al costo del activo y dividiendo por los años de vida útil", "falta": "Falta el asiento." },
+      { "texto": "Con un asiento de Gasto por depreciación contra Depreciación acumulada", "falta": "Falta cómo se calcula." }
     ],
-    "incorrectas": ["Costo ÷ 12 en cualquier caso", "Se rebaja directamente de Caja"],
+    "incorrectas": [
+      "Dividiendo el costo por 12 en cualquier caso, sin importar la vida útil ni el valor residual",
+      "Rebajando directamente la Caja cada mes por el desgaste del activo"
+    ],
     "explicacion": "La depreciación acumulada es complementaria: resta al activo sin borrar su costo.",
     "fuente": "NIIF para las PYMES, Sección 17"
   },
   {
     "id": "c4a-04",
     "pregunta": "¿Cómo se registra el deterioro de cuentas por cobrar?",
-    "completa": "Gasto por deterioro de deudores contra Estimación de incobrables, una cuenta complementaria que rebaja Clientes sin borrar la deuda",
+    "completa": "Gasto por deterioro contra Estimación de incobrables, que rebaja Clientes",
     "incompletas": [
-      { "texto": "Con un gasto por deterioro de deudores", "falta": "Falta la contrapartida: Estimación de incobrables." },
-      { "texto": "Usando una cuenta complementaria de Clientes", "falta": "Falta el gasto y que la deuda no se borra." }
+      { "texto": "Reconociendo un gasto por deterioro de deudores en el resultado del período", "falta": "Falta la contrapartida: Estimación de incobrables." },
+      { "texto": "Usando una cuenta complementaria de Clientes, sin borrar la deuda original", "falta": "Falta el gasto y su nombre." }
     ],
-    "incorrectas": ["Borrando la deuda del cliente de inmediato", "Con un ingreso por incobrables"],
+    "incorrectas": [
+      "Borrando la deuda del cliente de inmediato, contra un gasto",
+      "Registrando un ingreso por incobrables cuando el cliente se atrasa"
+    ],
     "explicacion": "Se reconoce cuando hay evidencia de que el cliente no pagará.",
     "fuente": "NIIF para las PYMES, Sección 11"
   },
   {
     "id": "c4a-05",
     "pregunta": "¿Cómo se miden los inventarios?",
-    "completa": "Al menor entre el costo y el precio de venta estimado menos los costos de terminación y venta; la diferencia es una pérdida",
+    "completa": "Al menor entre costo y precio de venta estimado menos costos de terminar y vender",
     "incompletas": [
-      { "texto": "Al menor entre costo y precio de venta", "falta": "Al precio de venta se le restan los costos de terminación y venta." },
-      { "texto": "Si bajan de valor, se reconoce una pérdida", "falta": "Falta la regla de medición." }
+      { "texto": "Al menor valor entre su costo y su precio de venta en el mercado", "falta": "Al precio de venta se le restan los costos de terminación y venta." },
+      { "texto": "Si se dañan o bajan de precio, se reconoce la diferencia como pérdida", "falta": "Falta la regla de medición." }
     ],
-    "incorrectas": ["Siempre al precio de venta", "Siempre al costo, aunque se dañen"],
+    "incorrectas": [
+      "Siempre al precio de venta de la lista, porque es lo que la empresa recibirá al venderlos",
+      "Siempre al costo de compra, aunque la mercadería se dañe o se vuelva obsoleta"
+    ],
     "explicacion": "Asiento: Pérdida por deterioro de inventario contra Mercaderías.",
     "fuente": "NIIF para las PYMES, Sección 13"
   },
   {
     "id": "c4a-06",
     "pregunta": "¿Cuándo se registra una provisión?",
-    "completa": "Cuando hay una obligación presente por un hecho pasado, es probable que haya que pagar y el monto se puede estimar con fiabilidad",
+    "completa": "Obligación presente por un hecho pasado, pago probable y monto estimable",
     "incompletas": [
-      { "texto": "Cuando es probable que haya que pagar", "falta": "También debe haber una obligación presente y un monto estimable." },
-      { "texto": "Cuando hay una obligación por un hecho pasado", "falta": "Falta que el pago sea probable y el monto estimable." }
+      { "texto": "Cuando es probable que la empresa tenga que pagar en el futuro", "falta": "También debe haber una obligación presente y un monto estimable." },
+      { "texto": "Cuando existe una obligación presente que nació de un hecho pasado", "falta": "Falta que el pago sea probable y el monto estimable." }
     ],
-    "incorrectas": ["Siempre que haya un juicio en curso, aunque sea improbable perder", "Para ahorrar dinero para el futuro"],
+    "incorrectas": [
+      "Siempre que haya un juicio en curso, aunque sea improbable perderlo",
+      "Cuando la empresa quiere ahorrar dinero para gastos futuros"
+    ],
     "explicacion": "Si el pago solo es posible, es un pasivo contingente: se revela, no se registra.",
     "fuente": "NIIF para las PYMES, Sección 21"
   },
   {
     "id": "c4a-07",
     "pregunta": "¿Cómo se trata un arriendo pagado por adelantado?",
-    "completa": "Como un activo (Arriendo pagado por anticipado) que se lleva a gasto a medida que transcurren los meses",
+    "completa": "Como un activo que se lleva a gasto a medida que pasan los meses",
     "incompletas": [
-      { "texto": "Como un activo", "falta": "Falta que se lleva a gasto con el tiempo." },
-      { "texto": "Se va reconociendo como gasto mes a mes", "falta": "Falta que al pagar se registra como activo." }
+      { "texto": "Como un activo corriente: Arriendo pagado por anticipado", "falta": "Falta que se lleva a gasto con el tiempo." },
+      { "texto": "Se va reconociendo como gasto de arriendo mes a mes", "falta": "Falta que al pagar se registra como activo." }
     ],
-    "incorrectas": ["Todo como gasto del mes en que se paga", "Como un pasivo"],
+    "incorrectas": [
+      "Todo como gasto del mes en que se paga, aunque cubra un año completo",
+      "Como un pasivo con el arrendador hasta que termine el contrato de arriendo"
+    ],
     "explicacion": "Es el devengo aplicado a un pago anticipado.",
     "fuente": "NIIF para las PYMES, Sección 2"
   },
   {
     "id": "c4a-08",
-    "pregunta": "¿Qué efecto tienen los ajustes de cierre en los estados?",
-    "completa": "Casi todos son gastos que bajan el resultado, y además reducen activos (depreciación, deterioros) o aumentan pasivos (provisiones, devengos)",
+    "pregunta": "¿Qué efecto tienen los ajustes de cierre?",
+    "completa": "Suelen ser gastos: bajan el resultado y reducen activos o aumentan pasivos",
     "incompletas": [
-      { "texto": "La mayoría disminuye el resultado", "falta": "Falta su efecto en activos y pasivos." },
-      { "texto": "La depreciación reduce los activos", "falta": "Falta el efecto en resultados y el de provisiones y devengos." }
+      { "texto": "La mayoría son gastos, así que disminuyen el resultado del período", "falta": "Falta su efecto en activos y pasivos." },
+      { "texto": "La depreciación y los deterioros reducen el valor de los activos", "falta": "Falta el efecto en resultados y el de provisiones y devengos." }
     ],
-    "incorrectas": ["Aumentan siempre la utilidad", "No afectan el balance"],
+    "incorrectas": [
+      "Aumentan siempre la utilidad, porque corrigen errores a favor de la empresa",
+      "Solo cambian el Estado de Resultados; el balance no se ve afectado"
+    ],
     "explicacion": "Después de ajustar, el balance sigue cuadrando.",
     "fuente": "NIIF para las PYMES"
   },
   {
     "id": "c4a-09",
     "pregunta": "¿Qué es un pasivo contingente?",
-    "completa": "Una obligación posible que depende de hechos futuros inciertos, o presente pero improbable o no medible: no se registra, se revela en notas",
+    "completa": "Una obligación posible o no probable: no se registra, se revela en notas",
     "incompletas": [
-      { "texto": "Una obligación posible", "falta": "Falta cómo se trata: se revela, no se registra." },
-      { "texto": "Se informa en notas", "falta": "Falta qué es." }
+      { "texto": "Una obligación posible que depende de hechos futuros que no se controlan", "falta": "Falta cómo se trata: se revela, no se registra." },
+      { "texto": "Algo que se informa en las notas de los estados financieros", "falta": "Falta qué es." }
     ],
-    "incorrectas": ["Una provisión registrada", "Una deuda con proveedores"],
+    "incorrectas": [
+      "Una provisión que ya se registró en el balance por un juicio perdido",
+      "Una deuda con proveedores que vence en los próximos 30 días"
+    ],
     "explicacion": "Ejemplo: un juicio con pocas probabilidades de perderse.",
     "fuente": "NIIF para las PYMES, Sección 21"
   },
   {
     "id": "c4a-10",
     "pregunta": "¿Qué es la Depreciación acumulada?",
-    "completa": "Una cuenta complementaria de activo, de saldo acreedor, que acumula la depreciación y se resta del costo para obtener el valor libro",
+    "completa": "Cuenta complementaria de saldo acreedor que se resta del costo del activo",
     "incompletas": [
-      { "texto": "Una cuenta que se resta del activo fijo", "falta": "Falta que es complementaria, de saldo acreedor, y da el valor libro." },
-      { "texto": "La suma de las depreciaciones de los años", "falta": "Falta cómo se presenta: restando al costo." }
+      { "texto": "Una cuenta que se resta del activo fijo en el balance general", "falta": "Falta que es complementaria, de saldo acreedor, y da el valor libro." },
+      { "texto": "La suma de las depreciaciones registradas desde la compra del activo", "falta": "Falta cómo se presenta: restando al costo." }
     ],
-    "incorrectas": ["Un gasto del período", "Un pasivo con el banco"],
+    "incorrectas": [
+      "Un gasto del período que se presenta en el Estado de Resultados",
+      "Un pasivo con el banco por el préstamo con que se compró el activo"
+    ],
     "explicacion": "Valor libro = costo − depreciación acumulada.",
     "fuente": "NIIF para las PYMES, Sección 17"
   }

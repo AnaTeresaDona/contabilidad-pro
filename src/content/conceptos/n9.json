@@ -2,120 +2,150 @@
   {
     "id": "c9-01",
     "pregunta": "¿Qué es la NIIF 18 y desde cuándo rige?",
-    "completa": "La norma de presentación que sustituye a la NIC 1 desde los periodos anuales que comienzan el 1 de enero de 2027, centrada en el estado del resultado",
+    "completa": "La norma que sustituye a la NIC 1, desde los periodos que empiezan el 1-1-2027",
     "incompletas": [
-      { "texto": "La norma que reemplaza a la NIC 1", "falta": "Falta desde cuándo rige y su foco." },
-      { "texto": "Rige desde el 1 de enero de 2027", "falta": "Falta qué norma reemplaza." }
+      { "texto": "La nueva norma de presentación de estados financieros que reemplaza a la NIC 1", "falta": "Falta desde cuándo rige." },
+      { "texto": "Una norma obligatoria desde el 1 de enero de 2027, que se puede aplicar antes", "falta": "Falta qué norma reemplaza." }
     ],
-    "incorrectas": ["Una norma de ingresos que reemplaza a la NIIF 15", "Una norma tributaria del SII"],
-    "explicacion": "Se permite aplicarla anticipadamente.",
+    "incorrectas": [
+      "Una norma de ingresos que reemplaza a la NIIF 15 desde el año 2026",
+      "Una norma tributaria del SII que cambia el formato del Formulario 22"
+    ],
+    "explicacion": "Su foco es el estado del resultado.",
     "fuente": "NIIF 18, párrafos C1 y C8"
   },
   {
     "id": "c9-02",
     "pregunta": "¿Cuáles son las categorías del estado del resultado en la NIIF 18?",
-    "completa": "Operación, inversión, financiación, impuestos a las ganancias y operaciones discontinuadas; operación es la categoría residual",
+    "completa": "Operación, inversión, financiación, impuestos a las ganancias y discontinuadas",
     "incompletas": [
-      { "texto": "Operación, inversión y financiación", "falta": "Faltan impuestos y discontinuadas." },
-      { "texto": "Operación es la categoría residual", "falta": "Falta nombrar las cinco categorías." }
+      { "texto": "Operación, inversión y financiación, que son las tres categorías nuevas", "falta": "Faltan impuestos y discontinuadas." },
+      { "texto": "Operación, que es la categoría residual, más otras cuatro categorías", "falta": "Falta nombrar las cinco categorías." }
     ],
-    "incorrectas": ["Ordinarias y extraordinarias", "Corrientes y no corrientes"],
+    "incorrectas": [
+      "Partidas ordinarias y extraordinarias, separadas según qué tan frecuentes son",
+      "Partidas corrientes y no corrientes, como en el estado de situación"
+    ],
     "explicacion": "No existen partidas extraordinarias.",
     "fuente": "NIIF 18, párrafos 47 y 52"
   },
   {
     "id": "c9-03",
     "pregunta": "¿Qué va en la categoría de inversión?",
-    "completa": "Los resultados de asociadas y negocios conjuntos por método de la participación, del efectivo y equivalentes, y de activos que rinden por sí solos",
+    "completa": "Asociadas por método de la participación, efectivo y activos que rinden por sí solos",
     "incompletas": [
-      { "texto": "La participación en asociadas", "falta": "También el efectivo y los activos que rinden por sí solos." },
-      { "texto": "Los intereses de depósitos a plazo", "falta": "También asociadas y otros activos de inversión." }
+      { "texto": "La participación en ganancias de asociadas y negocios conjuntos", "falta": "También el efectivo y los activos que rinden por sí solos." },
+      { "texto": "Los intereses ganados en depósitos a plazo y en otros equivalentes al efectivo de la empresa", "falta": "También asociadas y otros activos de inversión." }
     ],
-    "incorrectas": ["La compra de maquinaria", "Los intereses del préstamo bancario"],
+    "incorrectas": [
+      "La compra de maquinaria y equipos nuevos para el taller de la empresa",
+      "Los intereses del préstamo bancario que financió las inversiones"
+    ],
     "explicacion": "Para empresas comerciales; un banco o aseguradora clasifica distinto.",
     "fuente": "NIIF 18, párrafo 53"
   },
   {
     "id": "c9-04",
     "pregunta": "¿Qué va en la categoría de financiación?",
-    "completa": "Todos los resultados de pasivos tomados solo para financiarse (préstamos, bonos) y, de otros pasivos, solo los intereses (arriendos NIIF 16, actualización de provisiones)",
+    "completa": "Lo de préstamos y bonos, y los intereses de otros pasivos como los arriendos",
     "incompletas": [
-      { "texto": "Los intereses del préstamo bancario", "falta": "También bonos e intereses de otros pasivos como arriendos." },
-      { "texto": "Los intereses del pasivo por arrendamiento", "falta": "También los pasivos de financiamiento como préstamos y bonos." }
+      { "texto": "Los intereses del préstamo bancario y de los bonos emitidos por la empresa", "falta": "También los intereses de otros pasivos, como arriendos." },
+      { "texto": "Los intereses del pasivo por arrendamiento y de las provisiones", "falta": "También los pasivos de financiamiento como préstamos y bonos." }
     ],
-    "incorrectas": ["Los dividendos recibidos", "El pago a proveedores"],
+    "incorrectas": [
+      "Los dividendos recibidos de las acciones que tiene la empresa",
+      "Los pagos a proveedores por las mercaderías compradas al crédito"
+    ],
     "explicacion": "Va después del resultado antes de financiación e impuestos.",
     "fuente": "NIIF 18, párrafo 59"
   },
   {
     "id": "c9-05",
     "pregunta": "¿Qué subtotales son obligatorios en la NIIF 18?",
-    "completa": "Resultado de operación; resultado antes de financiación e impuestos a las ganancias (operación + inversión); y resultado del periodo",
+    "completa": "Resultado de operación, antes de financiación e impuestos, y del periodo",
     "incompletas": [
-      { "texto": "Resultado de operación y resultado del periodo", "falta": "Falta el resultado antes de financiación e impuestos." },
-      { "texto": "Resultado antes de financiación e impuestos", "falta": "Faltan el resultado de operación y del periodo." }
+      { "texto": "El resultado de operación y el resultado del periodo que va al final del estado", "falta": "Falta el resultado antes de financiación e impuestos." },
+      { "texto": "El resultado antes de financiación e impuestos, que suma operación e inversión", "falta": "Faltan el resultado de operación y del periodo." }
     ],
-    "incorrectas": ["EBITDA y margen bruto", "Solo el resultado del periodo"],
+    "incorrectas": [
+      "El EBITDA y el margen bruto, que deben presentar todas las empresas",
+      "Solo el resultado del periodo; los demás quedan a elección de la empresa"
+    ],
     "explicacion": "Tienen el mismo significado en todas las empresas, lo que permite compararlas.",
     "fuente": "NIIF 18, párrafos 69 a 72"
   },
   {
     "id": "c9-06",
     "pregunta": "¿Qué es una MPM y cómo se revela?",
-    "completa": "Un subtotal propio usado en comunicaciones públicas para mostrar la visión de la gerencia; se revela en una sola nota con su cálculo, su conciliación y los efectos en impuestos y no controladoras",
+    "completa": "Un subtotal propio de los comunicados de la gerencia, en una nota con su conciliación",
     "incompletas": [
-      { "texto": "Un subtotal propio que usa la gerencia en sus comunicados", "falta": "Falta cómo se revela." },
-      { "texto": "Se revela en una nota con su conciliación", "falta": "Falta qué es y los efectos en impuestos." }
+      { "texto": "Un subtotal propio que la gerencia usa en sus comunicaciones públicas", "falta": "Falta cómo se revela." },
+      { "texto": "Se revela en una sola nota con su cálculo y su conciliación con la NIIF", "falta": "Falta qué es." }
     ],
-    "incorrectas": ["Cualquier ratio financiero", "Un subtotal obligatorio de la NIIF 18"],
-    "explicacion": "Ejemplo: un «resultado operacional ajustado».",
+    "incorrectas": [
+      "Cualquier ratio financiero que la empresa calcule para el banco o para sus accionistas",
+      "Uno de los subtotales obligatorios que exige la NIIF 18 en el estado"
+    ],
+    "explicacion": "La conciliación incluye el efecto en impuestos y en participaciones no controladoras.",
     "fuente": "NIIF 18, párrafos 117, 122 y 123"
   },
   {
     "id": "c9-07",
     "pregunta": "¿Qué cambia en el estado de flujos de efectivo con la NIIF 18?",
-    "completa": "El método indirecto parte del resultado de operación y, en una empresa comercial, intereses y dividendos pagados van a financiación y los recibidos, a inversión",
+    "completa": "Parte del resultado de operación; intereses pagados a financiación y recibidos a inversión",
     "incompletas": [
-      { "texto": "El método indirecto parte del resultado de operación", "falta": "Falta la nueva clasificación de intereses y dividendos." },
-      { "texto": "Los intereses pagados van a financiación", "falta": "Faltan los recibidos y el punto de partida." }
+      { "texto": "El método indirecto ahora parte del resultado de operación del periodo", "falta": "Falta la nueva clasificación de intereses y dividendos." },
+      { "texto": "En una empresa comercial, los intereses pagados pasan a la categoría de financiación", "falta": "Faltan los recibidos y el punto de partida." }
     ],
-    "incorrectas": ["Desaparece el método indirecto", "Nada"],
+    "incorrectas": [
+      "Desaparece el método indirecto y desde 2027 solo se puede usar el método directo",
+      "Nada: la NIIF 18 no modifica en nada el estado de flujos de efectivo"
+    ],
     "explicacion": "Se elimina la opción de clasificación que daba la NIC 7.",
     "fuente": "NIC 7, modificada por la NIIF 18"
   },
   {
     "id": "c9-08",
     "pregunta": "¿Cómo se hace la transición a la NIIF 18?",
-    "completa": "Retroactivamente: se reexpresa el comparativo y se concilia, partida por partida del estado del resultado, lo reexpresado con lo presentado con la NIC 1",
+    "completa": "Retroactiva: se reexpresa el comparativo y se concilia partida por partida",
     "incompletas": [
-      { "texto": "Se reexpresa el comparativo", "falta": "Falta la conciliación partida por partida." },
-      { "texto": "Se aplica retroactivamente", "falta": "Falta la conciliación con lo presentado con la NIC 1." }
+      { "texto": "Se reexpresa el año comparativo con las nuevas categorías y los nuevos subtotales", "falta": "Falta la conciliación partida por partida con la NIC 1." },
+      { "texto": "Se aplica en forma retroactiva, siguiendo lo que indica la NIC 8", "falta": "Falta la conciliación con lo presentado con la NIC 1." }
     ],
-    "incorrectas": ["Solo hacia adelante", "Solo en la memoria anual"],
+    "incorrectas": [
+      "Solo hacia adelante, sin tocar nada de lo que ya se presentó con la NIC 1 en 2026",
+      "Solo en la memoria anual, explicando los cambios con palabras"
+    ],
     "explicacion": "Los primeros estados al 31-12-2027 reexpresan 2026.",
     "fuente": "NIIF 18, párrafos C2 y C3"
   },
   {
     "id": "c9-09",
     "pregunta": "¿Qué se revela si los gastos de operación se presentan por función?",
-    "completa": "En una sola nota, los totales de depreciación, amortización, beneficios a los empleados, deterioros y rebajas de inventario",
+    "completa": "Depreciación, amortización, beneficios a empleados, deterioros y rebajas de inventario",
     "incompletas": [
-      { "texto": "La depreciación y la amortización", "falta": "También beneficios a los empleados, deterioros y rebajas de inventario." },
-      { "texto": "Algunos gastos por naturaleza en una nota", "falta": "Falta cuáles son." }
+      { "texto": "La depreciación y la amortización del periodo, en una nota de los estados", "falta": "También beneficios a los empleados, deterioros y rebajas de inventario." },
+      { "texto": "Algunos gastos por naturaleza, reunidos en una sola nota", "falta": "Falta cuáles son." }
     ],
-    "incorrectas": ["El detalle de cada factura", "Nada"],
-    "explicacion": "Así el usuario puede reconstruir información por naturaleza.",
+    "incorrectas": [
+      "El detalle de cada factura de gasto recibida durante el periodo, ordenado por proveedor",
+      "Nada adicional, porque la presentación por función ya es suficiente"
+    ],
+    "explicacion": "Se revelan en una sola nota, para reconstruir información por naturaleza.",
     "fuente": "NIIF 18, párrafo 83"
   },
   {
     "id": "c9-10",
     "pregunta": "¿Cambia la utilidad del periodo con la NIIF 18?",
-    "completa": "No: la NIIF 18 cambia la presentación y las revelaciones (categorías, subtotales, MPM), no el reconocimiento ni la medición",
+    "completa": "No: cambian la presentación y las revelaciones, no la medición",
     "incompletas": [
-      { "texto": "No cambia", "falta": "Falta por qué: solo cambia la presentación." },
-      { "texto": "Cambia la presentación", "falta": "Falta que la utilidad queda igual." }
+      { "texto": "No cambia: la utilidad del periodo es la misma que con la NIC 1", "falta": "Falta por qué: solo cambia la presentación." },
+      { "texto": "Cambia la forma de presentar el estado del resultado y sus subtotales", "falta": "Falta que la utilidad queda igual." }
     ],
-    "incorrectas": ["Sí, siempre baja", "Sí, porque cambia la tasa de impuesto"],
+    "incorrectas": [
+      "Sí, siempre baja, porque los gastos inusuales ahora son de operación",
+      "Sí, porque cambia la tasa del impuesto a la renta desde 2027"
+    ],
     "explicacion": "Las partidas se miden igual que con la NIC 1.",
     "fuente": "NIIF 18, párrafo 1"
   }

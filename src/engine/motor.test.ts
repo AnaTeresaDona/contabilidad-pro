@@ -957,6 +957,24 @@ describe('repaso de conceptos', () => {
     }
   });
 
+  it('el largo de las alternativas no delata la respuesta completa', () => {
+    const preguntas = Object.values(CONCEPTOS).flat();
+    let laMasLarga = 0;
+    const posiciones = [0, 0, 0, 0, 0];
+    for (const p of preguntas) {
+      const otras = [...p.incompletas.map((i) => i.texto), ...p.incorrectas].map((t) => t.length);
+      const c = p.completa.length;
+      // Nunca mucho más larga que la alternativa más larga.
+      expect(c / Math.max(...otras), p.id).toBeLessThanOrEqual(1.1);
+      if (c > Math.max(...otras)) laMasLarga++;
+      posiciones[otras.filter((x) => x > c).length]++;
+    }
+    // Estrictamente la más larga en a lo más el 40% del banco…
+    expect(laMasLarga / preguntas.length).toBeLessThanOrEqual(0.4);
+    // …y ninguna posición por largo (1ª, 2ª, 3ª…) concentra más de la mitad de las respuestas.
+    for (const n of posiciones) expect(n / preguntas.length).toBeLessThanOrEqual(0.5);
+  });
+
   it('la sesión baraja 5 alternativas y el resultado separa buenas, malas e incompletas, y sin responder', () => {
     const sesion = armarSesion(crearRng(7), CONCEPTOS.n1, 10);
     expect(sesion).toHaveLength(10);
