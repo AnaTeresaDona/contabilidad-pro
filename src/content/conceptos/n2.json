@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c2-01",
+    "pregunta": "¿Cuáles son las etapas del ciclo contable?",
+    "completa": "Documento de respaldo → registro en el Libro Diario → traspaso al Libro Mayor → balance de comprobación (8 columnas) → estados financieros",
+    "incompletas": [
+      { "texto": "Registrar en el Libro Diario y luego en el Libro Mayor", "falta": "Faltan el documento de respaldo, el balance y los estados financieros." },
+      { "texto": "Parte con un documento que respalda la operación", "falta": "Faltan las etapas siguientes hasta los estados financieros." }
+    ],
+    "incorrectas": ["Pagar el IVA y luego registrar las ventas", "Hacer el balance y después los asientos"],
+    "explicacion": "Cada etapa usa el resultado de la anterior.",
+    "fuente": "Ciclo contable"
+  },
+  {
+    "id": "c2-02",
+    "pregunta": "¿En qué se diferencian el Libro Diario y el Libro Mayor?",
+    "completa": "El Diario muestra cada operación completa en orden de fecha; el Mayor muestra cada cuenta por separado con todos sus movimientos",
+    "incompletas": [
+      { "texto": "El Diario registra las operaciones en orden de fecha", "falta": "Falta qué muestra el Mayor." },
+      { "texto": "El Mayor tiene una Cuenta T por cada cuenta", "falta": "Falta qué muestra el Diario." }
+    ],
+    "incorrectas": ["Son el mismo libro con distinto nombre", "El Mayor solo tiene las cuentas de resultado"],
+    "explicacion": "Mayorizar es pasar cada línea del Diario a su Cuenta T.",
+    "fuente": "Ciclo contable"
+  },
+  {
+    "id": "c2-03",
+    "pregunta": "¿Qué es una factura electrónica (código 33)?",
+    "completa": "El documento que se emite a otro contribuyente por una venta afecta, con el IVA separado, que le sirve para respaldar su crédito fiscal",
+    "incompletas": [
+      { "texto": "Un documento tributario electrónico de venta", "falta": "Falta que se emite a otro contribuyente con el IVA separado para su crédito fiscal." },
+      { "texto": "Muestra el IVA por separado", "falta": "Falta a quién se emite y para qué le sirve." }
+    ],
+    "incorrectas": ["El documento que se entrega al consumidor final con IVA incluido", "Un documento para rebajar una venta"],
+    "explicacion": "Al consumidor final se le emite boleta (39).",
+    "fuente": "SII, DTE"
+  },
+  {
+    "id": "c2-04",
+    "pregunta": "¿Cómo se registra una boleta de $11.900?",
+    "completa": "Caja $11.900 contra Ventas $10.000 e IVA Débito Fiscal $1.900, separando el neto con total ÷ 1,19",
+    "incompletas": [
+      { "texto": "Se separa el neto: 11.900 ÷ 1,19 = $10.000", "falta": "Falta el asiento completo con el IVA Débito." },
+      { "texto": "Caja contra Ventas e IVA Débito Fiscal", "falta": "Faltan los montos y cómo se separa el IVA incluido." }
+    ],
+    "incorrectas": ["Caja $11.900 contra Ventas $11.900", "IVA = 11.900 × 19%"],
+    "explicacion": "En la boleta el IVA viene incluido en el total.",
+    "fuente": "DL 825"
+  },
+  {
+    "id": "c2-05",
+    "pregunta": "¿Qué es una nota de crédito (código 61)?",
+    "completa": "Un documento que rebaja una factura emitida (por devolución, descuento o error), con su IVA, y se registra al revés de la operación original",
+    "incompletas": [
+      { "texto": "Un documento que rebaja una factura", "falta": "Falta que también rebaja el IVA y cómo se registra." },
+      { "texto": "Se registra al revés de la venta original", "falta": "Falta qué es y cuándo se emite." }
+    ],
+    "incorrectas": ["Un documento que aumenta lo cobrado", "Un préstamo del banco"],
+    "explicacion": "La nota de débito (56), en cambio, aumenta lo cobrado.",
+    "fuente": "SII, DTE"
+  },
+  {
+    "id": "c2-06",
+    "pregunta": "¿Cómo funciona el IVA mensual en el Formulario 29?",
+    "completa": "Se compara el IVA Débito con el IVA Crédito: si el débito es mayor se paga la diferencia; si el crédito es mayor, el remanente pasa al mes siguiente",
+    "incompletas": [
+      { "texto": "Se paga la diferencia entre IVA Débito y Crédito", "falta": "Falta el caso en que el crédito es mayor (remanente)." },
+      { "texto": "Si el crédito es mayor, queda un remanente", "falta": "Falta el caso normal: se paga la diferencia." }
+    ],
+    "incorrectas": ["Se paga todo el IVA Débito sin descontar nada", "Se paga una vez al año en abril"],
+    "explicacion": "Asiento del pago: IVA Débito contra IVA Crédito y Banco.",
+    "fuente": "DL 825; Formulario 29"
+  },
+  {
+    "id": "c2-07",
+    "pregunta": "¿Qué columnas tiene el Balance de 8 columnas?",
+    "completa": "Sumas (Debe y Haber), Saldos (Deudor y Acreedor), Inventario (Activo y Pasivo) y Resultados (Pérdida y Ganancia)",
+    "incompletas": [
+      { "texto": "Sumas y Saldos", "falta": "Faltan Inventario y Resultados." },
+      { "texto": "Inventario y Resultados", "falta": "Faltan Sumas y Saldos." }
+    ],
+    "incorrectas": ["Ocho cuentas elegidas", "Debe y Haber de los ocho meses"],
+    "explicacion": "Las sumas y los saldos deben cuadrar.",
+    "fuente": "Balance de 8 columnas"
+  },
+  {
+    "id": "c2-08",
+    "pregunta": "¿Cómo se determina el resultado en el Balance de 8 columnas?",
+    "completa": "Por la diferencia en Resultados (ganancias − pérdidas), que debe ser igual a la diferencia en Inventario (activos − pasivos)",
+    "incompletas": [
+      { "texto": "Restando pérdidas a ganancias", "falta": "Falta que coincide con la diferencia del Inventario." },
+      { "texto": "Por la diferencia entre activos y pasivos del Inventario", "falta": "Falta que debe coincidir con la de Resultados." }
+    ],
+    "incorrectas": ["Sumando todas las cuentas", "Es la suma del Debe"],
+    "explicacion": "Las dos diferencias iguales confirman que el balance cuadra.",
+    "fuente": "Balance de 8 columnas"
+  },
+  {
+    "id": "c2-09",
+    "pregunta": "¿Qué es una guía de despacho (código 52)?",
+    "completa": "Un documento que respalda el traslado de mercaderías; el IVA de la venta se declara con la factura, que puede emitirse después referenciando las guías",
+    "incompletas": [
+      { "texto": "Respalda el traslado de mercaderías", "falta": "Falta cómo se relaciona con la factura y el IVA." },
+      { "texto": "La factura puede emitirse después, referenciando las guías", "falta": "Falta para qué sirve la guía: respaldar el traslado." }
+    ],
+    "incorrectas": ["Es una boleta para empresas", "Rebaja una venta"],
+    "explicacion": "También se usa en traslados que no son venta, como envíos entre sucursales.",
+    "fuente": "SII, DTE"
+  },
+  {
+    "id": "c2-10",
+    "pregunta": "¿Qué es mayorizar?",
+    "completa": "Pasar cada línea de cada asiento del Libro Diario a la Cuenta T de su cuenta, en el mismo lado (Debe o Haber)",
+    "incompletas": [
+      { "texto": "Pasar los asientos al Libro Mayor", "falta": "Falta que cada línea va a su Cuenta T en el mismo lado." },
+      { "texto": "Anotar en la Cuenta T", "falta": "Falta de dónde viene la información y en qué lado." }
+    ],
+    "incorrectas": ["Sumar las ventas del mes", "Ordenar los asientos por monto"],
+    "explicacion": "Después se calcula el saldo de cada Cuenta T.",
+    "fuente": "Ciclo contable"
+  }
+]

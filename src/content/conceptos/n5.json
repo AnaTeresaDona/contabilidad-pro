@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c5-01",
+    "pregunta": "¿Sobre qué se calcula el Impuesto de Primera Categoría?",
+    "completa": "Sobre la Renta Líquida Imponible (RLI), no sobre la utilidad contable, con tasa de 27% en el régimen general",
+    "incompletas": [
+      { "texto": "Sobre la Renta Líquida Imponible", "falta": "Falta la tasa del régimen general: 27%." },
+      { "texto": "Con una tasa de 27%", "falta": "Falta que se aplica sobre la RLI, no sobre la utilidad contable." }
+    ],
+    "incorrectas": ["Sobre las ventas totales", "Sobre la utilidad contable sin ajustes"],
+    "explicacion": "Las pymes del régimen Pro Pyme tienen una tasa menor.",
+    "fuente": "LIR, artículo 20"
+  },
+  {
+    "id": "c5-02",
+    "pregunta": "¿Cómo se pasa de la utilidad contable a la RLI?",
+    "completa": "RLI = resultado contable antes de impuesto + agregados (gastos no aceptados) − deducciones (ingresos no tributables o gastos aceptados fuera del resultado)",
+    "incompletas": [
+      { "texto": "Sumando los gastos que la ley no acepta", "falta": "También se restan las deducciones." },
+      { "texto": "Restando ingresos que no tributan", "falta": "También se suman los agregados." }
+    ],
+    "incorrectas": ["Multiplicando la utilidad por 27%", "Sumando el IVA del año"],
+    "explicacion": "Las partidas tributarias se ajustan fuera de la contabilidad.",
+    "fuente": "LIR, artículos 29 a 33"
+  },
+  {
+    "id": "c5-03",
+    "pregunta": "¿Qué requisitos debe cumplir un gasto para ser aceptado tributariamente?",
+    "completa": "Ser necesario para producir la renta, del ejercicio, pagado o adeudado, y acreditado con documentos",
+    "incompletas": [
+      { "texto": "Ser necesario para producir la renta", "falta": "Faltan: del ejercicio, pagado o adeudado y acreditado." },
+      { "texto": "Estar respaldado con factura", "falta": "Faltan: necesario, del ejercicio y pagado o adeudado." }
+    ],
+    "incorrectas": ["Ser mayor a 1 UTM", "Estar aprobado por el directorio"],
+    "explicacion": "Si falta uno, el gasto es un agregado.",
+    "fuente": "LIR, artículo 31"
+  },
+  {
+    "id": "c5-04",
+    "pregunta": "¿Por qué las multas e intereses pagados al Fisco son un agregado?",
+    "completa": "Porque la ley no los acepta como gasto: aunque rebajan la utilidad contable, se vuelven a sumar para calcular la RLI",
+    "incompletas": [
+      { "texto": "Porque no son gasto aceptado", "falta": "Falta el efecto: se suman de vuelta en la RLI." },
+      { "texto": "Se suman a la utilidad contable", "falta": "Falta la razón: la ley no los acepta." }
+    ],
+    "incorrectas": ["Porque son ingresos", "Porque son deducciones"],
+    "explicacion": "Ocurre igual con provisiones no pagadas y deterioros contables.",
+    "fuente": "LIR, artículos 31 y 33"
+  },
+  {
+    "id": "c5-05",
+    "pregunta": "¿Por qué los dividendos recibidos de una S.A. chilena se deducen?",
+    "completa": "Porque esas utilidades ya pagaron Primera Categoría en la sociedad que las generó: se restan para no gravarlas de nuevo",
+    "incompletas": [
+      { "texto": "Para no cobrar el impuesto dos veces", "falta": "Falta que ya pagaron Primera Categoría en la sociedad de origen." },
+      { "texto": "Se restan de la utilidad contable", "falta": "Falta por qué." }
+    ],
+    "incorrectas": ["Porque son gastos", "Porque no son ingresos contables"],
+    "explicacion": "Sí son ingresos contables; la deducción es solo tributaria.",
+    "fuente": "LIR, artículo 33"
+  },
+  {
+    "id": "c5-06",
+    "pregunta": "¿Qué son los PPM?",
+    "completa": "Pagos provisionales mensuales: anticipos del impuesto anual que se pagan en el F29, se registran como activo y se descuentan en el F22",
+    "incompletas": [
+      { "texto": "Anticipos del impuesto a la renta", "falta": "Falta cuándo se pagan y cómo se usan en el F22." },
+      { "texto": "Se registran como activo", "falta": "Falta qué son." }
+    ],
+    "incorrectas": ["Un impuesto al consumo", "Una multa mensual"],
+    "explicacion": "Si los PPM superan el impuesto, hay devolución.",
+    "fuente": "LIR, artículo 84"
+  },
+  {
+    "id": "c5-07",
+    "pregunta": "¿Qué se declara en el Formulario 22?",
+    "completa": "La renta anual: el impuesto determinado menos los PPM y créditos da el saldo a pagar o a devolver",
+    "incompletas": [
+      { "texto": "El impuesto a la renta del año", "falta": "Falta que se descuentan los PPM y puede haber devolución." },
+      { "texto": "Impuesto − PPM = saldo", "falta": "Falta que es la declaración anual de renta." }
+    ],
+    "incorrectas": ["El IVA mensual", "Las remuneraciones del mes"],
+    "explicacion": "Se presenta en abril (Operación Renta).",
+    "fuente": "SII, Formulario 22"
+  },
+  {
+    "id": "c5-08",
+    "pregunta": "¿Cómo funciona la retención en una boleta de honorarios?",
+    "completa": "La empresa retiene un porcentaje del bruto, paga al profesional el líquido y entera la retención al SII en su F29",
+    "incompletas": [
+      { "texto": "La empresa retiene un porcentaje", "falta": "Falta que paga el líquido y entera la retención." },
+      { "texto": "Se paga el líquido: bruto − retención", "falta": "Falta que la retención se entera al SII." }
+    ],
+    "incorrectas": ["El profesional paga IVA", "La empresa no retiene nada"],
+    "explicacion": "La tasa de retención sube gradualmente cada año.",
+    "fuente": "LIR, artículo 74"
+  },
+  {
+    "id": "c5-09",
+    "pregunta": "¿Por qué una provisión por demanda aún no pagada es un agregado?",
+    "completa": "Porque tributariamente el gasto se acepta cuando se paga o se adeuda: se agrega este año y se deduce cuando se pague",
+    "incompletas": [
+      { "texto": "Porque no está pagada", "falta": "Falta que se deduce en el año en que se paga." },
+      { "texto": "Se deduce cuando se paga", "falta": "Falta que este año se agrega." }
+    ],
+    "incorrectas": ["Porque es un ingreso", "Porque la ley prohíbe las provisiones contables"],
+    "explicacion": "La diferencia es de oportunidad, no permanente.",
+    "fuente": "LIR, artículos 31 y 33"
+  },
+  {
+    "id": "c5-10",
+    "pregunta": "¿Por qué la depreciación acelerada genera una deducción?",
+    "completa": "Porque tributariamente se deprecia más rápido que en la contabilidad: la diferencia se resta este año y se compensa en los años siguientes",
+    "incompletas": [
+      { "texto": "Porque permite rebajar más gasto", "falta": "Falta que la diferencia con la contable se resta y luego se revierte." },
+      { "texto": "Se resta la mayor depreciación tributaria", "falta": "Falta por qué y que se compensa después." }
+    ],
+    "incorrectas": ["Porque aumenta las ventas", "Porque la depreciación no es gasto"],
+    "explicacion": "No se paga menos impuesto en total: se difiere.",
+    "fuente": "LIR, artículo 31 N° 5"
+  }
+]

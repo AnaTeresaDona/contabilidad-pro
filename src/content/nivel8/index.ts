@@ -18,7 +18,7 @@ const banco = situaciones as Pregunta[];
 type Item = EjercicioClasificar['items'][number];
 
 /** Una partida de cada categoría y el resto al azar, para que aparezcan todas. */
-function armarClasificar(
+export function armarClasificar(
   rng: Rng,
   base: Omit<EjercicioClasificar, 'items'>,
   items: Item[],

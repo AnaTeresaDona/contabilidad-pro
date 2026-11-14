@@ -80,6 +80,35 @@ export interface Progreso {
    * salir para cambiar un ejercicio difícil o borrar un error.
    */
   partidas: Record<string, PartidaGuardada>;
+  /** Repaso de conceptos por nivel: sesiones jugadas y porcentajes de buenas. */
+  conceptos: Record<string, ResumenConceptos>;
+}
+
+/** Resumen del repaso de conceptos de un nivel. */
+export interface ResumenConceptos {
+  sesiones: number;
+  /** Mejor porcentaje de buenas en una sesión completa (no cuenta el refuerzo). */
+  mejor: number;
+  /** Porcentaje de buenas de la última sesión. */
+  ultima: number;
+  fecha: string;
+}
+
+/** Registra una sesión de repaso de conceptos de un nivel. */
+export function registrarConceptos(p: Progreso, nivel: string, porcentajeBuenas: number, fecha: string): Progreso {
+  const prev = p.conceptos[nivel];
+  return {
+    ...p,
+    conceptos: {
+      ...p.conceptos,
+      [nivel]: {
+        sesiones: (prev?.sesiones ?? 0) + 1,
+        mejor: Math.max(prev?.mejor ?? 0, porcentajeBuenas),
+        ultima: porcentajeBuenas,
+        fecha,
+      },
+    },
+  };
 }
 
 /** Lo que se guarda del ejercicio que se está resolviendo. */
@@ -133,6 +162,7 @@ export function progresoInicial(): Progreso {
     tiempo: { total: 0, porDia: {} },
     preferencias: { leerAuto: false, velocidadVoz: 1 },
     partidas: {},
+    conceptos: {},
   };
 }
 
@@ -173,6 +203,22 @@ export function migrar(datos: unknown): Progreso {
             Object.entries(d.partidas).filter(
               ([, v]) => v && typeof v === 'object' && typeof v.paso === 'string' && v.datos && typeof v.datos === 'object' && v.actual && typeof v.actual === 'object',
             ),
+          )
+        : {},
+    conceptos:
+      d.conceptos && typeof d.conceptos === 'object'
+        ? Object.fromEntries(
+            Object.entries(d.conceptos)
+              .filter(([, v]) => v && typeof v === 'object')
+              .map(([k, v]) => [
+                k,
+                {
+                  sesiones: Math.max(0, num(v.sesiones, 0)),
+                  mejor: Math.min(100, Math.max(0, num(v.mejor, 0))),
+                  ultima: Math.min(100, Math.max(0, num(v.ultima, 0))),
+                  fecha: typeof v.fecha === 'string' ? v.fecha : '',
+                },
+              ]),
           )
         : {},
     version: VERSION,

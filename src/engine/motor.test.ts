@@ -45,6 +45,12 @@ import {
   generarAperturaNIIF,
 } from './niif';
 import { ordenBalanceConCuentas, ordenEERR, ordenSeccionesBG, validarOrden } from './ordenar';
+import { calculoMPM, calculoReexpresionNic1, calculoSubtotalesNiif18, generarTransicionNiif18, ordenEstadoNiif18, subtotales } from './niif18';
+import { categoriasNiif18, flujosNic7 } from '../content/nivel9';
+import { armarSesion, resultadoSesion } from './conceptos';
+import { CONCEPTOS } from '../content/conceptos';
+import { NIVELES } from '../content';
+import { registrarConceptos } from './progreso';
 import { normaDelActivo, politicaEstimacionError, tiposDeAjuste } from '../content/nivel8';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
@@ -888,5 +894,89 @@ describe('premios dibujados', () => {
     const m = PREMIOS.find((p) => p.id === 'margarita')!;
     expect(emojiTexto(m)).toBe('🌼');
     expect(emojiTexto(PREMIOS.find((p) => p.id === 'topo')!)).toBe('🐾');
+  });
+});
+
+describe('De la NIC 1 a la NIIF 18 (Nivel 9)', () => {
+  it('los cálculos se validan con sus propias respuestas', () => {
+    for (const gen of [calculoSubtotalesNiif18, calculoReexpresionNic1, calculoMPM])
+      for (let s = 1; s <= 60; s++) {
+        const ej = gen(crearRng(s));
+        const resp = Object.fromEntries(ej.preguntas.map((p) => [p.id, p.valor]));
+        expect(validarCalculo(ej, resp).correcto, `${ej.titulo} ${s}`).toBe(true);
+      }
+  });
+
+  it('los subtotales se encadenan y el resultado antes de impuestos es positivo', () => {
+    for (let s = 1; s <= 60; s++) {
+      const ej = CONTENIDO.n9.generarJefe(crearRng(s));
+      if (ej.tipo !== 'decision') throw new Error('tipo inesperado');
+      const d = ej.datos as ReturnType<typeof generarTransicionNiif18>;
+      const st = subtotales(d.resultado);
+      expect(st.antesFinanciacion).toBe(st.operacion + d.resultado.asociadas + d.resultado.interesesGanados);
+      expect(st.antesImpuestos).toBeGreaterThan(0);
+      const v = Object.fromEntries(d.calculo.preguntas.map((p) => [p.id, p.valor]));
+      expect(v.dif).toBeLessThan(0);
+      expect(validarCalculo(d.calculo, v).correcto).toBe(true);
+    }
+  });
+
+  it('la reexpresión desde la NIC 1 siempre baja el resultado de operación', () => {
+    for (let s = 1; s <= 40; s++) {
+      const v = Object.fromEntries(calculoReexpresionNic1(crearRng(s)).preguntas.map((p) => [p.id, p.valor]));
+      expect(v.dif).toBeLessThan(0);
+    }
+  });
+
+  it('las clasificaciones traen todas las categorías y el orden NIIF 18 se valida', () => {
+    for (let s = 1; s <= 30; s++) {
+      for (const ej of [categoriasNiif18(crearRng(s)), flujosNic7(crearRng(s))])
+        for (const o of ej.opciones) expect(ej.items.some((i) => i.correcta === o.id)).toBe(true);
+      const o = ordenEstadoNiif18(crearRng(s));
+      expect(validarOrden(o, o.items.map((i) => i.id)).correcto).toBe(true);
+    }
+  });
+});
+
+describe('repaso de conceptos', () => {
+  it('cada nivel tiene preguntas con una completa, dos incompletas y dos incorrectas, sin ids repetidos', () => {
+    const ids = new Set<string>();
+    for (const n of NIVELES) {
+      const banco = CONCEPTOS[n.id];
+      expect(banco?.length, n.id).toBeGreaterThanOrEqual(10);
+      for (const p of banco) {
+        expect(ids.has(p.id), p.id).toBe(false);
+        ids.add(p.id);
+        expect(p.incompletas).toHaveLength(2);
+        expect(p.incorrectas).toHaveLength(2);
+        for (const i of p.incompletas) expect(i.falta.length).toBeGreaterThan(5);
+        const textos = [p.completa, ...p.incompletas.map((i) => i.texto), ...p.incorrectas];
+        expect(new Set(textos).size, p.id).toBe(5);
+        expect(p.explicacion && p.fuente).toBeTruthy();
+      }
+    }
+  });
+
+  it('la sesión baraja 5 alternativas y el resultado separa buenas, malas e incompletas, y sin responder', () => {
+    const sesion = armarSesion(crearRng(7), CONCEPTOS.n1, 10);
+    expect(sesion).toHaveLength(10);
+    for (const s of sesion) expect(s.alternativas.map((a) => a.tipo).sort()).toEqual(['completa', 'incompleta', 'incompleta', 'incorrecta', 'incorrecta']);
+    const idx = (i: number, tipo: string) => sesion[i].alternativas.findIndex((a) => a.tipo === tipo);
+    const respuestas = sesion.map((_, i) => (i < 5 ? idx(i, 'completa') : i < 7 ? idx(i, 'incompleta') : i < 8 ? idx(i, 'incorrecta') : null));
+    const r = resultadoSesion(sesion, respuestas);
+    expect(r).toMatchObject({ total: 10, buenas: 5, malas: 3, incompletas: 2, noRespondidas: 2, pctBuenas: 50, pctMalas: 30, pctNoRespondidas: 20 });
+    expect(r.paraReforzar.map((p) => p.id)).toEqual(sesion.slice(5, 8).map((s) => s.pregunta.id));
+    expect(r.sinResponder).toHaveLength(2);
+  });
+
+  it('los porcentajes siempre suman 100 y el avance se guarda y migra', () => {
+    const sesion = armarSesion(crearRng(3), CONCEPTOS.n2, 3);
+    const r = resultadoSesion(sesion, [sesion[0].alternativas.findIndex((a) => a.tipo === 'completa'), null, null]);
+    expect(r.pctBuenas + r.pctMalas + r.pctNoRespondidas).toBe(100);
+    let p = registrarConceptos(progresoInicial(), 'n2', 70, '2026-11-14');
+    p = registrarConceptos(p, 'n2', 50, '2026-11-15');
+    expect(p.conceptos.n2).toEqual({ sesiones: 2, mejor: 70, ultima: 50, fecha: '2026-11-15' });
+    expect(migrar(JSON.parse(JSON.stringify(p))).conceptos.n2).toEqual(p.conceptos.n2);
+    expect(migrar({ conceptos: { n1: { mejor: 'x' } } }).conceptos.n1.mejor).toBe(0);
   });
 });

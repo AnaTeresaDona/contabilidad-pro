@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c6-01",
+    "pregunta": "¿En qué se diferencian el análisis vertical y el horizontal?",
+    "completa": "El vertical muestra cada partida como % de un total del mismo año (estructura); el horizontal, la variación de una partida entre años (evolución)",
+    "incompletas": [
+      { "texto": "El vertical compara cada partida con un total del mismo año", "falta": "Falta qué hace el horizontal." },
+      { "texto": "El horizontal compara la misma partida entre años", "falta": "Falta qué hace el vertical." }
+    ],
+    "incorrectas": ["Son lo mismo con distinto nombre", "El vertical solo se usa en el balance"],
+    "explicacion": "Juntos muestran la estructura y su evolución.",
+    "fuente": "Análisis financiero"
+  },
+  {
+    "id": "c6-02",
+    "pregunta": "¿Qué miden la razón corriente y la prueba ácida?",
+    "completa": "La capacidad de pagar lo que vence pronto: activo corriente ÷ pasivo corriente, y la ácida lo mismo pero sin el inventario",
+    "incompletas": [
+      { "texto": "Razón corriente = activo corriente ÷ pasivo corriente", "falta": "Falta qué mide y cómo es la prueba ácida." },
+      { "texto": "La prueba ácida excluye el inventario", "falta": "Falta qué miden y la razón corriente." }
+    ],
+    "incorrectas": ["La rentabilidad de los dueños", "Cuántos días tarda en cobrar"],
+    "explicacion": "Bajo 1 es una alerta de liquidez.",
+    "fuente": "Razones de liquidez"
+  },
+  {
+    "id": "c6-03",
+    "pregunta": "¿Qué mide la razón deuda/patrimonio?",
+    "completa": "Cuánto aportan los acreedores por cada peso de los dueños (pasivos ÷ patrimonio): a mayor valor, más endeudada y riesgosa",
+    "incompletas": [
+      { "texto": "Pasivos ÷ patrimonio", "falta": "Falta qué significa e indica." },
+      { "texto": "Si es alta, la empresa está muy endeudada", "falta": "Falta cómo se calcula." }
+    ],
+    "incorrectas": ["La utilidad por acción", "La liquidez inmediata"],
+    "explicacion": "Se complementa con la cobertura de intereses.",
+    "fuente": "Razones de endeudamiento"
+  },
+  {
+    "id": "c6-04",
+    "pregunta": "¿Qué dice el análisis DuPont del ROE?",
+    "completa": "ROE = margen neto × rotación de activos × apalancamiento: la rentabilidad de los dueños depende de cuánto gana por venta, cuánto vende con sus activos y cuánta deuda usa",
+    "incompletas": [
+      { "texto": "ROE = margen × rotación × apalancamiento", "falta": "Falta qué representa cada factor." },
+      { "texto": "Más deuda puede subir el ROE", "falta": "Falta la descomposición completa." }
+    ],
+    "incorrectas": ["ROE = ventas ÷ activos", "ROE = deuda ÷ patrimonio"],
+    "explicacion": "Ayuda a ver de dónde viene la rentabilidad.",
+    "fuente": "Análisis DuPont"
+  },
+  {
+    "id": "c6-05",
+    "pregunta": "¿Qué es el ciclo de conversión de caja?",
+    "completa": "Días de inventario + días de cobro − días de pago: cuánto tiempo pasa desde que se paga a proveedores hasta que se cobra a clientes",
+    "incompletas": [
+      { "texto": "Días de inventario + días de cobro − días de pago", "falta": "Falta qué significa." },
+      { "texto": "El tiempo que el dinero queda atrapado en el negocio", "falta": "Falta cómo se calcula." }
+    ],
+    "incorrectas": ["La rotación de los activos fijos", "Los días hábiles del año"],
+    "explicacion": "Mientras más largo, más capital de trabajo se necesita.",
+    "fuente": "Razones de actividad"
+  },
+  {
+    "id": "c6-06",
+    "pregunta": "¿Qué actividades separa el estado de flujos de efectivo?",
+    "completa": "Operación (el negocio), inversión (activos de largo plazo e inversiones) y financiamiento (préstamos, aportes y dividendos)",
+    "incompletas": [
+      { "texto": "Operación e inversión", "falta": "Falta financiamiento." },
+      { "texto": "Separa los flujos del negocio de los demás", "falta": "Falta nombrar las tres actividades." }
+    ],
+    "incorrectas": ["Ingresos, gastos e impuestos", "Corriente y no corriente"],
+    "explicacion": "Así se ve de dónde viene y a dónde va el dinero.",
+    "fuente": "NIC 7"
+  },
+  {
+    "id": "c6-07",
+    "pregunta": "¿Cómo funciona el método indirecto del flujo operacional?",
+    "completa": "Parte del resultado, suma lo que no fue salida de dinero (depreciación) y ajusta por los cambios en capital de trabajo (clientes, inventario, proveedores)",
+    "incompletas": [
+      { "texto": "Parte de la utilidad y suma la depreciación", "falta": "Falta ajustar por clientes, inventario y proveedores." },
+      { "texto": "Un aumento de clientes resta flujo", "falta": "Falta de dónde parte y el ajuste por depreciación." }
+    ],
+    "incorrectas": ["Suma todas las ventas al contado", "Resta la depreciación"],
+    "explicacion": "Desde 2027 (NIIF 18) parte del resultado de operación.",
+    "fuente": "NIC 7"
+  },
+  {
+    "id": "c6-08",
+    "pregunta": "¿Cómo puede una empresa rentable quedarse sin caja?",
+    "completa": "Si su utilidad queda atrapada en capital de trabajo (clientes e inventario que crecen) o si financia con deuda de corto plazo inversiones de largo plazo",
+    "incompletas": [
+      { "texto": "Si cobra cada vez más lento", "falta": "También por inventario creciente y por descalce de plazos." },
+      { "texto": "Si acumula inventario", "falta": "También por cobranza lenta y descalce de plazos." }
+    ],
+    "incorrectas": ["No puede: utilidad es lo mismo que caja", "Solo si tiene pérdidas"],
+    "explicacion": "Utilidad no es lo mismo que flujo de efectivo.",
+    "fuente": "Análisis financiero; NIC 7"
+  },
+  {
+    "id": "c6-09",
+    "pregunta": "¿Qué mide la cobertura de intereses?",
+    "completa": "Cuántas veces el resultado operacional cubre los gastos financieros: cerca de 1 es peligroso, porque casi todo lo que gana el negocio se va en intereses",
+    "incompletas": [
+      { "texto": "Resultado operacional ÷ gastos financieros", "falta": "Falta qué indica un valor bajo." },
+      { "texto": "Si es cercana a 1, es peligroso", "falta": "Falta cómo se calcula." }
+    ],
+    "incorrectas": ["Ventas ÷ intereses ganados", "Pasivos ÷ activos"],
+    "explicacion": "Mientras más alta, más holgura para pagar la deuda.",
+    "fuente": "Razones de endeudamiento"
+  },
+  {
+    "id": "c6-10",
+    "pregunta": "¿Cómo se interpreta correctamente una razón financiera?",
+    "completa": "Comparándola con años anteriores, con otras razones y con el rubro: ninguna razón se interpreta sola",
+    "incompletas": [
+      { "texto": "Comparándola con el año anterior", "falta": "También con otras razones y con el rubro." },
+      { "texto": "Comparándola con empresas del rubro", "falta": "También con su evolución y otras razones." }
+    ],
+    "incorrectas": ["Basta con que sea mayor que 1", "Mirando solo la utilidad"],
+    "explicacion": "Por ejemplo, liquidez que cae con utilidad que sube indica caja atrapada.",
+    "fuente": "Análisis financiero"
+  }
+]

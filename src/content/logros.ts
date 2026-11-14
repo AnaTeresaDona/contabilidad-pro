@@ -22,6 +22,7 @@ export const LOGROS: Logro[] = [
   { id: 'nivel_6', emoji: '🎓', titulo: 'CFO', descripcion: 'Completa el Nivel 6 y resuelve la crisis de caja. ¡Terminaste la historia principal!', cumple: (p) => !!p.niveles.n6?.completado },
   { id: 'nivel_7', emoji: '💰', titulo: 'Experta en tasas', descripcion: 'Completa el Nivel 7 y elige el crédito más barato para el horno.', cumple: (p) => !!p.niveles.n7?.completado },
   { id: 'nivel_8', emoji: '🏅', titulo: 'Transición sin salvedades', descripcion: 'Completa el Nivel 8 y entrega el balance de apertura NIIF.', cumple: (p) => !!p.niveles.n8?.completado },
+  { id: 'nivel_9', emoji: '🚀', titulo: 'Lista para 2027', descripcion: 'Completa el Nivel 9 y reexpresa el comparativo con la NIIF 18.', cumple: (p) => !!p.niveles.n9?.completado },
   { id: 'jefe_perfecto', emoji: '🎯', titulo: 'Cuadré a la primera', descripcion: 'Vence a un jefe en el primer intento.', cumple: (p) => Object.values(p.niveles).some((n) => n.jefePerfecto) },
   { id: 'sin_pistas', emoji: '🧠', titulo: 'Sin ayuda', descripcion: 'Completa un nivel sin usar pistas.', cumple: (p) => Object.values(p.niveles).some((n) => n.sinPistas) },
   { id: 'repaso_5', emoji: '📚', titulo: 'Aprender del error', descripcion: 'Resuelve 5 preguntas en el mazo de Repaso.', cumple: (p) => p.repasoResueltas >= 5 },

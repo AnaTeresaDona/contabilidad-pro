@@ -10,6 +10,7 @@ import { Logros } from './pantallas/Logros';
 import { Ajustes } from './pantallas/Ajustes';
 import { Premios } from './pantallas/Premios';
 import { Estadisticas } from './pantallas/Estadisticas';
+import { RepasoConceptos } from './pantallas/RepasoConceptos';
 import { seguirCampos } from './lib/campos';
 
 seguirCampos();
@@ -22,7 +23,8 @@ export type Ruta =
   | { pantalla: 'logros' }
   | { pantalla: 'ajustes' }
   | { pantalla: 'premios' }
-  | { pantalla: 'estadisticas' };
+  | { pantalla: 'estadisticas' }
+  | { pantalla: 'conceptos' };
 
 const TITULOS: Record<Exclude<Ruta['pantalla'], 'nivel' | 'mapa'>, string> = {
   empresa: 'Mi empresa',
@@ -31,6 +33,7 @@ const TITULOS: Record<Exclude<Ruta['pantalla'], 'nivel' | 'mapa'>, string> = {
   ajustes: 'Ajustes',
   premios: 'Camino al cielo',
   estadisticas: 'Mis estadísticas',
+  conceptos: 'Repaso de conceptos',
 };
 
 export default function App() {
@@ -65,6 +68,7 @@ export default function App() {
         {ruta.pantalla === 'ajustes' && <Ajustes />}
         {ruta.pantalla === 'premios' && <Premios />}
         {ruta.pantalla === 'estadisticas' && <Estadisticas />}
+        {ruta.pantalla === 'conceptos' && <RepasoConceptos />}
       </main>
     </div>
   );

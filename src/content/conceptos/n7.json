@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c7-01",
+    "pregunta": "¿Qué dice el principio del valor del dinero en el tiempo?",
+    "completa": "Un peso hoy vale más que un peso mañana por la inflación, el riesgo y el costo de oportunidad; por eso montos de fechas distintas no se suman directo",
+    "incompletas": [
+      { "texto": "Un peso hoy vale más que un peso mañana", "falta": "Falta por qué (inflación, riesgo, costo de oportunidad)." },
+      { "texto": "La inflación hace que el dinero pierda valor", "falta": "Es solo una de las razones; faltan riesgo y costo de oportunidad." }
+    ],
+    "incorrectas": ["El dinero futuro siempre vale más", "Solo importa a los bancos"],
+    "explicacion": "Para comparar montos hay que llevarlos a la misma fecha con una tasa.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-02",
+    "pregunta": "¿En qué se diferencian el interés simple y el compuesto?",
+    "completa": "En el simple los intereses se calculan siempre sobre el capital inicial; en el compuesto se suman al capital y generan nuevos intereses",
+    "incompletas": [
+      { "texto": "En el simple el interés se calcula sobre el capital inicial", "falta": "Falta cómo funciona el compuesto." },
+      { "texto": "En el compuesto se gana interés sobre el interés", "falta": "Falta cómo funciona el simple." }
+    ],
+    "incorrectas": ["El simple usa tasas más altas", "Son iguales si el plazo es largo"],
+    "explicacion": "Simple: M = C(1 + i·n). Compuesto: M = C(1 + i)^n.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-03",
+    "pregunta": "¿Por qué los créditos en UF usan tasas reales?",
+    "completa": "Porque la UF ya se reajusta con la inflación (IPC): la tasa pactada es la ganancia por sobre ese reajuste",
+    "incompletas": [
+      { "texto": "Porque la UF se reajusta con el IPC", "falta": "Falta qué representa entonces la tasa: la ganancia real." },
+      { "texto": "Porque la tasa real no incluye la inflación", "falta": "Falta por qué en UF no hace falta incluirla." }
+    ],
+    "incorrectas": ["Porque la UF no cambia de valor", "Porque lo exige el SII"],
+    "explicacion": "En pesos se usan tasas nominales, que sí incluyen la inflación esperada.",
+    "fuente": "Banco Central de Chile; matemática financiera"
+  },
+  {
+    "id": "c7-04",
+    "pregunta": "¿Qué diferencia hay entre el interés ordinario y el exacto?",
+    "completa": "El ordinario o comercial usa un año de 360 días; el exacto usa 365 (o 366): con el mismo plazo, el ordinario da un poco más de interés",
+    "incompletas": [
+      { "texto": "El ordinario usa 360 días", "falta": "Falta el exacto y cuál da más." },
+      { "texto": "El exacto usa 365 días", "falta": "Falta el ordinario y cuál da más." }
+    ],
+    "incorrectas": ["El ordinario usa meses de 31 días", "Dan siempre el mismo resultado"],
+    "explicacion": "El tiempo exacto cuenta los días reales del calendario.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-05",
+    "pregunta": "¿En qué se diferencian el descuento comercial y el racional?",
+    "completa": "El comercial se calcula sobre el valor nominal (D = VN·d·n); el racional, sobre el valor que se recibe (VL = VN ÷ (1 + i·n)): el comercial descuenta más",
+    "incompletas": [
+      { "texto": "El comercial se calcula sobre el valor nominal", "falta": "Falta el racional y cuál descuenta más." },
+      { "texto": "Con el racional se recibe más dinero", "falta": "Falta cómo se calcula cada uno." }
+    ],
+    "incorrectas": ["El racional usa interés compuesto", "Son iguales"],
+    "explicacion": "Los bancos suelen aplicar el comercial.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-06",
+    "pregunta": "¿Qué es la tasa efectiva anual?",
+    "completa": "La tasa que realmente se paga o gana en un año considerando la capitalización: (1 + j/m)^m − 1; es la que sirve para comparar ofertas",
+    "incompletas": [
+      { "texto": "(1 + j/m)^m − 1", "falta": "Falta qué representa y para qué sirve." },
+      { "texto": "La que sirve para comparar créditos", "falta": "Falta cómo se calcula." }
+    ],
+    "incorrectas": ["La tasa que anuncia el banco", "La tasa mensual × 12"],
+    "explicacion": "Para la misma nominal, más capitalizaciones dan más efectiva.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-07",
+    "pregunta": "¿Cómo funciona la tabla de amortización con cuota fija (sistema francés)?",
+    "completa": "La cuota es fija; en cada fila el interés es el saldo × tasa y la amortización es cuota − interés, por lo que el interés baja y la amortización sube",
+    "incompletas": [
+      { "texto": "La cuota es siempre la misma", "falta": "Falta cómo se reparte entre interés y capital." },
+      { "texto": "Al principio casi toda la cuota es interés", "falta": "Falta la regla de cálculo de cada fila." }
+    ],
+    "incorrectas": ["El interés es igual en todas las cuotas", "La cuota baja cada mes"],
+    "explicacion": "Cuota = P·i ÷ (1 − (1 + i)^−n).",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-08",
+    "pregunta": "¿Qué dice la regla del 72?",
+    "completa": "Que el dinero se duplica aproximadamente en 72 ÷ tasa años con interés compuesto; el cálculo exacto es ln 2 ÷ ln(1 + i)",
+    "incompletas": [
+      { "texto": "72 ÷ tasa = años para duplicar", "falta": "Falta que es una aproximación y su versión exacta." },
+      { "texto": "Sirve para estimar cuándo se duplica una inversión", "falta": "Falta la fórmula." }
+    ],
+    "incorrectas": ["Que se duplica en 72 meses siempre", "Que se cobra 72% de interés"],
+    "explicacion": "Al 8%: 72 ÷ 8 = 9 años (exacto: 9,01).",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-09",
+    "pregunta": "¿Qué indican el VAN y la TIR?",
+    "completa": "El VAN trae a hoy los flujos con la tasa exigida y resta la inversión (si es positivo, conviene); la TIR es la tasa que hace el VAN cero (conviene si supera la exigida)",
+    "incompletas": [
+      { "texto": "Si el VAN es positivo, el proyecto conviene", "falta": "Falta qué es el VAN y la TIR." },
+      { "texto": "La TIR hace que el VAN sea cero", "falta": "Falta el VAN y el criterio de decisión." }
+    ],
+    "incorrectas": ["El VAN es la suma de los flujos sin descontar", "La TIR es la tasa del banco"],
+    "explicacion": "Ambos consideran el valor del dinero en el tiempo.",
+    "fuente": "Matemática financiera"
+  },
+  {
+    "id": "c7-10",
+    "pregunta": "¿Cómo se reajusta la UF?",
+    "completa": "La publica el Banco Central y cambia cada día entre el 10 de un mes y el 9 del siguiente, hasta acumular la variación del IPC del mes anterior",
+    "incompletas": [
+      { "texto": "Según la variación del IPC", "falta": "Falta quién la publica y cómo se distribuye el reajuste." },
+      { "texto": "Cambia todos los días", "falta": "Falta según qué y entre qué fechas." }
+    ],
+    "incorrectas": ["Según el dólar", "Una vez al año"],
+    "explicacion": "UF final = UF inicial × (1 + variación del IPC).",
+    "fuente": "Banco Central de Chile; INE"
+  }
+]

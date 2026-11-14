@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c9-01",
+    "pregunta": "¿Qué es la NIIF 18 y desde cuándo rige?",
+    "completa": "La norma de presentación que sustituye a la NIC 1 desde los periodos anuales que comienzan el 1 de enero de 2027, centrada en el estado del resultado",
+    "incompletas": [
+      { "texto": "La norma que reemplaza a la NIC 1", "falta": "Falta desde cuándo rige y su foco." },
+      { "texto": "Rige desde el 1 de enero de 2027", "falta": "Falta qué norma reemplaza." }
+    ],
+    "incorrectas": ["Una norma de ingresos que reemplaza a la NIIF 15", "Una norma tributaria del SII"],
+    "explicacion": "Se permite aplicarla anticipadamente.",
+    "fuente": "NIIF 18, párrafos C1 y C8"
+  },
+  {
+    "id": "c9-02",
+    "pregunta": "¿Cuáles son las categorías del estado del resultado en la NIIF 18?",
+    "completa": "Operación, inversión, financiación, impuestos a las ganancias y operaciones discontinuadas; operación es la categoría residual",
+    "incompletas": [
+      { "texto": "Operación, inversión y financiación", "falta": "Faltan impuestos y discontinuadas." },
+      { "texto": "Operación es la categoría residual", "falta": "Falta nombrar las cinco categorías." }
+    ],
+    "incorrectas": ["Ordinarias y extraordinarias", "Corrientes y no corrientes"],
+    "explicacion": "No existen partidas extraordinarias.",
+    "fuente": "NIIF 18, párrafos 47 y 52"
+  },
+  {
+    "id": "c9-03",
+    "pregunta": "¿Qué va en la categoría de inversión?",
+    "completa": "Los resultados de asociadas y negocios conjuntos por método de la participación, del efectivo y equivalentes, y de activos que rinden por sí solos",
+    "incompletas": [
+      { "texto": "La participación en asociadas", "falta": "También el efectivo y los activos que rinden por sí solos." },
+      { "texto": "Los intereses de depósitos a plazo", "falta": "También asociadas y otros activos de inversión." }
+    ],
+    "incorrectas": ["La compra de maquinaria", "Los intereses del préstamo bancario"],
+    "explicacion": "Para empresas comerciales; un banco o aseguradora clasifica distinto.",
+    "fuente": "NIIF 18, párrafo 53"
+  },
+  {
+    "id": "c9-04",
+    "pregunta": "¿Qué va en la categoría de financiación?",
+    "completa": "Todos los resultados de pasivos tomados solo para financiarse (préstamos, bonos) y, de otros pasivos, solo los intereses (arriendos NIIF 16, actualización de provisiones)",
+    "incompletas": [
+      { "texto": "Los intereses del préstamo bancario", "falta": "También bonos e intereses de otros pasivos como arriendos." },
+      { "texto": "Los intereses del pasivo por arrendamiento", "falta": "También los pasivos de financiamiento como préstamos y bonos." }
+    ],
+    "incorrectas": ["Los dividendos recibidos", "El pago a proveedores"],
+    "explicacion": "Va después del resultado antes de financiación e impuestos.",
+    "fuente": "NIIF 18, párrafo 59"
+  },
+  {
+    "id": "c9-05",
+    "pregunta": "¿Qué subtotales son obligatorios en la NIIF 18?",
+    "completa": "Resultado de operación; resultado antes de financiación e impuestos a las ganancias (operación + inversión); y resultado del periodo",
+    "incompletas": [
+      { "texto": "Resultado de operación y resultado del periodo", "falta": "Falta el resultado antes de financiación e impuestos." },
+      { "texto": "Resultado antes de financiación e impuestos", "falta": "Faltan el resultado de operación y del periodo." }
+    ],
+    "incorrectas": ["EBITDA y margen bruto", "Solo el resultado del periodo"],
+    "explicacion": "Tienen el mismo significado en todas las empresas, lo que permite compararlas.",
+    "fuente": "NIIF 18, párrafos 69 a 72"
+  },
+  {
+    "id": "c9-06",
+    "pregunta": "¿Qué es una MPM y cómo se revela?",
+    "completa": "Un subtotal propio usado en comunicaciones públicas para mostrar la visión de la gerencia; se revela en una sola nota con su cálculo, su conciliación y los efectos en impuestos y no controladoras",
+    "incompletas": [
+      { "texto": "Un subtotal propio que usa la gerencia en sus comunicados", "falta": "Falta cómo se revela." },
+      { "texto": "Se revela en una nota con su conciliación", "falta": "Falta qué es y los efectos en impuestos." }
+    ],
+    "incorrectas": ["Cualquier ratio financiero", "Un subtotal obligatorio de la NIIF 18"],
+    "explicacion": "Ejemplo: un «resultado operacional ajustado».",
+    "fuente": "NIIF 18, párrafos 117, 122 y 123"
+  },
+  {
+    "id": "c9-07",
+    "pregunta": "¿Qué cambia en el estado de flujos de efectivo con la NIIF 18?",
+    "completa": "El método indirecto parte del resultado de operación y, en una empresa comercial, intereses y dividendos pagados van a financiación y los recibidos, a inversión",
+    "incompletas": [
+      { "texto": "El método indirecto parte del resultado de operación", "falta": "Falta la nueva clasificación de intereses y dividendos." },
+      { "texto": "Los intereses pagados van a financiación", "falta": "Faltan los recibidos y el punto de partida." }
+    ],
+    "incorrectas": ["Desaparece el método indirecto", "Nada"],
+    "explicacion": "Se elimina la opción de clasificación que daba la NIC 7.",
+    "fuente": "NIC 7, modificada por la NIIF 18"
+  },
+  {
+    "id": "c9-08",
+    "pregunta": "¿Cómo se hace la transición a la NIIF 18?",
+    "completa": "Retroactivamente: se reexpresa el comparativo y se concilia, partida por partida del estado del resultado, lo reexpresado con lo presentado con la NIC 1",
+    "incompletas": [
+      { "texto": "Se reexpresa el comparativo", "falta": "Falta la conciliación partida por partida." },
+      { "texto": "Se aplica retroactivamente", "falta": "Falta la conciliación con lo presentado con la NIC 1." }
+    ],
+    "incorrectas": ["Solo hacia adelante", "Solo en la memoria anual"],
+    "explicacion": "Los primeros estados al 31-12-2027 reexpresan 2026.",
+    "fuente": "NIIF 18, párrafos C2 y C3"
+  },
+  {
+    "id": "c9-09",
+    "pregunta": "¿Qué se revela si los gastos de operación se presentan por función?",
+    "completa": "En una sola nota, los totales de depreciación, amortización, beneficios a los empleados, deterioros y rebajas de inventario",
+    "incompletas": [
+      { "texto": "La depreciación y la amortización", "falta": "También beneficios a los empleados, deterioros y rebajas de inventario." },
+      { "texto": "Algunos gastos por naturaleza en una nota", "falta": "Falta cuáles son." }
+    ],
+    "incorrectas": ["El detalle de cada factura", "Nada"],
+    "explicacion": "Así el usuario puede reconstruir información por naturaleza.",
+    "fuente": "NIIF 18, párrafo 83"
+  },
+  {
+    "id": "c9-10",
+    "pregunta": "¿Cambia la utilidad del periodo con la NIIF 18?",
+    "completa": "No: la NIIF 18 cambia la presentación y las revelaciones (categorías, subtotales, MPM), no el reconocimiento ni la medición",
+    "incompletas": [
+      { "texto": "No cambia", "falta": "Falta por qué: solo cambia la presentación." },
+      { "texto": "Cambia la presentación", "falta": "Falta que la utilidad queda igual." }
+    ],
+    "incorrectas": ["Sí, siempre baja", "Sí, porque cambia la tasa de impuesto"],
+    "explicacion": "Las partidas se miden igual que con la NIC 1.",
+    "fuente": "NIIF 18, párrafo 1"
+  }
+]

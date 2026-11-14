@@ -1,0 +1,39 @@
+{
+  "categorias": [
+    { "id": "c_ven", "texto": "Ingresos por ventas de herramientas", "correcta": "operacion", "explicacion": "Es la actividad principal del negocio.", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_rem", "texto": "Remuneraciones del personal de ventas", "correcta": "operacion", "explicacion": "Gasto del negocio: operación.", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_dep", "texto": "Depreciación de las máquinas del taller", "correcta": "operacion", "explicacion": "Gasto del negocio: operación.", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_rees", "texto": "Gastos de reestructuración por cierre de una sucursal en marcha", "correcta": "operacion", "explicacion": "Lo inusual sigue siendo de operación (no hay partidas extraordinarias).", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_venta", "texto": "Pérdida por venta de un camión de reparto", "correcta": "operacion", "explicacion": "El camión se usaba en el negocio: su resultado de venta es de operación.", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_dc", "texto": "Diferencia de cambio por deudas con proveedores extranjeros", "correcta": "operacion", "explicacion": "Sigue a la partida que la originó: proveedores es de operación.", "fuente": "NIIF 18, párrafo B65" },
+    { "id": "c_inc", "texto": "Gasto por deterioro de cuentas por cobrar a clientes", "correcta": "operacion", "explicacion": "Las cuentas por cobrar comerciales son del negocio.", "fuente": "NIIF 18, párrafo 52" },
+    { "id": "c_aso", "texto": "Participación en ganancias de una asociada (método de la participación)", "correcta": "inversion", "explicacion": "Siempre va a inversión.", "fuente": "NIIF 18, párrafo 53" },
+    { "id": "c_dep_plazo", "texto": "Intereses ganados en depósitos a plazo (equivalentes al efectivo)", "correcta": "inversion", "explicacion": "Rendimiento del efectivo y equivalentes: inversión.", "fuente": "NIIF 18, párrafo 53" },
+    { "id": "c_div", "texto": "Dividendos recibidos de acciones de otra empresa", "correcta": "inversion", "explicacion": "Activo que rinde por sí solo: inversión.", "fuente": "NIIF 18, párrafo 53" },
+    { "id": "c_pi", "texto": "Arriendos ganados por una bodega que es propiedad de inversión", "correcta": "inversion", "explicacion": "La propiedad de inversión rinde por sí sola: inversión.", "fuente": "NIIF 18, párrafo 53" },
+    { "id": "c_vr", "texto": "Ganancia por el aumento de valor razonable de una propiedad de inversión", "correcta": "inversion", "explicacion": "Resultado de un activo de inversión.", "fuente": "NIIF 18, párrafo 53" },
+    { "id": "c_int", "texto": "Intereses del préstamo bancario", "correcta": "financiacion", "explicacion": "Pasivo tomado solo para financiarse.", "fuente": "NIIF 18, párrafo 59" },
+    { "id": "c_bon", "texto": "Intereses de bonos emitidos por la empresa", "correcta": "financiacion", "explicacion": "Deuda de financiamiento.", "fuente": "NIIF 18, párrafo 59" },
+    { "id": "c_arr", "texto": "Intereses del pasivo por arrendamiento (NIIF 16)", "correcta": "financiacion", "explicacion": "De otros pasivos, los intereses van a financiación.", "fuente": "NIIF 18, párrafo 59" },
+    { "id": "c_prov", "texto": "Actualización financiera (descuento) de la provisión por desmantelamiento", "correcta": "financiacion", "explicacion": "Es un gasto por intereses de otro pasivo.", "fuente": "NIIF 18, párrafo 59" },
+    { "id": "c_dcp", "texto": "Diferencia de cambio de un préstamo bancario en dólares", "correcta": "financiacion", "explicacion": "Sigue a la partida que la originó: el préstamo es de financiación.", "fuente": "NIIF 18, párrafo B65" },
+    { "id": "c_imp", "texto": "Gasto por impuesto a la renta del año", "correcta": "impuestos", "explicacion": "Categoría de impuestos a las ganancias.", "fuente": "NIIF 18, párrafo 67" },
+    { "id": "c_dif", "texto": "Gasto por impuesto diferido", "correcta": "impuestos", "explicacion": "También es impuesto a las ganancias.", "fuente": "NIIF 18, párrafo 67" },
+    { "id": "c_disc", "texto": "Resultado de la cadena de tiendas vendida, presentada como operación discontinuada", "correcta": "discontinuadas", "explicacion": "Categoría de operaciones discontinuadas (NIIF 5).", "fuente": "NIIF 18, párrafo 68" },
+    { "id": "c_disc2", "texto": "Pérdida de la línea de negocio de pinturas que se cerró y cumple la NIIF 5", "correcta": "discontinuadas", "explicacion": "Operación discontinuada.", "fuente": "NIIF 18, párrafo 68" }
+  ],
+  "flujos": [
+    { "id": "f_cli", "texto": "Cobros a clientes", "correcta": "operacion", "explicacion": "Flujo del negocio.", "fuente": "NIC 7, párrafo 14" },
+    { "id": "f_prov", "texto": "Pagos a proveedores", "correcta": "operacion", "explicacion": "Flujo del negocio.", "fuente": "NIC 7, párrafo 14" },
+    { "id": "f_rem", "texto": "Pago de remuneraciones", "correcta": "operacion", "explicacion": "Flujo del negocio.", "fuente": "NIC 7, párrafo 14" },
+    { "id": "f_imp", "texto": "Pago del impuesto a la renta", "correcta": "operacion", "explicacion": "Va a operación salvo que se relacione con inversión o financiación.", "fuente": "NIC 7, párrafo 35" },
+    { "id": "f_maq", "texto": "Compra de una máquina", "correcta": "inversion", "explicacion": "Activo de largo plazo: inversión.", "fuente": "NIC 7, párrafo 16" },
+    { "id": "f_intr", "texto": "Intereses recibidos de depósitos a plazo", "correcta": "inversion", "explicacion": "Con la NIC 7 modificada, en una empresa comercial van a inversión.", "fuente": "NIC 7, modificada por la NIIF 18" },
+    { "id": "f_divr", "texto": "Dividendos recibidos de una asociada", "correcta": "inversion", "explicacion": "Con la NIC 7 modificada, los dividendos recibidos van a inversión.", "fuente": "NIC 7, modificada por la NIIF 18" },
+    { "id": "f_venta", "texto": "Cobro por la venta de un terreno", "correcta": "inversion", "explicacion": "Venta de un activo de largo plazo.", "fuente": "NIC 7, párrafo 16" },
+    { "id": "f_intp", "texto": "Intereses pagados del préstamo bancario", "correcta": "financiacion", "explicacion": "Con la NIC 7 modificada, en una empresa comercial van a financiación.", "fuente": "NIC 7, modificada por la NIIF 18" },
+    { "id": "f_divp", "texto": "Dividendos pagados a los accionistas", "correcta": "financiacion", "explicacion": "Van a financiación.", "fuente": "NIC 7, modificada por la NIIF 18" },
+    { "id": "f_pres", "texto": "Obtención de un préstamo bancario", "correcta": "financiacion", "explicacion": "Flujo de financiamiento.", "fuente": "NIC 7, párrafo 17" },
+    { "id": "f_arr", "texto": "Pago de la parte de capital de las cuotas de arriendo (NIIF 16)", "correcta": "financiacion", "explicacion": "Amortiza el pasivo por arrendamiento: financiación.", "fuente": "NIC 7, párrafo 17; NIIF 16" }
+  ]
+}

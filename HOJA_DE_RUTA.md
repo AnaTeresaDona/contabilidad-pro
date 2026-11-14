@@ -94,6 +94,10 @@
 - Nivel 3: ordenar las secciones del Balance General (básico), las líneas del Estado de Resultados (intermedio) y el Balance General con sus cuentas, con el activo corriente por liquidez (avanzado).
 - El premio Copihue (emoji de hibisco) se reemplazó por una Margarita 🌼, más fácil de reconocer.
 
+## Fase 13 — Hecha (Nivel 9 NIIF 18 y repaso de conceptos)
+- Nivel 9 «De la NIC 1 a la NIIF 18» (ramo aparte): 8 apuntes, 26 preguntas, 8 situaciones. Básico: clasificar en las 5 categorías y ordenar el nuevo estado del resultado. Intermedio: subtotales obligatorios y flujos con la NIC 7 modificada. Avanzado: reexpresar el «resultado operacional» NIC 1 y conciliar una MPM con su efecto en impuestos. Jefe: el comparativo 2026 reexpresado.
+- Repaso de conceptos (🧠 en el mapa): 10 preguntas por nivel (100 en total), cada una con la respuesta completa, dos correctas pero incompletas y dos incorrectas. Sesiones de 10 por nivel o 15 mezcladas; resultado con % de buenas, malas (y cuántas incompletas) y sin responder; refuerzo de las malas; se guarda la última y la mejor sesión por nivel.
+
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.

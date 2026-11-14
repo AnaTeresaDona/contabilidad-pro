@@ -1,0 +1,91 @@
+[
+  {
+    "id": "que-es",
+    "titulo": "La NIIF 18 reemplaza a la NIC 1",
+    "puntos": [
+      "La NIIF 18 «Presentación e Información a Revelar en los Estados Financieros» sustituye a la NIC 1 desde los periodos anuales que comienzan el 1 de enero de 2027. Se permite aplicarla antes.",
+      "Su foco es el estado del resultado: categorías definidas, subtotales obligatorios y más transparencia sobre las medidas que usa la gerencia.",
+      "No cambia el reconocimiento ni la medición: la utilidad del periodo es la misma. Cambia cómo se presenta y qué se revela.",
+      "Muchas reglas de la NIC 1 pasan tal cual a la NIIF 18. Algunas generales (presentación razonable, empresa en marcha, devengo) pasan a la NIC 8, que se llama ahora «Bases para la Preparación de Estados Financieros»."
+    ],
+    "fuente": "NIIF 18, párrafos 1 y C1; NIC 8"
+  },
+  {
+    "id": "categorias",
+    "titulo": "Las cinco categorías del estado del resultado",
+    "puntos": [
+      "Cada ingreso y gasto va a una de cinco categorías: operación, inversión, financiación, impuestos a las ganancias y operaciones discontinuadas.",
+      "Operación es la categoría «residual»: todo lo que no va a las otras cuatro, incluidos gastos inusuales como reestructuraciones o pérdidas por venta de activo fijo.",
+      "Inversión: resultados de asociadas y negocios conjuntos (método de la participación), del efectivo y equivalentes, y de activos que rinden por sí solos (propiedades de inversión, acciones).",
+      "Financiación: todos los resultados de deudas tomadas solo para financiarse (intereses de préstamos y bonos) y, de otros pasivos, solo los intereses (pasivo por arrendamiento, actualización de provisiones)."
+    ],
+    "ejemplo": "Intereses del préstamo bancario: financiación. Intereses ganados en un depósito a plazo: inversión. Pérdida por venta de un camión: operación.",
+    "fuente": "NIIF 18, párrafos 47, 52, 53 y 59"
+  },
+  {
+    "id": "subtotales",
+    "titulo": "Los subtotales obligatorios",
+    "puntos": [
+      "Resultado de operación: todos los ingresos y gastos de la categoría de operación.",
+      "Resultado antes de financiación e impuestos a las ganancias: resultado de operación + categoría de inversión.",
+      "Resultado del periodo: la última línea, después de financiación, impuestos y discontinuadas.",
+      "Con la NIC 1 cada empresa definía su «resultado operacional» como quería. Con la NIIF 18 es el mismo para todas: por eso los estados se pueden comparar."
+    ],
+    "ejemplo": "Resultado de operación $100 + asociadas $10 + intereses ganados $5 = antes de financiación $115; − intereses $20 = antes de impuestos $95.",
+    "fuente": "NIIF 18, párrafos 69 a 72"
+  },
+  {
+    "id": "especiales",
+    "titulo": "Casos que suelen confundirse",
+    "puntos": [
+      "La participación en asociadas y negocios conjuntos (método de la participación) va siempre a inversión, nunca a operación.",
+      "Los intereses del pasivo por arrendamiento (NIIF 16) van a financiación.",
+      "Las diferencias de cambio van a la categoría de la partida que las originó: las de proveedores extranjeros, a operación; las de un préstamo en dólares, a financiación.",
+      "Si la actividad principal de la empresa es invertir o financiar (un banco, una aseguradora), algunos de esos resultados se clasifican en operación."
+    ],
+    "fuente": "NIIF 18, párrafos 49, 53, 59 y B65"
+  },
+  {
+    "id": "mpm",
+    "titulo": "Medidas del rendimiento definidas por la gerencia (MPM)",
+    "puntos": [
+      "Son subtotales propios (como un «resultado operacional ajustado») que la empresa usa en comunicaciones públicas fuera de los estados financieros para mostrar la visión de la gerencia.",
+      "No son MPM los subtotales que la NIIF 18 ya reconoce: resultado bruto, resultado de operación antes de depreciaciones, amortizaciones y deterioros, resultado antes de impuestos, entre otros.",
+      "Todas las MPM se revelan en una sola nota: qué muestran, cómo se calculan, su conciliación con el subtotal NIIF más parecido y, para cada partida conciliatoria, su efecto en el impuesto y en las participaciones no controladoras."
+    ],
+    "ejemplo": "Resultado de operación $90 + reestructuración $10 = resultado operacional ajustado $100; efecto en impuesto de la reestructuración: $10 × 27% = $2,7.",
+    "fuente": "NIIF 18, párrafos 117, 118, 122 y 123"
+  },
+  {
+    "id": "agrupar",
+    "titulo": "Agrupar y desagregar",
+    "puntos": [
+      "Las partidas se agrupan por características comunes y se separan cuando son distintas, para que la información sea útil sin esconder lo importante.",
+      "Se evita la etiqueta «otros»: solo se usa si no hay una más informativa.",
+      "Los gastos de operación se presentan por naturaleza, por función o mezclados, según lo que dé la información más útil.",
+      "Si se presentan por función, se revela en una nota el total de cinco gastos por naturaleza: depreciación, amortización, beneficios a los empleados, deterioros y rebajas de inventario."
+    ],
+    "fuente": "NIIF 18, párrafos 41, 78 y 83"
+  },
+  {
+    "id": "flujos",
+    "titulo": "Cambios en el estado de flujos de efectivo (NIC 7)",
+    "puntos": [
+      "El método indirecto parte ahora del resultado de operación (antes, del resultado del periodo o antes de impuestos).",
+      "Se elimina la libertad para clasificar intereses y dividendos. En una empresa comercial: intereses pagados y dividendos pagados → financiación; intereses y dividendos recibidos → inversión.",
+      "Así, el flujo de operación de todas las empresas se calcula igual y se puede comparar."
+    ],
+    "fuente": "NIC 7, modificada por la NIIF 18"
+  },
+  {
+    "id": "transicion",
+    "titulo": "La transición: 2026 se reexpresa",
+    "puntos": [
+      "La NIIF 18 se aplica retroactivamente (NIC 8): el comparativo 2026 se presenta de nuevo con las categorías y subtotales nuevos.",
+      "En los primeros estados anuales se concilia, partida por partida del estado del resultado, el comparativo reexpresado con lo que se había presentado con la NIC 1.",
+      "En los estados intermedios de 2027 (NIC 34) ya se usan las partidas y subtotales nuevos.",
+      "En Chile, las sociedades fiscalizadas por la CMF la aplican en sus estados de 2027."
+    ],
+    "fuente": "NIIF 18, párrafos C1 a C4"
+  }
+]

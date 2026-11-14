@@ -61,6 +61,7 @@ export function Mapa({ ir }: { ir: (r: Ruta) => void }) {
           resaltar={progreso.repaso.length > 0}
           onClick={() => ir({ pantalla: 'repaso' })}
         />
+        <Acceso emoji="🧠" titulo="Conceptos" detalle="Repaso por nivel, con alternativas" resaltar onClick={() => ir({ pantalla: 'conceptos' })} />
         <Acceso emoji="🏆" titulo="Logros" detalle={`${progreso.logros.length} de ${LOGROS.length}`} onClick={() => ir({ pantalla: 'logros' })} />
         <Acceso emoji="📊" titulo="Estadísticas" detalle="Tiempo y mejora" onClick={() => ir({ pantalla: 'estadisticas' })} />
         <Acceso emoji="⚙️" titulo="Ajustes" detalle="Voz, instalar y respaldo" onClick={() => ir({ pantalla: 'ajustes' })} />

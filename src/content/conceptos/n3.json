@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c3-01",
+    "pregunta": "¿Qué incluye un juego completo de estados financieros?",
+    "completa": "Estado de situación financiera, estado de resultados, estado de cambios en el patrimonio, estado de flujos de efectivo y notas",
+    "incompletas": [
+      { "texto": "El Balance General y el Estado de Resultados", "falta": "Faltan cambios en el patrimonio, flujos de efectivo y notas." },
+      { "texto": "Los estados financieros y sus notas explicativas", "falta": "Falta nombrar los cuatro estados." }
+    ],
+    "incorrectas": ["El Libro Diario y el Libro Mayor", "El Balance de 8 columnas y el F29"],
+    "explicacion": "El Balance de 8 columnas es solo una hoja de trabajo.",
+    "fuente": "NIC 1, párrafo 10"
+  },
+  {
+    "id": "c3-02",
+    "pregunta": "¿Qué diferencia al Balance General del Estado de Resultados?",
+    "completa": "El Balance es una foto a una fecha (lo que se tiene, se debe y es de los dueños); el Estado de Resultados es la película de un período (ingresos y gastos)",
+    "incompletas": [
+      { "texto": "El Balance muestra activos, pasivos y patrimonio", "falta": "Falta que es a una fecha y qué muestra el Estado de Resultados." },
+      { "texto": "El Estado de Resultados muestra lo ganado o perdido en un período", "falta": "Falta qué muestra el Balance y que es a una fecha." }
+    ],
+    "incorrectas": ["Son el mismo estado con distinto nombre", "El Balance muestra solo el dinero"],
+    "explicacion": "El resultado del ejercicio une ambos: se suma al patrimonio.",
+    "fuente": "NIC 1"
+  },
+  {
+    "id": "c3-03",
+    "pregunta": "¿Cuándo un activo es corriente?",
+    "completa": "Cuando se espera convertir en dinero, vender o consumir dentro de 12 meses o del ciclo normal de operación, o es efectivo",
+    "incompletas": [
+      { "texto": "Cuando se convierte en dinero en menos de un año", "falta": "También si se vende o consume en el ciclo de operación, o es efectivo." },
+      { "texto": "Cuando es caja o banco", "falta": "Clientes, mercaderías e IVA crédito también son corrientes." }
+    ],
+    "incorrectas": ["Cuando vale menos de $1.000.000", "Cuando se compró este año"],
+    "explicacion": "Lo que se usa por más de 12 meses es no corriente.",
+    "fuente": "NIC 1, párrafo 66"
+  },
+  {
+    "id": "c3-04",
+    "pregunta": "¿En qué orden se presenta el Balance General clasificado?",
+    "completa": "Activo corriente, activo no corriente y total activos; luego pasivo corriente, pasivo no corriente, patrimonio y total pasivos y patrimonio",
+    "incompletas": [
+      { "texto": "Primero los activos y después los pasivos y el patrimonio", "falta": "Falta separar corriente y no corriente y los totales." },
+      { "texto": "El activo corriente va antes que el no corriente", "falta": "Falta el orden de pasivos y patrimonio." }
+    ],
+    "incorrectas": ["Primero el patrimonio, después los activos", "Las cuentas en orden alfabético"],
+    "explicacion": "Va de lo más líquido a lo menos líquido y de lo más exigible a lo menos exigible.",
+    "fuente": "NIC 1, párrafos 54 y 60"
+  },
+  {
+    "id": "c3-05",
+    "pregunta": "¿Cómo se llega al resultado operacional en el Estado de Resultados por función?",
+    "completa": "Ventas − Costo de ventas = Margen bruto; Margen bruto − Gastos de administración y ventas = Resultado operacional",
+    "incompletas": [
+      { "texto": "Ventas − Costo de ventas = Margen bruto", "falta": "Falta restar los gastos de administración y ventas." },
+      { "texto": "Restando los gastos de administración y ventas al margen bruto", "falta": "Falta cómo se obtiene el margen bruto." }
+    ],
+    "incorrectas": ["Ventas − impuesto a la renta", "Ventas + ingresos financieros"],
+    "explicacion": "Después vienen los no operacionales y el impuesto.",
+    "fuente": "NIC 1, párrafos 99 a 103"
+  },
+  {
+    "id": "c3-06",
+    "pregunta": "¿Dónde aparece el resultado del ejercicio en el Balance General?",
+    "completa": "Dentro del patrimonio, porque las ganancias pertenecen a los dueños; las cuentas de ingresos y gastos no aparecen una por una",
+    "incompletas": [
+      { "texto": "En el patrimonio", "falta": "Falta por qué y que las cuentas de resultado no se muestran una por una." },
+      { "texto": "Las cuentas de ingreso y gasto no aparecen en el balance", "falta": "Falta dónde va su efecto neto: en el patrimonio." }
+    ],
+    "incorrectas": ["En el activo corriente", "En el pasivo corriente como deuda"],
+    "explicacion": "Por eso el balance cuadra después de cerrar el período.",
+    "fuente": "NIC 1"
+  },
+  {
+    "id": "c3-07",
+    "pregunta": "¿Qué indica un margen bruto alto con un resultado operacional bajo?",
+    "completa": "Que se gana bien al vender, pero los gastos de administración y ventas se comen esa ganancia",
+    "incompletas": [
+      { "texto": "Que los gastos de administración y ventas son altos", "falta": "Falta que el margen de las ventas sí es bueno." },
+      { "texto": "Que se gana bien al vender", "falta": "Falta el problema: los gastos operacionales." }
+    ],
+    "incorrectas": ["Que el costo de ventas es demasiado alto", "Que los intereses son muy altos"],
+    "explicacion": "Leer los subtotales en orden ayuda a ubicar el problema.",
+    "fuente": "Análisis de estados financieros"
+  },
+  {
+    "id": "c3-08",
+    "pregunta": "¿Qué pasivo es corriente?",
+    "completa": "El que se paga dentro de 12 meses o del ciclo normal de operación, como proveedores, IVA débito y remuneraciones por pagar",
+    "incompletas": [
+      { "texto": "El que se paga en menos de un año", "falta": "Faltan ejemplos y el criterio del ciclo de operación." },
+      { "texto": "Proveedores y remuneraciones por pagar", "falta": "Falta el criterio general de los 12 meses." }
+    ],
+    "incorrectas": ["Todo préstamo bancario, sin importar el plazo", "El capital de los dueños"],
+    "explicacion": "La parte de un préstamo que vence en 12 meses es corriente.",
+    "fuente": "NIC 1, párrafo 69"
+  },
+  {
+    "id": "c3-09",
+    "pregunta": "¿Qué indica un activo corriente menor que el pasivo corriente?",
+    "completa": "Un riesgo de liquidez: lo que se cobrará o venderá pronto no alcanza para pagar lo que vence pronto",
+    "incompletas": [
+      { "texto": "Que el capital de trabajo es negativo", "falta": "Falta la interpretación: riesgo de no poder pagar a tiempo." },
+      { "texto": "Que puede costar pagar las deudas de corto plazo", "falta": "Falta la comparación que lo muestra." }
+    ],
+    "incorrectas": ["Que la empresa tiene pérdidas", "Que la empresa es muy rentable"],
+    "explicacion": "Una empresa puede ganar plata y aun así tener problemas de liquidez.",
+    "fuente": "Análisis de estados financieros"
+  },
+  {
+    "id": "c3-10",
+    "pregunta": "¿Cómo se llega del resultado operacional al resultado del ejercicio?",
+    "completa": "Resultado operacional ± ingresos y gastos no operacionales (como intereses) = antes de impuesto; menos el impuesto a la renta = resultado del ejercicio",
+    "incompletas": [
+      { "texto": "Restando el impuesto a la renta", "falta": "Antes se suman o restan los no operacionales." },
+      { "texto": "Sumando y restando los no operacionales", "falta": "Falta restar el impuesto a la renta." }
+    ],
+    "incorrectas": ["Sumando la depreciación", "Restando el costo de ventas otra vez"],
+    "explicacion": "Desde 2027, la NIIF 18 ordena estas partidas en categorías.",
+    "fuente": "NIC 1, párrafo 82"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c1-01",
+    "pregunta": "¿Qué es un activo?",
+    "completa": "Un recurso controlado por la empresa, que viene de hechos pasados y del que se esperan beneficios económicos futuros",
+    "incompletas": [
+      { "texto": "Un recurso que tiene la empresa", "falta": "Debe ser controlado, venir de un hecho pasado y dar beneficios futuros." },
+      { "texto": "Algo de lo que la empresa espera beneficios futuros", "falta": "Además debe controlarlo y venir de un hecho pasado." }
+    ],
+    "incorrectas": ["Todo lo que la empresa debe a terceros", "Solo el dinero en caja y banco"],
+    "explicacion": "Los tres requisitos juntos (control, hecho pasado, beneficios futuros) definen un activo.",
+    "fuente": "Marco Conceptual"
+  },
+  {
+    "id": "c1-02",
+    "pregunta": "¿Qué es un pasivo?",
+    "completa": "Una obligación presente de la empresa, surgida de hechos pasados, que se pagará entregando recursos",
+    "incompletas": [
+      { "texto": "Una deuda de la empresa", "falta": "Debe ser una obligación presente, de un hecho pasado, que implique entregar recursos." },
+      { "texto": "Una obligación que nació de un hecho pasado", "falta": "También debe ser presente y pagarse con salida de recursos." }
+    ],
+    "incorrectas": ["Lo que los clientes le deben a la empresa", "El aporte de los dueños"],
+    "explicacion": "Proveedores, préstamos e impuestos por pagar son pasivos.",
+    "fuente": "Marco Conceptual"
+  },
+  {
+    "id": "c1-03",
+    "pregunta": "¿Qué dice la ecuación contable?",
+    "completa": "Activo = Pasivo + Patrimonio: todo lo que tiene la empresa está financiado por terceros o por los dueños, y siempre se cumple",
+    "incompletas": [
+      { "texto": "Activo = Pasivo + Patrimonio", "falta": "Falta su sentido: cada recurso lo financian terceros o dueños, y se cumple siempre." },
+      { "texto": "Lo que tiene la empresa lo financian terceros o los dueños", "falta": "Falta expresarla como igualdad: Activo = Pasivo + Patrimonio." }
+    ],
+    "incorrectas": ["Activo + Pasivo = Patrimonio", "Ingresos = Gastos + Activo"],
+    "explicacion": "Durante el período: Activo = Pasivo + Patrimonio + Ingresos − Gastos.",
+    "fuente": "Ecuación contable"
+  },
+  {
+    "id": "c1-04",
+    "pregunta": "¿Qué es la partida doble?",
+    "completa": "Toda operación afecta al menos dos cuentas y, en cada asiento, la suma del Debe es igual a la suma del Haber",
+    "incompletas": [
+      { "texto": "Toda operación afecta al menos dos cuentas", "falta": "Además, el Debe y el Haber del asiento deben sumar lo mismo." },
+      { "texto": "El Debe y el Haber deben cuadrar", "falta": "Falta la idea de que cada operación toca al menos dos cuentas." }
+    ],
+    "incorrectas": ["Registrar cada operación dos veces en el Libro Diario", "Que cada cuenta tiene dos saldos"],
+    "explicacion": "Si algo entra, algo sale o nace una obligación: por eso siempre cuadra.",
+    "fuente": "Principio de la partida doble"
+  },
+  {
+    "id": "c1-05",
+    "pregunta": "¿Por qué lado aumentan las cuentas?",
+    "completa": "Activos y gastos aumentan por el Debe; pasivos, patrimonio e ingresos aumentan por el Haber",
+    "incompletas": [
+      { "texto": "Los activos aumentan por el Debe", "falta": "Faltan los gastos (Debe) y pasivos, patrimonio e ingresos (Haber)." },
+      { "texto": "Los pasivos y el patrimonio aumentan por el Haber", "falta": "Faltan los ingresos (Haber) y activos y gastos (Debe)." }
+    ],
+    "incorrectas": ["Todas las cuentas aumentan por el Debe", "Activos e ingresos aumentan por el Debe"],
+    "explicacion": "Cada cuenta disminuye por el lado contrario al que aumenta.",
+    "fuente": "Regla del Debe y el Haber"
+  },
+  {
+    "id": "c1-06",
+    "pregunta": "¿Qué es el saldo de una cuenta?",
+    "completa": "La diferencia entre la suma del lado mayor y la del menor: deudor si gana el Debe, acreedor si gana el Haber",
+    "incompletas": [
+      { "texto": "La diferencia entre el Debe y el Haber", "falta": "Falta decir que se resta el lado menor del mayor y cómo se llama: deudor o acreedor." },
+      { "texto": "Si el Debe es mayor, el saldo es deudor", "falta": "Falta cómo se calcula y el caso acreedor." }
+    ],
+    "incorrectas": ["La suma de todos los movimientos de la cuenta", "Lo que la empresa le debe a alguien"],
+    "explicacion": "Deudor no significa que «debemos»: solo indica qué lado es mayor.",
+    "fuente": "Cuenta T"
+  },
+  {
+    "id": "c1-07",
+    "pregunta": "¿Qué es el IVA Crédito Fiscal?",
+    "completa": "El IVA de las compras: un activo, porque se descuenta del IVA Débito de las ventas",
+    "incompletas": [
+      { "texto": "El IVA que se paga en las compras", "falta": "Falta que es un activo porque se descuenta del IVA Débito." },
+      { "texto": "Un activo de la empresa", "falta": "Falta decir que viene de las compras y por qué es activo." }
+    ],
+    "incorrectas": ["El IVA de las ventas, que se debe al Fisco", "Un gasto del período"],
+    "explicacion": "El IVA de las ventas es el Débito Fiscal, un pasivo.",
+    "fuente": "DL 825, Ley del IVA"
+  },
+  {
+    "id": "c1-08",
+    "pregunta": "Al vender mercaderías con inventario permanente, ¿qué se registra?",
+    "completa": "Dos asientos: la venta (Clientes o Caja contra Ventas e IVA Débito) y el costo (Costo de ventas contra Mercaderías)",
+    "incompletas": [
+      { "texto": "La venta: Clientes o Caja contra Ventas e IVA Débito Fiscal", "falta": "Falta registrar la salida de mercadería al costo." },
+      { "texto": "La salida de la mercadería: Costo de ventas contra Mercaderías", "falta": "Falta registrar la venta y su IVA." }
+    ],
+    "incorrectas": ["Solo Caja contra Mercaderías por el precio de venta", "Ventas contra Costo de ventas"],
+    "explicacion": "Así se ve cuánto se vendió y cuánto costó lo vendido.",
+    "fuente": "Inventario permanente"
+  },
+  {
+    "id": "c1-09",
+    "pregunta": "¿Qué son el patrimonio, los ingresos y los gastos?",
+    "completa": "Patrimonio: lo que pertenece a los dueños; ingresos: aumentos de beneficios que lo aumentan; gastos: disminuciones que lo reducen",
+    "incompletas": [
+      { "texto": "El patrimonio es lo que pertenece a los dueños", "falta": "Faltan los ingresos y gastos y su efecto en el patrimonio." },
+      { "texto": "Los ingresos aumentan el patrimonio y los gastos lo disminuyen", "falta": "Falta definir el patrimonio." }
+    ],
+    "incorrectas": ["El patrimonio es lo que la empresa debe al banco", "Los gastos aumentan el patrimonio"],
+    "explicacion": "Son tres de los cinco elementos de la contabilidad.",
+    "fuente": "Marco Conceptual"
+  },
+  {
+    "id": "c1-10",
+    "pregunta": "¿Qué cuenta se usa al comprar un activo fijo al crédito?",
+    "completa": "Acreedores varios (no Proveedores), porque Proveedores es solo para compras de mercaderías",
+    "incompletas": [
+      { "texto": "Una cuenta de pasivo", "falta": "Falta precisar cuál: Acreedores varios." },
+      { "texto": "No se usa Proveedores", "falta": "Falta decir qué cuenta se usa y por qué." }
+    ],
+    "incorrectas": ["Proveedores", "Clientes"],
+    "explicacion": "Proveedores se reserva para la mercadería; activos fijos o servicios van a Acreedores varios.",
+    "fuente": "Plan de cuentas"
+  }
+]
