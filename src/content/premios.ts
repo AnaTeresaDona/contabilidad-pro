@@ -3,7 +3,7 @@ export type Zona = 'subsuelo' | 'tierra' | 'bosque' | 'aire' | 'cielo' | 'espaci
 
 export interface Premio {
   id: string;
-  /** Emoji del premio (o 'topo' / 'copihue', que se dibujan aparte: no hay emoji fiel). */
+  /** Emoji del premio (o 'topo', que se dibuja aparte: no hay emoji fiel). */
   emoji: string;
   nombre: string;
   frase: string;
@@ -29,7 +29,7 @@ export const PREMIOS: Premio[] = [
   { id: 'brote', emoji: '🌱', nombre: 'Brote', frase: '¡Saliste a la superficie!', umbral: 450, zona: 'tierra' },
   { id: 'caracol', emoji: '🐌', nombre: 'Caracol', frase: 'Lento pero seguro, como un buen cierre de mes.', umbral: 650, zona: 'tierra' },
   { id: 'chinita', emoji: '🐞', nombre: 'Chinita', frase: 'Trae suerte… y cuadraturas.', umbral: 900, zona: 'tierra' },
-  { id: 'copihue', emoji: 'copihue', nombre: 'Copihue', frase: 'La flor nacional florece con tu esfuerzo.', umbral: 1200, zona: 'tierra' },
+  { id: 'margarita', emoji: '🌼', nombre: 'Margarita', frase: 'Tu conocimiento florece con cada ejercicio.', umbral: 1200, zona: 'tierra' },
   { id: 'conejo', emoji: '🐇', nombre: 'Conejo', frase: 'Saltas de un nivel a otro.', umbral: 1550, zona: 'tierra' },
   { id: 'arbol', emoji: '🌳', nombre: 'Árbol', frase: 'Raíces firmes, ramas que crecen.', umbral: 1950, zona: 'bosque' },
   { id: 'ardilla', emoji: '🐿️', nombre: 'Ardilla', frase: 'Ahorra para el invierno: ¡provisiones!', umbral: 2400, zona: 'bosque' },
@@ -75,7 +75,7 @@ export function avanceAlSiguiente(chispas: number): number {
 }
 
 /** Premios sin emoji propio: se dibujan en pantalla y en texto se usa este reemplazo. */
-const EMOJI_TEXTO: Record<string, string> = { topo: '🐾', copihue: '🇨🇱' };
+const EMOJI_TEXTO: Record<string, string> = { topo: '🐾' };
 
 /** Emoji para usar en texto (compartir, avisos): los premios dibujados usan un reemplazo. */
 export const emojiTexto = (p: { emoji: string }) => EMOJI_TEXTO[p.emoji] ?? p.emoji;

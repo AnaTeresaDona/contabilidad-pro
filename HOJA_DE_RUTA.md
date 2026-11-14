@@ -92,7 +92,7 @@
 ## Fase 12 — Hecha (ordenar los estados y el copihue)
 - Ejercicio nuevo «ordenar» (tocar en orden, intercambiar tocando dos elementos, ✕ para quitar).
 - Nivel 3: ordenar las secciones del Balance General (básico), las líneas del Estado de Resultados (intermedio) y el Balance General con sus cuentas, con el activo corriente por liquidez (avanzado).
-- El premio Copihue ahora es un dibujo de la flor nacional (Lapageria rosea); en textos para compartir usa 🇨🇱.
+- El premio Copihue (emoji de hibisco) se reemplazó por una Margarita 🌼, más fácil de reconocer.
 
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).

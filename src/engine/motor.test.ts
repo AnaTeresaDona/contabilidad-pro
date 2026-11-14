@@ -884,10 +884,9 @@ describe('ordenar los estados financieros (Nivel 3)', () => {
 });
 
 describe('premios dibujados', () => {
-  it('el copihue se dibuja y en texto usa la bandera de Chile', () => {
-    const c = PREMIOS.find((p) => p.id === 'copihue')!;
-    expect(c.emoji).toBe('copihue');
-    expect(emojiTexto(c)).toBe('🇨🇱');
+  it('el topo se dibuja y en texto usa huellas; la margarita usa su emoji', () => {
+    const m = PREMIOS.find((p) => p.id === 'margarita')!;
+    expect(emojiTexto(m)).toBe('🌼');
     expect(emojiTexto(PREMIOS.find((p) => p.id === 'topo')!)).toBe('🐾');
   });
 });
