@@ -6,6 +6,7 @@ import { generarCuentaT, type EjercicioCuentaT } from './cuentaT';
 import { generarLibroConErrores, type EntradaLibro } from './libroConErrores';
 import { generarMes, type Balance8 } from './balance8';
 import type { DatosDecision, EjercicioCalculo } from './calculos';
+import type { EjercicioOrdenar } from './ordenar';
 import type { DatosAjustesCierre } from './ajustes';
 import type { Afirmacion } from './ifrs';
 import type { DatosOperacionRenta, Partida } from './tributario';
@@ -46,7 +47,8 @@ export type Ejercicio =
   | { tipo: 'operacionRenta'; datos: DatosOperacionRenta }
   | { tipo: 'clasificarOpciones'; datos: EjercicioClasificar }
   | { tipo: 'crisis'; datos: DatosCrisis }
-  | { tipo: 'decision'; datos: DatosDecision };
+  | { tipo: 'decision'; datos: DatosDecision }
+  | { tipo: 'ordenar'; datos: EjercicioOrdenar };
 
 /** Ejercicio genérico: ubicar cada elemento en una de varias categorías (ej. familias de razones). */
 export interface EjercicioClasificar {

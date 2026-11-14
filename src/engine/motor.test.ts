@@ -11,7 +11,7 @@ import { chispasPorAcierto, chispasPorPaso, danioPorErrores, estrellasPorPrecisi
 import { armarRegistro, diagnosticar, fuenteCorta, temaDe, tendencia } from './estadisticas';
 import { numeroDesdeTexto } from './numerosHablados';
 import { ejercicioNuevo, guardarPartida, pasoCompletado, pasoDesbloqueado, registrarPaso, sumarTiempo } from './progreso';
-import { PREMIOS, premioActual, premiosDesbloqueados, siguientePremio } from '../content/premios';
+import { PREMIOS, emojiTexto, premioActual, premiosDesbloqueados, siguientePremio } from '../content/premios';
 import { calcular, numeroDeTexto } from '../componentes/Calculadora';
 import { textoNumero } from '../lib/campos';
 import { migrar, nivelDesbloqueado, progresoInicial, registrarActividad, actualizarNivel } from './progreso';
@@ -44,6 +44,7 @@ import {
   calculoMedicionPosterior,
   generarAperturaNIIF,
 } from './niif';
+import { ordenBalanceConCuentas, ordenEERR, ordenSeccionesBG, validarOrden } from './ordenar';
 import { normaDelActivo, politicaEstimacionError, tiposDeAjuste } from '../content/nivel8';
 import type { LineaAsiento } from './types';
 import { celdas8, celdasResultado, columnaNatural, cuadraturas, generarMes, naturalezaNormal, sumarCeldas, validarBalance } from './balance8';
@@ -529,7 +530,7 @@ describe('contenido', () => {
       for (const paso of c.pasos) for (const e of paso.generar(crearRng(3))) expect(temaDe(e).length).toBeGreaterThan(3);
   });
   it('cada tipo de error del motor existe en el catálogo', () => {
-    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto', 'clasificacion_tributaria'];
+    const usados = ['descuadre', 'lado_invertido', 'cuenta_confundida', 'falta_cuenta', 'cuenta_incorrecta', 'monto_incorrecto', 'iva_mal_aplicado', 'asiento_vacio', 'clasificacion', 'saldo_incorrecto', 'naturaleza_saldo', 'error_no_detectado', 'falso_positivo', 'trivia', 'destino_balance', 'resultado_ejercicio', 'seccion_balance', 'subtotal_eerr', 'calculo_incorrecto', 'clasificacion_tributaria', 'orden_presentacion'];
     for (const t of usados) expect(tiposDeError()).toContain(t);
     expect(infoError('descuadre').severidad).toBe('grave');
   });
@@ -847,5 +848,46 @@ describe('Adopción de NIIF (Nivel 8)', () => {
         expect(new Set(ej.items.map((i) => i.id)).size).toBe(6);
         for (const o of ej.opciones) expect(ej.items.some((i) => i.correcta === o.id)).toBe(true);
       }
+  });
+});
+
+describe('ordenar los estados financieros (Nivel 3)', () => {
+  it('el orden correcto se acepta, nunca viene ya ordenado y un cambio se detecta', () => {
+    for (const gen of [ordenSeccionesBG, ordenEERR, ordenBalanceConCuentas])
+      for (let s = 1; s <= 40; s++) {
+        const ej = gen(crearRng(s));
+        const bien = ej.items.map((i) => i.id);
+        expect(validarOrden(ej, bien).correcto).toBe(true);
+        expect(ej.mezcla).not.toEqual(bien);
+        expect([...ej.mezcla].sort()).toEqual([...bien].sort());
+        const mal = [...bien];
+        [mal[0], mal[1]] = [mal[1], mal[0]];
+        const r = validarOrden(ej, mal);
+        expect(r.correcto).toBe(false);
+        expect(r.errores).toHaveLength(2);
+      }
+  });
+
+  it('el balance con cuentas pone primero la cuenta más líquida y una cuenta bajo cada sección', () => {
+    for (let s = 1; s <= 40; s++) {
+      const ej = ordenBalanceConCuentas(crearRng(s));
+      expect(ej.items.filter((i) => i.encabezado).map((i) => i.texto)).toEqual(['Activo corriente', 'Activo no corriente', 'Pasivo corriente', 'Pasivo no corriente', 'Patrimonio']);
+      expect(['caja', 'banco']).toContain(ej.items[1].id);
+      expect(['clientes', 'documentos_por_cobrar', 'mercaderias']).toContain(ej.items[2].id);
+      expect(new Set(ej.items.map((i) => i.id)).size).toBe(ej.items.length);
+    }
+  });
+
+  it('el Nivel 3 incluye ejercicios de ordenar en sus tres pasos', () => {
+    for (const paso of CONTENIDO.n3.pasos) expect(paso.generar(crearRng(1)).some((e) => e.tipo === 'ordenar')).toBe(true);
+  });
+});
+
+describe('premios dibujados', () => {
+  it('el copihue se dibuja y en texto usa la bandera de Chile', () => {
+    const c = PREMIOS.find((p) => p.id === 'copihue')!;
+    expect(c.emoji).toBe('copihue');
+    expect(emojiTexto(c)).toBe('🇨🇱');
+    expect(emojiTexto(PREMIOS.find((p) => p.id === 'topo')!)).toBe('🐾');
   });
 });

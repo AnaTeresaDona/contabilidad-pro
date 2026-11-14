@@ -5,6 +5,7 @@ import { elegirVarios, type Rng } from '../../engine/azar';
 import { ejSecciones, mesConActivoFijo, type Ejercicio, type Pregunta } from '../../engine/ejercicios';
 import type { Apunte, ContenidoNivel, PasoPractica } from '../tipos';
 import { nivel2 } from '../nivel2';
+import { ordenBalanceConCuentas, ordenEERR, ordenSeccionesBG } from '../../engine/ordenar';
 
 /** Las operaciones son las mismas de los niveles 1 y 2: aquí se aprende a presentarlas. */
 const plantillas = nivel2.plantillas;
@@ -13,18 +14,25 @@ const banco = situaciones as Pregunta[];
 const pasos: PasoPractica[] = [
   {
     id: 'basico',
-    descripcion: 'Corriente o no corriente, y preguntas de interpretación.',
+    descripcion: 'Corriente o no corriente, el orden del Balance General e interpretación.',
     generar: (rng: Rng): Ejercicio[] => {
       const [p1, p2] = elegirVarios(rng, banco, 2);
-      return [ejSecciones(rng), { tipo: 'pregunta', pregunta: p1 }, ejSecciones(rng, 8), { tipo: 'pregunta', pregunta: p2 }];
+      return [
+        ejSecciones(rng),
+        { tipo: 'ordenar', datos: ordenSeccionesBG(rng) },
+        { tipo: 'pregunta', pregunta: p1 },
+        ejSecciones(rng, 8),
+        { tipo: 'pregunta', pregunta: p2 },
+      ];
     },
   },
   {
     id: 'intermedio',
-    descripcion: 'Armar el Estado de Resultados y el Balance General.',
+    descripcion: 'Ordenar y armar el Estado de Resultados y el Balance General.',
     generar: (rng: Rng): Ejercicio[] => {
       const [p] = elegirVarios(rng, banco, 1);
       return [
+        { tipo: 'ordenar', datos: ordenEERR(rng) },
         { tipo: 'eerr', balance: mesConActivoFijo(rng, plantillas, 2).balance },
         { tipo: 'bg', balance: mesConActivoFijo(rng, plantillas, 2).balance },
         { tipo: 'pregunta', pregunta: p },
@@ -36,6 +44,7 @@ const pasos: PasoPractica[] = [
     id: 'avanzado',
     descripcion: 'Meses más largos y los dos estados juntos.',
     generar: (rng: Rng): Ejercicio[] => [
+      { tipo: 'ordenar', datos: ordenBalanceConCuentas(rng) },
       { tipo: 'bg', balance: mesConActivoFijo(rng, plantillas, 3).balance },
       { tipo: 'eerr', balance: mesConActivoFijo(rng, plantillas, 4).balance },
       { tipo: 'estados', ...mesConActivoFijo(rng, plantillas, 2) },

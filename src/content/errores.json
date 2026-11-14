@@ -158,5 +158,13 @@
     "explicacion": "",
     "comoCorregir": "Lee la explicación y la fuente; esta pregunta volverá en tu mazo de Repaso.",
     "fuente": ""
+  },
+  "orden_presentacion": {
+    "titulo": "Orden de presentación equivocado",
+    "severidad": "leve",
+    "regla": "Balance General: Activo corriente → Activo no corriente → Total activos → Pasivo corriente → Pasivo no corriente → Patrimonio → Total pasivos y patrimonio. Estado de Resultados: Ventas → Costo de ventas → Margen bruto → Gastos de administración y ventas → Resultado operacional → No operacionales → Antes de impuesto → Impuesto → Resultado del ejercicio.",
+    "explicacion": "El orden no es un capricho: el balance va de lo más líquido a lo menos líquido y de lo más exigible a lo menos exigible, y el Estado de Resultados va restando de arriba hacia abajo hasta llegar a la utilidad.",
+    "comoCorregir": "Pregúntate qué va primero: ¿qué se convierte antes en dinero o se paga antes? En el Estado de Resultados, cada subtotal va justo después de lo que se le resta.",
+    "fuente": "NIC 1, párrafos 54, 60 a 76 y 81A a 105"
   }
 }

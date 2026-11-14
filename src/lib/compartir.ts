@@ -1,3 +1,4 @@
+import { emojiTexto } from '../content/premios';
 /** Arma el texto y la imagen para compartir el avance en redes sociales. */
 
 export interface DatosCompartir {
@@ -136,7 +137,7 @@ export function datosAvance(
   premio: { emoji: string; nombre: string },
   emoji?: string,
 ): DatosCompartir {
-  const emojiPremio = premio.emoji === 'topo' ? '🐾' : premio.emoji;
+  const emojiPremio = emojiTexto(premio);
   return {
     titulo,
     emoji: emoji ?? emojiPremio,

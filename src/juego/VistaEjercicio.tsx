@@ -1,3 +1,4 @@
+import { EjOrdenar } from './ejercicios/EjOrdenar';
 import { calcularIva, formatoCLP } from '../engine/dinero';
 import type { Ejercicio } from '../engine/ejercicios';
 import { PreguntaVista } from './ejercicios/PreguntaVista';
@@ -64,6 +65,8 @@ export function pistaDe(ej: Ejercicio): string {
       return ej.datos.pista ?? 'Liquidez: ¿puedo pagar lo que vence pronto? Endeudamiento: ¿cuánto debo? Rentabilidad: ¿cuánto gano? Actividad: ¿qué tan rápido cobro, vendo y pago?';
     case 'decision':
       return ej.datos.calculo.pista;
+    case 'ordenar':
+      return ej.datos.pista;
     case 'crisis':
       return 'Razón corriente = activo corriente ÷ pasivo corriente. Días de cobro = clientes ÷ ventas × 365. Flujo operacional = utilidad + depreciación − aumento de clientes − aumento de inventario + aumento de proveedores.';
   }
@@ -101,6 +104,8 @@ export function VistaEjercicio({ ej, api }: { ej: Ejercicio; api: ApiEjercicio }
       return <EjOperacionRenta datos={ej.datos} api={api} />;
     case 'clasificarOpciones':
       return <EjClasificarOpciones datos={ej.datos} api={api} />;
+    case 'ordenar':
+      return <EjOrdenar datos={ej.datos} api={api} />;
     case 'crisis':
     case 'decision':
       return <EjCrisis datos={ej.datos} api={api} />;

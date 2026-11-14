@@ -5,7 +5,7 @@ import { useProgreso } from '../estado/Progreso';
 import { COLORES } from '../componentes/ui';
 import type { Ruta } from '../App';
 import type { NivelInfo } from '../content/tipos';
-import { avanceAlSiguiente, premioActual, siguientePremio } from '../content/premios';
+import { avanceAlSiguiente, emojiTexto, premioActual, siguientePremio } from '../content/premios';
 import { IconoPremio } from '../componentes/IconoPremio';
 
 // Desplazamiento en zigzag de los nodos del camino.
@@ -144,7 +144,7 @@ function CaminoResumen({ chispas, onClick }: { chispas: number; onClick: () => v
               <span className="block h-full rounded-full bg-white" style={{ width: `${Math.round(avanceAlSiguiente(chispas) * 100)}%` }} />
             </span>
             <span className="mt-0.5 block text-xs font-bold opacity-90">
-              Próximo: {sig.emoji === 'topo' ? 'Topo' : `${sig.emoji} ${sig.nombre}`} · faltan {(sig.umbral - chispas).toLocaleString('es-CL')} ✨
+              Próximo: {emojiTexto(sig) === sig.emoji ? `${sig.emoji} ${sig.nombre}` : sig.nombre} · faltan {(sig.umbral - chispas).toLocaleString('es-CL')} ✨
             </span>
           </>
         )}

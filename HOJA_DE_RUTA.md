@@ -89,6 +89,11 @@
 - Jefe: la auditora externa pide el balance de apertura NIIF, la conciliación del patrimonio y cómo se presenta.
 - El ejercicio de clasificar acepta su propio tema y pista (lo comparten los niveles 6 y 8).
 
+## Fase 12 — Hecha (ordenar los estados y el copihue)
+- Ejercicio nuevo «ordenar» (tocar en orden, intercambiar tocando dos elementos, ✕ para quitar).
+- Nivel 3: ordenar las secciones del Balance General (básico), las líneas del Estado de Resultados (intermedio) y el Balance General con sus cuentas, con el activo corriente por liquidez (avanzado).
+- El premio Copihue ahora es un dibujo de la flor nacional (Lapageria rosea); en textos para compartir usa 🇨🇱.
+
 ## Siguientes ideas
 - Hacer que funcione sin internet (aplicación web instalable).
 - Revisión del contenido normativo por un contador.
